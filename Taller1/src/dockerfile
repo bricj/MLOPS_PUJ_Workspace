@@ -6,4 +6,4 @@ COPY . /app
 RUN pip install -r requirements.txt
 EXPOSE 8989
 
-CMD ["uvicorn","classification_api:app", "--host", "0.0.0.0", "--port","8989"]
+CMD ["uvicorn","classification_models_api:app", "--host", "0.0.0.0", "--port","8989"]

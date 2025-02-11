@@ -15,7 +15,7 @@ class InputData(BaseModel):
     x8: float
     
 app = FastAPI()
-model = joblib.load("src/model_logreg.pkl")
+model = joblib.load("model_logreg.pkl")
 
 @app.post("/predict")
 async def predict(data: InputData):
