@@ -1,0 +1,17 @@
+services:     # Define los servicios que se ejecutarán en contenedores Docker.
+  instalaruv: # Nombre del servicio, en este caso es un servicio para ML (Machine Learning).
+
+    build: 
+      context: ./uvcontainer
+      dockerfile: Dockerfile
+
+    container_name: prueba
+    ports:
+      - "8080:80" 
+
+    volumes:
+      - './uvcontainer/app:/src/uvenv/app' 
+
+    command: > 
+     bash -c "uv run --with jupyter jupyter lab --ip=0.0.0.0 --port=80 --allow-root"
+

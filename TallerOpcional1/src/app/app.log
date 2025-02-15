@@ -1,0 +1,23 @@
+2025-02-14 02:49:07 - INFO - predicción realizada 
+
+                  entradas: 
+
+                  [[0. 0. 0. 0. 0. 0. 0. 0.]] 
+
+                  salida: 
+
+                  0
+2025-02-14 02:51:32 - INFO - predicción realizada con bosque aleatorio 
+
+                  entradas: 
+                  [[-1.16727273 -1.55952381 -2.91525424 -0.75      ]] 
+
+                  salida: 
+                  Adelie
+2025-02-14 02:51:34 - INFO - predicción realizada con bosque aleatorio 
+
+                  entradas: 
+                  [[-1.16727273 -1.55952381 -2.91525424 -0.75      ]] 
+
+                  salida: 
+                  Adelie
