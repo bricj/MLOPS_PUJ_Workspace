@@ -1,6 +1,7 @@
 import os
 import pickle
 import pandas as pd
+import numpy as np
 from typing import List, Dict, Any
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
@@ -10,23 +11,20 @@ import os
 # Ruta donde están los modelos dentro del contenedor Docker
 MODEL_DIR = "./models"
 
-# Configurar el logger
-log_file_path = './logs/mi_app.log'
-os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
-
 app = FastAPI()
 
 class PredictionInput(BaseModel):
-    data: List[List[float]]  # Lista de listas con los datos de entrada
+    Culmen_Length: float
+    Culmen_Depth: float
+    Flipper_Length: float
+    Body_Mass: float
 
 # Configuracion del logger
 logging.basicConfig(
-    filename=log_file_path,
+    filename='./logs/mi_app.log',
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
-
-logger = logging.getLogger(__name__)
 
 def load_model(model_name: str):
     """Carga un modelo desde un archivo .pkl"""
@@ -41,14 +39,14 @@ def load_model(model_name: str):
 @app.get("/models")
 def list_models():
     """Lista los modelos disponibles en la carpeta /models"""
-    models = [f for f in os.listdir(MODEL_DIR) if f.endswith(".pkl")]
+    models = [f[0:-4] for f in os.listdir(MODEL_DIR) if f.endswith(".pkl")]
     return {"available_models": models}
 
 @app.get("/model-schema/{model_name}")
 def get_model_schema(model_name: str) -> Dict[str, Any]:
     """Obtiene la estructura esperada de los datos de entrada para hacer una predicción"""
     try:
-        model = load_model(model_name)
+        model = load_model(f'{model_name}.pkl')
     except HTTPException as e:
         raise e
     except Exception as e:
@@ -76,7 +74,7 @@ def get_model_schema(model_name: str) -> Dict[str, Any]:
 def predict(model_name: str, input_data: PredictionInput):
     """Realiza una predicción con el modelo especificado"""
     try:
-        model = load_model(model_name)
+        model = load_model(f'{model_name}.pkl')
     except HTTPException as e:
         raise e
     except Exception as e:
@@ -84,15 +82,19 @@ def predict(model_name: str, input_data: PredictionInput):
 
     # Convertir la entrada a DataFrame si el modelo requiere ese formato
     try:
-        input_df = pd.DataFrame(input_data.data)
-        predictions = model.predict(input_df)
+        numerical = [
+            input_data.Culmen_Length, 
+            input_data.Culmen_Depth, 
+            input_data.Flipper_Length, 
+            input_data.Body_Mass
+        ]
+        numerical = np.array(numerical).reshape(1, -1)
+        predictions = model.predict(numerical)
+
+        logging.info(f'predicción realizada con {model_name} \n \
+                    entradas: {input_data} \n \
+                    salida: {predictions}')
+
         return {"predictions": predictions.tolist()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
-
-@app.middleware("http")
-async def log_requests(request: Request, call_next):
-    logger.info(f'petición recibida: {request.method}{request.url}')
-    response = await call_next(request)
-    logger.info(f'Respuesta enviada: {response.status_code}')
-    return response

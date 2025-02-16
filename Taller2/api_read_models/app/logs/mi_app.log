@@ -1,42 +1,15 @@
-2025-02-15 02:20:18,820 - main - INFO - petición recibida: GEThttp://localhost:8000/docs
-2025-02-15 02:20:18,821 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:20:19,254 - main - INFO - petición recibida: GEThttp://localhost:8000/openapi.json
-2025-02-15 02:20:19,260 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:20:38,683 - main - INFO - petición recibida: GEThttp://localhost:8000/models
-2025-02-15 02:20:38,688 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:20:55,478 - main - INFO - petición recibida: GEThttp://localhost:8000/model-info/RandomForest_class.pkl
-2025-02-15 02:20:56,724 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:22:09,789 - main - INFO - petición recibida: POSThttp://localhost:8000/predict/RandomForest_class.pkl
-2025-02-15 02:22:09,812 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:22:58,482 - main - INFO - petición recibida: GEThttp://localhost:8000/docs
-2025-02-15 02:22:58,483 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:22:58,592 - main - INFO - petición recibida: GEThttp://localhost:8000/openapi.json
-2025-02-15 02:22:58,593 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:32:58,035 - main - INFO - petición recibida: GEThttp://localhost:8000/docs
-2025-02-15 02:32:58,036 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:32:58,111 - main - INFO - petición recibida: GEThttp://localhost:8000/openapi.json
-2025-02-15 02:32:58,117 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:33:12,434 - main - INFO - petición recibida: GEThttp://localhost:8000/models
-2025-02-15 02:33:12,437 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:33:26,734 - main - INFO - petición recibida: GEThttp://localhost:8000/model-schema/RandomForest_class.pkl
-2025-02-15 02:33:28,038 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:34:36,279 - main - INFO - petición recibida: POSThttp://localhost:8000/predict/RandomForest_class.pkl
-2025-02-15 02:34:36,280 - main - INFO - Respuesta enviada: 422
-2025-02-15 02:34:46,465 - main - INFO - petición recibida: POSThttp://localhost:8000/predict/RandomForest_class.pkl
-2025-02-15 02:34:46,526 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:35:21,086 - main - INFO - petición recibida: GEThttp://localhost:8000/models
-2025-02-15 02:35:21,090 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:35:43,622 - main - INFO - petición recibida: GEThttp://localhost:8000/model-schema/naive_bayes_model.pkl
-2025-02-15 02:35:43,659 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:36:06,179 - main - INFO - petición recibida: POSThttp://localhost:8000/predict/naive_bayes_model.pkl
-2025-02-15 02:36:06,190 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:36:29,754 - main - INFO - petición recibida: GEThttp://localhost:8000/models
-2025-02-15 02:36:29,758 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:36:41,384 - main - INFO - petición recibida: GEThttp://localhost:8000/model-schema/LinReg_class.pkl
-2025-02-15 02:36:41,393 - main - INFO - Respuesta enviada: 200
-2025-02-15 02:37:15,484 - main - INFO - petición recibida: POSThttp://localhost:8000/predict/LinReg_class.pkl
-2025-02-15 02:37:15,509 - main - INFO - Respuesta enviada: 200
-2025-02-16 16:06:16,388 - main - INFO - petición recibida: GEThttp://localhost:8000/docs
-2025-02-16 16:06:16,392 - main - INFO - Respuesta enviada: 200
-2025-02-16 16:06:17,089 - main - INFO - petición recibida: GEThttp://localhost:8000/openapi.json
-2025-02-16 16:06:17,111 - main - INFO - Respuesta enviada: 200
+2025-02-16 20:52:08,817 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 
+                     salida: [0]
+2025-02-16 20:52:16,260 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=0.0 Flipper_Length=1.0 Body_Mass=0.0 
+                     salida: [0]
+2025-02-16 20:52:21,457 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=0.0 Flipper_Length=1.0 Body_Mass=80.0 
+                     salida: [0]
+2025-02-16 20:52:27,630 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=9.0 Flipper_Length=1.0 Body_Mass=80.0 
+                     salida: [0]
+2025-02-16 20:52:33,703 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=100.0 Culmen_Depth=9.0 Flipper_Length=100.0 Body_Mass=80.0 
+                     salida: [2]
