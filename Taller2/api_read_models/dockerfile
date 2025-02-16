@@ -1,13 +1,13 @@
-# Imagen base con Python y bibliotecas de ML
-FROM python:3.9-slim
+FROM python:3.12
 
-# Copiar archivos del proyecto
-WORKDIR /app
-COPY . /app
+WORKDIR /src
+ADD ./uvenv /src/uvenv
+ADD ./app /src/uvenv/app
 
-# Instalar dependencias
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir --upgrade -r requirements.txt
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Comando por defecto
-CMD ["python", "main.py"]
+WORKDIR /src/uvenv
+RUN uv sync --frozen
+RUN uv add -r app/requirements.txt
+
+WORKDIR /src/uvenv/app
