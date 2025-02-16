@@ -1,0 +1,8 @@
+#Ignore ipynb files
+*.ipynb
+*.csv
+
+#Ignore folders
+src/venv_taller1/
+src/__pycache__/
+data/

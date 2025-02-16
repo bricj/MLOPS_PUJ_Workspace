@@ -1,0 +1,34 @@
+services:     # Define los servicios que se ejecutarán en contenedores Docker.
+  create_models: # Nombre del servicio, en este caso es un servicio para ML (Machine Learning).
+
+    build: 
+      context: ./jupyter_models
+      dockerfile: Dockerfile
+
+    container_name: models_lab
+    ports:
+      - "8080:80" 
+
+    volumes:
+      - './jupyter_models/app:/src/train_models/app'
+      - './models:/src/train_models/app/models'
+
+    command: > 
+     bash -c "uv run --with jupyter jupyter lab --ip=0.0.0.0 --port=80 --allow-root"
+
+    # Define los servicios que se ejecutarán en contenedores Docker.
+  call_models: # Nombre del servicio, en este caso es un servicio para ML (Machine Learning).
+
+    build: 
+      context: ./API_read_models
+      dockerfile: Dockerfile
+
+    container_name: models_api
+    ports:
+      - "8000:80" 
+
+    volumes:
+      - './API_read_models/app:/src/uvenv/app'
+      - './models:/src/uvenv/app/models'
+
+    command: "uv run uvicorn main:app --host 0.0.0.0 --port 80 --reload"
