@@ -13,3 +13,6 @@
 2025-02-16 20:52:33,703 - root - INFO - predicción realizada con LinReg_class 
                      entradas: Culmen_Length=100.0 Culmen_Depth=9.0 Flipper_Length=100.0 Body_Mass=80.0 
                      salida: [2]
+2025-02-17 00:58:10,745 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=200.0 Culmen_Depth=100.0 Flipper_Length=50.0 Body_Mass=90.0 
+                     salida: [2]
