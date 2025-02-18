@@ -1,5 +1,4 @@
 #Ignore ipynb files
-*.ipynb
 *.csv
 
 #Ignore folders
