@@ -28,6 +28,7 @@ services:
       - "8888:8888"  # Ahora coincide con Jupyter Lab
 
     volumes:
-      - './Proyecto1/app:/app/'  # Solo si necesitas editar código en vivo
+      #- './Proyecto1/app:/app/'  # Solo si necesitas editar código en vivo
+      - './app:/app/'  # Solo si necesitas editar código en vivo
 
     command: jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
