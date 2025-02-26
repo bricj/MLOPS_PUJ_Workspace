@@ -1,25 +1,15 @@
-# Usa una imagen base con Python 3.12
-FROM python:3.9
+# Usa una imagen base con Python 3.10
+FROM python:3.10
 
 # Define el directorio de trabajo
 WORKDIR /app
 
 # Copia solo los archivos esenciales para instalar dependencias
-COPY ./venv-proyecto1-mlops/pyproject.toml ./venv-proyecto1-mlops/uv.lock ./app/requirements.txt ./
+COPY ./venv/pyproject.toml ./venv/uv.lock ./app/requirements.txt ./
 
 # Instala `uv` y sincroniza las dependencias
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 RUN uv sync --frozen
 
-# Copia el resto del código fuente
-COPY ./app /app
-#COPY venv-proyecto1-mlops /venv-proyecto1-mlops
-
 # Instala dependencias adicionales si es necesario
-RUN pip install -r requirements.txt
-
-# Expone el puerto de Jupyter o la API (si aplica)
-#EXPOSE 8888
-
-# Define el punto de entrada para ejecutar Jupyter Lab o la aplicación
-#ENTRYPOINT ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root"]
+RUN uv add -r requirements.txt
