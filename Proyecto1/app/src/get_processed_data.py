@@ -8,6 +8,8 @@ from sklearn.feature_selection import chi2
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import OneHotEncoder
 import seaborn as sns
+from ml_metadata import metadata_store
+from ml_metadata.proto import metadata_store_pb2
 
 quantitative_variables = ['Elevation', 'Aspect', 'Slope', 'Horizontal_Distance_To_Hydrology',
        'Vertical_Distance_To_Hydrology', 'Horizontal_Distance_To_Roadways',
@@ -107,4 +109,30 @@ def categorical_feature_selection(df,cat_variables,target_value,k_cat=9):
     print(cat_analysis_result)
     
     return df_X_encoded_cat[selected_cat_features]
+
+def get_artifacts_details(store, type_name):
+    """
+    Function:
+    * Obtiene el detalle de los artefactos dentro de los metadatos.
+    
+    Inputs
+    * store: almacenamiento de metadatos.
+    * type_name: nombre del tipo de metadato a consultar.
+
+    Outputs:
+    * df: dataframe con la información del artefacto solicitado.
+
+    """ 
+    artifacts = store.get_artifacts_by_type(type_name)
+    data = []
+    
+    for artifact in artifacts:
+        data.append({
+            'Artifact ID': artifact.id,
+            'Type': type_name,
+            'URI': artifact.uri
+        })
+
+    df = pd.DataFrame(data)
+    return df
 
