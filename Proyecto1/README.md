@@ -39,6 +39,14 @@ Este módulo contiene las siguientes funciones:
 
 ### pre-process_data
 
+Este notebook se encarga de la exploración y el preprocesamiento del conjunto de datos utilizado para el proyecto 1. Se compone de las siguientes secciones:
 
+- Load data: Carga de la información.
+- Feature Selection
+  - Data exploration: Para determinar que variables son categóricas y que variables son numéricas.
+  - Feature analysis
+    - Quantitative analysis: Se calcula la correlación entre variables, se observan valores promedio, mínimos y máximos. Luego se normalizan las variables utilizando _Min Max Scaler_ y finalmente se seleccionan un subconjunto de 4 variables.
+    - Categorial analysis: Se observa el balance de las clases categóricas. Luego, se usa _One Hot Encoding_ para transformar las variables en columnas dummy. Finalmente, se seleccionan las 9 variables dummy más significativas.
+  - Feature selection function: Se encarga de crear el conjunto de datos que será utilizado durante el desarrollo del proyecto.
 
 ### pipeline
