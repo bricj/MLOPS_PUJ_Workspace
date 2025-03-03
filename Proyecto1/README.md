@@ -50,3 +50,22 @@ Este notebook se encarga de la exploración y el preprocesamiento del conjunto d
   - Feature selection function: Se encarga de crear el conjunto de datos que será utilizado durante el desarrollo del proyecto.
 
 ### pipeline
+
+Este notebook desarrolla los puntos propuestos por el proyecto para las secciones Pipeline y Metadata. 
+
+- Data Pipeline
+  - Configurar el contexto interactivo
+  - Generando ejemplos
+  - Estadísticas
+  - Inferir el esquema
+  - Curando el esquema
+  - Entornos de esquema
+  - Generación de estadísticas usando el esquema actualizado
+  - Comprobación de anomalías
+  - Ingeniería de características
+  - Función de preprocesamiento
+  - Transformar
+- Metadatos
+  - Acceso a artefactos almacenados
+  - Seguimiento de artefactos
+  - Obtener artefactos principales
