@@ -1,5 +1,10 @@
-# Ignorar la carpeta "build"
+# Ignorar Carpetas
 Ejercicio_Nivel1/
-Taller1/data
-Taller1/venv_taller1
+Taller1/data/
 TallerOpcional1/
+Nivel1_Transformacion-Validacion_Datos/
+Taller1/venv_taller1/
+Taller1/src/__pycache__/
+Proyecto1/app/src/__pycache__/
+Proyecto1/app/src/.ipynb_checkpoints_/
+Proyecto1/app/src/.Trash-0/

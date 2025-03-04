@@ -1,21 +1,3 @@
-# services:     # Define los servicios que se ejecutarán en contenedores Docker.
-#   preprocess_data: # Nombre del servicio, en este caso es un servicio para ML (Machine Learning).
-
-#     build: 
-#       context: .
-#       dockerfile: dockerfile
-
-#     container_name: project1
-#     ports:
-#       - "8080:80" 
-
-#     volumes:
-#       - './Proyecto1/app:/app/'
-
-#     command: > 
-#      bash -c "uv run --with jupyter jupyter lab --ip=0.0.0.0 --port=80 --allow-root"
-
-
 services:
   preprocess_data:
     build: 
@@ -29,6 +11,7 @@ services:
 
     volumes:
       #- './Proyecto1/app:/app/'  # Solo si necesitas editar código en vivo
-      - './app:/app/'  # Solo si necesitas editar código en vivo
+      - './app/src:/app/src'  # Solo si necesitas editar código en vivo
 
-    command: jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
+    command: >
+        bash -c "uv run --with jupyter jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser"

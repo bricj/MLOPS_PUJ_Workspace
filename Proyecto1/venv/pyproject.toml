@@ -1,0 +1,15 @@
+[project]
+name = "venv"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "apache-beam>=2.63.0",
+    "matplotlib>=3.10.0",
+    "numpy>=1.26.4",
+    "pandas>=1.5.3",
+    "scikit-learn>=1.5.1",
+    "seaborn>=0.13.2",
+    "tfx>=1.16.0",
+]
