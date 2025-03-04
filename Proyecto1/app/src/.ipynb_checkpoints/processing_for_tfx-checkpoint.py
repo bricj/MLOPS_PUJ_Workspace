@@ -9,7 +9,12 @@ quantitative_variables = ['Elevation', 'Aspect', 'Slope', 'Horizontal_Distance_T
 categorical_variables = ['Wilderness_Area', 'Soil_Type']
 
 def preprocessing_fn(inputs):
-    """Preprocess input features using TF Transform."""
+    """Preprocess input features using TF Transform.
+    
+    Inputs: Variables to convert
+    Outputs: Transformed variables
+    
+    """
     outputs = {}
 
     # Normalize numerical features
