@@ -49,7 +49,7 @@ Este notebook se encarga de la exploración y el preprocesamiento del conjunto d
     - Categorial analysis: Se observa el balance de las clases categóricas. Luego, se usa _One Hot Encoding_ para transformar las variables en columnas dummy. Finalmente, se seleccionan las 9 variables dummy más significativas.
   - Feature selection function: Se encarga de crear el conjunto de datos que será utilizado durante el desarrollo del proyecto.
 
-### pipeline
+### pipeline-metadata
 
 Este notebook desarrolla los puntos propuestos por el proyecto para las secciones Pipeline y Metadata. 
 
