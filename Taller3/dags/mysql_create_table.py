@@ -31,7 +31,7 @@ def load_csv_to_mysql():
     
     with engine.begin() as connection:
         connection.execute(create_table_query)
-        df.to_sql(name="personas", con=connection, if_exists="replace", index=False)
+        df.to_sql(name="penguins", con=connection, if_exists="replace", index=False)
 
 # Definir el DAG
 default_args = {
