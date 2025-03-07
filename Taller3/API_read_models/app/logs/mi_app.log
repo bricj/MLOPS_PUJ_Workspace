@@ -1,0 +1,4 @@
+
+2025-03-07 14:32:12,952 - root - INFO - predicción realizada con naive_bayes_model 
+                     entradas: Culmen_Length=10.0 Culmen_Depth=100.0 Flipper_Length=20.0 Body_Mass=80.0 
+                     salida: [2]
