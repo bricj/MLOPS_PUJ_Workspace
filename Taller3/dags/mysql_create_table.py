@@ -6,7 +6,7 @@ import pandas as pd
 import os
 
 # Ruta del archivo en el volumen compartido
-FILE_PATH = "/opt/airflow/data/datos.csv"
+FILE_PATH = "/opt/airflow/data/penguins_size.csv"
 
 # Función para leer el archivo y cargarlo en MySQL
 def load_csv_to_mysql():
@@ -18,10 +18,14 @@ def load_csv_to_mysql():
 
     # Crear la tabla en MySQL
     create_table_query = """
-    CREATE TABLE IF NOT EXISTS personas (
-        id INT PRIMARY KEY,
-        nombre VARCHAR(100),
-        edad INT
+    CREATE TABLE IF NOT EXISTS penguins (
+        species VARCHAR(20),
+        island VARCHAR(20),
+        culmen_lenght_mm FLOAT,
+        culmen_depth_mm FLOAT,
+        flipper_lenght_mm FLOAT,
+        body_mass_g FLOAT,
+        sex VARCHAR(20)
     )
     """
     
@@ -32,7 +36,7 @@ def load_csv_to_mysql():
 # Definir el DAG
 default_args = {
     "owner": "airflow",
-    "start_date": datetime(2024, 3, 5),
+    "start_date": datetime(2024, 3, 6),
     "retries": 1,
 }
 
