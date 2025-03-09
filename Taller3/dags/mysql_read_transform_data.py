@@ -64,6 +64,7 @@ def train_model():
     model.fit(X_train, y_train)
 
     joblib.dump(model, DATA_OUTPUT + "model_logreg.pkl")
+    joblib.dump(model, ".models/" + "model_logreg.pkl")
 
     y_pred = model.predict(X_test)
     target_names = ['Adelie', 'Gentoo', 'Chinstrap']

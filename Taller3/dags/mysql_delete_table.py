@@ -2,6 +2,7 @@ from airflow import DAG
 from airflow.providers.mysql.hooks.mysql import MySqlHook
 from airflow.operators.python import PythonOperator
 from datetime import datetime
+from airflow.utils.dates import days_ago
 
 # Función para eliminar la tabla en MySQL
 def drop_table():
@@ -16,7 +17,7 @@ def drop_table():
 # Definir el DAG
 default_args = {
     "owner": "airflow",
-    "start_date": datetime(2024, 3, 5),
+    "start_date": days_ago(1),
     "retries": 1,
 }
 
