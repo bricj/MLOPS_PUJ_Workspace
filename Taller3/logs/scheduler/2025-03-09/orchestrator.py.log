@@ -1,0 +1,11 @@
+[2025-03-09T23:28:29.147+0000] {processor.py:156} INFO - Started process (PID=59) to work on /opt/airflow/dags/orchestrator.py
+[2025-03-09T23:28:29.152+0000] {processor.py:799} INFO - Processing file /opt/airflow/dags/orchestrator.py for tasks to queue
+[2025-03-09T23:28:29.157+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:29.155+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/orchestrator.py
+[2025-03-09T23:28:29.291+0000] {processor.py:809} INFO - DAG(s) dict_keys(['dag_maestro']) retrieved from /opt/airflow/dags/orchestrator.py
+[2025-03-09T23:28:31.583+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:31.583+0000] {manager.py:504} INFO - Created Permission View: can delete on DAG:dag_maestro
+[2025-03-09T23:28:31.651+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:31.651+0000] {manager.py:504} INFO - Created Permission View: can read on DAG:dag_maestro
+[2025-03-09T23:28:31.702+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:31.701+0000] {manager.py:504} INFO - Created Permission View: can edit on DAG:dag_maestro
+[2025-03-09T23:28:31.703+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:31.702+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2025-03-09T23:28:31.788+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:31.788+0000] {dag.py:2747} INFO - Creating ORM DAG for dag_maestro
+[2025-03-09T23:28:31.866+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:31.866+0000] {dag.py:3490} INFO - Setting next_dagrun for dag_maestro to 2025-03-08T00:00:00+00:00, run_after=2025-03-09T00:00:00+00:00
+[2025-03-09T23:28:32.012+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/orchestrator.py took 2.881 seconds

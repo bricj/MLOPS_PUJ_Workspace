@@ -1,0 +1,4 @@
+[2025-03-09T23:28:32.129+0000] {processor.py:156} INFO - Started process (PID=71) to work on /opt/airflow/dags/train.py
+[2025-03-09T23:28:32.137+0000] {processor.py:799} INFO - Processing file /opt/airflow/dags/train.py for tasks to queue
+[2025-03-09T23:28:32.138+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:32.138+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/train.py
+[2025-03-09T23:28:35.137+0000] {logging_mixin.py:149} INFO - [2025-03-09T23:28:35.137+0000] {process_utils.py:258} INFO - Waiting up to 5 seconds for processes to exit...

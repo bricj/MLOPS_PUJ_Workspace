@@ -1,0 +1,25 @@
+[2025-03-10T00:13:40.753+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model_penguins.train_model manual__2025-03-10T00:13:36.266801+00:00 [queued]>
+[2025-03-10T00:13:40.784+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model_penguins.train_model manual__2025-03-10T00:13:36.266801+00:00 [queued]>
+[2025-03-10T00:13:40.784+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-03-10T00:13:40.851+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): train_model> on 2025-03-10 00:13:36.266801+00:00
+[2025-03-10T00:13:40.885+0000] {standard_task_runner.py:57} INFO - Started process 988 to run task
+[2025-03-10T00:13:40.909+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'train_model_penguins', 'train_model', 'manual__2025-03-10T00:13:36.266801+00:00', '--job-id', '78', '--raw', '--subdir', 'DAGS_FOLDER/train.py', '--cfg-path', '/tmp/tmp35h02ew_']
+[2025-03-10T00:13:40.914+0000] {standard_task_runner.py:85} INFO - Job 78: Subtask train_model
+[2025-03-10T00:13:41.101+0000] {task_command.py:410} INFO - Running <TaskInstance: train_model_penguins.train_model manual__2025-03-10T00:13:36.266801+00:00 [running]> on host d7c1c9924032
+[2025-03-10T00:13:41.508+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='train_model_penguins' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-03-10T00:13:36.266801+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-10T00:13:36.266801+00:00'
+[2025-03-10T00:13:41.562+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+
+[2025-03-10T00:13:41.596+0000] {logging_mixin.py:149} INFO -               precision    recall  f1-score   support
+
+      Adelie       1.00      1.00      1.00        46
+      Gentoo       1.00      1.00      1.00        24
+   Chinstrap       1.00      1.00      1.00        30
+
+    accuracy                           1.00       100
+   macro avg       1.00      1.00      1.00       100
+weighted avg       1.00      1.00      1.00       100
+[2025-03-10T00:13:41.599+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-03-10T00:13:41.640+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=train_model_penguins, task_id=train_model, execution_date=20250310T001336, start_date=20250310T001340, end_date=20250310T001341
+[2025-03-10T00:13:41.743+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-03-10T00:13:41.824+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
