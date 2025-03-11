@@ -14,3 +14,16 @@ Taller3/plugins/
 Taller3/API_read_models/app/__pycache__/
 Taller3/API_read_models/app/logs/
 Taller3/dags/__pycache__/
+Taller3/logs/dag_id=crear_tabla_mysql/
+Taller3/logs/dag_id=dag_maestro/
+Taller3/logs/dag_id=eliminar_tabla_mysql/
+Taller3/logs/dag_id=entrenar_modelo_penguins/
+Taller3/logs/dag_processor_manager/
+Taller3/logs/scheduler/
+Taller3/dags/__pycache__/
+Taller3/plugins/
+Taller3/logs/dag_id=clean_transform_data/
+Taller3/logs/dag_id=load_data_mysql/
+Taller3/logs/dag_id=train_model_penguins/
+Taller3/API_read_models/app/__pycache__/
+Taller3/API_read_models/app/logs/
