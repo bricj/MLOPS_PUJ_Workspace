@@ -13,6 +13,14 @@ Para este taller se propone el uso del orquestador Apache Airflow 2.6.0 con el f
 
 - Crear una API que permita realizar inferencia al modelo entrenado
 
+- Ejecución:
+  - Descargue o clone el repositorio en la máquina donde desea implementar la imagen.
+  - Es importante que en la carpeta taller3 exista una carpeta denominada logs, en caso que no exista, por favor crearla de forma manual.
+  - Ejecutar la imagen con: docker compose up --build
+  - Acceder a airflow tal como lo describe la sección: Configuración de la base de datos.
+  - Ejecutar airflow tal como lo menciona la sección: DAGs
+  - Realizar la inferencia del modelo como lo menciona la sección: API Read Models
+
 
 ### :mega: ATENCIÓN: Este taller se está ejecutando dentro de la máquina 10.43.101.168 de forma temporal :mega: ###
 
@@ -55,5 +63,16 @@ Al ejecutarse el DAG *train_model* se guarda un archivo de extensión .pkl dentr
 
 ![API](imgs/predict_models.png)
 
+
+## Conclusiones:
+
+El desarrollo del presente taller conlleva al planteamiento de las siguientes afirmaciones:
+
+1. Es eficiente el uso de un dag orquestador en airflow si los dags que ejecuta el orquestador solo contienen una tarea.
+2. El uso de airflow y motores de bases de datos (como mysql) requiere que se parametrice la conexión, tal como se indican en las instrucciones al inicio del documento.
+3. Es clave la identificación de las rutas donde se disponibilizan los archivos porque de esa manera se minimiza la materilización de un error operativo al momento de construir los volumenes de los contenedores.
+4. Si el proceso de airflow no lo requiere, indicar una instrucción para que sólo se realice la ejecución desde el día anterior, al igual que parametrizar los dags contenido por el orquestador como activación manual. Lo anterior permite que el orquestador tenga total control de la ejecución y que se realicen solo las ejecuciones deseadas. Así se reduce el costo computacional y tiempo de espera. De igual forma, para el taller presentado, se ha asignado un orden secuencial para evitar el solapamiento de tareas.
+5. La ejecución del contenedor crea una carpeta de denominada logs, donde es posible validar el estado de la ejecución y tener un plan de acción ante la materialización de errores.
+6. Por último, se identifica con el trabajo realizado, la oportunidad de implementar múltiples modelos bajo un flujo de trabajo definido, al igual que es posible hacer escalables los modelos a un usuario con conocimiento bajo-intermedio en ciencia de datos.
 
 
