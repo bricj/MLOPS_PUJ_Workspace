@@ -14,3 +14,12 @@
 2025-03-09 20:48:38,300 - root - INFO - predicción realizada con naive_bayes_model 
                      entradas: Culmen_Length=0.2 Culmen_Depth=0.4 Flipper_Length=0.5 Body_Mass=0.5 
                      salida: [1]
+2025-03-11 03:47:46,184 - root - INFO - predicción realizada con model_logreg 
+                     entradas: Culmen_Length=0.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 
+                     salida: [0]
+2025-03-11 03:49:34,688 - root - INFO - predicción realizada con naive_bayes_model 
+                     entradas: Culmen_Length=0.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 
+                     salida: [1]
+2025-03-11 03:49:38,646 - root - INFO - predicción realizada con naive_bayes_model 
+                     entradas: Culmen_Length=0.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 
+                     salida: [1]
