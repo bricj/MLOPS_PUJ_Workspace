@@ -16,3 +16,5 @@ El repositorio contiene las actividades desarrolladas en la clase MLOps de la Un
 - Taller2: Entrega relacionada al nivel 1 del curso (docker compose, uv y jupyterlab)
 
 - Proyecto1: Entrega que asocia nivel 1 del curso (tfdv, docker compose, jupyterlab)
+
+- Taller3: Entrega relacionada al nivel 2 del curso (airflow)
