@@ -21,7 +21,7 @@ def train_model():
     df = mysql_hook.get_pandas_df(sql_query) # Cargar datos guardados
     
     y = df[['species']]
-    X = df[['island', 'sex', 'culmen_length_mm','culmen_depth_mm','flipper_length_mm']]
+    X = df[['culmen_length_mm','culmen_depth_mm','flipper_length_mm','body_mass_g']]
 
     #dividir entre entrenamiento y validacion
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=50, test_size=0.30)
