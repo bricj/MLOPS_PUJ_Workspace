@@ -49,7 +49,11 @@ Al ejecutarse el DAG *train_model* se guarda un archivo de extensión .pkl dentr
 
 ![API](imgs/FastAPI.png)
 
+
 ![API](imgs/response_models.png)
+
+
+![API](imgs/predict_models.png)
 
 
 
