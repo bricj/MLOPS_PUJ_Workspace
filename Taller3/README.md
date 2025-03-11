@@ -35,7 +35,7 @@ Para configurar la base de datos **MySQL** dentro de **Apache Airflow** sigue es
 
 ## API Read Models :computer:
 
-![API](FastAPI.png)
+![API](imgs/FastAPI.png)
 
 
 
