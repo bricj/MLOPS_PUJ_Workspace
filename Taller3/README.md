@@ -31,11 +31,21 @@ Para configurar la base de datos **MySQL** dentro de **Apache Airflow** sigue es
 
 ## :arrow_right: DAGs :arrow_right: #
 
+Para mantener la modularidad durante el taller se propone un **DAG** por cada requerimiento y un **DAG maestro** encargado de dirigir de forma secuancial los DAGs primarios.
+
 ![DAG](imgs/DAG_maestro.png)
+
+Antes de correr el **DAG maestro** asegúrate de encender todos los DAGs en la vista DAGs de Airflow.
+
+![DAG](imgs/running_dags.png)
 
 ## API Read Models :computer:
 
+Al ejecutarse el DAG *train_model* se guarda un archivo de extensión .pkl dentro de la carpeta */models*. Esta carpeta se encuentra conectada con el servicio independiente de FastAPI que se encuentra corriendo en la URL ```http://localhost:8989/docs#```. El servicio lee todos los archivos en formato .pkl que se encuentran dentro de la carpeta, carga el modelo seleccionado por el usuario y predice la especie del pinguino cuya información es suministrada en los parámetros del método **POST predict/{model_name}**.
+
 ![API](imgs/FastAPI.png)
+
+![API](imgs/response_models.png)
 
 
 
