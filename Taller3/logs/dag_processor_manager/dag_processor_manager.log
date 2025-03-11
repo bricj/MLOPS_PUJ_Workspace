@@ -4141,3 +4141,1614 @@ File Path                                       PID    Runtime      # DAGs    # 
 /opt/airflow/dags/train.py                                               1           0  11.19s          2025-03-10T02:21:55
 ================================================================================
 [2025-03-10T02:22:37.445+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2025-03-11T00:47:40.951+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2025-03-11T00:47:40.953+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2025-03-11T00:47:40.954+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-11T00:47:40.956+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T00:47:40.988+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T00:47:53.928+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2025-03-11T00:47:53.929+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2025-03-11T00:47:53.929+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-03-11T00:47:53.930+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T00:47:53.937+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T00:47:54.369+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/orchestrator.py           84  0.20s             0           0
+/opt/airflow/dags/mysql_create_table.py                           0           0
+/opt/airflow/dags/preprocess_data.py                              0           0
+/opt/airflow/dags/load_mysql.py                                   0           0
+/opt/airflow/dags/mysql_delete_table.py                           0           0
+/opt/airflow/dags/train.py                  80  0.24s             0           0
+================================================================================
+[2025-03-11T00:48:25.327+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py          109  0.01s             1           0  0.51s           2025-03-11T00:47:54
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.74s           2025-03-11T00:48:01
+/opt/airflow/dags/preprocess_data.py                              1           0  4.88s           2025-03-11T00:47:59
+/opt/airflow/dags/load_mysql.py                                   1           0  1.70s           2025-03-11T00:48:02
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.72s           2025-03-11T00:48:00
+/opt/airflow/dags/train.py                                        1           0  4.07s           2025-03-11T00:47:58
+================================================================================
+[2025-03-11T00:48:55.342+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T00:48:25
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.87s           2025-03-11T00:48:32
+/opt/airflow/dags/preprocess_data.py                              1           0  1.45s           2025-03-11T00:48:31
+/opt/airflow/dags/load_mysql.py                                   1           0  0.93s           2025-03-11T00:48:33
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T00:48:30
+/opt/airflow/dags/train.py                                        1           0  1.53s           2025-03-11T00:48:29
+================================================================================
+[2025-03-11T00:49:25.351+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T00:48:56
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.92s           2025-03-11T00:49:03
+/opt/airflow/dags/preprocess_data.py                              1           0  1.44s           2025-03-11T00:49:02
+/opt/airflow/dags/load_mysql.py                                   1           0  0.92s           2025-03-11T00:49:04
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T00:49:01
+/opt/airflow/dags/train.py                                        1           0  1.46s           2025-03-11T00:49:01
+================================================================================
+[2025-03-11T00:49:55.466+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T00:49:26
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.13s           2025-03-11T00:49:34
+/opt/airflow/dags/preprocess_data.py                              1           0  1.71s           2025-03-11T00:49:35
+/opt/airflow/dags/load_mysql.py                                   1           0  0.95s           2025-03-11T00:49:35
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.14s           2025-03-11T00:49:31
+/opt/airflow/dags/train.py                                        1           0  1.30s           2025-03-11T00:49:32
+================================================================================
+[2025-03-11T00:50:25.504+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T00:49:57
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.13s           2025-03-11T00:50:06
+/opt/airflow/dags/preprocess_data.py                              1           0  1.63s           2025-03-11T00:50:07
+/opt/airflow/dags/load_mysql.py                                   1           0  1.09s           2025-03-11T00:50:07
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.23s           2025-03-11T00:50:02
+/opt/airflow/dags/train.py                                        1           0  1.30s           2025-03-11T00:50:04
+================================================================================
+[2025-03-11T00:50:55.800+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T00:50:27
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.85s           2025-03-11T00:50:37
+/opt/airflow/dags/preprocess_data.py                              1           0  1.32s           2025-03-11T00:50:45
+/opt/airflow/dags/load_mysql.py                                   1           0  0.93s           2025-03-11T00:50:38
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.14s           2025-03-11T00:50:32
+/opt/airflow/dags/train.py                                        1           0  1.31s           2025-03-11T00:50:36
+================================================================================
+[2025-03-11T00:51:26.348+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T00:50:57
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.88s           2025-03-11T00:51:08
+/opt/airflow/dags/preprocess_data.py                              1           0  1.38s           2025-03-11T00:51:16
+/opt/airflow/dags/load_mysql.py                                   1           0  0.88s           2025-03-11T00:51:09
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T00:51:03
+/opt/airflow/dags/train.py                                        1           0  1.28s           2025-03-11T00:51:08
+================================================================================
+[2025-03-11T00:51:56.909+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T00:51:28
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.89s           2025-03-11T00:51:40
+/opt/airflow/dags/preprocess_data.py                              1           0  1.20s           2025-03-11T00:51:48
+/opt/airflow/dags/load_mysql.py                                   1           0  0.91s           2025-03-11T00:51:40
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.14s           2025-03-11T00:51:33
+/opt/airflow/dags/train.py                                        1           0  1.39s           2025-03-11T00:51:39
+================================================================================
+[2025-03-11T00:52:27.356+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T00:51:59
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.57s           2025-03-11T00:52:12
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T00:52:19
+/opt/airflow/dags/load_mysql.py                                   1           0  1.57s           2025-03-11T00:52:13
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T00:52:04
+/opt/airflow/dags/train.py                                        1           0  1.63s           2025-03-11T00:52:11
+================================================================================
+[2025-03-11T00:52:54.714+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T00:52:54.720+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T00:52:57.770+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T00:52:29
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.88s           2025-03-11T00:52:44
+/opt/airflow/dags/preprocess_data.py                              1           0  1.19s           2025-03-11T00:52:50
+/opt/airflow/dags/load_mysql.py                                   1           0  1.10s           2025-03-11T00:52:45
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T00:52:34
+/opt/airflow/dags/train.py                                        1           0  2.05s           2025-03-11T00:52:44
+================================================================================
+[2025-03-11T00:53:28.031+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T00:52:59
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.28s           2025-03-11T00:53:16
+/opt/airflow/dags/preprocess_data.py                              1           0  1.22s           2025-03-11T00:53:22
+/opt/airflow/dags/load_mysql.py                                   1           0  1.04s           2025-03-11T00:53:17
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.29s           2025-03-11T00:53:05
+/opt/airflow/dags/train.py                                        1           0  1.87s           2025-03-11T00:53:16
+================================================================================
+[2025-03-11T00:53:58.559+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T00:53:30
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.87s           2025-03-11T00:53:47
+/opt/airflow/dags/preprocess_data.py                              1           0  1.32s           2025-03-11T00:53:53
+/opt/airflow/dags/load_mysql.py                                   1           0  0.93s           2025-03-11T00:53:48
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T00:53:35
+/opt/airflow/dags/train.py                                        1           0  1.42s           2025-03-11T00:53:48
+================================================================================
+[2025-03-11T00:54:28.818+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T00:54:00
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.86s           2025-03-11T00:54:18
+/opt/airflow/dags/preprocess_data.py                              1           0  1.44s           2025-03-11T00:54:26
+/opt/airflow/dags/load_mysql.py                                   1           0  1.10s           2025-03-11T00:54:19
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T00:54:05
+/opt/airflow/dags/train.py                                        1           0  1.63s           2025-03-11T00:54:20
+================================================================================
+[2025-03-11T00:54:59.262+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T00:54:31
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.91s           2025-03-11T00:54:49
+/opt/airflow/dags/preprocess_data.py                              1           0  1.43s           2025-03-11T00:54:57
+/opt/airflow/dags/load_mysql.py                                   1           0  0.87s           2025-03-11T00:54:50
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T00:54:36
+/opt/airflow/dags/train.py                                        1           0  1.37s           2025-03-11T00:54:52
+================================================================================
+[2025-03-11T00:55:29.759+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.15s           2025-03-11T00:55:01
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.89s           2025-03-11T00:55:21
+/opt/airflow/dags/preprocess_data.py                              1           0  2.03s           2025-03-11T00:55:29
+/opt/airflow/dags/load_mysql.py                                   1           0  0.89s           2025-03-11T00:55:22
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T00:55:06
+/opt/airflow/dags/train.py                                        1           0  1.26s           2025-03-11T00:55:23
+================================================================================
+[2025-03-11T00:56:00.289+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T00:55:31
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.94s           2025-03-11T00:55:53
+/opt/airflow/dags/preprocess_data.py       537  0.02s             1           0  2.03s           2025-03-11T00:55:29
+/opt/airflow/dags/load_mysql.py                                   1           0  0.90s           2025-03-11T00:55:53
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T00:55:37
+/opt/airflow/dags/train.py                                        1           0  1.30s           2025-03-11T00:55:55
+================================================================================
+[2025-03-11T00:56:30.386+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T00:56:02
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.23s           2025-03-11T00:56:24
+/opt/airflow/dags/preprocess_data.py                              1           0  1.21s           2025-03-11T00:56:01
+/opt/airflow/dags/load_mysql.py                                   1           0  1.16s           2025-03-11T00:56:25
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.34s           2025-03-11T00:56:07
+/opt/airflow/dags/train.py                                        1           0  1.62s           2025-03-11T00:56:26
+================================================================================
+[2025-03-11T00:57:00.660+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.45s           2025-03-11T00:56:33
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.09s           2025-03-11T00:56:55
+/opt/airflow/dags/preprocess_data.py                              1           0  1.67s           2025-03-11T00:56:33
+/opt/airflow/dags/load_mysql.py                                   1           0  1.08s           2025-03-11T00:56:56
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.40s           2025-03-11T00:56:38
+/opt/airflow/dags/train.py                                        1           0  1.66s           2025-03-11T00:56:58
+================================================================================
+[2025-03-11T00:57:31.049+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.40s           2025-03-11T00:57:04
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.12s           2025-03-11T00:57:27
+/opt/airflow/dags/preprocess_data.py                              1           0  1.60s           2025-03-11T00:57:05
+/opt/airflow/dags/load_mysql.py                                   1           0  1.14s           2025-03-11T00:57:28
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T00:57:09
+/opt/airflow/dags/train.py                                        1           0  1.54s           2025-03-11T00:57:31
+================================================================================
+[2025-03-11T00:57:55.063+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T00:57:55.068+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T00:58:01.371+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.23s           2025-03-11T00:57:34
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.68s           2025-03-11T00:57:59
+/opt/airflow/dags/preprocess_data.py                              1           0  1.50s           2025-03-11T00:57:37
+/opt/airflow/dags/load_mysql.py                                   1           0  1.31s           2025-03-11T00:58:00
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T00:57:40
+/opt/airflow/dags/train.py                 647  0.01s             1           0  1.54s           2025-03-11T00:57:31
+================================================================================
+[2025-03-11T00:58:31.437+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.23s           2025-03-11T00:58:05
+/opt/airflow/dags/mysql_create_table.py    666  1.05s             1           0  1.68s           2025-03-11T00:57:59
+/opt/airflow/dags/preprocess_data.py                              1           0  1.67s           2025-03-11T00:58:09
+/opt/airflow/dags/load_mysql.py            670  0.75s             1           0  1.31s           2025-03-11T00:58:00
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.25s           2025-03-11T00:58:10
+/opt/airflow/dags/train.py                                        1           0  1.50s           2025-03-11T00:58:02
+================================================================================
+[2025-03-11T00:59:02.118+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T00:58:35
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.26s           2025-03-11T00:58:32
+/opt/airflow/dags/preprocess_data.py                              1           0  1.21s           2025-03-11T00:58:40
+/opt/airflow/dags/load_mysql.py                                   1           0  1.87s           2025-03-11T00:58:32
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T00:58:40
+/opt/airflow/dags/train.py                                        1           0  1.49s           2025-03-11T00:58:35
+================================================================================
+[2025-03-11T00:59:33.009+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T00:59:06
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.21s           2025-03-11T00:59:04
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T00:59:12
+/opt/airflow/dags/load_mysql.py                                   1           0  1.24s           2025-03-11T00:59:04
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.22s           2025-03-11T00:59:11
+/opt/airflow/dags/train.py                                        1           0  1.25s           2025-03-11T00:59:06
+================================================================================
+[2025-03-11T01:00:03.700+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T00:59:37
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.98s           2025-03-11T00:59:36
+/opt/airflow/dags/preprocess_data.py                              1           0  1.20s           2025-03-11T00:59:44
+/opt/airflow/dags/load_mysql.py                                   1           0  1.01s           2025-03-11T00:59:36
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T00:59:42
+/opt/airflow/dags/train.py                                        1           0  1.29s           2025-03-11T00:59:38
+================================================================================
+[2025-03-11T01:00:34.384+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:00:07
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.06s           2025-03-11T01:00:07
+/opt/airflow/dags/preprocess_data.py                              1           0  1.17s           2025-03-11T01:00:16
+/opt/airflow/dags/load_mysql.py                                   1           0  1.07s           2025-03-11T01:00:07
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:00:13
+/opt/airflow/dags/train.py                                        1           0  1.27s           2025-03-11T01:00:10
+================================================================================
+[2025-03-11T01:01:05.027+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:00:38
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.93s           2025-03-11T01:00:39
+/opt/airflow/dags/preprocess_data.py                              1           0  1.18s           2025-03-11T01:00:47
+/opt/airflow/dags/load_mysql.py                                   1           0  1.02s           2025-03-11T01:00:39
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:00:43
+/opt/airflow/dags/train.py                                        1           0  1.31s           2025-03-11T01:00:41
+================================================================================
+[2025-03-11T01:01:35.737+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:01:09
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.93s           2025-03-11T01:01:11
+/opt/airflow/dags/preprocess_data.py                              1           0  1.21s           2025-03-11T01:01:30
+/opt/airflow/dags/load_mysql.py                                   1           0  0.97s           2025-03-11T01:01:11
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:01:14
+/opt/airflow/dags/train.py                                        1           0  1.36s           2025-03-11T01:01:13
+================================================================================
+[2025-03-11T01:02:05.880+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.23s           2025-03-11T01:01:39
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.90s           2025-03-11T01:01:44
+/opt/airflow/dags/preprocess_data.py                              1           0  1.45s           2025-03-11T01:02:02
+/opt/airflow/dags/load_mysql.py                                   1           0  2.80s           2025-03-11T01:01:44
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.50s           2025-03-11T01:01:45
+/opt/airflow/dags/train.py                                        1           0  2.74s           2025-03-11T01:01:47
+================================================================================
+[2025-03-11T01:02:35.973+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T01:02:10
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.32s           2025-03-11T01:02:17
+/opt/airflow/dags/preprocess_data.py                              1           0  1.45s           2025-03-11T01:02:34
+/opt/airflow/dags/load_mysql.py                                   1           0  2.51s           2025-03-11T01:02:17
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.29s           2025-03-11T01:02:17
+/opt/airflow/dags/train.py                                        1           0  2.80s           2025-03-11T01:02:20
+================================================================================
+[2025-03-11T01:02:55.207+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:02:55.222+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T01:03:06.177+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:02:41
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.79s           2025-03-11T01:02:49
+/opt/airflow/dags/preprocess_data.py       930  1.06s             1           0  1.45s           2025-03-11T01:02:34
+/opt/airflow/dags/load_mysql.py                                   1           0  1.89s           2025-03-11T01:02:50
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.53s           2025-03-11T01:02:48
+/opt/airflow/dags/train.py                                        1           0  2.59s           2025-03-11T01:02:53
+================================================================================
+[2025-03-11T01:03:36.944+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.23s           2025-03-11T01:03:11
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.21s           2025-03-11T01:03:21
+/opt/airflow/dags/preprocess_data.py       959  0.01s             1           0  1.42s           2025-03-11T01:03:06
+/opt/airflow/dags/load_mysql.py                                   1           0  1.27s           2025-03-11T01:03:21
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:03:18
+/opt/airflow/dags/train.py                                        1           0  1.85s           2025-03-11T01:03:25
+================================================================================
+[2025-03-11T01:04:07.105+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:03:42
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.10s           2025-03-11T01:03:54
+/opt/airflow/dags/preprocess_data.py                              1           0  1.51s           2025-03-11T01:03:38
+/opt/airflow/dags/load_mysql.py                                   1           0  2.19s           2025-03-11T01:03:54
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.37s           2025-03-11T01:03:49
+/opt/airflow/dags/train.py                                        1           0  1.32s           2025-03-11T01:03:58
+================================================================================
+[2025-03-11T01:04:37.367+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.21s           2025-03-11T01:04:12
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.31s           2025-03-11T01:04:26
+/opt/airflow/dags/preprocess_data.py                              1           0  1.51s           2025-03-11T01:04:10
+/opt/airflow/dags/load_mysql.py                                   1           0  1.37s           2025-03-11T01:04:26
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:04:19
+/opt/airflow/dags/train.py                                        1           0  1.41s           2025-03-11T01:04:29
+================================================================================
+[2025-03-11T01:05:07.698+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:04:42
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.98s           2025-03-11T01:04:57
+/opt/airflow/dags/preprocess_data.py                              1           0  1.41s           2025-03-11T01:04:42
+/opt/airflow/dags/load_mysql.py                                   1           0  1.03s           2025-03-11T01:04:58
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:04:50
+/opt/airflow/dags/train.py                                        1           0  1.51s           2025-03-11T01:05:01
+================================================================================
+[2025-03-11T01:05:38.170+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.26s           2025-03-11T01:05:13
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.99s           2025-03-11T01:05:28
+/opt/airflow/dags/preprocess_data.py                              1           0  1.43s           2025-03-11T01:05:13
+/opt/airflow/dags/load_mysql.py                                   1           0  1.04s           2025-03-11T01:05:29
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.21s           2025-03-11T01:05:20
+/opt/airflow/dags/train.py                                        1           0  1.37s           2025-03-11T01:05:33
+================================================================================
+[2025-03-11T01:06:08.367+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.39s           2025-03-11T01:05:44
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.01s           2025-03-11T01:06:00
+/opt/airflow/dags/preprocess_data.py                              1           0  1.54s           2025-03-11T01:05:45
+/opt/airflow/dags/load_mysql.py                                   1           0  0.89s           2025-03-11T01:06:00
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.22s           2025-03-11T01:05:51
+/opt/airflow/dags/train.py                                        1           0  1.36s           2025-03-11T01:06:05
+================================================================================
+[2025-03-11T01:06:38.957+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.29s           2025-03-11T01:06:15
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.01s           2025-03-11T01:06:31
+/opt/airflow/dags/preprocess_data.py                              1           0  2.36s           2025-03-11T01:06:18
+/opt/airflow/dags/load_mysql.py                                   1           0  0.93s           2025-03-11T01:06:32
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:06:22
+/opt/airflow/dags/train.py                                        1           0  1.37s           2025-03-11T01:06:37
+================================================================================
+[2025-03-11T01:07:09.448+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.21s           2025-03-11T01:06:46
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.96s           2025-03-11T01:07:03
+/opt/airflow/dags/preprocess_data.py                              1           0  1.75s           2025-03-11T01:06:50
+/opt/airflow/dags/load_mysql.py                                   1           0  0.92s           2025-03-11T01:07:03
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.29s           2025-03-11T01:06:53
+/opt/airflow/dags/train.py                                        1           0  1.34s           2025-03-11T01:07:08
+================================================================================
+[2025-03-11T01:07:40.034+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:07:16
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.92s           2025-03-11T01:07:34
+/opt/airflow/dags/preprocess_data.py                              1           0  1.45s           2025-03-11T01:07:23
+/opt/airflow/dags/load_mysql.py                                   1           0  0.89s           2025-03-11T01:07:34
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.28s           2025-03-11T01:07:24
+/opt/airflow/dags/train.py                1187  1.05s             1           0  1.34s           2025-03-11T01:07:08
+================================================================================
+[2025-03-11T01:07:55.763+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:07:55.769+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T01:08:11.019+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.31s           2025-03-11T01:07:47
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.95s           2025-03-11T01:08:05
+/opt/airflow/dags/preprocess_data.py                              1           0  1.47s           2025-03-11T01:07:54
+/opt/airflow/dags/load_mysql.py                                   1           0  0.95s           2025-03-11T01:08:05
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:07:54
+/opt/airflow/dags/train.py                1216  0.01s             1           0  1.41s           2025-03-11T01:07:40
+================================================================================
+[2025-03-11T01:08:41.610+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:08:18
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.97s           2025-03-11T01:08:36
+/opt/airflow/dags/preprocess_data.py                              1           0  1.55s           2025-03-11T01:08:26
+/opt/airflow/dags/load_mysql.py                                   1           0  0.99s           2025-03-11T01:08:37
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.28s           2025-03-11T01:08:25
+/opt/airflow/dags/train.py                                        1           0  1.42s           2025-03-11T01:08:12
+================================================================================
+[2025-03-11T01:09:11.658+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:08:49
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.81s           2025-03-11T01:09:08
+/opt/airflow/dags/preprocess_data.py                              1           0  1.45s           2025-03-11T01:08:58
+/opt/airflow/dags/load_mysql.py                                   1           0  1.38s           2025-03-11T01:09:09
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:08:56
+/opt/airflow/dags/train.py                                        1           0  1.43s           2025-03-11T01:08:44
+================================================================================
+[2025-03-11T01:09:42.048+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.21s           2025-03-11T01:09:19
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.03s           2025-03-11T01:09:40
+/opt/airflow/dags/preprocess_data.py                              1           0  1.48s           2025-03-11T01:09:30
+/opt/airflow/dags/load_mysql.py                                   1           0  1.89s           2025-03-11T01:09:41
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.41s           2025-03-11T01:09:26
+/opt/airflow/dags/train.py                                        1           0  1.37s           2025-03-11T01:09:15
+================================================================================
+[2025-03-11T01:10:12.354+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:09:49
+/opt/airflow/dags/mysql_create_table.py   1322  1.05s             1           0  2.03s           2025-03-11T01:09:40
+/opt/airflow/dags/preprocess_data.py                              1           0  1.40s           2025-03-11T01:10:02
+/opt/airflow/dags/load_mysql.py           1326  0.84s             1           0  1.89s           2025-03-11T01:09:41
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:09:57
+/opt/airflow/dags/train.py                                        1           0  1.54s           2025-03-11T01:09:47
+================================================================================
+[2025-03-11T01:10:42.591+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:10:20
+/opt/airflow/dags/mysql_create_table.py   1351  0.01s             1           0  1.16s           2025-03-11T01:10:12
+/opt/airflow/dags/preprocess_data.py                              1           0  1.64s           2025-03-11T01:10:34
+/opt/airflow/dags/load_mysql.py                                   1           0  1.17s           2025-03-11T01:10:12
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:10:27
+/opt/airflow/dags/train.py                                        1           0  1.40s           2025-03-11T01:10:19
+================================================================================
+[2025-03-11T01:11:12.770+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T01:10:50
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.33s           2025-03-11T01:10:43
+/opt/airflow/dags/preprocess_data.py                              1           0  1.56s           2025-03-11T01:11:05
+/opt/airflow/dags/load_mysql.py                                   1           0  1.64s           2025-03-11T01:10:44
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:10:58
+/opt/airflow/dags/train.py                                        1           0  1.31s           2025-03-11T01:10:51
+================================================================================
+[2025-03-11T01:11:42.920+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.28s           2025-03-11T01:11:21
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.93s           2025-03-11T01:11:15
+/opt/airflow/dags/preprocess_data.py                              1           0  1.28s           2025-03-11T01:11:37
+/opt/airflow/dags/load_mysql.py                                   1           0  0.93s           2025-03-11T01:11:16
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.14s           2025-03-11T01:11:28
+/opt/airflow/dags/train.py                                        1           0  1.33s           2025-03-11T01:11:22
+================================================================================
+[2025-03-11T01:12:13.191+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:11:51
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.81s           2025-03-11T01:11:46
+/opt/airflow/dags/preprocess_data.py                              1           0  1.19s           2025-03-11T01:12:08
+/opt/airflow/dags/load_mysql.py                                   1           0  0.79s           2025-03-11T01:11:47
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:11:59
+/opt/airflow/dags/train.py                                        1           0  1.34s           2025-03-11T01:11:53
+================================================================================
+[2025-03-11T01:12:43.565+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:12:22
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.81s           2025-03-11T01:12:18
+/opt/airflow/dags/preprocess_data.py                              1           0  2.05s           2025-03-11T01:12:40
+/opt/airflow/dags/load_mysql.py                                   1           0  0.81s           2025-03-11T01:12:18
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.22s           2025-03-11T01:12:29
+/opt/airflow/dags/train.py                                        1           0  1.35s           2025-03-11T01:12:25
+================================================================================
+[2025-03-11T01:12:56.393+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:12:56.401+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T01:13:13.864+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:12:52
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.84s           2025-03-11T01:12:49
+/opt/airflow/dags/preprocess_data.py                              1           0  1.19s           2025-03-11T01:13:11
+/opt/airflow/dags/load_mysql.py                                   1           0  0.81s           2025-03-11T01:12:50
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:12:59
+/opt/airflow/dags/train.py                                        1           0  1.22s           2025-03-11T01:12:56
+================================================================================
+[2025-03-11T01:13:44.184+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:13:22
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.88s           2025-03-11T01:13:20
+/opt/airflow/dags/preprocess_data.py                              1           0  1.24s           2025-03-11T01:13:43
+/opt/airflow/dags/load_mysql.py                                   1           0  0.80s           2025-03-11T01:13:21
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:13:30
+/opt/airflow/dags/train.py                                        1           0  1.29s           2025-03-11T01:13:28
+================================================================================
+[2025-03-11T01:14:14.392+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.15s           2025-03-11T01:13:53
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.82s           2025-03-11T01:13:52
+/opt/airflow/dags/preprocess_data.py      1549  1.04s             1           0  1.24s           2025-03-11T01:13:43
+/opt/airflow/dags/load_mysql.py                                   1           0  0.88s           2025-03-11T01:13:52
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:14:00
+/opt/airflow/dags/train.py                                        1           0  1.25s           2025-03-11T01:13:59
+================================================================================
+[2025-03-11T01:14:45.102+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T01:14:23
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.84s           2025-03-11T01:14:23
+/opt/airflow/dags/preprocess_data.py      1578  0.01s             1           0  1.24s           2025-03-11T01:14:14
+/opt/airflow/dags/load_mysql.py                                   1           0  0.83s           2025-03-11T01:14:24
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:14:30
+/opt/airflow/dags/train.py                                        1           0  1.26s           2025-03-11T01:14:31
+================================================================================
+[2025-03-11T01:15:15.343+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:14:54
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.62s           2025-03-11T01:14:55
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T01:14:46
+/opt/airflow/dags/load_mysql.py                                   1           0  1.56s           2025-03-11T01:14:55
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:15:01
+/opt/airflow/dags/train.py                                        1           0  1.28s           2025-03-11T01:15:02
+================================================================================
+[2025-03-11T01:15:46.014+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:15:24
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.24s           2025-03-11T01:15:27
+/opt/airflow/dags/preprocess_data.py                              1           0  1.43s           2025-03-11T01:15:17
+/opt/airflow/dags/load_mysql.py                                   1           0  1.10s           2025-03-11T01:15:27
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:15:31
+/opt/airflow/dags/train.py                                        1           0  1.26s           2025-03-11T01:15:34
+================================================================================
+[2025-03-11T01:16:16.828+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:15:55
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.04s           2025-03-11T01:15:59
+/opt/airflow/dags/preprocess_data.py                              1           0  1.34s           2025-03-11T01:15:49
+/opt/airflow/dags/load_mysql.py                                   1           0  1.07s           2025-03-11T01:15:59
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:16:02
+/opt/airflow/dags/train.py                                        1           0  1.27s           2025-03-11T01:16:05
+================================================================================
+[2025-03-11T01:16:47.374+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:16:26
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.91s           2025-03-11T01:16:31
+/opt/airflow/dags/preprocess_data.py                              1           0  1.46s           2025-03-11T01:16:21
+/opt/airflow/dags/load_mysql.py                                   1           0  0.91s           2025-03-11T01:16:31
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:16:33
+/opt/airflow/dags/train.py                                        1           0  1.28s           2025-03-11T01:16:37
+================================================================================
+[2025-03-11T01:17:18.006+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:16:56
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.93s           2025-03-11T01:17:02
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T01:16:52
+/opt/airflow/dags/load_mysql.py                                   1           0  0.99s           2025-03-11T01:17:02
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:17:03
+/opt/airflow/dags/train.py                                        1           0  1.29s           2025-03-11T01:17:09
+================================================================================
+[2025-03-11T01:17:48.615+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:17:27
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.98s           2025-03-11T01:17:34
+/opt/airflow/dags/preprocess_data.py                              1           0  1.21s           2025-03-11T01:17:24
+/opt/airflow/dags/load_mysql.py                                   1           0  0.94s           2025-03-11T01:17:34
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:17:34
+/opt/airflow/dags/train.py                                        1           0  1.46s           2025-03-11T01:17:40
+================================================================================
+[2025-03-11T01:17:56.718+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:17:56.725+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T01:18:18.664+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:17:57
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.24s           2025-03-11T01:18:06
+/opt/airflow/dags/preprocess_data.py                              1           0  1.20s           2025-03-11T01:17:55
+/opt/airflow/dags/load_mysql.py                                   1           0  1.12s           2025-03-11T01:18:06
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:18:05
+/opt/airflow/dags/train.py                                        1           0  1.37s           2025-03-11T01:18:12
+================================================================================
+[2025-03-11T01:18:48.715+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:18:28
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.48s           2025-03-11T01:18:39
+/opt/airflow/dags/preprocess_data.py                              1           0  1.17s           2025-03-11T01:18:27
+/opt/airflow/dags/load_mysql.py                                   1           0  2.58s           2025-03-11T01:18:39
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.82s           2025-03-11T01:18:36
+/opt/airflow/dags/train.py                                        1           0  1.59s           2025-03-11T01:18:44
+================================================================================
+[2025-03-11T01:19:18.847+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.28s           2025-03-11T01:18:59
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.43s           2025-03-11T01:19:10
+/opt/airflow/dags/preprocess_data.py                              1           0  1.39s           2025-03-11T01:18:59
+/opt/airflow/dags/load_mysql.py                                   1           0  1.40s           2025-03-11T01:19:10
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.39s           2025-03-11T01:19:07
+/opt/airflow/dags/train.py                                        1           0  1.47s           2025-03-11T01:19:16
+================================================================================
+[2025-03-11T01:19:49.258+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.29s           2025-03-11T01:19:29
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.20s           2025-03-11T01:19:42
+/opt/airflow/dags/preprocess_data.py                              1           0  1.48s           2025-03-11T01:19:30
+/opt/airflow/dags/load_mysql.py                                   1           0  1.18s           2025-03-11T01:19:42
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:19:37
+/opt/airflow/dags/train.py                                        1           0  1.42s           2025-03-11T01:19:48
+================================================================================
+[2025-03-11T01:20:19.329+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:19:59
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.15s           2025-03-11T01:20:13
+/opt/airflow/dags/preprocess_data.py                              1           0  1.23s           2025-03-11T01:20:02
+/opt/airflow/dags/load_mysql.py                                   1           0  1.08s           2025-03-11T01:20:13
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:20:08
+/opt/airflow/dags/train.py                1892  0.01s             1           0  1.42s           2025-03-11T01:19:48
+================================================================================
+[2025-03-11T01:20:49.909+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:20:30
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.96s           2025-03-11T01:20:44
+/opt/airflow/dags/preprocess_data.py                              1           0  1.26s           2025-03-11T01:20:48
+/opt/airflow/dags/load_mysql.py                                   1           0  1.00s           2025-03-11T01:20:44
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:20:38
+/opt/airflow/dags/train.py                                        1           0  1.27s           2025-03-11T01:20:20
+================================================================================
+[2025-03-11T01:21:20.471+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:21:01
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.99s           2025-03-11T01:21:16
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T01:21:19
+/opt/airflow/dags/load_mysql.py                                   1           0  0.95s           2025-03-11T01:21:16
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.14s           2025-03-11T01:21:09
+/opt/airflow/dags/train.py                                        1           0  1.63s           2025-03-11T01:20:52
+================================================================================
+[2025-03-11T01:21:51.219+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:21:32
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.96s           2025-03-11T01:21:48
+/opt/airflow/dags/preprocess_data.py      1979  1.06s             1           0  1.25s           2025-03-11T01:21:19
+/opt/airflow/dags/load_mysql.py                                   1           0  0.94s           2025-03-11T01:21:48
+/opt/airflow/dags/mysql_delete_table.py   1984  0.02s             1           0  0.20s           2025-03-11T01:21:40
+/opt/airflow/dags/train.py                                        1           0  2.19s           2025-03-11T01:21:24
+================================================================================
+[2025-03-11T01:22:21.519+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:22:02
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.14s           2025-03-11T01:22:20
+/opt/airflow/dags/preprocess_data.py                              1           0  1.42s           2025-03-11T01:21:51
+/opt/airflow/dags/load_mysql.py                                   1           0  1.96s           2025-03-11T01:22:20
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:22:10
+/opt/airflow/dags/train.py                                        1           0  1.47s           2025-03-11T01:21:56
+================================================================================
+[2025-03-11T01:22:52.140+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.23s           2025-03-11T01:22:44
+/opt/airflow/dags/mysql_create_table.py   2028  1.04s             1           0  2.14s           2025-03-11T01:22:20
+/opt/airflow/dags/preprocess_data.py                              1           0  1.50s           2025-03-11T01:22:24
+/opt/airflow/dags/load_mysql.py           2029  1.02s             1           0  1.96s           2025-03-11T01:22:20
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:22:41
+/opt/airflow/dags/train.py                                        1           0  1.68s           2025-03-11T01:22:28
+================================================================================
+[2025-03-11T01:22:56.760+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:22:56.766+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T01:23:22.584+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:23:14
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.55s           2025-03-11T01:22:52
+/opt/airflow/dags/preprocess_data.py                              1           0  1.42s           2025-03-11T01:22:56
+/opt/airflow/dags/load_mysql.py                                   1           0  1.57s           2025-03-11T01:22:52
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:23:11
+/opt/airflow/dags/train.py                                        1           0  2.07s           2025-03-11T01:23:00
+================================================================================
+[2025-03-11T01:23:52.705+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:23:44
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.21s           2025-03-11T01:23:24
+/opt/airflow/dags/preprocess_data.py                              1           0  1.65s           2025-03-11T01:23:28
+/opt/airflow/dags/load_mysql.py                                   1           0  1.44s           2025-03-11T01:23:25
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:23:41
+/opt/airflow/dags/train.py                                        1           0  1.41s           2025-03-11T01:23:32
+================================================================================
+[2025-03-11T01:24:23.394+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:24:15
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.02s           2025-03-11T01:23:55
+/opt/airflow/dags/preprocess_data.py                              1           0  1.41s           2025-03-11T01:24:00
+/opt/airflow/dags/load_mysql.py                                   1           0  1.03s           2025-03-11T01:23:56
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:24:12
+/opt/airflow/dags/train.py                                        1           0  1.98s           2025-03-11T01:24:05
+================================================================================
+[2025-03-11T01:24:53.835+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:24:45
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.98s           2025-03-11T01:24:27
+/opt/airflow/dags/preprocess_data.py                              1           0  1.37s           2025-03-11T01:24:31
+/opt/airflow/dags/load_mysql.py                                   1           0  1.07s           2025-03-11T01:24:28
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:24:42
+/opt/airflow/dags/train.py                                        1           0  1.28s           2025-03-11T01:24:36
+================================================================================
+[2025-03-11T01:25:24.046+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:25:16
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.82s           2025-03-11T01:24:59
+/opt/airflow/dags/preprocess_data.py                              1           0  1.50s           2025-03-11T01:25:03
+/opt/airflow/dags/load_mysql.py                                   1           0  1.34s           2025-03-11T01:25:00
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:25:13
+/opt/airflow/dags/train.py                                        1           0  2.48s           2025-03-11T01:25:09
+================================================================================
+[2025-03-11T01:25:54.476+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.25s           2025-03-11T01:25:46
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.90s           2025-03-11T01:25:30
+/opt/airflow/dags/preprocess_data.py                              1           0  1.18s           2025-03-11T01:25:35
+/opt/airflow/dags/load_mysql.py                                   1           0  0.80s           2025-03-11T01:25:31
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:25:43
+/opt/airflow/dags/train.py                                        1           0  1.96s           2025-03-11T01:25:41
+================================================================================
+[2025-03-11T01:26:24.817+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:26:16
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.18s           2025-03-11T01:26:02
+/opt/airflow/dags/preprocess_data.py                              1           0  2.52s           2025-03-11T01:26:08
+/opt/airflow/dags/load_mysql.py                                   1           0  1.11s           2025-03-11T01:26:03
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:26:13
+/opt/airflow/dags/train.py                                        1           0  1.56s           2025-03-11T01:26:13
+================================================================================
+[2025-03-11T01:26:55.234+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:26:47
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.91s           2025-03-11T01:26:33
+/opt/airflow/dags/preprocess_data.py                              1           0  1.21s           2025-03-11T01:26:39
+/opt/airflow/dags/load_mysql.py                                   1           0  0.87s           2025-03-11T01:26:34
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:26:43
+/opt/airflow/dags/train.py                                        1           0  1.31s           2025-03-11T01:26:45
+================================================================================
+[2025-03-11T01:27:25.501+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:27:17
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.85s           2025-03-11T01:27:05
+/opt/airflow/dags/preprocess_data.py                              1           0  1.23s           2025-03-11T01:27:11
+/opt/airflow/dags/load_mysql.py                                   1           0  0.87s           2025-03-11T01:27:06
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:27:14
+/opt/airflow/dags/train.py                                        1           0  1.22s           2025-03-11T01:27:16
+================================================================================
+[2025-03-11T01:27:55.788+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.23s           2025-03-11T01:27:47
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.87s           2025-03-11T01:27:36
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T01:27:42
+/opt/airflow/dags/load_mysql.py                                   1           0  0.93s           2025-03-11T01:27:37
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:27:44
+/opt/airflow/dags/train.py                                        1           0  1.26s           2025-03-11T01:27:47
+================================================================================
+[2025-03-11T01:27:56.799+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:27:56.805+0000] {manager.py:761} INFO - There are 6 files in /opt/airflow/dags
+[2025-03-11T01:28:26.555+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.25s           2025-03-11T01:28:18
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.05s           2025-03-11T01:28:07
+/opt/airflow/dags/preprocess_data.py                              1           0  1.27s           2025-03-11T01:28:14
+/opt/airflow/dags/load_mysql.py                                   1           0  0.91s           2025-03-11T01:28:08
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:28:15
+/opt/airflow/dags/train.py                                        1           0  1.28s           2025-03-11T01:28:19
+================================================================================
+[2025-03-11T01:28:56.695+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:28:48
+/opt/airflow/dags/mysql_create_table.py                           1           0  2.58s           2025-03-11T01:28:41
+/opt/airflow/dags/preprocess_data.py                              1           0  1.24s           2025-03-11T01:28:45
+/opt/airflow/dags/load_mysql.py                                   1           0  2.52s           2025-03-11T01:28:41
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:28:45
+/opt/airflow/dags/train.py                                        1           0  1.30s           2025-03-11T01:28:33
+================================================================================
+[2025-03-11T01:29:27.409+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:29:19
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.92s           2025-03-11T01:29:12
+/opt/airflow/dags/preprocess_data.py                              1           0  1.35s           2025-03-11T01:29:17
+/opt/airflow/dags/load_mysql.py                                   1           0  0.91s           2025-03-11T01:29:12
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.30s           2025-03-11T01:29:16
+/opt/airflow/dags/train.py                                        1           0  1.27s           2025-03-11T01:29:06
+================================================================================
+[2025-03-11T01:29:57.919+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:29:50
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.56s           2025-03-11T01:29:44
+/opt/airflow/dags/preprocess_data.py                              1           0  1.56s           2025-03-11T01:29:49
+/opt/airflow/dags/load_mysql.py                                   1           0  1.83s           2025-03-11T01:29:44
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:29:46
+/opt/airflow/dags/train.py                                        1           0  1.44s           2025-03-11T01:29:37
+================================================================================
+[2025-03-11T01:30:28.632+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.25s           2025-03-11T01:30:20
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.97s           2025-03-11T01:30:16
+/opt/airflow/dags/preprocess_data.py                              1           0  1.31s           2025-03-11T01:30:20
+/opt/airflow/dags/load_mysql.py                                   1           0  0.89s           2025-03-11T01:30:16
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:30:17
+/opt/airflow/dags/train.py                                        1           0  1.56s           2025-03-11T01:30:09
+================================================================================
+[2025-03-11T01:30:59.393+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.24s           2025-03-11T01:30:51
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.16s           2025-03-11T01:30:47
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T01:30:52
+/opt/airflow/dags/load_mysql.py                                   1           0  1.37s           2025-03-11T01:30:48
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.23s           2025-03-11T01:30:48
+/opt/airflow/dags/train.py                                        1           0  1.33s           2025-03-11T01:30:41
+================================================================================
+[2025-03-11T01:31:30.017+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:31:21
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.98s           2025-03-11T01:31:19
+/opt/airflow/dags/preprocess_data.py                              1           0  1.23s           2025-03-11T01:31:24
+/opt/airflow/dags/load_mysql.py                                   1           0  0.89s           2025-03-11T01:31:19
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:31:18
+/opt/airflow/dags/train.py                                        1           0  1.26s           2025-03-11T01:31:12
+================================================================================
+[2025-03-11T01:32:00.664+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:31:52
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.99s           2025-03-11T01:31:51
+/opt/airflow/dags/preprocess_data.py                              1           0  1.42s           2025-03-11T01:31:55
+/opt/airflow/dags/load_mysql.py                                   1           0  1.05s           2025-03-11T01:31:51
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:31:49
+/opt/airflow/dags/train.py                                        1           0  1.44s           2025-03-11T01:31:44
+================================================================================
+[2025-03-11T01:32:02.689+0000] {manager.py:1134} WARNING - Skipping processing of missing file: /opt/airflow/dags/load_mysql.py
+[2025-03-11T01:32:31.297+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:32:23
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.80s           2025-03-11T01:32:22
+/opt/airflow/dags/preprocess_data.py                              1           0  1.25s           2025-03-11T01:32:27
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:32:20
+/opt/airflow/dags/train.py                                        1           0  1.21s           2025-03-11T01:32:30
+================================================================================
+[2025-03-11T01:32:56.982+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:32:56.987+0000] {manager.py:761} INFO - There are 5 files in /opt/airflow/dags
+[2025-03-11T01:33:01.707+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.28s           2025-03-11T01:32:53
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.91s           2025-03-11T01:32:54
+/opt/airflow/dags/preprocess_data.py                              1           0  1.29s           2025-03-11T01:32:58
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:32:50
+/opt/airflow/dags/train.py                                        1           0  1.36s           2025-03-11T01:32:36
+================================================================================
+[2025-03-11T01:33:31.900+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T01:33:24
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.03s           2025-03-11T01:33:26
+/opt/airflow/dags/preprocess_data.py                              1           0  1.49s           2025-03-11T01:33:30
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:33:21
+/opt/airflow/dags/train.py                                        1           0  1.39s           2025-03-11T01:33:08
+================================================================================
+[2025-03-11T01:34:02.595+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.26s           2025-03-11T01:33:55
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.11s           2025-03-11T01:33:57
+/opt/airflow/dags/preprocess_data.py      2660  1.04s             1           0  1.49s           2025-03-11T01:33:30
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:33:52
+/opt/airflow/dags/train.py                                        1           0  1.56s           2025-03-11T01:33:40
+================================================================================
+[2025-03-11T01:34:32.626+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:34:25
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.86s           2025-03-11T01:34:28
+/opt/airflow/dags/preprocess_data.py                              1           0  1.34s           2025-03-11T01:34:02
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:34:22
+/opt/airflow/dags/train.py                                        1           0  1.68s           2025-03-11T01:34:12
+================================================================================
+[2025-03-11T01:35:03.058+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:34:54
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.92s           2025-03-11T01:35:00
+/opt/airflow/dags/preprocess_data.py                              1           0  1.21s           2025-03-11T01:34:34
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.28s           2025-03-11T01:34:53
+/opt/airflow/dags/train.py                                        1           0  1.38s           2025-03-11T01:34:44
+================================================================================
+[2025-03-11T01:35:33.449+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.15s           2025-03-11T01:35:24
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.83s           2025-03-11T01:35:31
+/opt/airflow/dags/preprocess_data.py                              1           0  1.28s           2025-03-11T01:35:06
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:35:23
+/opt/airflow/dags/train.py                                        1           0  1.34s           2025-03-11T01:35:15
+================================================================================
+[2025-03-11T01:36:04.244+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.37s           2025-03-11T01:35:55
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.18s           2025-03-11T01:36:03
+/opt/airflow/dags/preprocess_data.py                              1           0  1.20s           2025-03-11T01:35:37
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:35:54
+/opt/airflow/dags/train.py                                        1           0  1.27s           2025-03-11T01:35:47
+================================================================================
+[2025-03-11T01:36:34.475+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:36:25
+/opt/airflow/dags/mysql_create_table.py   2774  1.04s             1           0  1.18s           2025-03-11T01:36:03
+/opt/airflow/dags/preprocess_data.py                              1           0  1.54s           2025-03-11T01:36:09
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.21s           2025-03-11T01:36:24
+/opt/airflow/dags/train.py                                        1           0  1.57s           2025-03-11T01:36:19
+================================================================================
+[2025-03-11T01:37:04.780+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:36:55
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.43s           2025-03-11T01:36:34
+/opt/airflow/dags/preprocess_data.py                              1           0  1.40s           2025-03-11T01:36:41
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:36:54
+/opt/airflow/dags/train.py                                        1           0  1.32s           2025-03-11T01:36:50
+================================================================================
+[2025-03-11T01:37:35.663+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.25s           2025-03-11T01:37:26
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.94s           2025-03-11T01:37:06
+/opt/airflow/dags/preprocess_data.py                              1           0  1.36s           2025-03-11T01:37:13
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:37:25
+/opt/airflow/dags/train.py                                        1           0  1.41s           2025-03-11T01:37:22
+================================================================================
+[2025-03-11T01:37:57.437+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:37:57.442+0000] {manager.py:761} INFO - There are 5 files in /opt/airflow/dags
+[2025-03-11T01:38:05.761+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:37:57
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.07s           2025-03-11T01:37:38
+/opt/airflow/dags/preprocess_data.py                              1           0  1.36s           2025-03-11T01:37:45
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.22s           2025-03-11T01:37:56
+/opt/airflow/dags/train.py                                        1           0  1.47s           2025-03-11T01:37:54
+================================================================================
+[2025-03-11T01:38:36.138+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T01:38:28
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.05s           2025-03-11T01:38:09
+/opt/airflow/dags/preprocess_data.py                              1           0  1.97s           2025-03-11T01:38:17
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.25s           2025-03-11T01:38:27
+/opt/airflow/dags/train.py                                        1           0  1.47s           2025-03-11T01:38:26
+================================================================================
+[2025-03-11T01:39:06.711+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:38:58
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.07s           2025-03-11T01:38:41
+/opt/airflow/dags/preprocess_data.py                              1           0  1.54s           2025-03-11T01:38:49
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.21s           2025-03-11T01:38:57
+/opt/airflow/dags/train.py                                        1           0  1.31s           2025-03-11T01:38:58
+================================================================================
+[2025-03-11T01:39:37.221+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:39:29
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.83s           2025-03-11T01:39:32
+/opt/airflow/dags/preprocess_data.py                              1           0  1.24s           2025-03-11T01:39:21
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:39:28
+/opt/airflow/dags/train.py                                        1           0  1.31s           2025-03-11T01:39:29
+================================================================================
+[2025-03-11T01:40:07.658+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.22s           2025-03-11T01:39:59
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.89s           2025-03-11T01:40:01
+/opt/airflow/dags/preprocess_data.py                              1           0  1.28s           2025-03-11T01:39:52
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.19s           2025-03-11T01:39:58
+/opt/airflow/dags/train.py                                        1           0  1.38s           2025-03-11T01:40:01
+================================================================================
+[2025-03-11T01:40:38.055+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:40:30
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.94s           2025-03-11T01:40:33
+/opt/airflow/dags/preprocess_data.py                              1           0  1.55s           2025-03-11T01:40:24
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:40:29
+/opt/airflow/dags/train.py                                        1           0  1.50s           2025-03-11T01:40:33
+================================================================================
+[2025-03-11T01:41:08.382+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:41:00
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.09s           2025-03-11T01:41:04
+/opt/airflow/dags/preprocess_data.py                              1           0  1.43s           2025-03-11T01:40:56
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.18s           2025-03-11T01:40:59
+/opt/airflow/dags/train.py                                        1           0  1.58s           2025-03-11T01:41:05
+================================================================================
+[2025-03-11T01:41:38.744+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:41:31
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.06s           2025-03-11T01:41:36
+/opt/airflow/dags/preprocess_data.py                              1           0  1.48s           2025-03-11T01:41:28
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:41:30
+/opt/airflow/dags/train.py                                        1           0  1.43s           2025-03-11T01:41:37
+================================================================================
+[2025-03-11T01:42:08.870+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:42:01
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.89s           2025-03-11T01:42:07
+/opt/airflow/dags/preprocess_data.py                              1           0  1.32s           2025-03-11T01:41:45
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:42:00
+/opt/airflow/dags/train.py                3034  1.03s             1           0  1.43s           2025-03-11T01:41:37
+================================================================================
+[2025-03-11T01:42:39.428+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.25s           2025-03-11T01:42:32
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.91s           2025-03-11T01:42:38
+/opt/airflow/dags/preprocess_data.py      3058  1.05s             1           0  1.22s           2025-03-11T01:42:17
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.22s           2025-03-11T01:42:31
+/opt/airflow/dags/train.py                3063  0.01s             1           0  1.48s           2025-03-11T01:42:09
+================================================================================
+[2025-03-11T01:42:57.779+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:42:57.787+0000] {manager.py:761} INFO - There are 5 files in /opt/airflow/dags
+[2025-03-11T01:43:09.999+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.30s           2025-03-11T01:43:03
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.88s           2025-03-11T01:43:09
+/opt/airflow/dags/preprocess_data.py      3082  0.01s             1           0  1.55s           2025-03-11T01:42:39
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:43:02
+/opt/airflow/dags/train.py                                        1           0  1.51s           2025-03-11T01:42:40
+================================================================================
+[2025-03-11T01:43:40.620+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.15s           2025-03-11T01:43:33
+/opt/airflow/dags/mysql_create_table.py   3101  0.01s             1           0  0.88s           2025-03-11T01:43:09
+/opt/airflow/dags/preprocess_data.py                              1           0  1.20s           2025-03-11T01:43:11
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:43:32
+/opt/airflow/dags/train.py                                        1           0  1.27s           2025-03-11T01:43:12
+================================================================================
+[2025-03-11T01:44:11.131+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:44:04
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.86s           2025-03-11T01:43:41
+/opt/airflow/dags/preprocess_data.py                              1           0  1.43s           2025-03-11T01:43:42
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:44:03
+/opt/airflow/dags/train.py                                        1           0  1.36s           2025-03-11T01:43:43
+================================================================================
+[2025-03-11T01:44:41.640+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.16s           2025-03-11T01:44:34
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.90s           2025-03-11T01:44:13
+/opt/airflow/dags/preprocess_data.py                              1           0  1.31s           2025-03-11T01:44:14
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:44:33
+/opt/airflow/dags/train.py                                        1           0  1.28s           2025-03-11T01:44:14
+================================================================================
+[2025-03-11T01:45:12.164+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.21s           2025-03-11T01:45:05
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.81s           2025-03-11T01:44:44
+/opt/airflow/dags/preprocess_data.py                              1           0  1.29s           2025-03-11T01:44:45
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:45:04
+/opt/airflow/dags/train.py                                        1           0  1.34s           2025-03-11T01:44:46
+================================================================================
+[2025-03-11T01:45:42.927+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:45:36
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.86s           2025-03-11T01:45:16
+/opt/airflow/dags/preprocess_data.py                              1           0  1.36s           2025-03-11T01:45:17
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.22s           2025-03-11T01:45:17
+/opt/airflow/dags/train.py                                        1           0  1.50s           2025-03-11T01:45:17
+================================================================================
+[2025-03-11T01:46:12.978+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.19s           2025-03-11T01:46:01
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.00s           2025-03-11T01:45:47
+/opt/airflow/dags/preprocess_data.py                              1           0  1.54s           2025-03-11T01:45:49
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.26s           2025-03-11T01:45:48
+/opt/airflow/dags/train.py                                        1           0  1.69s           2025-03-11T01:45:49
+================================================================================
+[2025-03-11T01:46:43.204+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:46:32
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.34s           2025-03-11T01:46:19
+/opt/airflow/dags/preprocess_data.py                              1           0  2.45s           2025-03-11T01:46:22
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.28s           2025-03-11T01:46:19
+/opt/airflow/dags/train.py                                        1           0  2.62s           2025-03-11T01:46:23
+================================================================================
+[2025-03-11T01:47:14.010+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:47:03
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.95s           2025-03-11T01:46:50
+/opt/airflow/dags/preprocess_data.py                              1           0  1.37s           2025-03-11T01:46:54
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.20s           2025-03-11T01:46:49
+/opt/airflow/dags/train.py                                        1           0  1.44s           2025-03-11T01:46:54
+================================================================================
+[2025-03-11T01:47:44.040+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.17s           2025-03-11T01:47:33
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.95s           2025-03-11T01:47:22
+/opt/airflow/dags/preprocess_data.py                              1           0  1.53s           2025-03-11T01:47:26
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:47:20
+/opt/airflow/dags/train.py                                        1           0  1.61s           2025-03-11T01:47:26
+================================================================================
+[2025-03-11T01:47:58.090+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2025-03-11T01:47:58.101+0000] {manager.py:761} INFO - There are 5 files in /opt/airflow/dags
+[2025-03-11T01:48:14.046+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.25s           2025-03-11T01:48:04
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.84s           2025-03-11T01:47:52
+/opt/airflow/dags/preprocess_data.py                              1           0  1.67s           2025-03-11T01:47:58
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:47:51
+/opt/airflow/dags/train.py                                        1           0  1.62s           2025-03-11T01:47:58
+================================================================================
+[2025-03-11T01:48:44.916+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.20s           2025-03-11T01:48:35
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.12s           2025-03-11T01:48:24
+/opt/airflow/dags/preprocess_data.py                              1           0  1.57s           2025-03-11T01:48:30
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.17s           2025-03-11T01:48:22
+/opt/airflow/dags/train.py                                        1           0  1.51s           2025-03-11T01:48:30
+================================================================================
+[2025-03-11T01:49:14.942+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.15s           2025-03-11T01:49:06
+/opt/airflow/dags/mysql_create_table.py                           1           0  0.84s           2025-03-11T01:48:55
+/opt/airflow/dags/preprocess_data.py                              1           0  1.45s           2025-03-11T01:49:02
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.29s           2025-03-11T01:48:52
+/opt/airflow/dags/train.py                                        1           0  1.50s           2025-03-11T01:49:02
+================================================================================
+[2025-03-11T01:49:45.082+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.18s           2025-03-11T01:49:37
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.11s           2025-03-11T01:49:27
+/opt/airflow/dags/preprocess_data.py                              1           0  1.78s           2025-03-11T01:49:34
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.16s           2025-03-11T01:49:23
+/opt/airflow/dags/train.py                                        1           0  1.71s           2025-03-11T01:49:34
+================================================================================
+[2025-03-11T01:50:15.304+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/orchestrator.py                                 1           0  0.34s           2025-03-11T01:50:08
+/opt/airflow/dags/mysql_create_table.py                           1           0  1.04s           2025-03-11T01:49:58
+/opt/airflow/dags/preprocess_data.py                              1           0  2.82s           2025-03-11T01:50:08
+/opt/airflow/dags/mysql_delete_table.py                           1           0  0.15s           2025-03-11T01:49:53
+/opt/airflow/dags/train.py                                        1           0  3.16s           2025-03-11T01:50:08
+================================================================================

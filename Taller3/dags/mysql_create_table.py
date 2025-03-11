@@ -40,6 +40,7 @@ def load_csv_to_mysql():
         )
         """
         
+        #ejecutar query
         with engine.begin() as connection:
             connection.execute(create_table_query)
             df.to_sql(name="penguins", con=connection, if_exists="replace", index=False)
@@ -57,6 +58,7 @@ default_args = {
     "retries": 1,
 }
 
+#crear dag
 with DAG(
     dag_id="crear_tabla_mysql",
     default_args=default_args,
@@ -64,6 +66,7 @@ with DAG(
     catchup=False,
 ) as dag:
 
+    #conectar funcion a dag
     load_data_task = PythonOperator(
         task_id="load_csv_to_mysql",
         python_callable=load_csv_to_mysql

@@ -7,28 +7,31 @@ from sklearn import linear_model
 from sklearn.metrics import classification_report
 import joblib
 from airflow.utils.dates import days_ago
+from airflow.providers.mysql.hooks.mysql import MySqlHook
 
 # Definir rutas de almacenamiento dentro del volumen compartido
 DATA_OUTPUT = "/opt/airflow/models/"  # Directorio donde guardaremos el modelo
 
 # Función para entrenar el modelo
 def train_model():
-    df = pd.read_csv(DATA_OUTPUT + "penguins_transformed.csv")
+
+    # Conectar a MySQL
+    mysql_hook = MySqlHook(mysql_conn_id="mysql_airflow_conn")  # Asegúrate de definir esta conexión en Airflow
+    sql_query = "SELECT * FROM penguins_proc;"  
+    df = mysql_hook.get_pandas_df(sql_query) # Cargar datos guardados
     
     y = df[['species']]
     X = df[['island', 'sex', 'culmen_length_mm','culmen_depth_mm','flipper_length_mm']]
 
+    #dividir entre entrenamiento y validacion
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=50, test_size=0.30)
 
+    #entrenar modelo
     model = linear_model.LogisticRegression(multi_class='ovr', solver='liblinear')
     model.fit(X_train, y_train)
 
+    #guardar modelo
     joblib.dump(model, DATA_OUTPUT + "model_logreg.pkl")
-    #joblib.dump(model, ".models/" + "model_logreg.pkl")
-
-    y_pred = model.predict(X_test)
-    target_names = ['Adelie', 'Gentoo', 'Chinstrap']
-    print(classification_report(y_test, y_pred, target_names=target_names))
 
 
 # Definir el DAG
@@ -38,6 +41,7 @@ default_args = {
     "retries": 1,
 }
 
+#crear dag
 with DAG(
     dag_id="train_model_penguins",
     default_args=default_args,
@@ -45,10 +49,10 @@ with DAG(
     catchup=False,
 ) as dag:
 
+    #conectar funcion a dag
     train_model_task = PythonOperator(
         task_id="train_model",
         python_callable=train_model
     )
 
-    # Definir la secuencia de tareas
     train_model_task
