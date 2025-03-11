@@ -26,3 +26,16 @@ Para configurar la base de datos **MySQL** dentro de **Apache Airflow** sigue es
    - **Login:** ```airflow```
    - **Password:** ```airflow```
    - **Port:** ```3306```
+
+![conexion](imgs/mysql_conn.png)
+
+## :arrow_right: DAGs :arrow_right: #
+
+![DAG](imgs/DAG_maestro.png)
+
+## API Read Models :computer:
+
+![API](FastAPI.png)
+
+
+
