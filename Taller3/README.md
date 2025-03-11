@@ -13,6 +13,7 @@ Para este taller se propone el uso del orquestador Apache Airflow 2.6.0 con el f
 
 - Crear una API que permita realizar inferencia al modelo entrenado
 
+## :mega: ATENCIÓN: Este taller se está ejecutando dentro de la máquina 10.43.101.168 de forma temporal :mega: ##
 
 ## Configuración de la base de datos :floppy_disk: #
 Para configurar la base de datos **MySQL** dentro de **Apache Airflow** sigue estos pasos: 
