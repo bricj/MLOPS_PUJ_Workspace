@@ -6,12 +6,12 @@ After=network.target
 User=estudiante
 Restart=on-failure
 RestartSec=3
-WorkingDirectory=/home/estudiante/Documents/MLOps/MLOPS_PUJ_Workspace/Taller4/
-Environment=MLFLOW_S3_ENDPOINT_URL=http://10.43.101.170:9000
+WorkingDirectory=/home/estudiante/Documents/MLOPS_PUJ_Workspace/Taller4/
+Environment=MLFLOW_S3_ENDPOINT_URL=http://10.43.101.168:9000
 Environment=AWS_ACCESS_KEY_ID=admin
 Environment=AWS_SECRET_ACCESS_KEY=supersecret
 ExecStart= python3 -m mlflow server \
---backend-store-uri mysql+pymysql://mlflow:mlflow@localhost:3306/mlflow \
+--backend-store-uri mysql+pymysql://mlflow:mlflow@10.43.101.168:3306/mlflow \
 --default-artifact-root s3://mlflows3/artifacts \
 --host 0.0.0.0 \
 --serve-artifacts
