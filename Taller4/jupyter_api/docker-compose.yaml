@@ -28,7 +28,7 @@ services:     # Define los servicios que se ejecutarán en contenedores Docker.
       - "8000:8000" 
 
     volumes:
-      - './API_read_models/app:/src/uvenv/app'
+      - './api_read_models/app:/src/uvenv/app'
       - './models:/src/uvenv/app/models'
 
     command: "uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
