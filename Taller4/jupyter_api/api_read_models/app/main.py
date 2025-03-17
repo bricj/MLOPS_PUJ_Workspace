@@ -1,5 +1,5 @@
 import os
-import pickle
+import joblib
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Any
@@ -32,8 +32,7 @@ def load_model(model_name: str):
     if not os.path.exists(model_path):
         raise HTTPException(status_code=404, detail="Modelo no encontrado")
     
-    with open(model_path, "rb") as f:
-        return pickle.load(f)
+    return joblib.load(model_path)
 
 
 @app.get("/models")
