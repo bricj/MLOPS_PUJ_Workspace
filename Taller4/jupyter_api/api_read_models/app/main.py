@@ -7,17 +7,26 @@ from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import logging
 import os
+import mlflow
 
 # Ruta donde están los modelos dentro del contenedor Docker
-MODEL_DIR = "./models"
+MODEL_DIR = "http://10.43.101.166:5000"
+mlflow.set_tracking_uri(MODEL_DIR)
+
+import os
+os.environ['MLFLOW_S3_ENDPOINT_URL'] = "http://10.43.101.166:9000"
+os.environ['AWS_ACCESS_KEY_ID'] = 'admin'
+os.environ['AWS_SECRET_ACCESS_KEY'] = 'supersecret'
 
 app = FastAPI()
 
 class PredictionInput(BaseModel):
+    Island: int 
     Culmen_Length: float
     Culmen_Depth: float
     Flipper_Length: float
     Body_Mass: float
+    Sex: int
 
 # Configuracion del logger
 logging.basicConfig(
@@ -26,54 +35,38 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
-def load_model(model_name: str):
+def load_model(model_name: str, version: int):
     """Carga un modelo desde un archivo .pkl"""
-    model_path = os.path.join(MODEL_DIR, model_name)
-    if not os.path.exists(model_path):
-        raise HTTPException(status_code=404, detail="Modelo no encontrado")
-    
-    return joblib.load(model_path)
+
+    model = mlflow.pyfunc.load_model(
+    model_uri=f"models:/{model_name}/{version}"
+    )
+    return model
 
 
 @app.get("/models")
 def list_models():
     """Lista los modelos disponibles en la carpeta /models"""
-    models = [f[0:-4] for f in os.listdir(MODEL_DIR) if f.endswith(".pkl")]
-    return {"available_models": models}
+    client = mlflow.tracking.MlflowClient()
+    # Listar modelos registrados en el Model Registry
+    models = client.search_registered_models()
+    model_info = [
+        {
+            "name": version.name,
+            "current_stage": version.current_stage,
+            "version": version.version
+        }
+        for model in models
+        for version in model.latest_versions  # Aquí accedemos a latest_versions correctamente
+    ]
 
-@app.get("/model-schema/{model_name}")
-def get_model_schema(model_name: str) -> Dict[str, Any]:
-    """Obtiene la estructura esperada de los datos de entrada para hacer una predicción"""
-    try:
-        model = load_model(f'{model_name}.pkl')
-    except HTTPException as e:
-        raise e
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al cargar el modelo: {str(e)}")
-
-    schema = {"model_name": model_name}
-
-    # Intentar obtener nombres de columnas si existen
-    if hasattr(model, "feature_names_in_"):
-        input_features = list(model.feature_names_in_)
-    else:
-        input_features = ["feature_" + str(i) for i in range(model.n_features_in_)]
-
-    schema["input_features"] = input_features
-
-    # Generar un ejemplo de entrada
-    schema["example_input"] = {
-        "data": [[0.0 for _ in range(len(input_features))]]
-    }
-
-    return schema
-
+    return {"available_models": model_info}
 
 @app.post("/predict/{model_name}")
-def predict(model_name: str, input_data: PredictionInput):
+def predict(model_name: str, version: int ,input_data: PredictionInput):
     """Realiza una predicción con el modelo especificado"""
     try:
-        model = load_model(f'{model_name}.pkl')
+        model = load_model(f'{model_name}', f'{version}')
     except HTTPException as e:
         raise e
     except Exception as e:
@@ -82,10 +75,12 @@ def predict(model_name: str, input_data: PredictionInput):
     # Convertir la entrada a DataFrame si el modelo requiere ese formato
     try:
         numerical = [
+            input_data.Island,
             input_data.Culmen_Length, 
             input_data.Culmen_Depth, 
             input_data.Flipper_Length, 
-            input_data.Body_Mass
+            input_data.Body_Mass,
+            input_data.Sex,
         ]
         numerical = np.array(numerical).reshape(1, -1)
         predictions = model.predict(numerical)
