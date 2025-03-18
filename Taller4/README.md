@@ -82,6 +82,8 @@ Para encontrar el notebook base de este ejercicio dirígete a la carpeta app -->
 
   ## Inferencia del modelo con fastapi :computer: ##
 
+  - **Recuerda actualizar tu IP en el archivo *readme.py* que despliega la API.**
+
   - La inferencia en fastapi contempla dos secciones:
 
    - La primera seccion expone los nombres de los modelos, el estado de despliegue en el que se encuentren (produccion, staging o sin estado). 
