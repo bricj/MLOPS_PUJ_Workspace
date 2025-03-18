@@ -1,4 +1,6 @@
-## TALLER MLFLOW ##
+# TALLER MLFLOW #
+
+## Configuración del entorno de trabajo :wrench: ##
 
 En este ejercicio se comunican vía internet 3 servicios distintos:
 - Un bucket de Minio (puerto 9000)
@@ -23,3 +25,10 @@ Para ejecutar adecuadamente los 3 servicios sigue estos pasos:
    - Habilita y valida el servicio utilizando ```sudo systemctl enable /ruta-a-la-carpeta-mlflow/mlflow_serv.service ``` y ```sudo systemctl start mlflow_serv.service ```.
    - verifica que *mlflow* está corriendo usando el comando ```sudo systemctl status mlflow_serv.service ```.
    - ingresa a tu navegador a la dirección ``` http://localhost:5000```. Allí te deberá cargar la interfaz de *mlflow*.
+
+3. **jupyterlab:**
+   -  para subir el servicio de *jupyterlab* accede a la carpeta *jupyter_api* y ejecuta el archivo .yaml usando el comando ```docker compose up -build ``` desde la terminal.
+   - accede al link que aparecerá en la terminal una vez se haya creado el contenedor.
+
+## Entrenamiento del modelo y captura de información 	:camera: ##
+
