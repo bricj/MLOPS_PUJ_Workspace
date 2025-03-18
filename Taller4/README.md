@@ -82,7 +82,7 @@ Para encontrar el notebook base de este ejercicio dirígete a la carpeta app -->
 
   ## Inferencia del modelo con fastapi :computer: ##
 
-  - **Recuerda actualizar tu IP en el archivo *readme.py* que despliega la API.**
+  - **Recuerda actualizar tu IP en el archivo *Taller4/jupyter_api/api_read_models/app/main.py* que despliega la API.**
 
   - La inferencia en fastapi contempla dos secciones:
 
