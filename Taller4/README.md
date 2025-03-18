@@ -49,6 +49,9 @@ Para encontrar el notebook base de este ejercicio dirígete a la carpeta app -->
 
   - Configuración de variables de entorno que apuntan al servicio *minio*
   - Creación cliente *minio*.
+
+   ![minio](imgs/minio-metadata.png)
+
   - Paso a producción del mejor modelo *SVM* encontrado (este paso se realiza en la interfaz de *mlflow*).
   - Request al modelo productivo disponible en *mlflow* para verificar funcionamiento. 
 
