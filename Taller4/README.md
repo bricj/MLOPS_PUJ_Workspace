@@ -40,6 +40,13 @@ Para encontrar el notebook base de este ejercicio dirígete a la carpeta app -->
 - Entrenamiento de modelos utilizando MLFlow:
   - Configuración de variables de entorno que apuntan al servicio de *MLFlow*
   - Aquí se configura una ejecución que varía 4 veces el hiperparámetro *C* y 5 veces el parámetro *gamma* para un modelo *SVM* para un total de 20 combinaciones.
+
+   ![ejecucion-entrenamiento-en-mlflow](imgs/corrida-mlflow.png)
+
+   ![confusion-matrix](imgs/matriz-confusion-mlflow.png)
+
+   ![ejeciones](imgs/corridas-mlflow.png)
+
   - Configuración de variables de entorno que apuntan al servicio *minio*
   - Creación cliente *minio*.
   - Paso a producción del mejor modelo *SVM* encontrado (este paso se realiza en la interfaz de *mlflow*).
