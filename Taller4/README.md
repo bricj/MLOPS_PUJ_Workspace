@@ -4,8 +4,8 @@
 
 En este ejercicio se comunican vía internet 3 servicios distintos:
 - Un bucket de Minio (puerto 9000)
-- Un entorno jupyter lab (puerto )
-- MLFlow (puerto )
+- Un entorno jupyter lab (puerto 8080)
+- MLFlow (puerto 5000)
 
 Para ejecutar adecuadamente los 3 servicios sigue estos pasos:
 1. **Minio & mysql:**
@@ -32,7 +32,7 @@ Para ejecutar adecuadamente los 3 servicios sigue estos pasos:
 
 ## Entrenamiento del modelo y captura de información :computer: ##
 
-Para encontrar el notebook base de este ejercicio dirígete a la carpeta jupyter_api  --> jupyter_models --> app --> train_models.ipynb. Dentro del notebook se ejecutan los siguientes pasos:
+Para encontrar el notebook base de este ejercicio dirígete a la carpeta app --> train_models.ipynb. Dentro del notebook se ejecutan los siguientes pasos:
 - Creación de tablas dentro de la base de datos *mysql*
 - carga de datos crudos a *mysql*
 - Preprocesamiento de datos
