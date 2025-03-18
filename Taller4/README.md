@@ -30,5 +30,18 @@ Para ejecutar adecuadamente los 3 servicios sigue estos pasos:
    -  para subir el servicio de *jupyterlab* accede a la carpeta *jupyter_api* y ejecuta el archivo .yaml usando el comando ```docker compose up -build ``` desde la terminal.
    - accede al link que aparecerá en la terminal una vez se haya creado el contenedor.
 
-## Entrenamiento del modelo y captura de información 	:camera: ##
+## Entrenamiento del modelo y captura de información 	:computer: ##
+
+Para encontrar el notebook base de este ejercicio dirígete a la carpeta jupyter_api  --> jupyter_models --> app --> train_models.ipynb. Dentro del notebook se ejecutan los siguientes pasos:
+- Creación de tablas dentro de la base de datos *mysql*
+- carga de datos crudos a *mysql*
+- Preprocesamiento de datos
+- Entrenamiento de modelos (sin usar conexión a MLFow)
+- Entrenamiento de modelos utilizando MLFlow:
+  - Configuración de variables de entorno que apuntan al servicio de *MLFlow*
+  - Aquí se configura una ejecución que varía 4 veces el hiperparámetro *C* y 5 veces el parámetro *gamma* para un modelo *SVM* para un total de 20 combinaciones.
+  - Configuración de variables de entorno que apuntan al servicio *minio*
+  - Creación cliente *minio*.
+  - Paso a producción del mejor modelo *SVM* encontrado (este paso se realiza en la interfaz de *mlflow*).
+  - Request al modelo productivo disponible en *mlflow* para verificar funcionamiento. 
 
