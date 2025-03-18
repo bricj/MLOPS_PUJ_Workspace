@@ -30,7 +30,7 @@ Para ejecutar adecuadamente los 3 servicios sigue estos pasos:
    -  para subir el servicio de *jupyterlab* accede a la carpeta *jupyter_api* y ejecuta el archivo .yaml usando el comando ```docker compose up -build ``` desde la terminal.
    - accede al link que aparecerá en la terminal una vez se haya creado el contenedor.
 
-## Entrenamiento del modelo y captura de información 	:computer: ##
+## Entrenamiento del modelo y captura de información :computer: ##
 
 Para encontrar el notebook base de este ejercicio dirígete a la carpeta jupyter_api  --> jupyter_models --> app --> train_models.ipynb. Dentro del notebook se ejecutan los siguientes pasos:
 - Creación de tablas dentro de la base de datos *mysql*
