@@ -31,7 +31,7 @@ async def root():
 
 # Cargar los datos del archivo CSV
 data = []
-with open('/data/covertype.csv', newline='') as csvfile:
+with open('/app/api_data/data/covertype.csv', newline='') as csvfile:
     reader = csv.reader(csvfile)
     next(reader, None)
     for row in reader:
@@ -48,8 +48,8 @@ def get_batch_data(batch_number:int, batch_size:int=batch_size):
     return random_data
 
 # Cargar información previa si existe
-if os.path.isfile('/data/timestamps.json'):
-    with open('/data/timestamps.json', "r") as f:
+if os.path.isfile('/app/api_data/data/timestamps.json'):
+    with open('/app/api_data/data/timestamps.json', "r") as f:
         timestamps = json.load(f)
         
 else:
@@ -79,7 +79,7 @@ async def read_data(group_number: int):
     
     # Utilizar los mismos datos que la última vez (una parte del mismo grupo de información)
     random_data = get_batch_data(group_number)
-    with open('/data/timestamps.json', 'w') as file:
+    with open('/app/api_data/data/timestamps.json', 'w') as file:
         file.write(json.dumps(timestamps))
     
     return {"group_number": group_number, "batch_number": timestamps[str(group_number)][1], "data": random_data}
@@ -92,6 +92,6 @@ async def restart_data(group_number: int):
 
     timestamps[str(group_number)][0] = 0
     timestamps[str(group_number)][1] = -1
-    with open('/data/timestamps.json', 'w') as file:
+    with open('/app/api_data/data/timestamps.json', 'w') as file:
         file.write(json.dumps(timestamps))
     return {'ok'}

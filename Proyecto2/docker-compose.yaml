@@ -53,7 +53,7 @@ x-airflow-common:
   # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.6.0}
   build: 
       context: ./dependencies
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -87,6 +87,8 @@ x-airflow-common:
       condition: service_healthy
     mysql:
       condition: service_healthy
+  networks:
+      - proyecto2_airflow_network
 
 services:
   mysql:
@@ -106,6 +108,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - proyecto2_airflow_network
 
   redis:
     image: redis:latest
@@ -118,6 +122,8 @@ services:
       retries: 50
       start_period: 30s
     restart: always
+    networks:
+      - proyecto2_airflow_network
 
   airflow-webserver:
     <<: *airflow-common
@@ -135,6 +141,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - proyecto2_airflow_network
 
   airflow-scheduler:
     <<: *airflow-common
@@ -150,6 +158,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - proyecto2_airflow_network
 
   airflow-worker:
     <<: *airflow-common
@@ -172,6 +182,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - proyecto2_airflow_network
 
   airflow-triggerer:
     <<: *airflow-common
@@ -187,6 +199,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - proyecto2_airflow_network
 
   airflow-init:
     <<: *airflow-common
@@ -265,6 +279,8 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
+    networks:
+      - proyecto2_airflow_network
 
   airflow-cli:
     <<: *airflow-common
@@ -278,6 +294,8 @@ services:
       - bash
       - -c
       - airflow
+    networks:
+      - proyecto2_airflow_network
 
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
@@ -300,7 +318,23 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - proyecto2_airflow_network
   
+
+  api:
+    build: 
+      context: ./app/api_data
+      dockerfile: Dockerfile
+    container_name: fastapi
+    ports:
+      - '80:80'
+    volumes:
+      - ./app/api_data/data:/app/api_data/data
+      - ./app/api_data/main.py:/app/api_data/main.py
+    restart: always
+    networks:
+      - proyecto2_airflow_network
 
   # # servicio para inferir con modelos
   # call_models:
@@ -319,6 +353,9 @@ services:
 
   #   command: "uv run uvicorn main:app --host 0.0.0.0 --port 80 --reload"
 
+networks:
+  proyecto2_airflow_network:
+    driver: "bridge"
 
 volumes:
   postgres-db-volume:
