@@ -39,10 +39,29 @@ def load_csv_to_mysql():
             sex VARCHAR(20)
         )
         """
+        create_table_query_1 = """
+        CREATE TABLE IF NOT EXISTS penguins_api (
+            Elevation FLOAT, 
+            Aspect FLOAT, 
+            Slope FLOAT, 
+            Horizontal_Distance_To_Hydrology FLOAT, 
+            Vertical_Distance_To_Hydrology FLOAT, 
+            Horizontal_Distance_To_Roadways FLOAT, 
+            Hillshade_9am FLOAT, 
+            Hillshade_Noon FLOAT, 
+            Hillshade_3pm FLOAT, 
+            Horizontal_Distance_To_Fire_Points FLOAT, 
+            Wilderness_Area FLOAT, 
+            Soil_Type VARCHAR(20), 
+            Cover_Type VARCHAR(20), 
+            batch_number FLOAT
+        )
+        """
         
         #ejecutar query
         with engine.begin() as connection:
             connection.execute(create_table_query)
+            connection.execute(create_table_query_1)
             df.to_sql(name="penguins", con=connection, if_exists="replace", index=False)
 
         logging.info("Datos cargados exitosamente en MySQL.")
