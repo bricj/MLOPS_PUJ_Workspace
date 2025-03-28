@@ -17,26 +17,37 @@ def clean_transform_data():
     engine = mysql_hook.get_sqlalchemy_engine()
 
     #cargar dataframe de mysql
-    sql_query = "SELECT * FROM penguins;"  
+    sql_query = "SELECT * FROM penguins_api;"  
     df = mysql_hook.get_pandas_df(sql_query) # Cargar datos guardados
-    features = ['species','island','culmen_length_mm','culmen_depth_mm',
-                'flipper_length_mm','body_mass_g','sex']
+    features = [
+    "Elevation", "Aspect", "Slope", "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology",
+    "Horizontal_Distance_To_Roadways", "Hillshade_9am", "Hillshade_Noon", "Hillshade_3pm",
+    "Horizontal_Distance_To_Fire_Points", "Wilderness_Area", "Soil_Type", "Cover_Type", "batch_number"
+    ]
     
     # Eliminar datos inválidos
     df = df[features].dropna()
-    df = df[df['sex'] != '.']  
+ 
        
-    variables_categoricas = ['species','island', 'sex']
-    variables_continuas = ['culmen_length_mm','culmen_depth_mm','flipper_length_mm']
+    variables_categoricas = ["Wilderness_Area", "Soil_Type", "Cover_Type"]
+    variables_continuas = [
+        "Elevation", "Aspect", "Slope", "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology",
+    "Horizontal_Distance_To_Roadways", "Hillshade_9am", "Hillshade_Noon", "Hillshade_3pm",
+    "Horizontal_Distance_To_Fire_Points"
+    ]
     
     # codificacion n a 1
+    """
     le = LabelEncoder()
     for var in variables_categoricas:
         df[var] = le.fit_transform(df[var])
+    """
     
     # normalizacion
+    """
     scaler = MinMaxScaler()
     df[variables_continuas] = scaler.fit_transform(df[variables_continuas])
+    """
 
     #query para crear tabla de datos procesados
     create_table_query = """

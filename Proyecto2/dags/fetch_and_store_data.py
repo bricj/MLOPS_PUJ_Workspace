@@ -3,11 +3,23 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.mysql.hooks.mysql import MySqlHook
 from datetime import datetime, timedelta
 import requests
-import pymysql
 import pandas as pd
+from sqlalchemy import text
 
-API_URL = "http://localhost:80/data?group_number=2"
+API_URL = "http://fastapi:80/data?group_number=2"
 TABLE_NAME = "penguins_api"
+
+
+# Mapeo de nombres de columnas de la API a la base de datos
+api_columns = [
+    "col1", "col2", "col3", "col4", "col5", "col6", "col7", "col8", "col9", "col10", "col11", "col12", "col13"
+]
+
+db_columns = [
+    "Elevation", "Aspect", "Slope", "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology",
+    "Horizontal_Distance_To_Roadways", "Hillshade_9am", "Hillshade_Noon", "Hillshade_3pm",
+    "Horizontal_Distance_To_Fire_Points", "Wilderness_Area", "Soil_Type", "Cover_Type", "batch_number"
+]
 
 # Función para obtener los datos desde la API
 def fetch_data():
@@ -27,20 +39,21 @@ def store_data():
     batch_number = data["batch_number"]
     records = data["data"]
     
-    for record in records:
-        record.append(batch_number)  # Añadir batch_number al final
-
-        columns = ["Elevation", "Aspect", "Slope", "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology", "Horizontal_Distance_To_Roadways", "Hillshade_9am", "Hillshade_Noon", "Hillshade_3pm", "Horizontal_Distance_To_Fire_Points", "Wilderness_Area", "Soil_Type", "Cover_Type", "batch_number"]
-        values_placeholders = ", ".join(["%s"] * len(columns))
-        update_values = ", ".join([f"{col}=VALUES({col})" for col in columns])
-        
-        sql = text(f"""
-            INSERT INTO {TABLE_NAME} ({', '.join(columns)})
+    with engine.connect() as connection:
+        for record in records:
+            mapped_record = dict(zip(db_columns[:-1], record))  # Mapear valores con nombres de columnas
+            mapped_record["batch_number"] = batch_number  # Añadir batch_number
+            
+            values_placeholders = ", ".join([":%s" % col for col in db_columns])
+            update_values = ", ".join([f"{col}=VALUES({col})" for col in db_columns])
+            
+            sql = text(f"""
+            INSERT INTO {TABLE_NAME} ({', '.join(db_columns)})
             VALUES ({values_placeholders})
             ON DUPLICATE KEY UPDATE {update_values};
             """)
             
-        connection.execute(sql, dict(zip(columns, record)))
+            connection.execute(sql, mapped_record)
 
 
 # Definición del DAG
@@ -57,7 +70,7 @@ dag = DAG(
     'fetch_and_store_data',
     default_args=default_args,
     description='Obtiene datos de una API y los almacena en MySQL',
-    schedule_interval=timedelta(days=1),
+    schedule_interval=timedelta(minutes=5),  # Ejecutar cada 5 minutos
 )
 
 store_data_task = PythonOperator(
