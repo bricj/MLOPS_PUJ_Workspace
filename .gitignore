@@ -27,3 +27,14 @@ Taller3/logs/dag_id=train_model_penguins/
 Taller3/API_read_models/app/__pycache__/
 Taller3/API_read_models/app/logs/
 Taller4/jupyter_api/jupyter_models/app/.ipynb_checkpoints/
+Proyecto2/logs/dag_processor_manager/
+Proyecto2/logs/scheduler/
+Proyecto2/logs/dag_id=load_data_api/
+Proyecto2/logs/dag_processor_manager/
+Proyecto2/logs/scheduler/
+Proyecto2/models/
+Proyecto2/plugins/
+Proyecto2/dags/__pycache__/
+Proyecto2/logs/dag_id=dag_maestro/
+Proyecto2/logs/dag_id=data_api/
+Proyecto2/logs/dag_id=eliminar_tabla_mysql/
