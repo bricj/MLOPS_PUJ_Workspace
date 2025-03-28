@@ -19,24 +19,24 @@ with DAG(
 
     #funcion que sube los datos a mysql
     t1 = TriggerDagRunOperator(
-        task_id="load_csv_to_mysql",
-        trigger_dag_id="crear_tabla_mysql",
+        task_id="get_data_api",
+        trigger_dag_id="load_data_api",
         wait_for_completion=True,
     )
 
-    #funcion que procesa datos
-    t2 = TriggerDagRunOperator(
-        task_id="transform_data",
-        trigger_dag_id="clean_transform_data",
-        wait_for_completion=True,
-    )
+    # #funcion que procesa datos
+    # t2 = TriggerDagRunOperator(
+    #     task_id="transform_data",
+    #     trigger_dag_id="clean_transform_data",
+    #     wait_for_completion=True,
+    # )
 
-    #funcion que entrena modelo
-    t3 = TriggerDagRunOperator(
-        task_id="train_model",
-        trigger_dag_id="train_model_penguins",
-        wait_for_completion=True,
-    )
+    # #funcion que entrena modelo
+    # t3 = TriggerDagRunOperator(
+    #     task_id="train_model",
+    #     trigger_dag_id="train_model_penguins",
+    #     wait_for_completion=True,
+    # )
 
     #funcion que elimina tablas
     t4 = TriggerDagRunOperator(
@@ -46,4 +46,4 @@ with DAG(
     )
 
     # Definir el orden de ejecución
-    t1 >> t2 >> t3 >> t4
+    t4 >> t1 #>> t3 >> t4

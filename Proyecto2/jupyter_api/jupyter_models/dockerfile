@@ -1,0 +1,11 @@
+FROM python:3.12
+
+WORKDIR /src
+ADD ./train_models /src/train_models
+ADD ./app /src/train_models/app
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /src/train_models
+RUN uv sync --frozen
+RUN uv add -r app/requirements.txt

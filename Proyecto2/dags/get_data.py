@@ -1,41 +1,16 @@
 from airflow import DAG
 from airflow.providers.mysql.hooks.mysql import MySqlHook
 from airflow.operators.python import PythonOperator
-from datetime import datetime
-from airflow.utils.dates import days_ago
-
-import requests
-import json
-import readline
-
+from datetime import datetime, timedelta
 import requests
 from sqlalchemy.sql import text
-from airflow.providers.mysql.hooks.mysql import MySqlHook
-from datetime import datetime, timedelta
+from airflow.utils.dates import days_ago
 
-
-
-# Función 
+# Función para obtener y guardar datos
 def get_data():
-    #url = 'http://10.43.101.149:80/data?group_number=3'
-    url = "http://10.43.101.166:80/data?group_number=6"
+    url_template = "http://10.43.101.166:80/data?group_number=6"
     TABLE_NAME = "covertype_api"      
 
-    try:
-        r = requests.get(url, timeout=10)
-        r.raise_for_status()
-        d = r.json()
-        data = d.get('data', [])  # Corrección aquí
-        group_number = d.get('group_number', None)
-        batch_number = d.get('batch_number', None)
-        #data = d.get('data', [{}])[0]
-        #return json.dumps(data)  # Serializar para XCom
-    except requests.exceptions.RequestException as e:
-        print(f"Error en la API: {e}")
-        return  # Termina la ejecución para evitar errores   
-        #return json.dumps({"error": str(e)})  # Evita errores en XCom 
-
-    # Conectar a MySQL
     mysql_hook = MySqlHook(mysql_conn_id="mysql_airflow_conn")  
     engine = mysql_hook.get_sqlalchemy_engine()
 
@@ -46,7 +21,7 @@ def get_data():
         "Horizontal_Distance_To_Fire_Points", "Wilderness_Area", "Soil_Type",
         "Cover_Type", "batch_number"
     ]
-    
+
     values_placeholders = ", ".join(["%s"] * len(columns))
     update_values = ", ".join([f"{col}=VALUES({col})" for col in columns])
 
@@ -57,13 +32,23 @@ def get_data():
     """)
 
     with engine.connect() as connection:
-        for record in data:
-            record.append(batch_number)  # Agregar batch_number al final
-            connection.execute(sql, dict(zip(columns, record)))
+        for batch in range(1, 11):  # Ejecutar 10 veces
+            try:
+                url = url_template.format(batch)
+                r = requests.get(url, timeout=10)
+                r.raise_for_status()
+                d = r.json()
+                data = d.get('data', [])
+                batch_number = d.get('batch_number', batch)  # Si no existe, asigna el número de iteración
+                
+                for record in data:
+                    record.append(batch_number)  # Agregar batch_number al final
+                    connection.execute(sql, dict(zip(columns, record)))
 
-    return print(
-        f"Se ha cargado el batch {batch_number} de la tabla de datos original")
-
+                print(f"✅ Se ha cargado el batch {batch_number} con {len(data)} registros")
+            except requests.exceptions.RequestException as e:
+                print(f"❌ Error en la API (batch {batch}): {e}")
+    
 # Definir el DAG
 default_args = {
     "owner": "airflow",
@@ -72,18 +57,16 @@ default_args = {
     "retry_delay": timedelta(minutes=1)
 }
 
-#crear dag
 with DAG(
-    dag_id="load_data_api",
+    dag_id="data_api",
     default_args=default_args,
-    schedule_interval="*/1 * * * *",
+    schedule_interval="@daily",  # Ejecutar 1 vez al día (dentro ejecuta 10 veces)
     max_active_runs=1,
     catchup=False,
 ) as dag:
 
-    #conectar funcion a dag
     load_table_task = PythonOperator(
-        task_id="get_data_api",
+        task_id="g_data_api",
         python_callable=get_data
     )
 
