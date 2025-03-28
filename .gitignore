@@ -38,3 +38,5 @@ Proyecto2/dags/__pycache__/
 Proyecto2/logs/dag_id=dag_maestro/
 Proyecto2/logs/dag_id=data_api/
 Proyecto2/logs/dag_id=eliminar_tabla_mysql/
+Proyecto2/logs/dag_id=fetch_and_store_data/
+Proyecto2/minio/

@@ -25,6 +25,7 @@ db_columns = [
 def fetch_data():
     response = requests.get(API_URL)
     response.raise_for_status()
+    print(response.status_code)
     return response.json()
 
 # Función para almacenar los datos en MySQL

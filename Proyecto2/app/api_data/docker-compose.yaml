@@ -12,9 +12,3 @@ services:
       - ./data:/data
       - ./main.py:/main.py
     restart: always
-    networks:
-      - proyecto2_airflow_network
-
-networks:
-  proyecto2_airflow_network:
-    driver: "bridge"

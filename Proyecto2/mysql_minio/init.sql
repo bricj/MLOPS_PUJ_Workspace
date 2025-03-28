@@ -1,2 +1,4 @@
-GRANT ALL PRIVILEGES ON mlflow.* TO 'mlflow'@'%' IDENTIFIED BY 'mlflow';
+CREATE DATABASE IF NOT EXISTS mlflow;
+GRANT ALL PRIVILEGES ON mlflow.* TO 'mlflow'@'%';
+GRANT ALL PRIVILEGES ON mlflow.* TO 'airflow'@'%'; 
 FLUSH PRIVILEGES;
