@@ -17,7 +17,7 @@ def clean_transform_data():
     engine = mysql_hook.get_sqlalchemy_engine()
 
     #cargar dataframe de mysql
-    sql_query = "SELECT * FROM covertype_api;"  
+    sql_query = "SELECT * FROM penguins_api;"  
     df = mysql_hook.get_pandas_df(sql_query) # Cargar datos guardados
     features = ['Elevation', 'Aspect', 'Slope', 'Horizontal_Distance_To_Hydrology',
        'Vertical_Distance_To_Hydrology', 'Horizontal_Distance_To_Roadways',
@@ -28,13 +28,13 @@ def clean_transform_data():
     # Eliminar datos inválidos
     df = df[features].dropna() # No hay evidencia de datos perdidos en el EDA
        
-    variables_categoricas = ['Elevation', 'Aspect', 'Slope', 'Horizontal_Distance_To_Hydrology',
+    variables_categoricas =  ['Wilderness_Area','Soil_Type',
+       'Cover_Type']
+    
+    variables_continuas = ['Elevation', 'Aspect', 'Slope', 'Horizontal_Distance_To_Hydrology',
        'Vertical_Distance_To_Hydrology', 'Horizontal_Distance_To_Roadways',
        'Hillshade_9am', 'Hillshade_Noon', 'Hillshade_3pm',
        'Horizontal_Distance_To_Fire_Points', 'Wilderness_Area']
-    
-    variables_continuas = ['Wilderness_Area','Soil_Type',
-       'Cover_Type']
     
     # codificacion n a 1
     le = LabelEncoder()
@@ -47,21 +47,28 @@ def clean_transform_data():
 
     #query para crear tabla de datos procesados
     create_table_query = """
-        CREATE TABLE IF NOT EXISTS penguins_proc (
-            species INTEGER,
-            island INTEGER,
-            culmen_length_mm FLOAT,
-            culmen_depth_mm FLOAT,
-            flipper_length_mm FLOAT,
-            body_mass_g FLOAT,
-            sex INTEGER
+        CREATE TABLE IF NOT EXISTS penguins_api_proc (
+            Elevation FLOAT, 
+            Aspect FLOAT, 
+            Slope FLOAT, 
+            Horizontal_Distance_To_Hydrology FLOAT, 
+            Vertical_Distance_To_Hydrology FLOAT, 
+            Horizontal_Distance_To_Roadways FLOAT, 
+            Hillshade_9am FLOAT, 
+            Hillshade_Noon FLOAT, 
+            Hillshade_3pm FLOAT, 
+            Horizontal_Distance_To_Fire_Points FLOAT, 
+            Wilderness_Area INTEGER, 
+            Soil_Type INTEGER, 
+            Cover_Type INTEGER, 
+            batch_number FLOAT
         )
         """
     
     #ejecutar query
     with engine.begin() as connection:
             connection.execute(create_table_query)
-            df.to_sql(name="covertype_proc", con=connection, if_exists="replace", index=False)
+            df.to_sql(name="penguins_api_proc", con=connection, if_exists="replace", index=False)
 
 
 # Definir el DAG

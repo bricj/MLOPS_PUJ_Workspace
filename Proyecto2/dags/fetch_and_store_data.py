@@ -7,8 +7,8 @@ import pandas as pd
 from sqlalchemy import text
 from airflow.utils.dates import days_ago
 
-#API_URL = "http://fastapi:80/data?group_number=2"
-API_URL = "http://10.43.101.166:80/data?group_number=3"
+API_URL = "http://fastapi:80/data?group_number=4"
+#API_URL = "http://10.43.101.166:80/data?group_number=3"
 TABLE_NAME = "covertype_api"
 
 
