@@ -40,3 +40,10 @@ Proyecto2/logs/dag_id=data_api/
 Proyecto2/logs/dag_id=eliminar_tabla_mysql/
 Proyecto2/logs/dag_id=fetch_and_store_data/
 Proyecto2/minio/
+Proyecto2/logs/dag_id=data_api/
+Proyecto2/logs/dag_id=eliminar_tabla_mysql/
+Proyecto2/logs/dag_processor_manager/
+Proyecto2/logs/scheduler/
+Proyecto2/logs/dag_id=dag_maestro/
+Proyecto2/logs/dag_id=crear_tabla_mysql/
+Proyecto2/jupyter_api/jupyter_models/app/.ipynb_checkpoints/

@@ -5,9 +5,11 @@ from datetime import datetime, timedelta
 import requests
 import pandas as pd
 from sqlalchemy import text
+from airflow.utils.dates import days_ago
 
-API_URL = "http://fastapi:80/data?group_number=2"
-TABLE_NAME = "penguins_api"
+#API_URL = "http://fastapi:80/data?group_number=2"
+API_URL = "http://10.43.101.166:80/data?group_number=3"
+TABLE_NAME = "covertype_api"
 
 
 # Mapeo de nombres de columnas de la API a la base de datos
@@ -61,23 +63,25 @@ def store_data():
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2025, 3, 26),
+    'start_date': days_ago(1),
     'email_on_failure': False,
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5),
+    'retries': 1#,
+    #'retry_delay': timedelta(minutes=5),
 }
 
-dag = DAG(
-    'fetch_and_store_data',
+with DAG(
+    dag_id='fetch_and_store_data',
     default_args=default_args,
     description='Obtiene datos de una API y los almacena en MySQL',
-    schedule_interval=timedelta(minutes=5),  # Ejecutar cada 5 minutos
-)
+    schedule_interval=timedelta(minutes=1),  # Ejecutar cada 1 minutos
+    #schedule_interval=None, 
+    catchup=False
+) as dag:
 
-store_data_task = PythonOperator(
-    task_id='store_data',
-    python_callable=store_data,
-    dag=dag,
-)
+    store_data_task = PythonOperator(
+        task_id='store_data',
+        python_callable=store_data,
+        dag=dag,
+    )
 
-store_data_task
+    store_data_task
