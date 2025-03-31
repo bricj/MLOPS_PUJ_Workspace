@@ -7,10 +7,9 @@ import pandas as pd
 from sqlalchemy import text
 from airflow.utils.dates import days_ago
 
-API_URL = "http://fastapi:80/data?group_number=4"
-#API_URL = "http://10.43.101.166:80/data?group_number=3"
-TABLE_NAME = "covertype_api"
-
+API_URL = "http://datapi:80/data?group_number=7"
+# API_URL = "http://10.43.101.108:80/data?group_number=3"
+TABLE_NAME = "suelos"
 
 # Mapeo de nombres de columnas de la API a la base de datos
 api_columns = [
@@ -41,13 +40,14 @@ def store_data():
     group_number = data["group_number"]
     batch_number = data["batch_number"]
     records = data["data"]
+    print(f"el tamaño de los datos es {len(records)}")
     
     with engine.connect() as connection:
         for record in records:
             mapped_record = dict(zip(db_columns[:-1], record))  # Mapear valores con nombres de columnas
             mapped_record["batch_number"] = batch_number  # Añadir batch_number
             
-            values_placeholders = ", ".join([":%s" % col for col in db_columns])
+            values_placeholders = ", ".join([f"'{v}'" if isinstance(v, str) else str(v) for v in list(mapped_record.values())])
             update_values = ", ".join([f"{col}=VALUES({col})" for col in db_columns])
             
             sql = text(f"""
@@ -56,8 +56,7 @@ def store_data():
             ON DUPLICATE KEY UPDATE {update_values};
             """)
             
-            connection.execute(sql, mapped_record)
-
+            connection.execute(sql)
 
 # Definición del DAG
 default_args = {
@@ -73,8 +72,7 @@ with DAG(
     dag_id='fetch_and_store_data',
     default_args=default_args,
     description='Obtiene datos de una API y los almacena en MySQL',
-    schedule_interval=timedelta(minutes=1),  # Ejecutar cada 1 minutos
-    #schedule_interval=None, 
+    schedule_interval=None,  
     catchup=False
 ) as dag:
 

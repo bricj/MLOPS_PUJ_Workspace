@@ -38,12 +38,6 @@ with DAG(
     schedule_interval="@daily",
     catchup=False,
 ) as dag:
-    
-    trigger_dag_hijo = PythonOperator(
-        task_id="trigger_dag_hijo",
-        python_callable=trigger_dag_repeatedly,
-        provide_context=True
-    )
 
     #funcion que sube los datos a mysql
     t1 = TriggerDagRunOperator(
@@ -62,14 +56,14 @@ with DAG(
     #funcion que entrena modelo
     t3 = TriggerDagRunOperator(
         task_id="train_model",
-        trigger_dag_id="train_model_penguins",
+        trigger_dag_id="train_model",
         wait_for_completion=True,
     )
 
     #funcion que elimina tablas
     t4 = TriggerDagRunOperator(
-        task_id="drop_table",
-        trigger_dag_id="eliminar_tabla_mysql",
+        task_id="start_table",
+        trigger_dag_id="iniciar_tabla_mysql",
         wait_for_completion=True,
     )
 

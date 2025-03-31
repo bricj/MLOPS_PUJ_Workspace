@@ -24,10 +24,10 @@ def train_model():
     # Establecer credenciales de acceso a Minio.
     # Indicar IP donde se ha desplegado Minio
 
-    ip_minio = "http://Minio:9000"
+    ip_minio = "http://minio:9000"
     user_minio = 'admin'
     password_minio = 'supersecret'
-    ip_mlflow = "http://mlflow_server:5000"
+    ip_mlflow = "http://mlflow:5000"
 
     os.environ['MLFLOW_S3_ENDPOINT_URL'] = ip_minio
     os.environ['AWS_ACCESS_KEY_ID'] = user_minio
@@ -35,7 +35,7 @@ def train_model():
 
     # Conectar a MySQL
     mysql_hook = MySqlHook(mysql_conn_id="mysql_airflow_conn")  # Asegúrate de definir esta conexión en Airflow
-    sql_query = "SELECT * FROM covertype_proc LIMIT 1000;"  
+    sql_query = "SELECT * FROM suelos_proc LIMIT 1000;"  
     df = mysql_hook.get_pandas_df(sql_query) # Cargar datos guardados
     columns = df.columns
 
@@ -66,8 +66,6 @@ def train_model():
         'C': [0.1, 1],
         'gamma': ['scale', 0.1],
     }
-        # 'C': [0.1, 1, 10, 100],
-        # 'gamma': ['scale', 'auto', 0.01, 0.1, 1],
 
         # inicializar svm
         svm = SVC()
@@ -133,7 +131,7 @@ default_args = {
 
 #crear dag
 with DAG(
-    dag_id="train_model_penguins",
+    dag_id="train_model",
     default_args=default_args,
     description='Ejecuta experimentos de modelo svm en mlflow',
     schedule_interval=None,  # Se ejecuta manualmente

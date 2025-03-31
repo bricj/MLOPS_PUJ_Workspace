@@ -44,7 +44,6 @@
 #
 # Feel free to modify this file to suit your needs.
 ---
-version: '3.8'
 x-airflow-common:
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
@@ -100,7 +99,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: airflow, mlflow
+      MYSQL_DATABASE: airflow
       MYSQL_USER: airflow
       MYSQL_PASSWORD: airflow
     ports:
@@ -111,6 +110,7 @@ services:
     command: >
       --default-authentication-plugin=mysql_native_password
       --init-file /docker-entrypoint-initdb.d/init.sql
+      --bind-address=0.0.0.0
     
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
@@ -331,11 +331,11 @@ services:
       - proyecto2_airflow_network
   
 
-  api:
+  datapi:
     build: 
       context: ./app/api_data
       dockerfile: Dockerfile
-    container_name: fastapi
+    container_name: datapi
     ports:
       - '80:80'
     volumes:
@@ -346,7 +346,7 @@ services:
       - proyecto2_airflow_network
   
   minio:
-    container_name: Minio
+    container_name: minio
     command: server /data --console-address ":9001"
     environment:
       - MINIO_ROOT_USER=admin

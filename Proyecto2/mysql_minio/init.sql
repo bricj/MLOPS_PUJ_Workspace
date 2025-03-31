@@ -1,4 +1,9 @@
 CREATE DATABASE IF NOT EXISTS mlflow;
-GRANT ALL PRIVILEGES ON mlflow.* TO 'mlflow'@'%';
-GRANT ALL PRIVILEGES ON mlflow.* TO 'airflow'@'%'; 
+CREATE DATABASE IF NOT EXISTS airflow;
+
+CREATE USER IF NOT EXISTS 'airflow'@'%' IDENTIFIED BY 'airflow';
+
+GRANT ALL PRIVILEGES ON mlflow.* TO 'airflow'@'%';
+GRANT ALL PRIVILEGES ON airflow.* TO 'airflow'@'%';
+
 FLUSH PRIVILEGES;

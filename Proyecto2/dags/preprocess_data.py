@@ -17,7 +17,7 @@ def clean_transform_data():
     engine = mysql_hook.get_sqlalchemy_engine()
 
     #cargar dataframe de mysql
-    sql_query = "SELECT * FROM penguins_api;"  
+    sql_query = "SELECT * FROM suelos;"  
     df = mysql_hook.get_pandas_df(sql_query) # Cargar datos guardados
     features = ['Elevation', 'Aspect', 'Slope', 'Horizontal_Distance_To_Hydrology',
        'Vertical_Distance_To_Hydrology', 'Horizontal_Distance_To_Roadways',
@@ -47,7 +47,7 @@ def clean_transform_data():
 
     #query para crear tabla de datos procesados
     create_table_query = """
-        CREATE TABLE IF NOT EXISTS penguins_api_proc (
+        CREATE TABLE IF NOT EXISTS suelos_proc (
             Elevation FLOAT, 
             Aspect FLOAT, 
             Slope FLOAT, 
@@ -68,7 +68,7 @@ def clean_transform_data():
     #ejecutar query
     with engine.begin() as connection:
             connection.execute(create_table_query)
-            df.to_sql(name="penguins_api_proc", con=connection, if_exists="replace", index=False)
+            df.to_sql(name="suelos_proc", con=connection, if_exists="replace", index=False)
 
 
 # Definir el DAG
