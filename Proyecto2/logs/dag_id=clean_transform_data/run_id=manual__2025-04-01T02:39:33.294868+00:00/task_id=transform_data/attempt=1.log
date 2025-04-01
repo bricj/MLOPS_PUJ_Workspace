@@ -1,0 +1,87 @@
+[2025-04-01T02:39:38.236+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clean_transform_data.transform_data manual__2025-04-01T02:39:33.294868+00:00 [queued]>
+[2025-04-01T02:39:38.277+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clean_transform_data.transform_data manual__2025-04-01T02:39:33.294868+00:00 [queued]>
+[2025-04-01T02:39:38.277+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-04-01T02:39:38.324+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): transform_data> on 2025-04-01 02:39:33.294868+00:00
+[2025-04-01T02:39:38.361+0000] {standard_task_runner.py:57} INFO - Started process 26867 to run task
+[2025-04-01T02:39:38.390+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'clean_transform_data', 'transform_data', 'manual__2025-04-01T02:39:33.294868+00:00', '--job-id', '562', '--raw', '--subdir', 'DAGS_FOLDER/preprocess_data.py', '--cfg-path', '/tmp/tmp30emrnvv']
+[2025-04-01T02:39:38.404+0000] {standard_task_runner.py:85} INFO - Job 562: Subtask transform_data
+[2025-04-01T02:39:38.656+0000] {task_command.py:410} INFO - Running <TaskInstance: clean_transform_data.transform_data manual__2025-04-01T02:39:33.294868+00:00 [running]> on host 76e1807f7118
+[2025-04-01T02:39:38.917+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='clean_transform_data' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-01T02:39:33.294868+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-01T02:39:33.294868+00:00'
+[2025-04-01T02:39:38.958+0000] {base.py:73} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-04-01T02:39:39.009+0000] {base.py:73} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-04-01T02:39:39.464+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1051, "Unknown table '***.suelos_proc'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/preprocess_data.py", line 71, in clean_transform_data
+    df.to_sql(name="suelos_proc", con=connection, if_exists="replace", index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 2882, in to_sql
+    method=method,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 728, in to_sql
+    **engine_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1758, in to_sql
+    dtype=dtype,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1650, in prep_table
+    table.create()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 860, in create
+    self.pd_sql.drop_table(self.name, self.schema)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/sql.py", line 1810, in drop_table
+    self.get_table(table_name, schema).drop()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/schema.py", line 979, in drop
+    bind._run_ddl_visitor(ddl.SchemaDropper, self, checkfirst=checkfirst)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2211, in _run_ddl_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 524, in traverse_single
+    return meth(obj, **kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/ddl.py", line 1106, in visit_table
+    self.connection.execute(DropTable(table))
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1380, in execute
+    return meth(self, multiparams, params, _EMPTY_EXECUTION_OPTS)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/sql/ddl.py", line 81, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1478, in _execute_ddl
+    compiled,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+sqlalchemy.exc.OperationalError: (MySQLdb.OperationalError) (1051, "Unknown table '***.suelos_proc'")
+[SQL: 
+DROP TABLE suelos_proc]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2025-04-01T02:39:39.519+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=clean_transform_data, task_id=transform_data, execution_date=20250401T023933, start_date=20250401T023938, end_date=20250401T023939
+[2025-04-01T02:39:39.548+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 562 for task transform_data ((MySQLdb.OperationalError) (1051, "Unknown table '***.suelos_proc'")
+[SQL: 
+DROP TABLE suelos_proc]
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 26867)
+[2025-04-01T02:39:39.628+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-04-01T02:39:39.672+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

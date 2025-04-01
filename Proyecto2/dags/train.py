@@ -15,11 +15,15 @@ import os
 import boto3
 from sklearn.svm import SVC
 
+
+
 # Definir rutas de almacenamiento dentro del volumen compartido
 DATA_OUTPUT = "/opt/airflow/models/"  # Directorio donde guardaremos el modelo
 
 # Función para entrenar el modelo
 def train_model():
+
+    print("MLflow Version:", mlflow.__version__)
 
     # Establecer credenciales de acceso a Minio.
     # Indicar IP donde se ha desplegado Minio
@@ -84,15 +88,16 @@ def train_model():
 
         # Se define nombre del modelo y version
         model_name = "svm-model"
-        model_version = 1
+        model_version = 4
 
         # Se lleva el modelo a ambiente de produccion
         client = mlflow.tracking.MlflowClient()
-        registered_model = client.create_registered_model(model_name)
+        #registered_model = client.create_registered_model(model_name)
+        
 
         # Crear una nueva versión del modelo
         model_uri = f"runs:/{run.info.run_id}/svm"
-        model_version = client.create_model_version(model_name, model_uri, run.info.run_id)
+        #model_version = client.create_model_version(model_name, model_uri, run.info.run_id)
 
         # Transicionar a producción
         client.transition_model_version_stage(
