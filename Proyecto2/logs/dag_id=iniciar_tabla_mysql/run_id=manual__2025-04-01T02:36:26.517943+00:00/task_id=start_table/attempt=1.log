@@ -1,0 +1,14 @@
+[2025-04-01T02:36:33.126+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: iniciar_tabla_mysql.start_table manual__2025-04-01T02:36:26.517943+00:00 [queued]>
+[2025-04-01T02:36:33.459+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: iniciar_tabla_mysql.start_table manual__2025-04-01T02:36:26.517943+00:00 [queued]>
+[2025-04-01T02:36:33.485+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-04-01T02:36:33.788+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): start_table> on 2025-04-01 02:36:26.517943+00:00
+[2025-04-01T02:36:33.929+0000] {standard_task_runner.py:57} INFO - Started process 26788 to run task
+[2025-04-01T02:36:33.989+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'iniciar_tabla_mysql', 'start_table', 'manual__2025-04-01T02:36:26.517943+00:00', '--job-id', '552', '--raw', '--subdir', 'DAGS_FOLDER/mysql_start_table.py', '--cfg-path', '/tmp/tmp1objfvc1']
+[2025-04-01T02:36:33.995+0000] {standard_task_runner.py:85} INFO - Job 552: Subtask start_table
+[2025-04-01T02:36:34.718+0000] {task_command.py:410} INFO - Running <TaskInstance: iniciar_tabla_mysql.start_table manual__2025-04-01T02:36:26.517943+00:00 [running]> on host 76e1807f7118
+[2025-04-01T02:36:35.840+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='iniciar_tabla_mysql' AIRFLOW_CTX_TASK_ID='start_table' AIRFLOW_CTX_EXECUTION_DATE='2025-04-01T02:36:26.517943+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-01T02:36:26.517943+00:00'
+[2025-04-01T02:36:36.121+0000] {base.py:73} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-04-01T02:36:36.681+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-04-01T02:36:36.905+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=iniciar_tabla_mysql, task_id=start_table, execution_date=20250401T023626, start_date=20250401T023633, end_date=20250401T023636
+[2025-04-01T02:36:37.164+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-04-01T02:36:37.785+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

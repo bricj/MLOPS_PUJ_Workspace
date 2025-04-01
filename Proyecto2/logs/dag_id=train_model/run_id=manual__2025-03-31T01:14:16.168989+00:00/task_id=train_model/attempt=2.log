@@ -1,0 +1,30 @@
+[2025-03-31T01:15:23.100+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model.train_model manual__2025-03-31T01:14:16.168989+00:00 [queued]>
+[2025-03-31T01:15:23.143+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model.train_model manual__2025-03-31T01:14:16.168989+00:00 [queued]>
+[2025-03-31T01:15:23.143+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 3
+[2025-03-31T01:15:23.185+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): train_model> on 2025-03-31 01:14:16.168989+00:00
+[2025-03-31T01:15:23.228+0000] {standard_task_runner.py:57} INFO - Started process 1496 to run task
+[2025-03-31T01:15:23.248+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'train_model', 'train_model', 'manual__2025-03-31T01:14:16.168989+00:00', '--job-id', '547', '--raw', '--subdir', 'DAGS_FOLDER/train.py', '--cfg-path', '/tmp/tmplssip448']
+[2025-03-31T01:15:23.256+0000] {standard_task_runner.py:85} INFO - Job 547: Subtask train_model
+[2025-03-31T01:15:23.540+0000] {task_command.py:410} INFO - Running <TaskInstance: train_model.train_model manual__2025-03-31T01:14:16.168989+00:00 [running]> on host 76e1807f7118
+[2025-03-31T01:15:23.769+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='train_model' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T01:14:16.168989+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T01:14:16.168989+00:00'
+[2025-03-31T01:15:23.798+0000] {base.py:73} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-03-31T01:15:23.951+0000] {logging_mixin.py:149} INFO - Experiment 'mlflow_tracking_examples_3' already exists with ID: 1
+[2025-03-31T01:15:24.011+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/joblib/parallel.py:736: UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+  **self._backend_args)
+
+[2025-03-31T01:15:24.018+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/sklearn/model_selection/_split.py:680: UserWarning: The least populated class in y has only 3 members, which is less than n_splits=5.
+  UserWarning,
+
+[2025-03-31T01:15:24.915+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/train.py", line 105, in train_model
+    with open(model_path, "wb") as f:
+PermissionError: [Errno 13] Permission denied: 'best_model.pkl'
+[2025-03-31T01:15:24.943+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=train_model, task_id=train_model, execution_date=20250331T011416, start_date=20250331T011523, end_date=20250331T011524
+[2025-03-31T01:15:24.968+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 547 for task train_model ([Errno 13] Permission denied: 'best_model.pkl'; 1496)
+[2025-03-31T01:15:25.022+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-03-31T01:15:25.067+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

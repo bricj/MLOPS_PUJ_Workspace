@@ -1,0 +1,81 @@
+[2025-04-01T04:12:50.426+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-01T04:12:50.497+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model.train_model manual__2025-04-01T04:06:13.385813+00:00 [queued]>
+[2025-04-01T04:12:50.525+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model.train_model manual__2025-04-01T04:06:13.385813+00:00 [queued]>
+[2025-04-01T04:12:50.525+0000] {taskinstance.py:2303} INFO - Starting attempt 3 of 4
+[2025-04-01T04:12:50.580+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): train_model> on 2025-04-01 04:06:13.385813+00:00
+[2025-04-01T04:12:50.636+0000] {standard_task_runner.py:63} INFO - Started process 425 to run task
+[2025-04-01T04:12:50.641+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'train_model', 'train_model', 'manual__2025-04-01T04:06:13.385813+00:00', '--job-id', '597', '--raw', '--subdir', 'DAGS_FOLDER/train.py', '--cfg-path', '/tmp/tmp0xx44fm0']
+[2025-04-01T04:12:50.652+0000] {standard_task_runner.py:91} INFO - Job 597: Subtask train_model
+[2025-04-01T04:12:50.806+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model.train_model manual__2025-04-01T04:06:13.385813+00:00 [running]> on host d34402ef6e0d
+[2025-04-01T04:12:51.050+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='train_model' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-04-01T04:06:13.385813+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-01T04:06:13.385813+00:00'
+[2025-04-01T04:12:51.051+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-01T04:12:51.088+0000] {logging_mixin.py:188} INFO - MLflow Version: 2.17.2
+[2025-04-01T04:12:51.108+0000] {base.py:84} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-04-01T04:12:51.132+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/common/sql/hooks/sql.py:227: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-04-01T04:12:51.462+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:12:51 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-04-01T04:12:51.519+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/joblib/parallel.py:1359: UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+  n_jobs = self._backend.configure(n_jobs=self.n_jobs, parallel=self,
+
+[2025-04-01T04:12:57.971+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:12:57 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+[2025-04-01T04:12:58.037+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2025-04-01T04:12:58.670+0000] {logging_mixin.py:188} WARNING - Registered model 'svm-model' already exists. Creating a new version of this model...
+[2025-04-01T04:12:58.776+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:12:58 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: svm-model, version 4
+[2025-04-01T04:12:58.776+0000] {logging_mixin.py:188} WARNING - Created version '4' of model 'svm-model'.
+[2025-04-01T04:12:58.824+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:12:58 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: svm-model, version 5
+[2025-04-01T04:12:58.826+0000] {warnings.py:109} WARNING - /opt/***/dags/train.py:103: FutureWarning: ``mlflow.tracking.client.MlflowClient.transition_model_version_stage`` is deprecated since 2.9.0. Model registry stages will be removed in a future major release. To learn more about the deprecation of model registry stages, see our migration guide here: https://mlflow.org/docs/latest/model-registry.html#migrating-from-stages
+  client.transition_model_version_stage(
+
+[2025-04-01T04:12:58.920+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:12:58 INFO mlflow.tracking._tracking_service.client: 🏃 View run svm_artifacts at: http://mlflow:5000/#/experiments/1/runs/348496a34dd54bf9bb61683b615052ce.
+[2025-04-01T04:12:58.920+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:12:58 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow:5000/#/experiments/1.
+[2025-04-01T04:12:58.978+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-01T04:12:58.979+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/train.py", line 103, in train_model
+    client.transition_model_version_stage(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/utils/annotations.py", line 145, in deprecated_func
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/tracking/client.py", line 3961, in transition_model_version_stage
+    return self._get_registry_client().transition_model_version_stage(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/tracking/_model_registry/client.py", line 278, in transition_model_version_stage
+    return self.store.transition_model_version_stage(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/store/model_registry/rest_store.py", line 295, in transition_model_version_stage
+    response_proto = self._call_endpoint(TransitionModelVersionStage, req_body)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/store/model_registry/base_rest_store.py", line 44, in _call_endpoint
+    return call_endpoint(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 370, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 240, in verify_rest_response
+    raise RestException(json.loads(response.text))
+mlflow.exceptions.RestException: INVALID_PARAMETER_VALUE: Model version must be an integer, got '<ModelVersion: aliases=[], creation_timestamp=1743480778792, current_stage='None', description='', last_updated_timestamp=1743480778792, name='svm-model', run_id='348496a34dd54bf9bb61683b615052ce', run_link='', source='runs:/348496a34dd54bf9bb61683b615052ce/svm', status='READY', status_message='', tags={}, user_id='', version='5'>'
+[2025-04-01T04:12:59.018+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=train_model, task_id=train_model, execution_date=20250401T040613, start_date=20250401T041250, end_date=20250401T041259
+[2025-04-01T04:12:59.070+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 597 for task train_model (INVALID_PARAMETER_VALUE: Model version must be an integer, got '<ModelVersion: aliases=[], creation_timestamp=1743480778792, current_stage='None', description='', last_updated_timestamp=1743480778792, name='svm-model', run_id='348496a34dd54bf9bb61683b615052ce', run_link='', source='runs:/348496a34dd54bf9bb61683b615052ce/svm', status='READY', status_message='', tags={}, user_id='', version='5'>'; 425)
+[2025-04-01T04:12:59.201+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-01T04:12:59.222+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-01T04:12:59.224+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

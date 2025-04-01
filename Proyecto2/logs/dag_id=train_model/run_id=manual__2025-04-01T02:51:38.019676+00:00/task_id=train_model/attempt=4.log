@@ -1,0 +1,81 @@
+[2025-04-01T04:04:54.630+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-01T04:04:54.716+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: train_model.train_model manual__2025-04-01T02:51:38.019676+00:00 [queued]>
+[2025-04-01T04:04:54.741+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: train_model.train_model manual__2025-04-01T02:51:38.019676+00:00 [queued]>
+[2025-04-01T04:04:54.742+0000] {taskinstance.py:2303} INFO - Starting attempt 4 of 4
+[2025-04-01T04:04:54.770+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): train_model> on 2025-04-01 02:51:38.019676+00:00
+[2025-04-01T04:04:54.812+0000] {standard_task_runner.py:63} INFO - Started process 194 to run task
+[2025-04-01T04:04:54.832+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'train_model', 'train_model', 'manual__2025-04-01T02:51:38.019676+00:00', '--job-id', '593', '--raw', '--subdir', 'DAGS_FOLDER/train.py', '--cfg-path', '/tmp/tmpblwwn9vl']
+[2025-04-01T04:04:54.841+0000] {standard_task_runner.py:91} INFO - Job 593: Subtask train_model
+[2025-04-01T04:04:54.991+0000] {task_command.py:426} INFO - Running <TaskInstance: train_model.train_model manual__2025-04-01T02:51:38.019676+00:00 [running]> on host d34402ef6e0d
+[2025-04-01T04:04:55.244+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='train_model' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-04-01T02:51:38.019676+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-01T02:51:38.019676+00:00'
+[2025-04-01T04:04:55.246+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-01T04:04:55.306+0000] {logging_mixin.py:188} INFO - MLflow Version: 2.17.2
+[2025-04-01T04:04:55.334+0000] {base.py:84} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-04-01T04:04:55.390+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/common/sql/hooks/sql.py:227: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-04-01T04:04:59.599+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:04:59 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-04-01T04:05:00.862+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/joblib/parallel.py:1359: UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+  n_jobs = self._backend.configure(n_jobs=self.n_jobs, parallel=self,
+
+[2025-04-01T04:05:13.310+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:05:13 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+[2025-04-01T04:05:13.445+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2025-04-01T04:05:14.934+0000] {logging_mixin.py:188} WARNING - Successfully registered model 'svm-model'.
+[2025-04-01T04:05:15.070+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:05:15 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: svm-model, version 1
+[2025-04-01T04:05:15.070+0000] {logging_mixin.py:188} WARNING - Created version '1' of model 'svm-model'.
+[2025-04-01T04:05:16.513+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:05:16 INFO mlflow.tracking._tracking_service.client: 🏃 View run svm_artifacts at: http://mlflow:5000/#/experiments/1/runs/122bd9be418a4318a05c527c8cc35a93.
+[2025-04-01T04:05:16.514+0000] {logging_mixin.py:188} WARNING - 2025/04/01 04:05:16 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://mlflow:5000/#/experiments/1.
+[2025-04-01T04:05:16.687+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-01T04:05:16.701+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/train.py", line 95, in train_model
+    registered_model = client.create_registered_model(model_name)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/tracking/client.py", line 3109, in create_registered_model
+    return self._get_registry_client().create_registered_model(name, tags, description)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/tracking/_model_registry/client.py", line 64, in create_registered_model
+    return self.store.create_registered_model(name, tags, description)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/store/model_registry/rest_store.py", line 82, in create_registered_model
+    response_proto = self._call_endpoint(CreateRegisteredModel, req_body)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/store/model_registry/base_rest_store.py", line 44, in _call_endpoint
+    return call_endpoint(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 370, in call_endpoint
+    response = verify_rest_response(response, endpoint)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/utils/rest_utils.py", line 240, in verify_rest_response
+    raise RestException(json.loads(response.text))
+mlflow.exceptions.RestException: RESOURCE_ALREADY_EXISTS: Registered Model (name=svm-model) already exists. Error: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'svm-model' for key 'registered_models.PRIMARY'")
+[SQL: INSERT INTO registered_models (name, creation_time, last_updated_time, description) VALUES (%(name)s, %(creation_time)s, %(last_updated_time)s, %(description)s)]
+[parameters: {'name': 'svm-model', 'creation_time': 1743480315112, 'last_updated_time': 1743480315112, 'description': ''}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+[2025-04-01T04:05:16.796+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=train_model, task_id=train_model, execution_date=20250401T025138, start_date=20250401T040454, end_date=20250401T040516
+[2025-04-01T04:05:16.906+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 593 for task train_model (RESOURCE_ALREADY_EXISTS: Registered Model (name=svm-model) already exists. Error: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'svm-model' for key 'registered_models.PRIMARY'")
+[SQL: INSERT INTO registered_models (name, creation_time, last_updated_time, description) VALUES (%(name)s, %(creation_time)s, %(last_updated_time)s, %(description)s)]
+[parameters: {'name': 'svm-model', 'creation_time': 1743480315112, 'last_updated_time': 1743480315112, 'description': ''}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj); 194)
+[2025-04-01T04:05:17.071+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-04-01T04:05:17.157+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-01T04:05:17.161+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

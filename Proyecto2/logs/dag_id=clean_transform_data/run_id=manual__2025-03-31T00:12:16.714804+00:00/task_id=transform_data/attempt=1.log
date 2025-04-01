@@ -1,0 +1,15 @@
+[2025-03-31T00:12:22.283+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clean_transform_data.transform_data manual__2025-03-31T00:12:16.714804+00:00 [queued]>
+[2025-03-31T00:12:22.308+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clean_transform_data.transform_data manual__2025-03-31T00:12:16.714804+00:00 [queued]>
+[2025-03-31T00:12:22.308+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-03-31T00:12:22.373+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): transform_data> on 2025-03-31 00:12:16.714804+00:00
+[2025-03-31T00:12:22.400+0000] {standard_task_runner.py:57} INFO - Started process 252 to run task
+[2025-03-31T00:12:22.411+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'clean_transform_data', 'transform_data', 'manual__2025-03-31T00:12:16.714804+00:00', '--job-id', '525', '--raw', '--subdir', 'DAGS_FOLDER/preprocess_data.py', '--cfg-path', '/tmp/tmplp046gx0']
+[2025-03-31T00:12:22.417+0000] {standard_task_runner.py:85} INFO - Job 525: Subtask transform_data
+[2025-03-31T00:12:22.609+0000] {task_command.py:410} INFO - Running <TaskInstance: clean_transform_data.transform_data manual__2025-03-31T00:12:16.714804+00:00 [running]> on host 76e1807f7118
+[2025-03-31T00:12:22.954+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='clean_transform_data' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T00:12:16.714804+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T00:12:16.714804+00:00'
+[2025-03-31T00:12:23.022+0000] {base.py:73} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-03-31T00:12:23.053+0000] {base.py:73} INFO - Using connection ID 'mysql_***_conn' for task execution.
+[2025-03-31T00:12:31.325+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-03-31T00:12:31.391+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=clean_transform_data, task_id=transform_data, execution_date=20250331T001216, start_date=20250331T001222, end_date=20250331T001231
+[2025-03-31T00:12:31.485+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-03-31T00:12:31.571+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

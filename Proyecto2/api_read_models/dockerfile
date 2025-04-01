@@ -1,0 +1,13 @@
+FROM python:3.12
+
+WORKDIR /src
+ADD ./uvenv /src/uvenv
+ADD ./app /src/uvenv/app
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /src/uvenv
+RUN uv sync --frozen
+RUN uv add -r app/requirements.txt
+
+WORKDIR /src/uvenv/app

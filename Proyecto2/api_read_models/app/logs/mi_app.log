@@ -1,0 +1,28 @@
+2025-02-16 20:52:08,817 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 
+                     salida: [0]
+2025-02-16 20:52:16,260 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=0.0 Flipper_Length=1.0 Body_Mass=0.0 
+                     salida: [0]
+2025-02-16 20:52:21,457 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=0.0 Flipper_Length=1.0 Body_Mass=80.0 
+                     salida: [0]
+2025-02-16 20:52:27,630 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=1.0 Culmen_Depth=9.0 Flipper_Length=1.0 Body_Mass=80.0 
+                     salida: [0]
+2025-02-16 20:52:33,703 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=100.0 Culmen_Depth=9.0 Flipper_Length=100.0 Body_Mass=80.0 
+                     salida: [2]
+2025-02-17 00:58:10,745 - root - INFO - predicción realizada con LinReg_class 
+                     entradas: Culmen_Length=200.0 Culmen_Depth=100.0 Flipper_Length=50.0 Body_Mass=90.0 
+                     salida: [2]
+2025-03-18 06:38:53,478 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-03-18 06:41:17,553 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-03-18 06:43:01,662 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-03-18 06:43:03,585 - root - INFO - predicción realizada con svm-model 
+                     entradas: Island=0 Culmen_Length=0.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 Sex=0 
+                     salida: [0]
+2025-03-18 06:44:44,470 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-03-18 06:44:46,309 - root - INFO - predicción realizada con svm-model 
+                     entradas: Island=0 Culmen_Length=0.0 Culmen_Depth=0.0 Flipper_Length=0.0 Body_Mass=0.0 Sex=0 
+                     salida: [0]
