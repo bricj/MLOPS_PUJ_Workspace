@@ -4,5 +4,5 @@ scikit-learn
 fastapi
 uvicorn
 pydantic
-mlflow
+mlflow==2.17
 boto3
