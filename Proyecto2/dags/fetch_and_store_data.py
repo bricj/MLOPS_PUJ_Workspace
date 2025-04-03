@@ -7,8 +7,7 @@ import pandas as pd
 from sqlalchemy import text
 from airflow.utils.dates import days_ago
 
-API_URL = "http://datapi:80/data?group_number=7"
-# API_URL = "http://10.43.101.108:80/data?group_number=3"
+
 TABLE_NAME = "suelos"
 
 # Mapeo de nombres de columnas de la API a la base de datos
@@ -23,8 +22,9 @@ db_columns = [
 ]
 
 # Función para obtener los datos desde la API
-def fetch_data():
-    response = requests.get(API_URL)
+def fetch_data(group_number):
+    requests.get(f"http://datapi:80/restart_data_generation?group_number={group_number}")
+    response = requests.get(f"http://datapi:80/data?group_number={group_number}")
     response.raise_for_status()
     print(response.status_code)
     return response.json()
@@ -36,27 +36,29 @@ def store_data():
     mysql_hook = MySqlHook(mysql_conn_id="mysql_airflow_conn")  # Asegúrate de definir esta conexión en Airflow
     engine = mysql_hook.get_sqlalchemy_engine()
 
-    data = fetch_data()
-    group_number = data["group_number"]
-    batch_number = data["batch_number"]
-    records = data["data"]
-    print(f"el tamaño de los datos es {len(records)}")
-    
-    with engine.connect() as connection:
-        for record in records:
-            mapped_record = dict(zip(db_columns[:-1], record))  # Mapear valores con nombres de columnas
-            mapped_record["batch_number"] = batch_number  # Añadir batch_number
-            
-            values_placeholders = ", ".join([f"'{v}'" if isinstance(v, str) else str(v) for v in list(mapped_record.values())])
-            update_values = ", ".join([f"{col}=VALUES({col})" for col in db_columns])
-            
-            sql = text(f"""
-            INSERT INTO {TABLE_NAME} ({', '.join(db_columns)})
-            VALUES ({values_placeholders})
-            ON DUPLICATE KEY UPDATE {update_values};
-            """)
-            
-            connection.execute(sql)
+    for group_number in range(1,10):
+
+        data = fetch_data(group_number)
+        batch_number = data["batch_number"]
+        records = data["data"]
+        
+        with engine.connect() as connection:
+
+            for record in records:
+
+                mapped_record = dict(zip(db_columns[:-1], record))  # Mapear valores con nombres de columnas
+                mapped_record["batch_number"] = batch_number  # Añadir batch_number
+                
+                values_placeholders = ", ".join([f"'{v}'" if isinstance(v, str) else str(v) for v in list(mapped_record.values())])
+                update_values = ", ".join([f"{col}=VALUES({col})" for col in db_columns])
+                
+                sql = text(f"""
+                INSERT INTO {TABLE_NAME} ({', '.join(db_columns)})
+                VALUES ({values_placeholders})
+                ON DUPLICATE KEY UPDATE {update_values};
+                """)
+                
+                connection.execute(sql)
 
 # Definición del DAG
 default_args = {

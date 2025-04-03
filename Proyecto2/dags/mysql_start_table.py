@@ -13,6 +13,7 @@ def start_table():
 
     #queries para eliminar tablas
     drop_table_query = "DROP TABLE IF EXISTS suelos;"
+    drop_table_query_2 = "DROP TABLE IF EXISTS suelos_proc;"
 
     create_table_query = """
         CREATE TABLE IF NOT EXISTS suelos (
@@ -37,6 +38,7 @@ def start_table():
         #ejecutar query
     with engine.begin() as connection:
         connection.execute(drop_table_query)
+        connection.execute(drop_table_query_2)
         connection.execute(create_table_query)
 
 # Definir el DAG
