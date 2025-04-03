@@ -58,7 +58,7 @@ def train_model():
 
     # Se define la IP donde se ha desplegado mlflow y el nombre del experimento
     mlflow.set_tracking_uri(ip_mlflow)
-    experiment_name = "mlflow_tracking_examples_3"
+    experiment_name = "mlflow_tracking_examples_4"
     experiment = mlflow.get_experiment_by_name(experiment_name)
     if experiment is None:
         mlflow.create_experiment(experiment_name)
