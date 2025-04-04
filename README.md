@@ -20,3 +20,5 @@ El repositorio contiene las actividades desarrolladas en la clase MLOps de la Un
 - Taller3: Entrega relacionada al nivel 2 del curso (airflow)
 
 - Taller4: Entrega relacionada al nivel 2 del curso (mlflow)
+
+- Proyecto2: Entrega donde se integran servicios de airflow y mlflow, con el objetivo de disponibilizar la inferencia de un modelo. Los tópicos corresponden al nivel 2 del curso. 
