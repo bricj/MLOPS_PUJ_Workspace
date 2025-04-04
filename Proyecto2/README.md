@@ -17,6 +17,7 @@ En el presente proyecto interactúan los siguiente servicios para que a través 
 - Validar nombre de la red: docker network ls
   
 - Así se registra la red de docker en docker compose, en cada contenedor se indica: "networks:proyecto2_airflow_network"
+  
   networks:
   proyecto2_airflow_network:
     driver: "bridge"
@@ -46,22 +47,31 @@ En el presente proyecto interactúan los siguiente servicios para que a través 
 - Cerciorarse que los servicios están disponibles en los host indicados en la anterior sección. El host estándar es: "", para FASTAPI, adicione al final "/docs".
   
 - Acceda a Minio ``` http://localhost:9001``` , las credenciales son:
+  
     - usuario: admin
     - contraseña: supersecret
+      
   En Minio se debe crear un bucket de S3, se recomienda crearlo con el nombre **mlflows3**. Si se cambia el nombre del contenedor, considerar ir al docker compose en la carpeta "Proyecto2" y cambiar las partes donde se haga referencia al contenedor "mlflows3" por el nuevo nombre del contenedor. En **mlflows3** se almacenarán los artefactos que se creen en *MLFlow*. Asegurese de activar todos los interruptores al configurar el bucket (Otorgar permisos).
 
 - Acceda a MlFlow ``` http://localhost:5001``` para garantizar que el servicio funciona.
        
 - Acceda a la interfaz de airflow ``` http://localhost:8080```, las credenciales son:
+  
     - usuario: airflow
     - contraseña: airflow
+      
   Una vez haya accedido, ubicarse en la sección de DAGs, donde encontrará las etapas que articula airflow. Validar que     todos se encuentren activos.
 
 Ejecute el DAG Orquestador (El DAG está configurado para que se ejecute a diario, por ello, una vez se abra airflow, iniciará una única ejecución en el día) , el cual activará los DAGs en la secuencia establecida:
+
     - a) Limpiar la base de datos
+    
     - b) Consumir los datos por batch de FASTAPI, se ha parametrizado para que realicen 10 consultas, cada una por minuto.
+    
     - c) Preprocesamiento de los datos
+    
     - d) Entrenamiento de los modelos con MlFlow
+    
     - e) API de inferencia que consume el modelo cargado en produción        
 
 Mientras se ejecutan los DAGs, le brindamos algo de detalle. Más adelante, podrá continuar con el proceso de inferencia.
@@ -70,22 +80,30 @@ Mientras se ejecutan los DAGs, le brindamos algo de detalle. Más adelante, podr
 
 **DAG fetch_and_store_data.py & preprocess_data.py**
 
--  El plantemiento de la obtención de datos busca establecer un problema real y es que no siempre es posible acceder a la información en su totalidad por limitaciones de cómputo, por consiguiente, a través de airflow, se ha creado un proceso iterativo para conectarse a endpoint cada minuto, aspecto que está alineado con el cambio de batch por minuto. También es posible activar con ejecución por minuto. 
+-  El plantemiento de la obtención de datos busca establecer un problema real y es que no siempre es posible acceder a la información en su totalidad por limitaciones de cómputo, por consiguiente, a través de airflow, se ha creado un proceso iterativo para conectarse a endpoint cada minuto, aspecto que está alineado con el cambio de batch por minuto. También es posible activar con ejecución por minuto.
+   
 - Creación de tablas dentro de la base de datos *mysql*
+  
 - Carga de datos crudos a *mysql*
+  
 - Preprocesamiento de datos
 
 **DAG train.py**
 
 - Entrenamiento de modelos utilizando MLFlow:
+  
   - Configuración de variables de entorno que apuntan al servicio de *MLFlow*. El servicio de *MLFlow* se conecta con un bucket de almacenamiento de minio, por ello, es necesario ingresar las credenciales de acceso mencionadas en el numeral 1, al igual que se debe ingresar la IP de la maquina donde se esta realizando la ejecucion.
 
   Considerar las siguiente variables que se encuentran en el docker compose (contenedor de MlFlow). Se establece la conexión entre Minio (acceso) y MlFlow. Por último, el comando establece la conexión con MySQL, donde se guarda la metadata.
 
       MLFLOW_S3_ENDPOINT_URL: http://minio:9000
+  
       AWS_ACCESS_KEY_ID: admin
+  
       AWS_SECRET_ACCESS_KEY: supersecret
+  
       MLFLOW_TRACKING_URI: http://mlflow:5000
+  
       command: mlflow server --backend-store-uri mysql+pymysql://airflow:airflow@mysql:3306/mlflow --default-artifact-  root s3://mlflows3/artifacts --host 0.0.0.0 --port 5000 --serve-artifacts
 
   - En la ejecucion de DAG, se realiza el entrenamiento del modelo y se guardan los artefactos de mlflow en minio. En el DAG se han indicado los host y credenciales para garantizar el acceso y conectividad que permiten las redes de docker. No obstante, se recomienda validar que coincidan según el servicio. Importante considerar que el modelo se registra bajo el nombre *svm-model*.
@@ -93,6 +111,7 @@ Mientras se ejecutan los DAGs, le brindamos algo de detalle. Más adelante, podr
 Dicho nombre es relevante para realizar la conexion con fastapi, tener en cuenta si se realiza el cambio del mismo. Los siguientes parámetros permite que el experimento se almacene de manera correcta en MlFlow, al igual que se guarden los experimentos.
 
   mlflow.set_tracking_uri("http://mlflow:5000")
+  
   mlflow.set_experiment("mlflow_tracking_examples_4")
  
 Mediante la siguiente instrucción, se lleva el mejor modelo a ambiente de producción, el cual será consumido por la API de inferencia:
