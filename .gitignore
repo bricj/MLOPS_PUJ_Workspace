@@ -47,3 +47,14 @@ Proyecto2/logs/scheduler/
 Proyecto2/logs/dag_id=dag_maestro/
 Proyecto2/logs/dag_id=crear_tabla_mysql/
 Proyecto2/jupyter_api/jupyter_models/app/.ipynb_checkpoints/
+Taller5/api_read_models/app/__pycache__/
+Taller5/dags/__pycache__/
+Taller5/logs/dag_id=clean_transform_data/
+Taller5/logs/dag_id=dag_maestro/
+Taller5/logs/dag_id=fetch_and_store_data/
+Taller5/logs/dag_id=iniciar_tabla_mysql/
+Taller5/logs/dag_id=train_model/
+Taller5/logs/dag_processor_manager/
+Taller5/logs/scheduler/
+Taller5/plugins/
+Taller5/config/
