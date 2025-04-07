@@ -58,3 +58,5 @@ Taller5/logs/dag_processor_manager/
 Taller5/logs/scheduler/
 Taller5/plugins/
 Taller5/config/
+Taller5/minio/
+Taller5/minio/.minio.sys/

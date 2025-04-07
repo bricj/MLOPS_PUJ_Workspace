@@ -360,6 +360,7 @@ services:
       MLFLOW_TRACKING_URI: http://mlflow:5000
     command: mlflow server --backend-store-uri mysql+pymysql://airflow:airflow@mysql:3306/mlflow --default-artifact-root s3://mlflows3/artifacts --host 0.0.0.0 --port 5000 --serve-artifacts
     ports:
+    
       - "5001:5000"
     networks:
       - proyecto2_airflow_network
@@ -396,6 +397,20 @@ services:
     image: 04602/api_read_models:latest
     ports:
       - "8989:8989"
+    networks:
+      - proyecto2_airflow_network
+  
+  locust:
+    build:
+      context: ./locust
+      dockerfile: Dockerfile
+    container_name: locust
+    ports:
+      - "8089:8089"
+    depends_on:
+      -  inference_models
+    environment:
+      - LOCUST_HOST=http://inference_models:8989
     networks:
       - proyecto2_airflow_network
 

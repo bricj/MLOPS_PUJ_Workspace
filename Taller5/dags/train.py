@@ -88,7 +88,7 @@ def train_model():
 
         # Se define nombre del modelo y version
         model_name = "svm-model"
-        model_version = 4
+        model_version = 1
 
         # Se lleva el modelo a ambiente de produccion
         client = mlflow.tracking.MlflowClient()
