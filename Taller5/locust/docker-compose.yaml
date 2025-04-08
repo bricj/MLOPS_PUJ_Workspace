@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  locust:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: locust
+    ports:
+      - "8089:8089"
+    #depends_on:
+    #  - 
+    environment:
+      - LOCUST_HOST=http://api:8089
