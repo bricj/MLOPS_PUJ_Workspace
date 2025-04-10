@@ -8,7 +8,13 @@ services:
     container_name: locust
     ports:
       - "8089:8089"
-    #depends_on:
-    #  - 
+    # depends_on:
+    #   - 
     environment:
-      - LOCUST_HOST=http://api:8089
+      - LOCUST_HOST=http://inference_models:8989
+    networks:
+      - my_shared_network
+
+networks:
+  my_shared_network:
+    external: true
