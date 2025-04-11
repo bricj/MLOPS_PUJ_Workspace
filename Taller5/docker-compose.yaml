@@ -266,6 +266,7 @@ services:
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
   # See: https://docs.docker.com/compose/profiles/
+  
   flower:
     <<: *airflow-common
     command: celery flower
@@ -364,59 +365,34 @@ services:
       - "5001:5000"
     networks:
       - proyecto2_airflow_network
-    #healthcheck:
-    #  test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
-    #  interval: 30s
-    #  timeout: 10s
-    #  retries: 5
     depends_on:
       mysql:
         condition: service_healthy
       minio:
         condition: service_healthy
 
-  # servicio para inferir con modelos
-  # call_models:
-
-  #   build: 
-  #     context: ./api_read_models
-  #     dockerfile: Dockerfile
-
-  #   container_name: models_api
-  #   ports:
-  #     - "8989:8989" 
-
-  #   volumes:
-  #     - './api_read_models/app:/src'
-
-  #   command: uvicorn main:app --host 0.0.0.0 --port 8989 --reload
-  #   networks:
-  #     - proyecto2_airflow_network
-
   inference_models:
     image: 04602/api_read_models:latest
     ports:
-      - "8989:8989"
+      - "8989-8992:8989"
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          memory: 700M
+    restart: 'no' 
     networks:
       - proyecto2_airflow_network
-  
-  locust:
-    build:
-      context: ./locust
-      dockerfile: Dockerfile
-    container_name: locust
-    ports:
-      - "8089:8089"
-    depends_on:
-      -  inference_models
-    environment:
-      - LOCUST_HOST=http://inference_models:8989
-    networks:
-      - proyecto2_airflow_network
+      - my_shared_network
 
 networks:
   proyecto2_airflow_network:
     driver: "bridge"
+
+  my_shared_network:
+    external: true
+
 
 volumes:
   mysql_data:

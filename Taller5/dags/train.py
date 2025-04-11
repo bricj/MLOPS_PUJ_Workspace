@@ -32,6 +32,7 @@ def train_model():
     user_minio = 'admin'
     password_minio = 'supersecret'
     ip_mlflow = "http://mlflow:5000"
+    var = 1
 
     os.environ['MLFLOW_S3_ENDPOINT_URL'] = ip_minio
     os.environ['AWS_ACCESS_KEY_ID'] = user_minio
@@ -125,6 +126,8 @@ def train_model():
 
     # # Descargar el archivo
     # s3_client.download_file(bucket_name, object_key, local_file_path)
+
+    # End of comments
 
 
 # Definir el DAG
