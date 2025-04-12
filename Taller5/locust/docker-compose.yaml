@@ -5,18 +5,25 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: locust
+    #container_name: locust # No funciona con docker swarm -> docker swarm init
     ports:
-      - "8089:8089"
+      - "8089-8094:8089"
     volumes:
       - ./locust_logs.log:/app/locust_logs.log 
     # depends_on:
     #   - 
     environment:
       - LOCUST_HOST=http://inference_models:8989
-      #- REPLICA_COUNT=3
-      #- CPU_LIMIT=1
-      #- MEM_LIMIT=1000M
+    #  - REPLICA_COUNT=2
+    #  - CPU_LIMIT=1.5
+    #  - MEM_LIMIT=1000M
+    deploy:
+      mode: replicated
+      replicas: 6
+      resources:
+        limits:
+          memory: 1000M
+          cpus: 1.5
     networks:
       - my_shared_network
     privileged: true

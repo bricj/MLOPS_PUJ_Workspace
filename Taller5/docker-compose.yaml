@@ -374,7 +374,7 @@ services:
   inference_models:
     image: 04602/api_read_models:latest
     ports:
-      - "8989-8992:8989"
+      - "8989:8989"
     deploy:
       mode: replicated
       replicas: 1
