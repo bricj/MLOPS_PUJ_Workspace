@@ -48,6 +48,7 @@ En este caso, las ejecuciones se realizaron con "docker compose up --build", no 
 
 En el docker compose de locust, se incluye la siguiente información:
 
+```
 deploy:
       mode: replicated
       replicas: "cantidad de replicas"
@@ -55,26 +56,34 @@ deploy:
         limits:
           memory: "limite de memoria"
           cpus: "limite de cpu"
+```
 
-Así mismo, se deben disponibilizar puertos conforme a la cantidad de réplicas, este es el ejemplo para 6 réplcias:
+Así mismo, se deben disponibilizar puertos conforme a la cantidad de réplicas, este es el ejemplo para 6 réplicas:
 
+```
 ports:
       - "8089-8094:8089"
+```
 
-En la carpeta "imgs" se encuentra un archivo "evidencia_prueba_locust.pdf", el cual contiene las muestras de los resultados que se abordarán a continuación.
+En la carpeta **imgs** se encuentra un archivo **evidencia_prueba_locust.pdf**, el cual contiene las muestras de los resultados que se abordarán a continuación.
 
-Se realizaron múltiples iteraciones para encontrar los recursos suficientes para la recepción de 10.000 usuarios y 500 peticiones, no obstante, no se encontraron escenarios óptimos en cuanto a procesamiento, tiempo de ejecución y respuesta. La principal consideración es que docker no puede acceder a todos lo recursos disponibles en la máquina virtual, donde emerge otro aspecto, y que si consume los reursos necesario, otro procesos se detendrían, generando el colapse del sistema operativo como ocurrió en el primer escenario. 
+Se realizaron múltiples iteraciones para encontrar los recursos suficientes para la recepción de 10.000 usuarios y 500 peticiones, no obstante, no se encontraron escenarios óptimos en cuanto a procesamiento, tiempo de ejecución y respuesta. La principal consideración es que docker no puede acceder a todos lo recursos disponibles en la máquina virtual, donde emerge otro aspecto, y es que si consume los recursos necesarios, otros procesos se detendrían, generando el colapse del sistema operativo como ocurrió en el primer escenario. 
 
-Por consiguiente, se consideraron los escenarios 10 clientes - 10 peticiones, 500 clientes - 50 peticiones y 1000 clientes - 50 peticiones para identificar un escenario con buenos niveles de respuesta (entre 1 y 3 segundos), buscando establecer el ejercicio en un caso de la vida real (a pesar que 3 segundos es demasiado). 
+Por consiguiente, se consideraron los siguientes escenarios:
+ - 10 clientes - 10 peticiones 
+ - 500 clientes - 50 peticiones 
+ - 1000 clientes - 50 peticiones
+ 
+ Estos para identificar un escenario con buenos niveles de respuesta (entre 1 y 3 segundos), buscando establecer el ejercicio en un caso de la vida real (a pesar que 3 segundos es demasiado). 
 
-Las ejecuciones sin restricción y sin replicas expusieron para los tres escenarios brindaron tiempos de 1-3 segundos, 1-6 segundos y 150-180 segundos por inferencia. Dado lo anterior, se consideran los primeros dos escenarios para experimentar con limitaciones de recursos y aumento de réplicas.
+Las ejecuciones sin restricción y sin replicas expusieron para los tres escenarios mencionados tiempos de 1-3 segundos, 1-6 segundos y 150-180 segundos por inferencia respectivamente. Dado lo anterior, se consideran los primeros dos escenarios para experimentar con limitaciones de recursos y aumento de réplicas.
 
-Las ejecuciones con 2 réplicas, CPU 1.5 y memoria 1000M tiempo de respuesta para 10 cliente entre 1-2.5 segundos y 120 segundos para 500 clientes. La novedad para el segundo escenario se debe a que docker no realiza un equilibrio de cargas (balanceador) entre las réplicas, por ello, la cola de peticiones se acumuló. 
+Las ejecuciones con 2 réplicas, CPU 1.5 y memoria 1000M arrojaron un tiempo de respuesta para 10 cliente entre 1-2.5 segundos y 120 segundos para 500 clientes. La novedad para el segundo escenario se debe a que docker no realiza un equilibrio de cargas (balanceador) entre las réplicas, por ello, la cola de peticiones se acumuló. 
 Cabe resaltar que el consumo de memoria se divide entre las réplicas de manera proporcional, situación que ocurre siempre.
 
-Posteriormente, se incrementó a 4 réplicas con las misma restricciones de memoria y CPU, evidenciando un deterioro en los tiempos de ejecución del primer escenario porque el tiempo de inferencia estaba entre 1.5 y 4 segundos, e identificando una mejora sustancial en el escenario de 500 clientes, donde la inferencia se tomaba entre 1.5 y 4 segundos, producto de un balanceo en las cargas de trabajo. El deterioro en el performance del escenario se justifica en que a mayor cantidad de réplicas, hay mayor comptencia por los recursos disponibles, los cuales son limitados para la ejecución realizada. En este caso, aplica que mayor cantidad de trabajadores, no representa mayor productividad si las tareas y los recursos disponible para cada trabajador no son definidos de manera "óptima".
+Posteriormente, se incrementó a 4 réplicas con las misma restricciones de memoria y CPU, evidenciando un deterioro en los tiempos de ejecución del primer escenario porque el tiempo de inferencia estaba entre 1.5 y 4 segundos, e identificando una mejora sustancial en el escenario de 500 clientes, donde la inferencia se tomaba entre 1.5 y 4 segundos, producto de un balanceo en las cargas de trabajo. El deterioro en el performance del escenario se justifica en que a mayor cantidad de réplicas, hay mayor competencia por los recursos disponibles, los cuales son limitados para la ejecución realizada. En este caso, aplica que una mayor cantidad de trabajadores no representa mayor productividad si las tareas y los recursos disponibles para cada trabajador no son definidos de manera **óptima**.
 
-Dando continuidad a la experimentación, se incrementaron las réplicas a 6 y se redujeron recursos a CPU 0.5 y memoria 500M. Para el escenario de 10 cliente, en un principio, los tiempos de respuesta eran inferiores a 2 segundos, sin embargo, conforme entraban en cola nuevas peticiones, el tiempo llegó a alcanzar 8 segundos. Por otro lado, el escenario de 500 clientes exponía que las inferencias tardaban más de 200 segundos. Lo anterior permite reafirmar que existe un trade-off entre réplicas y recursos, donde no es eficiente contar con gran cantidad de contenedores porque compiten por recursos. De igual forma, es necesario balancear las cargas entre los "agentes" que procesan las solicitudes.
+Dando continuidad a la experimentación, se incrementaron las réplicas a 6 y se redujeron recursos a CPU 0.5 y memoria 500M. Para el escenario de 10 cliente, en un principio, los tiempos de respuesta eran inferiores a 2 segundos, sin embargo, conforme entraban en cola nuevas peticiones, el tiempo llegó a alcanzar 8 segundos. Por otro lado, el escenario de 500 clientes exponía que las inferencias tardaban más de 200 segundos. Lo anterior permite reafirmar que existe un trade-off entre réplicas y recursos, donde no es eficiente contar con gran cantidad de contenedores porque compiten por recursos. De igual forma, es necesario balancear las cargas entre los **agentes** que procesan las solicitudes.
 
 La ventaja de implementar réplicas es que existe mayor concurrencia para atender más solicitudes, existe tolerancia a fallos y si hay balanceadores de carga, es posible ser escalable de forma horizontal. No obstante, incrementar las réplicas no siempre garantiza eficiencia porque compiten por recursos. Reducir la disponibilidad de cómputo e incrementar réplicas no es un proceso de compensación.
 
@@ -82,7 +91,7 @@ La ventaja de implementar réplicas es que existe mayor concurrencia para atende
 
 - Es importante definir un balanceador de carga para hacer un proceso con escalabilidad horizontal.
 
-- Incrementar las réplicas y disminuir recursos no garantiza estabilidad en el rendimiento porque la réplicas compiten por recursos y son ineficientes.
+- Incrementar las réplicas y disminuir recursos no garantiza estabilidad en el rendimiento porque **las réplicas compiten por recursos** y son ineficientes.
 
-- "docker stats" es una gran herramienta para monitorear el consumo de recursos
+- **docker stats** es una gran herramienta para monitorear el consumo de recursos.
 
