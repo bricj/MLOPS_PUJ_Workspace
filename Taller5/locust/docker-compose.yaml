@@ -8,12 +8,18 @@ services:
     container_name: locust
     ports:
       - "8089:8089"
+    volumes:
+      - ./locust_logs.log:/app/locust_logs.log 
     # depends_on:
     #   - 
     environment:
       - LOCUST_HOST=http://inference_models:8989
+      #- REPLICA_COUNT=3
+      #- CPU_LIMIT=1
+      #- MEM_LIMIT=1000M
     networks:
       - my_shared_network
+    privileged: true
 
 networks:
   my_shared_network:

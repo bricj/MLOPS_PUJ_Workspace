@@ -1,0 +1,10 @@
+2025-04-12 06:13:28,768 - INFO - Iniciando prueba - límite memoria: No disponible ([Errno 2] No such file or directory: '/sys/fs/cgroup/memory/memory.limit_in_bytes')
+2025-04-12 06:17:03,987 - INFO - Iniciando prueba - límite memoria: No disponible ([Errno 2] No such file or directory: '/sys/fs/cgroup/memory/memory.limit_in_bytes')
+2025-04-12 06:20:46,777 - INFO - Iniciando prueba - límite memoria: Ilimitado
+2025-04-12 06:33:36,269 - INFO - Iniciando prueba - límite memoria: Ilimitado
+2025-04-12 06:33:36,270 - INFO - Iniciando prueba - replicas: 3
+2025-04-12 06:33:36,271 - INFO - Iniciando prueba - cpu: 1
+2025-04-12 06:33:36,271 - INFO - Iniciando prueba - memoria: 1000M
+2025-04-12 06:41:36,423 - INFO - Iniciando prueba - replicas: No especificado
+2025-04-12 06:41:36,424 - INFO - Iniciando prueba - cpu: No especificado
+2025-04-12 06:41:36,424 - INFO - Iniciando prueba - memoria: No especificado
