@@ -5,12 +5,13 @@ import mlflow.sklearn
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Any
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, Response
 from pydantic import BaseModel
 import logging
 import os
 import mlflow
 import requests
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
 # Ruta donde están los modelos dentro del contenedor Docker
 MODEL_DIR = "http://mlflow:5000"
@@ -92,41 +93,57 @@ def list_models():
     return [f'{model.name}:{vs}' for model, vs in zip(models,versions)]
   
 
+import time
+
+# Métricas Prometheus
+REQUEST_COUNT = Counter('predict_requests_total', 'Total de peticiones de predicción')
+REQUEST_LATENCY = Histogram('predict_latency_seconds', 'Tiempo de latencia de predicción')
+
 @app.post("/predict/{model_name}")
 def predict(model_name: str,input_data: PredictionInput):
-    """Realiza una predicción con el modelo especificado"""
-    try:
-        model = load_model(model_name)
-    except HTTPException as e:
-        raise e
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al cargar el modelo: {str(e)}")
 
-    # Convertir la entrada a DataFrame si el modelo requiere ese formato
-    try:
-        numerical = [
-            input_data.Soil_Type
-            ,input_data.Cover_Type
-            ,input_data.Elevation
-            ,input_data.Aspect
-            ,input_data.Slope
-            ,input_data.Horizontal_Distance_To_Hydrology
-            ,input_data.Vertical_Distance_To_Hydrology
-            ,input_data.Horizontal_Distance_To_Roadways
-            ,input_data.Hillshade_9am
-            ,input_data.Hillshade_Noon
-            ,input_data.Hillshade_3pm
-            ,input_data.Horizontal_Distance_To_Fire_Points
-            ,input_data.Wilderness_Area
-        ]
+    REQUEST_COUNT.inc()
 
-        numerical = np.array(numerical).reshape(1, -1)
-        predictions = model.predict(numerical)
+    with REQUEST_LATENCY.time():
 
-        logging.info(f'predicción realizada con {model_name} \n \
-                    entradas: {input_data} \n \
-                    salida: {predictions}')
+        """Realiza una predicción con el modelo especificado"""
+        try:
+            model = load_model(model_name)
+        except HTTPException as e:
+            raise e
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error al cargar el modelo: {str(e)}")
 
-        return {"predictions": predictions.tolist()}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
+        # Convertir la entrada a DataFrame si el modelo requiere ese formato
+        try:
+            numerical = [
+                input_data.Soil_Type
+                ,input_data.Cover_Type
+                ,input_data.Elevation
+                ,input_data.Aspect
+                ,input_data.Slope
+                ,input_data.Horizontal_Distance_To_Hydrology
+                ,input_data.Vertical_Distance_To_Hydrology
+                ,input_data.Horizontal_Distance_To_Roadways
+                ,input_data.Hillshade_9am
+                ,input_data.Hillshade_Noon
+                ,input_data.Hillshade_3pm
+                ,input_data.Horizontal_Distance_To_Fire_Points
+                ,input_data.Wilderness_Area
+            ]
+
+            numerical = np.array(numerical).reshape(1, -1)
+            predictions = model.predict(numerical)
+
+            logging.info(f'predicción realizada con {model_name} \n \
+                        entradas: {input_data} \n \
+                        salida: {predictions}')
+
+            return {"predictions": predictions.tolist()}
+        
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
+
+    @app.get("/metrics")
+    def metrics():
+        return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)

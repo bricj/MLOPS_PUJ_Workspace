@@ -386,6 +386,26 @@ services:
       - proyecto2_airflow_network
       - my_shared_network
 
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - proyecto2_airflow_network
+      - my_shared_network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - proyecto2_airflow_network
+      - my_shared_network
+
 networks:
   proyecto2_airflow_network:
     driver: "bridge"

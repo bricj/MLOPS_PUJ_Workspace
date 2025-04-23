@@ -6,3 +6,4 @@ uvicorn
 pydantic
 mlflow==2.17
 boto3
+prometheus-client==0.21.1
