@@ -385,6 +385,21 @@ services:
     networks:
       - proyecto2_airflow_network
       - my_shared_network
+  
+  gradio:
+    build: 
+      context: ./api_read_models
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    container_name: gradio_ui
+    command: ["python", "gradio_app.py"]
+    depends_on:
+      - inference_models
+    restart: always
+    networks:
+      - proyecto2_airflow_network
+      - my_shared_network
 
   prometheus:
     image: prom/prometheus
