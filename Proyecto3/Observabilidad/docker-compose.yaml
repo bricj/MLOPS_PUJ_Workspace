@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+
+  locust:
+    build:
+      context: ./locust
+      dockerfile: Dockerfile
+    #container_name: locust # No funciona con docker swarm -> docker swarm init
+    ports:
+      - "8089-8094:8089"
+    volumes:
+      - ./locust/locust_logs.log:/app/locust_logs.log 
+    # depends_on:
+    #   - 
+    environment:
+      - LOCUST_HOST=http://inference_models:8989
+    #  - REPLICA_COUNT=2
+    #  - CPU_LIMIT=1.5
+    #  - MEM_LIMIT=1000M
+    deploy:
+      mode: replicated
+      replicas: 6
+      resources:
+        limits:
+          memory: 1000M
+          cpus: 1.5
+    networks:
+      - proyecto3_obs_network
+    privileged: true
+
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - proyecto3_obs_network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - proyecto3_obs_network
+
+networks:
+
+  proyecto2_airflow_network:
+    driver: "bridge"
