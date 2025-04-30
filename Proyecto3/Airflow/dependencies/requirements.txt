@@ -1,8 +1,0 @@
-mlflow
-joblib
-numpy
-pandas
-scikit-learn
-requests
-boto3
-#sqlalchemy==2.0.39
