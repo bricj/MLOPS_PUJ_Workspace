@@ -1,8 +1,0 @@
-FROM apache/airflow:2.9.0-python3.8
-
-#copiar requirements a directorio del contenedor
-WORKDIR /src
-COPY requirements.txt /src
-
-#instalar dependencias
-RUN pip install -r requirements.txt
