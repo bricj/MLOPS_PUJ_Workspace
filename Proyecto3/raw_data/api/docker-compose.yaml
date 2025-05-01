@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: fastapi
     ports:
-      - '80:80'
+      - '8000:80'
     volumes:
       - ./data:/data
       - ./main.py:/main.py

@@ -28,8 +28,6 @@ def trigger_dag_repeatedly(dag_run, **kwargs):
         dr.run()
         time.sleep(60)  # Espera 1 minuto entre ejecuciones
 
-
-
 #crear dag
 with DAG(
     dag_id="dag_maestro",
@@ -68,4 +66,4 @@ with DAG(
     )
 
     # Definir el orden de ejecución
-    t4 >> t1 >> t2 >> t3
+    #t4 >> t1 >> t2 >> t3

@@ -64,12 +64,11 @@ def start_table():
             glimepiride_pioglitazone VARCHAR(20) NOT NULL,
             metformin_rosiglitazone VARCHAR(20) NOT NULL,
             metformin_pioglitazone VARCHAR(20) NOT NULL,
-            change VARCHAR(20) NOT NULL,
+            change_column VARCHAR(20) NOT NULL,
             diabetesMed VARCHAR(20) NOT NULL,
             readmitted VARCHAR(20) NOT NULL
             )
             """
-        
         
         #ejecutar query
     with engine.begin() as connection:
