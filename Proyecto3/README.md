@@ -14,6 +14,9 @@ login: diabetes_user
 password: diabetes_password
 port: 3307
 
+el archivo sql de raw data esta en la carpeta raw data
+
+
 * Se estan utilizando la redes:
 
 docker network create proyecto2_airflow_network

@@ -65,3 +65,6 @@ Proyecto3/dags/__pycache__/
 Proyecto3/logs/dag_processor_manager/
 Proyecto3/logs/scheduler/
 Proyecto3/plugins/
+Proyecto3/logs/dag_id=fetch_and_store_diabetes_data/
+Proyecto3/logs/dag_id=iniciar_tabla_mysql/
+Proyecto3/logs/dag_id=read_diabetes_tables/
