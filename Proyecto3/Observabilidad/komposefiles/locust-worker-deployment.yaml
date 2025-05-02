@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-worker
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: locust
+      role: worker
+  template:
+    metadata:
+      labels:
+        app: locust
+        role: worker
+    spec:
+      containers:
+        - name: locust
+          image: ogcorzo/locust-custom:1.0.1
+          command: ["locust"]
+          args: ["-f", "/mnt/locust/locustfile.py", "--worker", "--master-host=locust-master"]
+          volumeMounts:
+            - name: locustfile-volume
+              mountPath: /mnt/locust
+      volumes:
+        - name: locustfile-volume
+          configMap:
+            name: locustfile-configmap
+            items:
+              - key: locustfile.py
+                path: locustfile.py
