@@ -1,0 +1,4 @@
+FROM prom/prometheus
+
+# Copia tu archivo de configuración al contenedor
+COPY prometheus.yml /etc/prometheus/prometheus.yml

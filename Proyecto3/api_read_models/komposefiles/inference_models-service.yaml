@@ -10,10 +10,12 @@ metadata:
     kompose.service.type: LoadBalancer
   name: inference-models
 spec:
+  type: NodePort
   ports:
     - name: "8989"
       port: 8989
       targetPort: 8989
+      nodePort: 30100 # Puerto accesible desde tu máquina
   selector:
     io.kompose.service: inference-models
 status:
