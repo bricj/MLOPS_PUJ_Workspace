@@ -1,14 +1,86 @@
+# from airflow import DAG
+# from airflow.operators.python import PythonOperator
+# from datetime import datetime, timedelta
+# from airflow.providers.mysql.hooks.mysql import MySqlHook
+
+# # Configuración básica
+# default_args = {
+#     'owner': 'airflow',
+#     'depends_on_past': False,
+#     'start_date': datetime(2025, 5, 1),
+#     'email_on_failure': False,
+#     'retries': 1,
+#     'retry_delay': timedelta(minutes=2),
+# }
+
+# # Función simple para leer y mostrar datos
+# def read_and_print_data(table_type, **kwargs):
+#     """Lee los datos de la tabla especificada y muestra información básica."""
+#     print(f"Leyendo datos de la tabla diabetes_{table_type}_processed...")
+    
+#     try:
+#         # Conectar a MySQL
+#         mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+        
+#         # Leer tabla
+#         query = f"SELECT * FROM diabetes_{table_type}_processed"
+#         df = mysql_hook.get_pandas_df(query)
+        
+#         # Mostrar información básica
+#         print(f"Datos de {table_type}:")
+#         print(f"- Forma: {df.shape}")
+#         print(f"- Columnas: {df.columns.tolist()}")
+#         print(f"- Primeras 5 filas:")
+#         print(df.head())
+        
+#         return f"Lectura de diabetes_{table_type}_processed completada"
+    
+#     except Exception as e:
+#         print(f"Error al leer los datos: {str(e)}")
+#         return f"Error: {str(e)}"
+
+# # Crear el DAG
+# with DAG(
+#     'diabetes_simple_read',
+#     default_args=default_args,
+#     description='DAG simple para leer tablas de diabetes',
+#     schedule_interval=None,
+# ) as dag:
+    
+#     # Tarea para leer datos de entrenamiento
+#     read_train = PythonOperator(
+#         task_id='read_train_data',
+#         python_callable=read_and_print_data,
+#         op_kwargs={'table_type': 'train'},
+#         provide_context=True,
+#     )
+    
+#     # Tarea para leer datos de validación
+#     read_validation = PythonOperator(
+#         task_id='read_validation_data',
+#         python_callable=read_and_print_data,
+#         op_kwargs={'table_type': 'validation'},
+#         provide_context=True,
+#     )
+    
+#     # Tarea para leer datos de prueba
+#     read_test = PythonOperator(
+#         task_id='read_test_data',
+#         python_callable=read_and_print_data,
+#         op_kwargs={'table_type': 'test'},
+#         provide_context=True,
+#     )
+    
+#     # Definir el orden de ejecución (puede ejecutarse en paralelo)
+#     [read_train, read_validation, read_test]
+
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
+from airflow.providers.mysql.hooks.mysql import MySqlHook
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
-import os
-import pickle
-from airflow.providers.mysql.hooks.mysql import MySqlHook
 
 # Configuraci�n b�sica
 default_args = {
@@ -20,362 +92,467 @@ default_args = {
     'retry_delay': timedelta(minutes=2),
 }
 
-# Definir funciones para las tareas
-def load_data_from_sql(**kwargs):
-    """Lee los datos de SQL y los convierte a DataFrame"""
-    ti = kwargs['ti']
+# Funci�n para realizar undersampling
+def perform_undersampling_from_transformed(X_transformed, y, random_state=42, sampling_strategy=1.0):
+    """
+    Performs undersampling on already transformed data.
+    """
+    import numpy as np
+    import pandas as pd
     
-    # Conectar a la base de datos
-    mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+    # Check if y is a pandas Series
+    is_pandas_series = isinstance(y, pd.Series)
+    if is_pandas_series:
+        y_name = y.name
     
-    # Cargar los tres conjuntos de datos
-    datasets = {}
+    # Get array representation
+    y_array = y.values if is_pandas_series else y
     
-    for data_type in ['train', 'validation', 'test']:
-        try:
-            # Leer tabla
-            query = f"SELECT * FROM diabetes_{data_type}_processed"
-            df = mysql_hook.get_pandas_df(query)
-            
-            # Identificar caracter�sticas y convertir a float
-            # CORRECCI�N: Verificar que las columnas son realmente num�ricas antes de convertir
-            feature_cols = [col for col in df.columns if 'feature' in str(col)]
-            numeric_feature_cols = []
-            
-            # Intentar convertir cada columna por separado con manejo de errores
-            for col in feature_cols:
-                try:
-                    # Intentar verificar si la columna contiene n�meros
-                    # Si falla, probablemente contiene strings no convertibles
-                    if df[col].str.isnumeric().all():
-                        df[col] = pd.to_numeric(df[col], errors='coerce')
-                        numeric_feature_cols.append(col)
-                    else:
-                        # Intentar forzar la conversi�n, con manejo de errores
-                        df[col] = pd.to_numeric(df[col], errors='coerce')
-                        # Si la conversi�n fue exitosa y no gener� todos NaN, a�adir a columnas num�ricas
-                        if not df[col].isna().all():
-                            numeric_feature_cols.append(col)
-                except (AttributeError, ValueError):
-                    # Si no es una columna de texto o hay otros errores, intentar conversi�n directa
-                    try:
-                        df[col] = df[col].astype(float)
-                        numeric_feature_cols.append(col)
-                    except:
-                        print(f"No se pudo convertir la columna {col} a float. Ignorando.")
-            
-            # Usar solo columnas convertidas exitosamente
-            if not numeric_feature_cols:
-                # Si no hay columnas num�ricas, intentar identificar columnas que parezcan caracter�sticas
-                # Las columnas num�ricas t�picamente tienen nombres con n�meros
-                numeric_feature_cols = [col for col in df.columns 
-                                       if any(c.isdigit() for c in str(col)) 
-                                       and 'id' not in str(col).lower()]
-                
-                # Intento m�s agresivo por nombre de columna
-                if not numeric_feature_cols:
-                    # Buscar columnas que parezcan caracter�sticas por nombre
-                    potential_features = [col for col in df.columns 
-                                         if col not in ['target', 'readmitted', 'encounter_id', 'patient_nbr']]
-                    # Tomar las primeras N columnas como caracter�sticas
-                    numeric_feature_cols = potential_features[:min(10, len(potential_features))]
-            
-            X = df[numeric_feature_cols]
-            
-            # Encontrar y convertir la columna target
-            target_cols = ['target', 'readmitted']
-            target_col = next((col for col in target_cols if col in df.columns), None)
-            
-            if target_col is not None:
-                # Si encontramos la columna target
-                if pd.api.types.is_object_dtype(df[target_col]):
-                    # Si es object/string, convertir a binario
-                    # Buscar valores que parezcan positivos
-                    positive_values = ['YES', '<30', '1', 'True', 'yes', 'true', 'positive', 'Positive']
-                    # Detectar los valores �nicos
-                    unique_vals = df[target_col].unique()
-                    
-                    # Crear un mapa para convertir a 0/1
-                    if len(unique_vals) == 2:
-                        # Encontrar cu�l valor parece ser el positivo
-                        pos_val = next((val for val in unique_vals if str(val) in positive_values), unique_vals[0])
-                        neg_val = next((val for val in unique_vals if val != pos_val), None)
-                        
-                        # Crear el mapa
-                        target_map = {pos_val: 1}
-                        if neg_val is not None:
-                            target_map[neg_val] = 0
-                        
-                        # Aplicar mapa y manejar valores no mapeados
-                        y = df[target_col].map(target_map).fillna(0)
-                    else:
-                        # Si hay m�s de 2 valores, convertir a num�rico de la mejor forma posible
-                        y = pd.to_numeric(df[target_col], errors='coerce').fillna(0)
-                else:
-                    # Si ya es num�rico, usarlo tal cual
-                    y = df[target_col]
-            else:
-                # Si no hay columna target, usar la �ltima columna
-                y = df.iloc[:, -1]
-                # Intentar convertir a num�rico si es posible
-                if pd.api.types.is_object_dtype(y):
-                    y = pd.to_numeric(y, errors='coerce').fillna(0)
-            
-            # Guardar en el diccionario
-            datasets[f'{data_type}_X'] = X
-            datasets[f'{data_type}_y'] = y
-            
-            # Guardar en XCom
-            ti.xcom_push(key=f'{data_type}_X', value=X.to_json(orient='split'))
-            ti.xcom_push(key=f'{data_type}_y', value=y.to_json(orient='split'))
-            
-            print(f"Datos de {data_type}: X={X.shape}, y={y.shape}")
-            
-        except Exception as e:
-            print(f"ERROR cargando datos de {data_type}: {str(e)}")
-            # Si hay error, crear DataFrames vac�os para no interrumpir el flujo
-            ti.xcom_push(key=f'{data_type}_X', value=pd.DataFrame().to_json(orient='split'))
-            ti.xcom_push(key=f'{data_type}_y', value=pd.Series().to_json(orient='split'))
+    # Find indices of each class
+    unique_classes = np.unique(y_array)
+    class_indices = {}
+    for cls in unique_classes:
+        class_indices[cls] = np.where(y_array == cls)[0]
     
-    return "Datos cargados con �xito"
+    # Display class distribution before resampling
+    print("Class distribution before undersampling:")
+    for cls, indices in class_indices.items():
+        print(f"  Class {cls}: {len(indices)} samples")
+    
+    # Determine target count for majority class
+    if len(unique_classes) != 2:
+        raise ValueError("This function only supports binary classification problems")
+    
+    # Find majority and minority classes
+    class_counts = [len(class_indices[cls]) for cls in unique_classes]
+    majority_class_idx = np.argmax(class_counts)
+    minority_class_idx = 1 - majority_class_idx
+    
+    majority_class = unique_classes[majority_class_idx]
+    minority_class = unique_classes[minority_class_idx]
+    
+    minority_count = len(class_indices[minority_class])
+    majority_count = len(class_indices[majority_class])
+    
+    # Calculate target sample count for majority class
+    if sampling_strategy == 'auto' or sampling_strategy == 'majority':
+        target_majority_count = minority_count
+    elif isinstance(sampling_strategy, (int, float)):
+        # sampling_strategy is ratio of minority:majority
+        target_majority_count = int(minority_count / sampling_strategy)
+    else:
+        raise ValueError("sampling_strategy must be 'auto', 'majority', or a number")
+    
+    # Undersample majority class
+    np.random.seed(random_state)
+    selected_majority_indices = np.random.choice(
+        class_indices[majority_class], 
+        size=min(target_majority_count, majority_count), 
+        replace=False
+    )
+    
+    # Combine with minority class indices
+    selected_indices = np.concatenate([selected_majority_indices, class_indices[minority_class]])
+    
+    # Get resampled data
+    X_transformed_resampled = X_transformed[selected_indices]
+    y_resampled = y_array[selected_indices]
+    
+    # Display class distribution after resampling
+    unique_resampled, counts_resampled = np.unique(y_resampled, return_counts=True)
+    print("Class distribution after undersampling:")
+    for cls, count in zip(unique_resampled, counts_resampled):
+        print(f"  Class {cls}: {count} samples")
+    
+    # Preserve pandas Series type if input was a Series
+    if is_pandas_series:
+        y_resampled = pd.Series(y_resampled, name=y_name)
+    
+    return X_transformed_resampled, y_resampled
 
-def apply_undersampling(**kwargs):
-    """Aplica undersampling a los datos de entrenamiento"""
-    ti = kwargs['ti']
+# Funci�n para entrenar y evaluar el modelo
+def train_evaluate_transformed_data(X_transformed, y, model=None, test_size=0.3, random_state=42):
+    """
+    Trains a model using transformed data without splitting.
+    """
+    from sklearn.ensemble import RandomForestClassifier
     
-    # Recuperar datos de train
-    X_train_json = ti.xcom_pull(key='train_X', task_ids='load_data')
-    y_train_json = ti.xcom_pull(key='train_y', task_ids='load_data')
+    # Create model if not provided
+    if model is None:
+        model = RandomForestClassifier(random_state=random_state)
     
-    # Convertir JSON a DataFrame/Series
-    X_train = pd.read_json(X_train_json, orient='split')
-    y_train = pd.read_json(y_train_json, orient='split', typ='series')
+    # Train the model on all data
+    model.fit(X_transformed, y)
     
-    # Verificar que hay datos
-    if X_train.empty or y_train.empty:
-        print("No hay datos suficientes para hacer undersampling. Usando datos vac�os.")
-        ti.xcom_push(key='train_X_balanced', value=X_train.to_json(orient='split'))
-        ti.xcom_push(key='train_y_balanced', value=y_train.to_json(orient='split'))
-        return "No hay datos para aplicar undersampling"
-    
-    print(f"Datos originales: X_train={X_train.shape}, y_train={y_train.shape}")
+    return model
+
+# Funci�n para leer datos de entrenamiento
+def read_train_data(**kwargs):
+    """Lee los datos de entrenamiento y aplica undersampling."""
+    print("Leyendo datos de la tabla diabetes_train_processed...")
     
     try:
-        # Obtener distribuci�n de clases
-        class_counts = y_train.value_counts()
+        # Conectar a MySQL
+        mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
         
-        # Verificar que hay al menos dos clases
-        if len(class_counts) < 2:
-            print(f"ADVERTENCIA: Solo hay una clase ({class_counts.index[0]}) en los datos.")
-            ti.xcom_push(key='train_X_balanced', value=X_train.to_json(orient='split'))
-            ti.xcom_push(key='train_y_balanced', value=y_train.to_json(orient='split'))
-            return "No se puede aplicar undersampling a una sola clase"
+        # Leer tabla
+        query = "SELECT * FROM diabetes_train_processed"
+        df = mysql_hook.get_pandas_df(query)
         
-        # Obtener clases mayoritaria y minoritaria
-        majority_class = class_counts.idxmax()
-        minority_class = class_counts.idxmin()
+        # Mostrar informaci�n b�sica
+        print(f"Datos de entrenamiento:")
+        print(f"- Forma: {df.shape}")
+        print(f"- Columnas: {df.columns.tolist()}")
+        print(f"- Primeras 5 filas:")
+        print(df.head())
         
-        # Obtener �ndices por clase
-        majority_indices = np.where(y_train == majority_class)[0]
-        minority_indices = np.where(y_train == minority_class)[0]
+        # Separar caracter�sticas y variable objetivo
+        X = df.drop('target', axis=1)
+        y = df['target']
         
-        # Submuestrear la clase mayoritaria
-        np.random.seed(42)
-        majority_indices_sampled = np.random.choice(
-            majority_indices, 
-            size=min(len(minority_indices), len(majority_indices)), 
-            replace=False
+        # Mostrar distribuci�n de clases
+        print("Distribuci�n de clases (entrenamiento):")
+        print(y.value_counts())
+        
+        # Aplicar undersampling
+        print("Aplicando undersampling al conjunto de entrenamiento...")
+        X_resampled, y_resampled = perform_undersampling_from_transformed(
+            X.values, y, random_state=42, sampling_strategy='auto'
         )
         
-        # Combinar �ndices
-        selected_indices = np.concatenate([majority_indices_sampled, minority_indices])
+        # Guardar datos procesados
+        import pickle
+        import os
         
-        # Obtener datos balanceados
-        X_train_balanced = X_train.iloc[selected_indices]
-        y_train_balanced = y_train.iloc[selected_indices]
+        data_dir = '/tmp/airflow/data'
+        os.makedirs(data_dir, exist_ok=True)
         
-        print(f"Datos balanceados: X_train={X_train_balanced.shape}, y_train={y_train_balanced.shape}")
+        with open(f'{data_dir}/X_train_resampled.pkl', 'wb') as f:
+            pickle.dump(X_resampled, f)
         
+        with open(f'{data_dir}/y_train_resampled.pkl', 'wb') as f:
+            pickle.dump(y_resampled, f)
+        
+        print(f"Datos de entrenamiento balanceados guardados en {data_dir}")
+        
+        return "Procesamiento de datos de entrenamiento completado"
+    
     except Exception as e:
-        print(f"Error en undersampling: {str(e)}")
-        # En caso de error, usar los datos originales
-        X_train_balanced = X_train
-        y_train_balanced = y_train
-    
-    # Guardar en XCom
-    ti.xcom_push(key='train_X_balanced', value=X_train_balanced.to_json(orient='split'))
-    ti.xcom_push(key='train_y_balanced', value=y_train_balanced.to_json(orient='split'))
-    
-    return "Undersampling aplicado correctamente"
+        print(f"Error al procesar los datos: {str(e)}")
+        return f"Error: {str(e)}"
 
-def train_and_predict(**kwargs):
-    """Entrena el modelo y hace predicciones"""
-    ti = kwargs['ti']
-    
-    # Recuperar datos
-    X_train_json = ti.xcom_pull(key='train_X_balanced', task_ids='apply_undersampling')
-    y_train_json = ti.xcom_pull(key='train_y_balanced', task_ids='apply_undersampling')
-    X_test_json = ti.xcom_pull(key='test_X', task_ids='load_data')
-    y_test_json = ti.xcom_pull(key='test_y', task_ids='load_data')
-    
-    # Convertir JSON a DataFrame/Series
-    X_train = pd.read_json(X_train_json, orient='split')
-    y_train = pd.read_json(y_train_json, orient='split', typ='series')
-    X_test = pd.read_json(X_test_json, orient='split')
-    y_test = pd.read_json(y_test_json, orient='split', typ='series')
-    
-    # Verificar que hay datos para entrenar
-    if X_train.empty or y_train.empty:
-        print("No hay datos de entrenamiento. No se puede entrenar el modelo.")
-        # Crear predicciones dummy
-        dummy_pred = pd.Series([0] * len(y_test)) if not y_test.empty else pd.Series()
-        ti.xcom_push(key='test_predictions', value=dummy_pred.to_json(orient='split'))
-        ti.xcom_push(key='test_true_values', value=y_test.to_json(orient='split'))
-        return "No hay datos para entrenar"
+# Funci�n para leer datos de validaci�n
+def read_validation_data(**kwargs):
+    """Lee los datos de validaci�n."""
+    print("Leyendo datos de la tabla diabetes_validation_processed...")
     
     try:
+        # Conectar a MySQL
+        mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+        
+        # Leer tabla
+        query = "SELECT * FROM diabetes_validation_processed"
+        df = mysql_hook.get_pandas_df(query)
+        
+        # Mostrar informaci�n b�sica
+        print(f"Datos de validaci�n:")
+        print(f"- Forma: {df.shape}")
+        print(f"- Columnas: {df.columns.tolist()}")
+        print(f"- Primeras 5 filas:")
+        print(df.head())
+        
+        # Separar caracter�sticas y variable objetivo
+        X = df.drop('target', axis=1)
+        y = df['target']
+        
+        # Mostrar distribuci�n de clases
+        print("Distribuci�n de clases (validaci�n):")
+        print(y.value_counts())
+        
+        # Guardar datos
+        import pickle
+        data_dir = '/tmp/airflow/data'
+        
+        with open(f'{data_dir}/X_validation.pkl', 'wb') as f:
+            pickle.dump(X.values, f)
+        
+        with open(f'{data_dir}/y_validation.pkl', 'wb') as f:
+            pickle.dump(y, f)
+        
+        return "Procesamiento de datos de validaci�n completado"
+    
+    except Exception as e:
+        print(f"Error al procesar los datos: {str(e)}")
+        return f"Error: {str(e)}"
+
+# Funci�n para leer datos de prueba
+def read_test_data(**kwargs):
+    """Lee los datos de prueba."""
+    print("Leyendo datos de la tabla diabetes_test_processed...")
+    
+    try:
+        # Conectar a MySQL
+        mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+        
+        # Leer tabla
+        query = "SELECT * FROM diabetes_test_processed"
+        df = mysql_hook.get_pandas_df(query)
+        
+        # Mostrar informaci�n b�sica
+        print(f"Datos de prueba:")
+        print(f"- Forma: {df.shape}")
+        print(f"- Columnas: {df.columns.tolist()}")
+        print(f"- Primeras 5 filas:")
+        print(df.head())
+        
+        # Separar caracter�sticas y variable objetivo
+        X = df.drop('target', axis=1)
+        y = df['target']
+        
+        # Mostrar distribuci�n de clases
+        print("Distribuci�n de clases (prueba):")
+        print(y.value_counts())
+        
+        # Guardar datos
+        import pickle
+        data_dir = '/tmp/airflow/data'
+        
+        with open(f'{data_dir}/X_test.pkl', 'wb') as f:
+            pickle.dump(X.values, f)
+        
+        with open(f'{data_dir}/y_test.pkl', 'wb') as f:
+            pickle.dump(y, f)
+        
+        return "Procesamiento de datos de prueba completado"
+    
+    except Exception as e:
+        print(f"Error al procesar los datos: {str(e)}")
+        return f"Error: {str(e)}"
+
+# Funci�n para entrenar el modelo
+def train_model(**kwargs):
+    """Entrena el modelo con los datos de entrenamiento balanceados."""
+    try:
+        # Cargar datos
+        import pickle
+        data_dir = '/tmp/airflow/data'
+        
+        with open(f'{data_dir}/X_train_resampled.pkl', 'rb') as f:
+            X_train_resampled = pickle.load(f)
+        
+        with open(f'{data_dir}/y_train_resampled.pkl', 'rb') as f:
+            y_train_resampled = pickle.load(f)
+        
         # Entrenar modelo
-        print("Entrenando modelo...")
+        print("Entrenando modelo con datos balanceados...")
         model = RandomForestClassifier(n_estimators=100, random_state=42)
-        model.fit(X_train, y_train)
+        model.fit(X_train_resampled, y_train_resampled)
         
         # Guardar modelo
-        airflow_home = os.environ.get('AIRFLOW_HOME', '/opt/airflow')
-        model_dir = os.path.join(airflow_home, 'data', 'models')
+        import os
+        model_dir = '/tmp/airflow/models'
         os.makedirs(model_dir, exist_ok=True)
-        model_path = os.path.join(model_dir, 'diabetes_rf_model.pkl')
         
-        with open(model_path, 'wb') as f:
+        with open(f'{model_dir}/diabetes_model.pkl', 'wb') as f:
             pickle.dump(model, f)
         
-        # Hacer predicciones solo si hay datos de prueba
-        if not X_test.empty and not y_test.empty:
-            y_pred = model.predict(X_test)
-            print("Predicciones realizadas con �xito")
-        else:
-            print("No hay datos de prueba. Usando predicciones dummy.")
-            y_pred = np.zeros(0)
+        print(f"Modelo guardado en {model_dir}")
         
+        return "Entrenamiento del modelo completado"
+    
     except Exception as e:
-        print(f"Error entrenando modelo: {str(e)}")
-        # Crear predicciones dummy en caso de error
-        y_pred = np.zeros(len(y_test)) if not y_test.empty else np.zeros(0)
-    
-    # Guardar predicciones en XCom
-    ti.xcom_push(key='test_predictions', value=pd.Series(y_pred).to_json(orient='split'))
-    ti.xcom_push(key='test_true_values', value=y_test.to_json(orient='split'))
-    
-    return "Modelo entrenado y predicciones realizadas"
+        print(f"Error al entrenar el modelo: {str(e)}")
+        return f"Error: {str(e)}"
 
-def generate_metrics(**kwargs):
-    """Genera m�tricas de evaluaci�n y matriz de confusi�n"""
-    ti = kwargs['ti']
-    
-    # Recuperar datos
-    y_test_json = ti.xcom_pull(key='test_true_values', task_ids='train_and_predict')
-    y_pred_json = ti.xcom_pull(key='test_predictions', task_ids='train_and_predict')
-    
-    # Convertir JSON a Series
-    y_test = pd.read_json(y_test_json, orient='split', typ='series')
-    y_pred = pd.read_json(y_pred_json, orient='split', typ='series')
-    
-    # Verificar que hay datos suficientes
-    if y_test.empty or y_pred.empty or len(y_test) != len(y_pred):
-        print("No hay suficientes datos para calcular m�tricas")
-        return "No hay datos suficientes para m�tricas"
-    
+# Funci�n para evaluar con datos de validaci�n
+def evaluate_validation(**kwargs):
+    """Eval�a el modelo con datos de validaci�n."""
     try:
+        # Cargar modelo y datos
+        import pickle
+        data_dir = '/tmp/airflow/data'
+        model_dir = '/tmp/airflow/models'
+        
+        with open(f'{model_dir}/diabetes_model.pkl', 'rb') as f:
+            model = pickle.load(f)
+        
+        with open(f'{data_dir}/X_validation.pkl', 'rb') as f:
+            X_validation = pickle.load(f)
+        
+        with open(f'{data_dir}/y_validation.pkl', 'rb') as f:
+            y_validation = pickle.load(f)
+        
+        # Realizar predicciones
+        from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+        
+        y_pred = model.predict(X_validation)
+        y_pred_proba = model.predict_proba(X_validation)[:, 1]
+        
         # Calcular m�tricas
-        metrics = {
-            "accuracy": accuracy_score(y_test, y_pred),
-            "precision": precision_score(y_test, y_pred, zero_division=0),
-            "recall": recall_score(y_test, y_pred, zero_division=0),
-            "f1_score": f1_score(y_test, y_pred, zero_division=0)
+        results = {
+            "accuracy": accuracy_score(y_validation, y_pred),
+            "precision": precision_score(y_validation, y_pred, pos_label="YES"),
+            "recall": recall_score(y_validation, y_pred, pos_label="YES"),
+            "f1_score": f1_score(y_validation, y_pred, pos_label="YES"),
+            "roc_auc": roc_auc_score(y_validation == "YES", y_pred_proba)
         }
         
-        # Calcular matriz de confusi�n
+        # Mostrar resultados
+        print("Resultados en validaci�n:")
+        for metric, value in results.items():
+            print(f"- {metric}: {value:.4f}")
+        
+        # Guardar resultados
+        with open(f'{data_dir}/validation_results.pkl', 'wb') as f:
+            pickle.dump(results, f)
+        
+        return "Evaluaci�n en validaci�n completada"
+    
+    except Exception as e:
+        print(f"Error en evaluaci�n: {str(e)}")
+        return f"Error: {str(e)}"
+
+# Funci�n para realizar inferencia en datos de prueba
+def inference_test(**kwargs):
+    """Realiza inferencia en datos de prueba."""
+    try:
+        # Cargar modelo y datos
+        import pickle
+        data_dir = '/tmp/airflow/data'
+        model_dir = '/tmp/airflow/models'
+        
+        with open(f'{model_dir}/diabetes_model.pkl', 'rb') as f:
+            model = pickle.load(f)
+        
+        with open(f'{data_dir}/X_test.pkl', 'rb') as f:
+            X_test = pickle.load(f)
+        
+        with open(f'{data_dir}/y_test.pkl', 'rb') as f:
+            y_test = pickle.load(f)
+        
+        # Realizar predicciones
+        from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix, classification_report
+        
+        y_pred = model.predict(X_test)
+        y_pred_proba = model.predict_proba(X_test)[:, 1]
+        
+        # Calcular m�tricas
+        results = {
+            "accuracy": accuracy_score(y_test, y_pred),
+            "precision": precision_score(y_test, y_pred, pos_label="YES"),
+            "recall": recall_score(y_test, y_pred, pos_label="YES"),
+            "f1_score": f1_score(y_test, y_pred, pos_label="YES"),
+            "roc_auc": roc_auc_score(y_test == "YES", y_pred_proba)
+        }
+        
+        # Mostrar resultados
+        print("Resultados en prueba:")
+        for metric, value in results.items():
+            print(f"- {metric}: {value:.4f}")
+        
+        # Mostrar matriz de confusi�n
         cm = confusion_matrix(y_test, y_pred)
-        
-        # Imprimir m�tricas
-        print("\nM�TRICAS DE EVALUACI�N:")
-        for metric, value in metrics.items():
-            print(f"{metric}: {value:.4f}")
-        
-        print("\nMATRIZ DE CONFUSI�N:")
+        print("Matriz de confusi�n:")
         print(cm)
         
-        # Generar y guardar visualizaci�n
-        airflow_home = os.environ.get('AIRFLOW_HOME', '/opt/airflow')
-        plots_dir = os.path.join(airflow_home, 'data', 'plots')
-        os.makedirs(plots_dir, exist_ok=True)
-        cm_plot_path = os.path.join(plots_dir, 'confusion_matrix.png')
+        # Mostrar informe de clasificaci�n
+        print("Informe de clasificaci�n:")
+        print(classification_report(y_test, y_pred))
         
-        plt.figure(figsize=(8, 6))
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-                    xticklabels=['No readmit', 'Readmit'],
-                    yticklabels=['No readmit', 'Readmit'])
-        plt.ylabel('Valor Real')
-        plt.xlabel('Valor Predicho')
-        plt.title('Matriz de Confusi�n')
-        plt.tight_layout()
-        plt.savefig(cm_plot_path)
-        plt.close()
+        # Guardar resultados
+        with open(f'{data_dir}/test_results.pkl', 'wb') as f:
+            pickle.dump(results, f)
         
-        # Guardar m�tricas en un archivo
-        metrics_dir = os.path.join(airflow_home, 'data', 'reports')
-        os.makedirs(metrics_dir, exist_ok=True)
-        metrics_path = os.path.join(metrics_dir, 'model_metrics.txt')
-        
-        with open(metrics_path, 'w') as f:
-            f.write("M�TRICAS DE EVALUACI�N\n")
-            f.write("=====================\n\n")
-            for metric, value in metrics.items():
-                f.write(f"{metric}: {value:.4f}\n")
-            
-            f.write("\nMATRIZ DE CONFUSI�N\n")
-            f.write("==================\n\n")
-            f.write(str(cm))
-        
-        print(f"M�tricas guardadas en: {metrics_path}")
-        print(f"Matriz de confusi�n guardada en: {cm_plot_path}")
-        
-    except Exception as e:
-        print(f"Error generando m�tricas: {str(e)}")
+        return "Inferencia en prueba completada"
     
-    return "M�tricas generadas correctamente"
+    except Exception as e:
+        print(f"Error en inferencia: {str(e)}")
+        return f"Error: {str(e)}"
+
+# Funci�n para generar resumen
+def generate_summary(**kwargs):
+    """Genera un resumen del proceso completo."""
+    try:
+        # Cargar resultados
+        import pickle
+        data_dir = '/tmp/airflow/data'
+        
+        with open(f'{data_dir}/validation_results.pkl', 'rb') as f:
+            validation_results = pickle.load(f)
+        
+        with open(f'{data_dir}/test_results.pkl', 'rb') as f:
+            test_results = pickle.load(f)
+        
+        print("===== RESUMEN DEL PROCESO =====")
+        print("1. Datos de entrenamiento balanceados")
+        print("2. Modelo entrenado")
+        print("3. Evaluaci�n e inferencia realizadas")
+        
+        print("\nComparaci�n de resultados:")
+        print("| M�trica    | Validaci�n | Prueba    |")
+        print("|------------|------------|-----------|")
+        for metric in validation_results.keys():
+            print(f"| {metric:<10} | {validation_results[metric]:.4f}     | {test_results[metric]:.4f}     |")
+        
+        print("\nProceso completado exitosamente")
+        print("==============================")
+        
+        return "Resumen generado"
+    
+    except Exception as e:
+        print(f"Error al generar resumen: {str(e)}")
+        return f"Error: {str(e)}"
 
 # Crear el DAG
 with DAG(
-    'diabetes_undersampling_simple',
+    'diabetes_model_pipeline',
     default_args=default_args,
-    description='DAG simple para undersampling y predicci�n de diabetes',
+    description='Pipeline para datos de diabetes con balanceo e inferencia',
     schedule_interval=None,
 ) as dag:
     
     # Tareas
-    load_data = PythonOperator(
-        task_id='load_data',
-        python_callable=load_data_from_sql,
+    read_train = PythonOperator(
+        task_id='read_train_data',
+        python_callable=read_train_data,
         provide_context=True,
     )
     
-    undersample = PythonOperator(
-        task_id='apply_undersampling',
-        python_callable=apply_undersampling,
+    read_validation = PythonOperator(
+        task_id='read_validation_data',
+        python_callable=read_validation_data,
         provide_context=True,
     )
     
-    train_predict = PythonOperator(
-        task_id='train_and_predict',
-        python_callable=train_and_predict,
+    read_test = PythonOperator(
+        task_id='read_test_data',
+        python_callable=read_test_data,
+        provide_context=True,
+    )
+    
+    train = PythonOperator(
+        task_id='train_model',
+        python_callable=train_model,
         provide_context=True,
     )
     
     evaluate = PythonOperator(
-        task_id='generate_metrics',
-        python_callable=generate_metrics,
+        task_id='evaluate_validation',
+        python_callable=evaluate_validation,
         provide_context=True,
     )
     
-    # Definir orden de ejecuci�n
-    load_data >> undersample >> train_predict >> evaluate
+    infer = PythonOperator(
+        task_id='inference_test',
+        python_callable=inference_test,
+        provide_context=True,
+    )
+    
+    summary = PythonOperator(
+        task_id='generate_summary',
+        python_callable=generate_summary,
+        provide_context=True,
+    )
+    
+    # Definir dependencias
+    read_train >> read_validation >> read_test >> train >> evaluate >> infer >> summary

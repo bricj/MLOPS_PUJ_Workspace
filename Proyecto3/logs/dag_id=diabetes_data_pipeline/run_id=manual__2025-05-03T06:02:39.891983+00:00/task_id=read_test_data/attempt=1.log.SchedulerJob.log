@@ -1,1 +1,0 @@
-[2025-05-03T06:02:51.762+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: diabetes_data_pipeline.read_test_data manual__2025-05-03T06:02:39.891983+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

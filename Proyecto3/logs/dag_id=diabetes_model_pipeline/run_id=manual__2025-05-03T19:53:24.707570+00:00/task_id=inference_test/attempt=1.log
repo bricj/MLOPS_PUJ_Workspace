@@ -1,0 +1,35 @@
+[2025-05-03T19:54:50.423+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-03T19:54:50.459+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_model_pipeline.inference_test manual__2025-05-03T19:53:24.707570+00:00 [queued]>
+[2025-05-03T19:54:50.475+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_model_pipeline.inference_test manual__2025-05-03T19:53:24.707570+00:00 [queued]>
+[2025-05-03T19:54:50.476+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-03T19:54:50.509+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): inference_test> on 2025-05-03 19:53:24.707570+00:00
+[2025-05-03T19:54:50.538+0000] {standard_task_runner.py:63} INFO - Started process 332 to run task
+[2025-05-03T19:54:50.555+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_model_pipeline', 'inference_test', 'manual__2025-05-03T19:53:24.707570+00:00', '--job-id', '381', '--raw', '--subdir', 'DAGS_FOLDER/model.py', '--cfg-path', '/tmp/tmps_u8ldua']
+[2025-05-03T19:54:50.564+0000] {standard_task_runner.py:91} INFO - Job 381: Subtask inference_test
+[2025-05-03T19:54:50.676+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_model_pipeline.inference_test manual__2025-05-03T19:53:24.707570+00:00 [running]> on host 31e5ce530290
+[2025-05-03T19:54:51.000+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_model_pipeline' AIRFLOW_CTX_TASK_ID='inference_test' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T19:53:24.707570+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T19:53:24.707570+00:00'
+[2025-05-03T19:54:51.008+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-03T19:54:59.335+0000] {logging_mixin.py:188} INFO - Resultados en prueba:
+[2025-05-03T19:54:59.338+0000] {logging_mixin.py:188} INFO - - accuracy: 0.6182
+[2025-05-03T19:54:59.339+0000] {logging_mixin.py:188} INFO - - precision: 0.5810
+[2025-05-03T19:54:59.339+0000] {logging_mixin.py:188} INFO - - recall: 0.6152
+[2025-05-03T19:54:59.340+0000] {logging_mixin.py:188} INFO - - f1_score: 0.5976
+[2025-05-03T19:54:59.341+0000] {logging_mixin.py:188} INFO - - roc_auc: 0.6678
+[2025-05-03T19:54:59.487+0000] {logging_mixin.py:188} INFO - Matriz de confusi�n:
+[2025-05-03T19:54:59.489+0000] {logging_mixin.py:188} INFO - [[6811 4162]
+ [3610 5771]]
+[2025-05-03T19:54:59.490+0000] {logging_mixin.py:188} INFO - Informe de clasificaci�n:
+[2025-05-03T19:55:01.271+0000] {logging_mixin.py:188} INFO -               precision    recall  f1-score   support
+
+          NO       0.65      0.62      0.64     10973
+         YES       0.58      0.62      0.60      9381
+
+    accuracy                           0.62     20354
+   macro avg       0.62      0.62      0.62     20354
+weighted avg       0.62      0.62      0.62     20354
+[2025-05-03T19:55:01.282+0000] {python.py:237} INFO - Done. Returned value was: Inferencia en prueba completada
+[2025-05-03T19:55:01.283+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-03T19:55:01.323+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=diabetes_model_pipeline, task_id=inference_test, execution_date=20250503T195324, start_date=20250503T195450, end_date=20250503T195501
+[2025-05-03T19:55:01.580+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-03T19:55:01.667+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-03T19:55:01.670+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
