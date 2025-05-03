@@ -1,7 +1,7 @@
 import gradio as gr
 import requests
 
-API_URL = "http://inference_models:8989"  # Servicio FastAPI en docker-compose
+API_URL = "http://inference-models:8989"  # Servicio FastAPI en docker-compose
 
 def get_models():
     try:
@@ -11,25 +11,44 @@ def get_models():
     except Exception as e:
         return [f"❌ Error al obtener modelos: {str(e)}"]
 
-def predict(model_name, Soil_Type, Cover_Type, Elevation, Aspect, Slope,
-            Horizontal_Distance_To_Hydrology, Vertical_Distance_To_Hydrology,
-            Horizontal_Distance_To_Roadways, Hillshade_9am, Hillshade_Noon,
-            Hillshade_3pm, Horizontal_Distance_To_Fire_Points, Wilderness_Area):
+def predict(model_name, race, gender, age, admission_type_id,
+               discharge_disposition_id, admission_source_id, metformin,
+               glimepiride, glyburide, pioglitazone, rosiglitazone, examide,
+               citoglipton, insulin, change, diag_1, diabetesMed,
+               max_glu_serum, A1Cresult, time_in_hospital, num_lab_procedures,
+               num_procedures, num_medications, number_outpatient,
+               number_emergency, number_inpatient, number_diagnoses, 
+               service_utilization):
     
     payload = {
-        "Soil_Type": int(Soil_Type),
-        "Cover_Type": int(Cover_Type),
-        "Elevation": float(Elevation),
-        "Aspect": float(Aspect),
-        "Slope": float(Slope),
-        "Horizontal_Distance_To_Hydrology": float(Horizontal_Distance_To_Hydrology),
-        "Vertical_Distance_To_Hydrology": float(Vertical_Distance_To_Hydrology),
-        "Horizontal_Distance_To_Roadways": float(Horizontal_Distance_To_Roadways),
-        "Hillshade_9am": float(Hillshade_9am),
-        "Hillshade_Noon": float(Hillshade_Noon),
-        "Hillshade_3pm": float(Hillshade_3pm),
-        "Horizontal_Distance_To_Fire_Points": float(Horizontal_Distance_To_Fire_Points),
-        "Wilderness_Area": int(Wilderness_Area)
+        "Race": int(race),
+        "Gender": int(gender),
+        "Age": int(age),
+        "admission_type_id": int(admission_type_id),
+        "discharge_disposition_id": int(discharge_disposition_id),
+        "admission_source_id": int(admission_source_id),
+        "metformin": int(metformin),
+        "glimepiride": int(glimepiride),
+        "glyburide": int(glyburide),
+        "pioglitazone": int(pioglitazone),
+        "rosiglitazone": int(rosiglitazone),
+        "examide": int(examide),
+        "citoglipton": int(citoglipton),
+        "insulin": int(insulin),
+        "change": int(change),
+        "diag_1": int(diag_1),
+        "diabetesMed": int(diabetesMed),
+        "max_glu_serum": int(max_glu_serum),
+        "A1Cresult": int(A1Cresult),
+        "time_in_hospital": float(time_in_hospital),
+        "num_lab_procedures": float(num_lab_procedures),
+        "num_procedures": float(num_procedures),
+        "num_medications": float(num_medications),
+        "number_outpatient": float(number_outpatient),
+        "number_emergency": float(number_emergency),
+        "number_inpatient": float(number_inpatient),
+        "number_diagnoses": int(number_diagnoses),
+        "service_utilization": int(service_utilization)
     }
 
     try:
@@ -54,19 +73,34 @@ with gr.Blocks() as demo:
     with gr.Row():
         input_fields = [
             model_dropdown,
-            gr.Number(label="Soil_Type"),
-            gr.Number(label="Cover_Type"),
-            gr.Number(label="Elevation"),
-            gr.Number(label="Aspect"),
-            gr.Number(label="Slope"),
-            gr.Number(label="Horizontal_Distance_To_Hydrology"),
-            gr.Number(label="Vertical_Distance_To_Hydrology"),
-            gr.Number(label="Horizontal_Distance_To_Roadways"),
-            gr.Number(label="Hillshade_9am"),
-            gr.Number(label="Hillshade_Noon"),
-            gr.Number(label="Hillshade_3pm"),
-            gr.Number(label="Horizontal_Distance_To_Fire_Points"),
-            gr.Number(label="Wilderness_Area"),
+            gr.Number(label= "Race"),
+            gr.Number(label="Gender"),
+            gr.Number(label="Age"),
+            gr.Number(label="admission_type_id"),
+            gr.Number(label="discharge_disposition_id"),
+            gr.Number(label="admission_source_id"),
+            gr.Number(label="metformin"),
+            gr.Number(label="glimepiride"),
+            gr.Number(label="glyburide"),
+            gr.Number(label="pioglitazone"),
+            gr.Number(label="rosiglitazone"),
+            gr.Number(label="examide"),
+            gr.Number(label="citoglipton"),
+            gr.Number(label="insulin"),
+            gr.Number(label="change"),
+            gr.Number(label="diag_1"),
+            gr.Number(label="diabetesMed"),
+            gr.Number(label="max_glu_serum"),
+            gr.Number(label="A1Cresult"),
+            gr.Number(label="time_in_hospital"),
+            gr.Number(label="num_lab_procedures"),
+            gr.Number(label="num_procedures"),
+            gr.Number(label="num_medications"),
+            gr.Number(label="number_outpatient"),
+            gr.Number(label="number_emergency"),
+            gr.Number(label="number_inpatient"),
+            gr.Number(label="number_diagnoses"),
+            gr.Number(label="service_utilization")
         ]
     
     output = gr.Textbox(label="📈 Predicción")
