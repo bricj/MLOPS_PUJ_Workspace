@@ -38,7 +38,7 @@ docker network create --driver bridge my_shared_network
 
 2. fetch_and_store_diabetes_data: almacena la data cruda, la consume de un fastapi (puerto 80)
 
-3. read_diabetes_tables: lee los datos por batch, genera tres tablas: train, validation y test (batch de 15000 registros)
+3. diabetes_etl_fast: lee los datos por batch, genera tres tablas: train, validation y test (batch de 15000 registros)
 
-4. diabetes_data_pipeline: limpieza de datos, procesamiento y almacenamiento de data limpia
+4. diabetes_model_pipeline: limpieza de datos, procesamiento y almacenamiento de data limpia
 
