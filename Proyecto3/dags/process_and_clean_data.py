@@ -134,6 +134,14 @@ def preprocess_diabetes_data(df):
     # Define column categories
     ids_cols = ['encounter_id', 'patient_nbr']
     
+    # DIAGNÓSTICO 1: Verificar los valores únicos en 'readmitted'
+    unique_values = df['readmitted'].unique()
+    logger.info(f"Valores únicos en readmitted: {unique_values}")
+    
+    # DIAGNÓSTICO 2: Verificar la distribución original
+    original_distribution = df['readmitted'].value_counts()
+    logger.info(f"Distribución original de readmitted: {original_distribution.to_dict()}")
+    
     categorical_cols = ['race', 'gender', 'age', 'admission_type_id', 'discharge_disposition_id', 
                        'admission_source_id', 'payer_code', 'medical_specialty',
                        'metformin', 'repaglinide', 'nateglinide', 'chlorpropamide',
@@ -161,9 +169,17 @@ def preprocess_diabetes_data(df):
     df_diabetes_cat = df[cat_cols_exist]
     df_diabetes_num = df[num_cols_exist]
     
-    # Process target variable
-    y = df['readmitted'].copy()
-    y = y.apply(lambda x: 'YES' if (x == '<30') else 'NO')
+    # Process target variable - CORREGIDO
+    y = df['readmitted'].copy()  # Usar corchetes simples
+    y = y.apply(lambda x: 'YES' if x == '<30' or x == '>30' else 'NO')
+    
+    # DIAGNÓSTICO 3: Verificar la distribución después de transformar
+    new_distribution = y.value_counts()
+    logger.info(f"Nueva distribución de target después de transformación: {new_distribution.to_dict()}")
+    
+    # DIAGNÓSTICO 4: Alerta si solo hay una clase
+    if len(new_distribution) == 1:
+        logger.warning(f"¡ALERTA! La variable objetivo solo tiene una clase: {new_distribution.index[0]}")
     
     # Process numerical variables
     df_diabetes_num['service_utilization'] = (df_diabetes_num['number_outpatient'] + 
@@ -218,7 +234,7 @@ def preprocess_diabetes_data(df):
     # Combine categorical and numerical features
     X = pd.concat([X_cat, df_diabetes_num], axis=1)
     
-    # Conservar los IDs para poder reconstruir el DataFrame original despu�s
+    # Conservar los IDs para poder reconstruir el DataFrame original después
     ids = df[ids_cols] if all(col in df.columns for col in ids_cols) else None
     
     return X, y, ids
@@ -389,150 +405,6 @@ def preprocess_table(table_type, **kwargs):
         logger.error(f"✗ Error al preprocesar datos {table_type}: {str(e)}")
         raise
 
-# def save_processed_table(table_type, **kwargs):
-#     """
-#     Guarda los datos procesados en una tabla de MySQL.
-    
-#     Args:
-#         table_type: Tipo de tabla a guardar ('train', 'validation' o 'test')
-        
-#     Returns:
-#         None
-#     """
-#     ti = kwargs['ti']
-    
-#     # Recuperar los datos procesados de XCom
-#     processed_json = ti.xcom_pull(key=f'{table_type}_processed_data', task_ids=f'preprocess_{table_type}_data')
-    
-#     if not processed_json:
-#         logger.error(f"✗ No se encontraron datos procesados para la tabla {table_type}")
-#         raise ValueError(f"No processed data found for table {table_type}")
-    
-#     # Convertir JSON a DataFrame
-#     processed_df = pd.read_json(processed_json, orient='split')
-    
-#     # Nombre de la tabla de destino
-#     target_table = f"diabetes_{table_type}_processed"
-    
-#     logger.info(f"Guardando datos procesados en tabla {target_table}...")
-    
-#     try:
-#         # Conectar a MySQL
-#         mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
-        
-#         # Verificar si hay columnas 'encounter_id' y 'patient_nbr' que sean strings en lugar de enteros
-#         for col in ['encounter_id', 'patient_nbr']:
-#             if col in processed_df.columns and processed_df[col].dtype == 'object':
-#                 # Si la columna existe y es de tipo object (string), verificar si contiene el nombre de la columna
-#                 if (processed_df[col] == col).any():
-#                     logger.warning(f"Columna {col} contiene su propio nombre como valor. Corrigiendo...")
-#                     try:
-#                         # Recuperar el DataFrame original para obtener IDs correctos
-#                         original_json = ti.xcom_pull(key=f'{table_type}_data', task_ids=f'read_{table_type}_data')
-#                         if original_json:
-#                             original_df = pd.read_json(original_json, orient='split')
-#                             if col in original_df.columns:
-#                                 processed_df[col] = original_df[col].values
-#                                 logger.info(f"Restaurados valores originales para columna {col}")
-#                             else:
-#                                 processed_df[col] = np.arange(1, len(processed_df) + 1)
-#                                 logger.warning(f"Usando índices generados para {col}")
-#                         else:
-#                             processed_df[col] = np.arange(1, len(processed_df) + 1)
-#                             logger.warning(f"Usando índices generados para {col}")
-#                     except Exception as e:
-#                         logger.warning(f"Error al restaurar IDs originales: {str(e)}. Usando índices generados.")
-#                         processed_df[col] = np.arange(1, len(processed_df) + 1)
-        
-#         # Manejo de valores especiales como "?", reemplazándolos por "unknown"
-#         for col in processed_df.columns:
-#             # Si es una columna de tipo objeto (string), buscar valores especiales
-#             if processed_df[col].dtype == 'object':
-#                 # Reemplazar "?" con "unknown"
-#                 processed_df[col] = processed_df[col].replace('?', 'unknown')
-        
-#         # Renombrar columnas numéricas
-#         new_columns = []
-#         for i, col in enumerate(processed_df.columns):
-#             if isinstance(col, int) or (isinstance(col, str) and col.isdigit()):
-#                 new_columns.append(f"feature_{i}")
-#             else:
-#                 new_columns.append(col)
-        
-#         processed_df.columns = new_columns
-        
-#         # Convertir valores a tipos apropiados, manejando con cuidado valores None/NULL
-#         for col in processed_df.columns:
-#             # Solo convertir columnas numéricas si realmente contienen números
-#             if processed_df[col].dtype == 'float64':
-#                 processed_df[col] = processed_df[col].round(8)
-#             elif col in ['encounter_id', 'patient_nbr']:
-#                 # Si hay valores None o NaN, preservarlos
-#                 non_null_mask = processed_df[col].notnull()
-#                 if non_null_mask.any():
-#                     # Solo convertir a entero los valores no nulos
-#                     processed_df.loc[non_null_mask, col] = processed_df.loc[non_null_mask, col].astype('int')
-        
-#         # Crear la tabla con tipos de datos más específicos
-#         fields = []
-#         for col in processed_df.columns:
-#             dtype = processed_df[col].dtype
-#             if col == 'target' or dtype == 'object':
-#                 fields.append(f"`{col}` VARCHAR(255)")
-#             elif dtype == 'int64':
-#                 fields.append(f"`{col}` INT")
-#             elif dtype == 'float64':
-#                 fields.append(f"`{col}` DOUBLE(15,8)")
-#             else:
-#                 # Por defecto, usar VARCHAR para cualquier otro tipo
-#                 fields.append(f"`{col}` VARCHAR(255)")
-        
-#         create_table_sql = f"""
-#         CREATE TABLE IF NOT EXISTS {target_table} (
-#             {', '.join(fields)}
-#         )
-#         """
-        
-#         # Mostrar el SQL para depuración
-#         logger.info(f"SQL de creación de tabla: {create_table_sql}")
-        
-#         mysql_hook.run(create_table_sql)
-        
-#         # Insertar datos
-#         # Primero limpiar la tabla si ya existe
-#         mysql_hook.run(f"TRUNCATE TABLE {target_table}")
-        
-#         # Convertir DataFrame a registros para insertar
-#         records = processed_df.to_dict('records')
-        
-#         # Insertar los nuevos datos en bloques para manejar grandes cantidades de datos
-#         batch_size = 100  # Reducido para manejar mejor posibles errores
-#         total_inserted = 0
-        
-#         for i in range(0, len(records), batch_size):
-#             batch = records[i:i + batch_size]
-#             try:
-#                 mysql_hook.insert_rows(table=target_table, rows=batch)
-#                 total_inserted += len(batch)
-#                 logger.info(f"  - Insertado lote {i//batch_size + 1} de {len(batch)} filas (total: {total_inserted})")
-#             except Exception as e:
-#                 logger.error(f"Error al insertar lote {i//batch_size + 1}: {str(e)}")
-#                 # Continuar con el siguiente lote en lugar de fallar completamente
-#                 continue
-        
-#         if total_inserted == len(records):
-#             logger.info(f"✓ Datos guardados exitosamente en {target_table}:")
-#             logger.info(f"   - Total de filas insertadas: {total_inserted}")
-#         else:
-#             logger.warning(f"⚠ Datos guardados parcialmente en {target_table}:")
-#             logger.warning(f"   - Filas insertadas: {total_inserted} de {len(records)}")
-        
-#         return total_inserted
-        
-#     except Exception as e:
-#         logger.error(f"✗ Error al guardar datos en tabla {target_table}: {str(e)}")
-#         raise
-
 def save_processed_table(table_type, **kwargs):
     """
     Guarda los datos procesados en una tabla de MySQL.
@@ -560,72 +432,55 @@ def save_processed_table(table_type, **kwargs):
     
     logger.info(f"Guardando datos procesados en tabla {target_table}...")
     
+    # DIAGNÓSTICO: Verificar la distribución de target antes de cualquier transformación
+    if 'target' in processed_df.columns:
+        target_initial = processed_df['target'].value_counts()
+        logger.info(f"Distribución inicial de 'target' en {table_type}: {target_initial.to_dict()}")
+    
     try:
         # Conectar a MySQL
         mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
         
-        # Verificar y corregir columnas de ID
-        for col in ['encounter_id', 'patient_nbr']:
-            if col in processed_df.columns and processed_df[col].dtype == 'object':
-                if (processed_df[col] == col).any():
-                    logger.warning(f"Columna {col} contiene su propio nombre como valor. Corrigiendo...")
-                    processed_df[col] = np.arange(1, len(processed_df) + 1)
+        # ENFOQUE SIMPLIFICADO: Crear un DataFrame completamente nuevo con solo las características y target
         
-        # Manejo de valores especiales como "?", reemplazándolos por "unknown"
-        for col in processed_df.columns:
-            if processed_df[col].dtype == 'object':
-                processed_df[col] = processed_df[col].replace('?', 'unknown')
+        # 1. Extraer y convertir las columnas de características
+        features_df = processed_df.filter(regex='^[0-9]+$|^feature_', axis=1).copy()
+        for col in features_df.columns:
+            # Convertir todas las columnas de características a string
+            features_df[col] = features_df[col].astype(str)
         
-        # Renombrar columnas numéricas para evitar problemas
-        new_columns = []
-        for i, col in enumerate(processed_df.columns):
-            if isinstance(col, int) or (isinstance(col, str) and col.isdigit()):
-                new_columns.append(f"feature_{i}")
-            else:
-                new_columns.append(col)
+        # 2. Crear un DataFrame limpio
+        clean_df = pd.DataFrame()
         
-        processed_df.columns = new_columns
+        # Añadir columnas de características con nombres limpios
+        for i, col in enumerate(features_df.columns):
+            clean_df[f'feature_{i}'] = features_df[col]
         
-        # Limpieza agresiva de todas las columnas numéricas
-        for col in processed_df.columns:
-            if processed_df[col].dtype in ['float64', 'float32']:
-                # Escalar valores para evitar problemas de truncamiento
-                # Recortar valores extremos a un rango mucho más pequeño y redondear a menos decimales
-                max_val = abs(processed_df[col]).max()
-                if max_val > 0:
-                    # Si los valores son muy grandes, escalarlos para que queden dentro de un rango seguro
-                    scale_factor = 1.0
-                    if max_val > 1e5:
-                        scale_factor = 1e5 / max_val
-                        logger.warning(f"Escalando columna {col} por un factor de {scale_factor} debido a valores extremos")
-                        processed_df[col] = processed_df[col] * scale_factor
-                
-                # Aplicar un recorte adicional para seguridad
-                processed_df[col] = np.clip(processed_df[col], -1e5, 1e5)
-                
-                # Redondear a solo 4 decimales para reducir aún más el tamaño
-                processed_df[col] = processed_df[col].round(4)
-            
-            elif col in ['encounter_id', 'patient_nbr']:
-                # Asegurar que los IDs son enteros positivos pequeños
-                processed_df[col] = processed_df[col].astype('int') % 1000000  # Módulo para asegurar valores pequeños
+        # Añadir columna target
+        if 'target' in processed_df.columns:
+            clean_df['target'] = processed_df['target']
         
-        # ENFOQUE ALTERNATIVO: Usar CSV como intermediario
+        # ELIMINAR encounter_id y patient_nbr completamente
+        
+        # Verificar el DataFrame limpio
+        logger.info(f"DataFrame limpio creado con {len(clean_df)} filas y {len(clean_df.columns)} columnas")
+        
+        # DIAGNÓSTICO: Verificar la distribución final de target
+        if 'target' in clean_df.columns:
+            target_final = clean_df['target'].value_counts()
+            logger.info(f"Distribución final de 'target': {target_final.to_dict()}")
+        
         # Primero eliminar la tabla si existe
         drop_table_sql = f"DROP TABLE IF EXISTS {target_table}"
         mysql_hook.run(drop_table_sql)
         
-        # Crear la tabla desde cero con tipos simples pero más restrictivos
+        # Crear la tabla desde cero 
         fields = []
-        for col in processed_df.columns:
-            dtype = processed_df[col].dtype
-            if col == 'target' or dtype == 'object':
+        for col in clean_df.columns:
+            if col == 'target':
                 fields.append(f"`{col}` VARCHAR(255)")
-            elif dtype == 'int64':
-                fields.append(f"`{col}` INT")  # INT es suficiente, no necesitamos BIGINT
-            else:
-                # Usar FLOAT en lugar de DOUBLE para menor precisión pero menos problemas
-                fields.append(f"`{col}` FLOAT")
+            else:  # columnas feature_*
+                fields.append(f"`{col}` VARCHAR(50)")
         
         create_table_sql = f"""
         CREATE TABLE {target_table} (
@@ -635,124 +490,52 @@ def save_processed_table(table_type, **kwargs):
         
         mysql_hook.run(create_table_sql)
         
-        # Guardamos primero en un archivo CSV temporal
-        import tempfile
-        import csv
+        # Insertar los datos
+        # Convertir DataFrame a diccionario de registros
+        records = clean_df.to_dict('records')
         
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.csv') as temp_file:
-            # Guardar el DataFrame en CSV
-            processed_df.to_csv(temp_file.name, index=False, quoting=csv.QUOTE_NONNUMERIC)
-            temp_file_path = temp_file.name
+        # Insertar en lotes más pequeños
+        batch_size = 50
+        total_inserted = 0
         
-        try:
-            # Cargar el CSV directamente en MySQL usando LOAD DATA LOCAL INFILE
-            # Esto es mucho más eficiente para grandes volúmenes de datos
-            load_data_sql = f"""
-            LOAD DATA LOCAL INFILE '{temp_file_path}' 
-            INTO TABLE {target_table} 
-            FIELDS TERMINATED BY ',' 
-            ENCLOSED BY '"' 
-            LINES TERMINATED BY '\\n' 
-            IGNORE 1 ROWS
-            """
-            
-            # Conectar directamente con MySQLdb para habilitar local_infile
-            import MySQLdb
-            conn_info = mysql_hook.get_connection(mysql_hook.mysql_conn_id)
-            conn = MySQLdb.connect(
-                host=conn_info.host,
-                user=conn_info.login,
-                passwd=conn_info.password,
-                db=conn_info.schema,
-                local_infile=1  # Habilitar LOAD DATA LOCAL INFILE
-            )
-            
-            cursor = conn.cursor()
-            cursor.execute(load_data_sql)
-            conn.commit()
-            cursor.close()
-            conn.close()
-            
-            # Verificar número de filas insertadas
-            count_sql = f"SELECT COUNT(*) FROM {target_table}"
-            result = mysql_hook.get_first(count_sql)
-            rows_inserted = result[0] if result else 0
-            
-            logger.info(f"✓ Datos guardados exitosamente en {target_table}:")
-            logger.info(f"   - Total de filas insertadas: {rows_inserted}")
-            
-            return rows_inserted
-            
-        finally:
-            # Limpiar el archivo temporal
-            import os
-            if os.path.exists(temp_file_path):
-                os.remove(temp_file_path)
-        
-    except Exception as e:
-        logger.error(f"✗ Error al guardar datos en tabla {target_table}: {str(e)}")
-        
-        # Intento alternativo si el método principal falla
-        try:
-            logger.info("Intentando método alternativo de guardado...")
-            
-            # Seleccionar solo las columnas esenciales
-            essential_cols = ['target', 'encounter_id', 'patient_nbr']
-            essential_cols.extend([col for col in processed_df.columns if col.startswith('feature_')][:20])
-            
-            reduced_df = processed_df[essential_cols].copy()
-            
-            # Redondear todas las columnas numéricas a 2 decimales
-            for col in reduced_df.columns:
-                if reduced_df[col].dtype in ['float64', 'float32']:
-                    reduced_df[col] = reduced_df[col].round(2)
-            
-            # Reconstruir la tabla con campos más restrictivos
-            drop_table_sql = f"DROP TABLE IF EXISTS {target_table}"
-            mysql_hook.run(drop_table_sql)
-            
-            # Usar solamente VARCHAR y INT
-            fields = []
-            for col in reduced_df.columns:
-                if col == 'target' or reduced_df[col].dtype == 'object':
-                    fields.append(f"`{col}` VARCHAR(255)")
-                else:
-                    # Usar VARCHAR incluso para datos numéricos para evitar problemas de truncamiento
-                    fields.append(f"`{col}` VARCHAR(50)")
-            
-            create_table_sql = f"""
-            CREATE TABLE {target_table} (
-                {', '.join(fields)}
-            )
-            """
-            
-            mysql_hook.run(create_table_sql)
-            
-            # Convertir todo a strings para inserción segura
-            for col in reduced_df.columns:
-                if reduced_df[col].dtype != 'object':
-                    reduced_df[col] = reduced_df[col].astype(str)
-            
-            # Insertar en lotes pequeños
-            records = reduced_df.to_dict('records')
-            batch_size = 100
-            total_inserted = 0
-            
-            for i in range(0, len(records), batch_size):
-                batch = records[i:min(i + batch_size, len(records))]
+        for i in range(0, len(records), batch_size):
+            batch = records[i:min(i + batch_size, len(records))]
+            try:
                 mysql_hook.insert_rows(table=target_table, rows=batch)
                 total_inserted += len(batch)
                 logger.info(f"  - Insertado lote {i//batch_size + 1}: {total_inserted}/{len(records)}")
+            except Exception as e:
+                logger.error(f"Error al insertar lote {i//batch_size + 1}: {str(e)}")
+                if batch:
+                    logger.error(f"Primer registro problemático: {batch[0]}")
+                continue
+        
+        # Verificar la distribución de clases en la tabla
+        try:
+            query = f"SELECT target, COUNT(*) as count FROM {target_table} GROUP BY target"
+            result = mysql_hook.get_records(query)
             
-            logger.info(f"✓ Método alternativo exitoso - Datos guardados en {target_table}:")
+            if result:
+                target_counts = {str(row[0]): int(row[1]) for row in result}
+                logger.info(f"Distribución de 'target' en la tabla guardada: {target_counts}")
+            else:
+                logger.warning(f"No se pudo verificar la distribución de 'target' en la tabla guardada")
+        except Exception as e:
+            logger.error(f"Error al verificar distribución en base de datos: {str(e)}")
+        
+        if total_inserted == len(records):
+            logger.info(f"✓ Datos guardados exitosamente en {target_table}:")
             logger.info(f"   - Total de filas insertadas: {total_inserted}")
-            
-            return total_inserted
-            
-        except Exception as fallback_error:
-            logger.error(f"✗ Método alternativo también falló: {str(fallback_error)}")
-            raise
-
+        else:
+            logger.warning(f"⚠ Datos guardados parcialmente en {target_table}:")
+            logger.warning(f"   - Filas insertadas: {total_inserted} de {len(records)}")
+        
+        return total_inserted
+        
+    except Exception as e:
+        logger.error(f"✗ Error al guardar datos en tabla {target_table}: {str(e)}")
+        raise
+        
 # Funci�n para resumir todos los resultados
 def summarize_results(**kwargs):
     """
