@@ -1,0 +1,44 @@
+[2025-05-03T06:15:59.947+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-03T06:16:00.336+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_data_pipeline.preprocess_test_data manual__2025-05-03T06:13:41.165407+00:00 [queued]>
+[2025-05-03T06:16:00.505+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_data_pipeline.preprocess_test_data manual__2025-05-03T06:13:41.165407+00:00 [queued]>
+[2025-05-03T06:16:00.510+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-03T06:16:00.734+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): preprocess_test_data> on 2025-05-03 06:13:41.165407+00:00
+[2025-05-03T06:16:00.932+0000] {standard_task_runner.py:63} INFO - Started process 508 to run task
+[2025-05-03T06:16:01.192+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_data_pipeline', 'preprocess_test_data', 'manual__2025-05-03T06:13:41.165407+00:00', '--job-id', '162', '--raw', '--subdir', 'DAGS_FOLDER/process_and_clean_data.py', '--cfg-path', '/tmp/tmp5mclxjxq']
+[2025-05-03T06:16:01.215+0000] {standard_task_runner.py:91} INFO - Job 162: Subtask preprocess_test_data
+[2025-05-03T06:16:01.905+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_data_pipeline.preprocess_test_data manual__2025-05-03T06:13:41.165407+00:00 [running]> on host e89618938543
+[2025-05-03T06:16:03.376+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_data_pipeline' AIRFLOW_CTX_TASK_ID='preprocess_test_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T06:13:41.165407+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T06:13:41.165407+00:00'
+[2025-05-03T06:16:03.379+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-03T06:16:10.094+0000] {process_and_clean_data.py:317} INFO - Iniciando preprocesamiento de datos test...
+[2025-05-03T06:16:10.393+0000] {warnings.py:109} WARNING - /opt/***/dags/process_and_clean_data.py:169: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_diabetes_num['service_utilization'] = (df_diabetes_num['number_outpatient'] +
+
+[2025-05-03T06:16:24.962+0000] {process_and_clean_data.py:377} INFO -  Datos test preprocesados exitosamente:
+[2025-05-03T06:16:24.968+0000] {process_and_clean_data.py:378} INFO -    - Filas: 20354
+[2025-05-03T06:16:25.023+0000] {process_and_clean_data.py:379} INFO -    - Columnas: 84
+[2025-05-03T06:16:25.576+0000] {python.py:237} INFO - Done. Returned value was:               0         1         2  ...  target  encounter_id  patient_nbr
+0      0.200125  1.518627  0.390360  ...      NO      39035370     18196695
+1      0.535160  0.958312  0.390360  ...     YES     101347440    113448393
+2      1.205230  0.194245 -0.786066  ...      NO     427836560     88637940
+3     -0.804981  0.703623 -0.786066  ...      NO      68555454      1341378
+4      0.870195 -1.639515 -0.786066  ...      NO     167113788     62964531
+...         ...       ...       ...  ...     ...           ...          ...
+20349  0.535160 -0.824511  0.390360  ...      NO     215369694     65561058
+20350 -0.804981 -1.588577 -0.786066  ...     YES     346748936    127236389
+20351 -1.140016 -0.518884  2.154999  ...      NO     145706088     37399320
+20352  0.535160  2.078943 -0.197853  ...      NO     235811226     64627236
+20353 -0.804981  0.601747  2.743213  ...      NO      57382320     69790644
+
+[20354 rows x 84 columns]
+[2025-05-03T06:16:26.988+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-03T06:16:30.052+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/serialization/serializers/pandas.py:49: UserWarning: The DataFrame has column names of mixed type. They will be converted to strings and not roundtrip correctly.
+  table = pa.Table.from_pandas(o)
+
+[2025-05-03T06:16:31.029+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=diabetes_data_pipeline, task_id=preprocess_test_data, execution_date=20250503T061341, start_date=20250503T061600, end_date=20250503T061631
+[2025-05-03T06:16:31.212+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-03T06:16:31.405+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-05-03T06:16:31.424+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

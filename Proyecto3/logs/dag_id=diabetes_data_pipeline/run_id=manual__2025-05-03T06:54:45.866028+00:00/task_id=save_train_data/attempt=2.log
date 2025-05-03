@@ -1,0 +1,54 @@
+[2025-05-03T06:58:10.340+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-03T06:58:10.402+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_data_pipeline.save_train_data manual__2025-05-03T06:54:45.866028+00:00 [queued]>
+[2025-05-03T06:58:10.427+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_data_pipeline.save_train_data manual__2025-05-03T06:54:45.866028+00:00 [queued]>
+[2025-05-03T06:58:10.427+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2025-05-03T06:58:10.488+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): save_train_data> on 2025-05-03 06:54:45.866028+00:00
+[2025-05-03T06:58:10.547+0000] {standard_task_runner.py:63} INFO - Started process 547 to run task
+[2025-05-03T06:58:10.566+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_data_pipeline', 'save_train_data', 'manual__2025-05-03T06:54:45.866028+00:00', '--job-id', '197', '--raw', '--subdir', 'DAGS_FOLDER/process_and_clean_data.py', '--cfg-path', '/tmp/tmpi9qm16b_']
+[2025-05-03T06:58:10.580+0000] {standard_task_runner.py:91} INFO - Job 197: Subtask save_train_data
+[2025-05-03T06:58:10.744+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_data_pipeline.save_train_data manual__2025-05-03T06:54:45.866028+00:00 [running]> on host e89618938543
+[2025-05-03T06:58:10.928+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_data_pipeline' AIRFLOW_CTX_TASK_ID='save_train_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T06:54:45.866028+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T06:54:45.866028+00:00'
+[2025-05-03T06:58:10.930+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-03T06:58:39.890+0000] {process_and_clean_data.py:417} INFO - Guardando datos procesados en tabla diabetes_train_processed...
+[2025-05-03T06:58:45.100+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-03T06:58:45.102+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T06:58:45.121+0000] {sql.py:457} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS diabetes_train_processed (
+            `col_0` DOUBLE, `col_1` DOUBLE, `col_2` DOUBLE, `col_3` DOUBLE, `col_4` DOUBLE, `col_5` DOUBLE, `col_6` DOUBLE, `col_7` DOUBLE, `col_8` DOUBLE, `col_9` INT, `col_10` INT, `col_11` INT, `col_12` INT, `col_13` INT, `col_14` INT, `col_15` INT, `col_16` INT, `col_17` INT, `col_18` INT, `col_19` INT, `col_20` INT, `col_21` INT, `col_22` INT, `col_23` INT, `col_24` INT, `col_25` INT, `col_26` INT, `col_27` INT, `col_28` INT, `col_29` INT, `col_30` INT, `col_31` INT, `col_32` INT, `col_33` INT, `col_34` INT, `col_35` INT, `col_36` INT, `col_37` INT, `col_38` INT, `col_39` INT, `col_40` INT, `col_41` INT, `col_42` INT, `col_43` INT, `col_44` INT, `col_45` INT, `col_46` INT, `col_47` INT, `col_48` INT, `col_49` INT, `col_50` INT, `col_51` INT, `col_52` INT, `col_53` INT, `col_54` INT, `col_55` INT, `col_56` INT, `col_57` INT, `col_58` INT, `col_59` INT, `col_60` INT, `col_61` INT, `col_62` INT, `col_63` INT, `col_64` INT, `col_65` INT, `col_66` INT, `col_67` INT, `col_68` INT, `col_69` INT, `col_70` INT, `col_71` INT, `col_72` INT, `col_73` INT, `col_74` INT, `col_75` INT, `col_76` INT, `col_77` INT, `col_78` INT, `col_79` INT, `col_80` INT, `target` VARCHAR(255), `encounter_id` INT, `patient_nbr` INT
+        )
+        , parameters: None
+[2025-05-03T06:58:45.149+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T06:58:45.154+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T06:58:45.199+0000] {sql.py:457} INFO - Running statement: TRUNCATE TABLE diabetes_train_processed, parameters: None
+[2025-05-03T06:58:45.491+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T06:58:45.493+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T06:58:45.597+0000] {process_and_clean_data.py:498} ERROR - ✗ Error al guardar datos en tabla diabetes_train_processed: (1265, "Data truncated for column '0' at row 1")
+[2025-05-03T06:58:45.609+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-03T06:58:45.609+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/process_and_clean_data.py", line 492, in save_processed_table
+    rows_inserted = mysql_hook.insert_rows(table=target_table, rows=records)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 573, in insert_rows
+    cur.execute(sql, values)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.DataError: (1265, "Data truncated for column '0' at row 1")
+[2025-05-03T06:58:45.730+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=diabetes_data_pipeline, task_id=save_train_data, execution_date=20250503T065445, start_date=20250503T065810, end_date=20250503T065845
+[2025-05-03T06:58:45.895+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 197 for task save_train_data ((1265, "Data truncated for column '0' at row 1"); 547)
+[2025-05-03T06:58:46.219+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-05-03T06:58:46.312+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-03T06:58:46.364+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,54 @@
+[2025-05-03T07:58:10.321+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-03T07:58:10.400+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_data_pipeline.save_validation_data manual__2025-05-03T07:54:35.257746+00:00 [queued]>
+[2025-05-03T07:58:10.430+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_data_pipeline.save_validation_data manual__2025-05-03T07:54:35.257746+00:00 [queued]>
+[2025-05-03T07:58:10.433+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2025-05-03T07:58:10.495+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): save_validation_data> on 2025-05-03 07:54:35.257746+00:00
+[2025-05-03T07:58:10.525+0000] {standard_task_runner.py:63} INFO - Started process 1937 to run task
+[2025-05-03T07:58:10.538+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_data_pipeline', 'save_validation_data', 'manual__2025-05-03T07:54:35.257746+00:00', '--job-id', '248', '--raw', '--subdir', 'DAGS_FOLDER/process_and_clean_data.py', '--cfg-path', '/tmp/tmpzl0l5e7b']
+[2025-05-03T07:58:10.545+0000] {standard_task_runner.py:91} INFO - Job 248: Subtask save_validation_data
+[2025-05-03T07:58:10.674+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_data_pipeline.save_validation_data manual__2025-05-03T07:54:35.257746+00:00 [running]> on host e89618938543
+[2025-05-03T07:58:10.902+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_data_pipeline' AIRFLOW_CTX_TASK_ID='save_validation_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T07:54:35.257746+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T07:54:35.257746+00:00'
+[2025-05-03T07:58:10.904+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-03T07:58:12.011+0000] {process_and_clean_data.py:561} INFO - Guardando datos procesados en tabla diabetes_validation_processed...
+[2025-05-03T07:58:12.044+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-03T07:58:12.045+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T07:58:12.052+0000] {sql.py:457} INFO - Running statement: DROP TABLE IF EXISTS diabetes_validation_processed, parameters: None
+[2025-05-03T07:58:12.092+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T07:58:12.098+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T07:58:12.115+0000] {sql.py:457} INFO - Running statement: 
+        CREATE TABLE diabetes_validation_processed (
+            `feature_0` DOUBLE, `feature_1` DOUBLE, `feature_2` DOUBLE, `feature_3` DOUBLE, `feature_4` DOUBLE, `feature_5` DOUBLE, `feature_6` DOUBLE, `feature_7` DOUBLE, `feature_8` DOUBLE, `feature_9` BIGINT, `feature_10` BIGINT, `feature_11` BIGINT, `feature_12` BIGINT, `feature_13` BIGINT, `feature_14` BIGINT, `feature_15` BIGINT, `feature_16` BIGINT, `feature_17` BIGINT, `feature_18` BIGINT, `feature_19` BIGINT, `feature_20` BIGINT, `feature_21` BIGINT, `feature_22` BIGINT, `feature_23` BIGINT, `feature_24` BIGINT, `feature_25` BIGINT, `feature_26` BIGINT, `feature_27` BIGINT, `feature_28` BIGINT, `feature_29` BIGINT, `feature_30` BIGINT, `feature_31` BIGINT, `feature_32` BIGINT, `feature_33` BIGINT, `feature_34` BIGINT, `feature_35` BIGINT, `feature_36` BIGINT, `feature_37` BIGINT, `feature_38` BIGINT, `feature_39` BIGINT, `feature_40` BIGINT, `feature_41` BIGINT, `feature_42` BIGINT, `feature_43` BIGINT, `feature_44` BIGINT, `feature_45` BIGINT, `feature_46` BIGINT, `feature_47` BIGINT, `feature_48` BIGINT, `feature_49` BIGINT, `feature_50` BIGINT, `feature_51` BIGINT, `feature_52` BIGINT, `feature_53` BIGINT, `feature_54` BIGINT, `feature_55` BIGINT, `feature_56` BIGINT, `feature_57` BIGINT, `feature_58` BIGINT, `feature_59` BIGINT, `feature_60` BIGINT, `feature_61` BIGINT, `feature_62` BIGINT, `feature_63` BIGINT, `feature_64` BIGINT, `feature_65` BIGINT, `feature_66` BIGINT, `feature_67` BIGINT, `feature_68` BIGINT, `feature_69` BIGINT, `feature_70` BIGINT, `feature_71` BIGINT, `feature_72` BIGINT, `feature_73` BIGINT, `feature_74` BIGINT, `feature_75` BIGINT, `feature_76` BIGINT, `feature_77` BIGINT, `feature_78` BIGINT, `feature_79` BIGINT, `feature_80` BIGINT, `target` VARCHAR(255), `encounter_id` BIGINT, `patient_nbr` BIGINT
+        )
+        , parameters: None
+[2025-05-03T07:58:12.163+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T07:58:13.311+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T07:58:13.330+0000] {process_and_clean_data.py:650} ERROR - ✗ Error al guardar datos en tabla diabetes_validation_processed: (1265, "Data truncated for column 'feature_0' at row 1")
+[2025-05-03T07:58:13.330+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-03T07:58:13.331+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/process_and_clean_data.py", line 633, in save_processed_table
+    mysql_hook.insert_rows(table=target_table, rows=batch)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 573, in insert_rows
+    cur.execute(sql, values)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.DataError: (1265, "Data truncated for column 'feature_0' at row 1")
+[2025-05-03T07:58:13.350+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=diabetes_data_pipeline, task_id=save_validation_data, execution_date=20250503T075435, start_date=20250503T075810, end_date=20250503T075813
+[2025-05-03T07:58:13.386+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 248 for task save_validation_data ((1265, "Data truncated for column 'feature_0' at row 1"); 1937)
+[2025-05-03T07:58:13.481+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-05-03T07:58:13.510+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-03T07:58:13.512+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
