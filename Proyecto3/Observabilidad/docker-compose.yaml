@@ -23,8 +23,9 @@ services:
       replicas: 6
       resources:
         limits:
-          memory: 1000M
-          cpus: 1.5
+          memory: 512Mi
+          cpus: 500m
+        
     networks:
       - proyecto3_obs_network
     privileged: true

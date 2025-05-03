@@ -1,0 +1,41 @@
+[2025-05-03T05:48:38.873+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-03T05:48:38.975+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_data_pipeline.read_test_data manual__2025-05-03T05:48:00.137301+00:00 [queued]>
+[2025-05-03T05:48:39.016+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_data_pipeline.read_test_data manual__2025-05-03T05:48:00.137301+00:00 [queued]>
+[2025-05-03T05:48:39.020+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-03T05:48:39.092+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): read_test_data> on 2025-05-03 05:48:00.137301+00:00
+[2025-05-03T05:48:39.178+0000] {standard_task_runner.py:63} INFO - Started process 135 to run task
+[2025-05-03T05:48:39.227+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_data_pipeline', 'read_test_data', 'manual__2025-05-03T05:48:00.137301+00:00', '--job-id', '145', '--raw', '--subdir', 'DAGS_FOLDER/process_and_clean_data.py', '--cfg-path', '/tmp/tmp5ybczbat']
+[2025-05-03T05:48:39.254+0000] {standard_task_runner.py:91} INFO - Job 145: Subtask read_test_data
+[2025-05-03T05:48:39.559+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_data_pipeline.read_test_data manual__2025-05-03T05:48:00.137301+00:00 [running]> on host 9bf495e58d4c
+[2025-05-03T05:48:40.562+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_data_pipeline' AIRFLOW_CTX_TASK_ID='read_test_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T05:48:00.137301+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T05:48:00.137301+00:00'
+[2025-05-03T05:48:40.574+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-03T05:48:40.635+0000] {process_and_clean_data.py:44} INFO - Iniciando lectura de tabla diabetes_test...
+[2025-05-03T05:48:40.639+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-03T05:48:40.640+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T05:48:40.668+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/common/sql/hooks/sql.py:227: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-05-03T05:48:44.778+0000] {process_and_clean_data.py:58} INFO -  Tabla diabetes_test le�da exitosamente:
+[2025-05-03T05:48:44.780+0000] {process_and_clean_data.py:59} INFO -    - Filas: 20354
+[2025-05-03T05:48:44.785+0000] {process_and_clean_data.py:60} INFO -    - Columnas: 51
+[2025-05-03T05:48:44.798+0000] {process_and_clean_data.py:61} INFO -    - Nombres de columnas: encounter_id, patient_nbr, race, gender, age, weight, admission_type_id, discharge_disposition_id, admission_source_id, time_in_hospital, payer_code, medical_specialty, num_lab_procedures, num_procedures, num_medications, number_outpatient, number_emergency, number_inpatient, diag_1, diag_2, diag_3, number_diagnoses, max_glu_serum, A1Cresult, metformin, repaglinide, nateglinide, chlorpropamide, glimepiride, acetohexamide, glipizide, glyburide, tolbutamide, pioglitazone, rosiglitazone, acarbose, miglitol, troglitazone, tolazamide, examide, citoglipton, insulin, glyburide-metformin, glipizide-metformin, glimepiride-pioglitazone, metformin-rosiglitazone, metformin-pioglitazone, change_column, diabetesMed, readmitted, batch_number
+[2025-05-03T05:48:45.782+0000] {process_and_clean_data.py:65} INFO -    - Total de valores nulos: 36239
+[2025-05-03T05:48:48.953+0000] {python.py:237} INFO - Done. Returned value was:        encounter_id  patient_nbr  ... readmitted batch_number
+0          39035370     18196695  ...         NO            0
+1         101347440    113448393  ...        <30            0
+2         427836560     88637940  ...         NO            0
+3          68555454      1341378  ...         NO            0
+4         167113788     62964531  ...        >30            0
+...             ...          ...  ...        ...          ...
+20349     215369694     65561058  ...         NO            1
+20350     346748936    127236389  ...        <30            1
+20351     145706088     37399320  ...        >30            1
+20352     235811226     64627236  ...         NO            1
+20353      57382320     69790644  ...         NO            1
+
+[20354 rows x 51 columns]
+[2025-05-03T05:48:49.521+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-03T05:48:51.029+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=diabetes_data_pipeline, task_id=read_test_data, execution_date=20250503T054800, start_date=20250503T054838, end_date=20250503T054851
+[2025-05-03T05:48:51.229+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-03T05:48:51.560+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-03T05:48:51.566+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
