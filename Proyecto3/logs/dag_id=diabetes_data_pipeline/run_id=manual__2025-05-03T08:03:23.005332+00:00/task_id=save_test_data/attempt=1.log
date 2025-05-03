@@ -1,0 +1,460 @@
+[2025-05-03T08:04:50.720+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-03T08:04:51.755+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_data_pipeline.save_test_data manual__2025-05-03T08:03:23.005332+00:00 [queued]>
+[2025-05-03T08:04:51.905+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_data_pipeline.save_test_data manual__2025-05-03T08:03:23.005332+00:00 [queued]>
+[2025-05-03T08:04:51.906+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-03T08:04:52.042+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): save_test_data> on 2025-05-03 08:03:23.005332+00:00
+[2025-05-03T08:04:52.313+0000] {standard_task_runner.py:63} INFO - Started process 2133 to run task
+[2025-05-03T08:04:52.380+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_data_pipeline', 'save_test_data', 'manual__2025-05-03T08:03:23.005332+00:00', '--job-id', '257', '--raw', '--subdir', 'DAGS_FOLDER/process_and_clean_data.py', '--cfg-path', '/tmp/tmp_x44okw4']
+[2025-05-03T08:04:52.405+0000] {standard_task_runner.py:91} INFO - Job 257: Subtask save_test_data
+[2025-05-03T08:04:53.582+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_data_pipeline.save_test_data manual__2025-05-03T08:03:23.005332+00:00 [running]> on host e89618938543
+[2025-05-03T08:04:54.443+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_data_pipeline' AIRFLOW_CTX_TASK_ID='save_test_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T08:03:23.005332+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T08:03:23.005332+00:00'
+[2025-05-03T08:04:54.445+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-03T08:05:09.179+0000] {process_and_clean_data.py:561} INFO - Guardando datos procesados en tabla diabetes_test_processed...
+[2025-05-03T08:05:09.506+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-03T08:05:09.623+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:09.743+0000] {sql.py:457} INFO - Running statement: DROP TABLE IF EXISTS diabetes_test_processed, parameters: None
+[2025-05-03T08:05:10.143+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T08:05:10.311+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:10.368+0000] {sql.py:457} INFO - Running statement: 
+        CREATE TABLE diabetes_test_processed (
+            `feature_0` FLOAT, `feature_1` FLOAT, `feature_2` FLOAT, `feature_3` FLOAT, `feature_4` FLOAT, `feature_5` FLOAT, `feature_6` FLOAT, `feature_7` FLOAT, `feature_8` FLOAT, `feature_9` INT, `feature_10` INT, `feature_11` INT, `feature_12` INT, `feature_13` INT, `feature_14` INT, `feature_15` INT, `feature_16` INT, `feature_17` INT, `feature_18` INT, `feature_19` INT, `feature_20` INT, `feature_21` INT, `feature_22` INT, `feature_23` INT, `feature_24` INT, `feature_25` INT, `feature_26` INT, `feature_27` INT, `feature_28` INT, `feature_29` INT, `feature_30` INT, `feature_31` INT, `feature_32` INT, `feature_33` INT, `feature_34` INT, `feature_35` INT, `feature_36` INT, `feature_37` INT, `feature_38` INT, `feature_39` INT, `feature_40` INT, `feature_41` INT, `feature_42` INT, `feature_43` INT, `feature_44` INT, `feature_45` INT, `feature_46` INT, `feature_47` INT, `feature_48` INT, `feature_49` INT, `feature_50` INT, `feature_51` INT, `feature_52` INT, `feature_53` INT, `feature_54` INT, `feature_55` INT, `feature_56` INT, `feature_57` INT, `feature_58` INT, `feature_59` INT, `feature_60` INT, `feature_61` INT, `feature_62` INT, `feature_63` INT, `feature_64` INT, `feature_65` INT, `feature_66` INT, `feature_67` INT, `feature_68` INT, `feature_69` INT, `feature_70` INT, `feature_71` INT, `feature_72` INT, `feature_73` INT, `feature_74` INT, `feature_75` INT, `feature_76` INT, `feature_77` INT, `feature_78` INT, `feature_79` INT, `feature_80` INT, `target` VARCHAR(255), `encounter_id` INT, `patient_nbr` INT
+        )
+        , parameters: None
+[2025-05-03T08:05:11.016+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T08:05:19.670+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:19.801+0000] {process_and_clean_data.py:693} ERROR - ✗ Error al guardar datos en tabla diabetes_test_processed: (2002, "Can't connect to server on 'mysql_diabetes' (115)")
+[2025-05-03T08:05:19.802+0000] {process_and_clean_data.py:697} INFO - Intentando método alternativo de guardado...
+[2025-05-03T08:05:20.219+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:20.314+0000] {sql.py:457} INFO - Running statement: DROP TABLE IF EXISTS diabetes_test_processed, parameters: None
+[2025-05-03T08:05:20.752+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T08:05:20.914+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:21.055+0000] {sql.py:457} INFO - Running statement: 
+            CREATE TABLE diabetes_test_processed (
+                `target` VARCHAR(255), `encounter_id` VARCHAR(50), `patient_nbr` VARCHAR(50), `feature_0` VARCHAR(50), `feature_1` VARCHAR(50), `feature_2` VARCHAR(50), `feature_3` VARCHAR(50), `feature_4` VARCHAR(50), `feature_5` VARCHAR(50), `feature_6` VARCHAR(50), `feature_7` VARCHAR(50), `feature_8` VARCHAR(50), `feature_9` VARCHAR(50), `feature_10` VARCHAR(50), `feature_11` VARCHAR(50), `feature_12` VARCHAR(50), `feature_13` VARCHAR(50), `feature_14` VARCHAR(50), `feature_15` VARCHAR(50), `feature_16` VARCHAR(50), `feature_17` VARCHAR(50), `feature_18` VARCHAR(50), `feature_19` VARCHAR(50)
+            )
+            , parameters: None
+[2025-05-03T08:05:21.497+0000] {sql.py:466} INFO - Rows affected: 0
+[2025-05-03T08:05:33.458+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:34.670+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:34.673+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 1: 100/20354
+[2025-05-03T08:05:34.681+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:36.133+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:36.137+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 2: 200/20354
+[2025-05-03T08:05:36.150+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:37.060+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:37.062+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 3: 300/20354
+[2025-05-03T08:05:37.063+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:37.454+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:37.459+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 4: 400/20354
+[2025-05-03T08:05:37.472+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:38.710+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:38.718+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 5: 500/20354
+[2025-05-03T08:05:38.755+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:39.685+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:39.686+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 6: 600/20354
+[2025-05-03T08:05:39.687+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:40.991+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:40.991+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 7: 700/20354
+[2025-05-03T08:05:40.993+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:42.475+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:42.479+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 8: 800/20354
+[2025-05-03T08:05:42.513+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:43.463+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:43.464+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 9: 900/20354
+[2025-05-03T08:05:43.465+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:44.920+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:44.934+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 10: 1000/20354
+[2025-05-03T08:05:44.950+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:46.071+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:46.072+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 11: 1100/20354
+[2025-05-03T08:05:46.073+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:46.266+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:46.268+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 12: 1200/20354
+[2025-05-03T08:05:46.270+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:46.853+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:46.857+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 13: 1300/20354
+[2025-05-03T08:05:46.859+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:47.237+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:47.245+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 14: 1400/20354
+[2025-05-03T08:05:47.254+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:48.127+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:48.146+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 15: 1500/20354
+[2025-05-03T08:05:48.149+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:49.012+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:49.018+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 16: 1600/20354
+[2025-05-03T08:05:49.029+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:49.139+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:49.140+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 17: 1700/20354
+[2025-05-03T08:05:49.142+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:49.580+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:49.588+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 18: 1800/20354
+[2025-05-03T08:05:49.590+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:50.870+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:50.871+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 19: 1900/20354
+[2025-05-03T08:05:50.908+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:51.234+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:51.239+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 20: 2000/20354
+[2025-05-03T08:05:51.282+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:51.596+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:51.597+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 21: 2100/20354
+[2025-05-03T08:05:51.600+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:52.119+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:52.123+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 22: 2200/20354
+[2025-05-03T08:05:52.125+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:53.214+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:53.215+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 23: 2300/20354
+[2025-05-03T08:05:53.216+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:54.319+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:54.322+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 24: 2400/20354
+[2025-05-03T08:05:54.328+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:55.601+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:55.604+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 25: 2500/20354
+[2025-05-03T08:05:55.605+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:56.218+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:56.265+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 26: 2600/20354
+[2025-05-03T08:05:56.266+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:57.892+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:57.896+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 27: 2700/20354
+[2025-05-03T08:05:57.902+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:58.835+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:58.845+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 28: 2800/20354
+[2025-05-03T08:05:58.849+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:05:59.928+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:05:59.929+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 29: 2900/20354
+[2025-05-03T08:05:59.949+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:00.259+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:00.264+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 30: 3000/20354
+[2025-05-03T08:06:00.268+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:00.384+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:00.385+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 31: 3100/20354
+[2025-05-03T08:06:00.386+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:01.162+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:01.167+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 32: 3200/20354
+[2025-05-03T08:06:01.256+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:02.790+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:02.797+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 33: 3300/20354
+[2025-05-03T08:06:02.823+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:05.153+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:05.181+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 34: 3400/20354
+[2025-05-03T08:06:05.184+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:07.073+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:07.151+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 35: 3500/20354
+[2025-05-03T08:06:07.154+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:08.444+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:08.597+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 36: 3600/20354
+[2025-05-03T08:06:08.625+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:09.787+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:09.996+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 37: 3700/20354
+[2025-05-03T08:06:10.240+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:11.450+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:11.452+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 38: 3800/20354
+[2025-05-03T08:06:11.461+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:13.444+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:13.452+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 39: 3900/20354
+[2025-05-03T08:06:13.458+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:15.693+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:15.709+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 40: 4000/20354
+[2025-05-03T08:06:15.710+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:16.880+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:16.889+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 41: 4100/20354
+[2025-05-03T08:06:16.894+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:18.856+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:18.920+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 42: 4200/20354
+[2025-05-03T08:06:18.980+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:19.178+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:19.179+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 43: 4300/20354
+[2025-05-03T08:06:19.184+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:20.544+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:20.605+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 44: 4400/20354
+[2025-05-03T08:06:20.718+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:21.685+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:21.748+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 45: 4500/20354
+[2025-05-03T08:06:21.764+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:23.012+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:23.038+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 46: 4600/20354
+[2025-05-03T08:06:23.041+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:24.479+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:24.517+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 47: 4700/20354
+[2025-05-03T08:06:24.606+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:27.601+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:27.621+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 48: 4800/20354
+[2025-05-03T08:06:27.646+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:29.915+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:29.962+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 49: 4900/20354
+[2025-05-03T08:06:30.028+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:33.278+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:33.292+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 50: 5000/20354
+[2025-05-03T08:06:33.391+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:35.169+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:35.193+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 51: 5100/20354
+[2025-05-03T08:06:35.257+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:36.850+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:36.852+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 52: 5200/20354
+[2025-05-03T08:06:36.854+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:37.998+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:38.000+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 53: 5300/20354
+[2025-05-03T08:06:38.005+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:39.529+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:39.530+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 54: 5400/20354
+[2025-05-03T08:06:39.532+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:40.374+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:40.387+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 55: 5500/20354
+[2025-05-03T08:06:40.405+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:41.339+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:41.348+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 56: 5600/20354
+[2025-05-03T08:06:41.369+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:41.609+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:41.632+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 57: 5700/20354
+[2025-05-03T08:06:41.637+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:42.830+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:42.867+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 58: 5800/20354
+[2025-05-03T08:06:42.954+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:43.474+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:43.474+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 59: 5900/20354
+[2025-05-03T08:06:43.485+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:44.561+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:44.574+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 60: 6000/20354
+[2025-05-03T08:06:44.600+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:45.464+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:45.473+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 61: 6100/20354
+[2025-05-03T08:06:45.499+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:46.829+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:46.906+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 62: 6200/20354
+[2025-05-03T08:06:46.949+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:47.475+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:47.481+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 63: 6300/20354
+[2025-05-03T08:06:47.485+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:48.648+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:48.649+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 64: 6400/20354
+[2025-05-03T08:06:48.650+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:50.412+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:50.436+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 65: 6500/20354
+[2025-05-03T08:06:50.478+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:52.855+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:52.877+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 66: 6600/20354
+[2025-05-03T08:06:52.885+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:53.329+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:53.330+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 67: 6700/20354
+[2025-05-03T08:06:53.331+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:54.579+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:54.581+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 68: 6800/20354
+[2025-05-03T08:06:54.582+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:56.263+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:56.317+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 69: 6900/20354
+[2025-05-03T08:06:56.323+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:57.499+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:57.529+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 70: 7000/20354
+[2025-05-03T08:06:57.569+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:06:59.579+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:06:59.692+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 71: 7100/20354
+[2025-05-03T08:06:59.708+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:03.219+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:03.243+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 72: 7200/20354
+[2025-05-03T08:07:03.279+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:04.055+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:04.105+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 73: 7300/20354
+[2025-05-03T08:07:04.220+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:05.693+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:05.693+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 74: 7400/20354
+[2025-05-03T08:07:05.733+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:07.312+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:07.313+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 75: 7500/20354
+[2025-05-03T08:07:07.314+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:09.669+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:09.713+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 76: 7600/20354
+[2025-05-03T08:07:09.785+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:11.939+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:12.033+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 77: 7700/20354
+[2025-05-03T08:07:12.128+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:13.392+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:13.393+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 78: 7800/20354
+[2025-05-03T08:07:13.411+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:14.896+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:15.123+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 79: 7900/20354
+[2025-05-03T08:07:15.394+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:20.185+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:20.190+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 80: 8000/20354
+[2025-05-03T08:07:20.200+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:22.553+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:22.655+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 81: 8100/20354
+[2025-05-03T08:07:22.764+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:26.023+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:26.265+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 82: 8200/20354
+[2025-05-03T08:07:26.373+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:28.678+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:28.927+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 83: 8300/20354
+[2025-05-03T08:07:29.177+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:34.913+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:35.193+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 84: 8400/20354
+[2025-05-03T08:07:35.494+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:40.608+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:41.301+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 85: 8500/20354
+[2025-05-03T08:07:41.755+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:52.798+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:52.890+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 86: 8600/20354
+[2025-05-03T08:07:52.893+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:56.969+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:56.999+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 87: 8700/20354
+[2025-05-03T08:07:57.010+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:07:58.077+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:07:58.094+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 88: 8800/20354
+[2025-05-03T08:07:58.108+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:01.647+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:01.804+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 89: 8900/20354
+[2025-05-03T08:08:01.934+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:05.344+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:05.510+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 90: 9000/20354
+[2025-05-03T08:08:05.591+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:07.427+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:07.477+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 91: 9100/20354
+[2025-05-03T08:08:07.499+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:10.680+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:10.696+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 92: 9200/20354
+[2025-05-03T08:08:10.745+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:13.598+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:13.600+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 93: 9300/20354
+[2025-05-03T08:08:13.647+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:14.758+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:14.892+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 94: 9400/20354
+[2025-05-03T08:08:15.046+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:17.133+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:17.141+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 95: 9500/20354
+[2025-05-03T08:08:17.192+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:19.795+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:20.029+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 96: 9600/20354
+[2025-05-03T08:08:20.101+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:22.930+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:23.089+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 97: 9700/20354
+[2025-05-03T08:08:23.260+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:25.408+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:25.409+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 98: 9800/20354
+[2025-05-03T08:08:25.590+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:28.650+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:28.823+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 99: 9900/20354
+[2025-05-03T08:08:28.904+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:31.377+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:31.542+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 100: 10000/20354
+[2025-05-03T08:08:31.633+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:33.072+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:33.079+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 101: 10100/20354
+[2025-05-03T08:08:33.082+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:33.762+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:33.783+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 102: 10200/20354
+[2025-05-03T08:08:33.845+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:35.421+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:35.433+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 103: 10300/20354
+[2025-05-03T08:08:35.455+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:36.460+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:36.527+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 104: 10400/20354
+[2025-05-03T08:08:36.534+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:37.712+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:37.713+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 105: 10500/20354
+[2025-05-03T08:08:37.733+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:38.558+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:38.627+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 106: 10600/20354
+[2025-05-03T08:08:38.643+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:08:57.971+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:08:58.062+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 107: 10700/20354
+[2025-05-03T08:08:58.220+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:01.961+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:01.967+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 108: 10800/20354
+[2025-05-03T08:09:02.006+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:04.496+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:04.499+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 109: 10900/20354
+[2025-05-03T08:09:04.543+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:05.426+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:05.477+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 110: 11000/20354
+[2025-05-03T08:09:05.512+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:07.538+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:07.597+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 111: 11100/20354
+[2025-05-03T08:09:07.606+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:08.266+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:08.278+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 112: 11200/20354
+[2025-05-03T08:09:08.282+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:10.493+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:10.525+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 113: 11300/20354
+[2025-05-03T08:09:10.527+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:12.341+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:12.349+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 114: 11400/20354
+[2025-05-03T08:09:12.373+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:12.698+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:12.718+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 115: 11500/20354
+[2025-05-03T08:09:12.722+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:13.091+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:13.095+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 116: 11600/20354
+[2025-05-03T08:09:13.098+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:13.256+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:13.260+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 117: 11700/20354
+[2025-05-03T08:09:13.261+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:14.744+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:14.746+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 118: 11800/20354
+[2025-05-03T08:09:14.747+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:16.196+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:16.265+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 119: 11900/20354
+[2025-05-03T08:09:16.302+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:17.906+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:17.974+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 120: 12000/20354
+[2025-05-03T08:09:17.985+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:20.680+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:20.721+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 121: 12100/20354
+[2025-05-03T08:09:20.754+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:22.782+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:23.087+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 122: 12200/20354
+[2025-05-03T08:09:23.125+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:25.872+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:25.897+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 123: 12300/20354
+[2025-05-03T08:09:25.976+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:29.459+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:29.468+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 124: 12400/20354
+[2025-05-03T08:09:29.684+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:34.576+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:34.749+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 125: 12500/20354
+[2025-05-03T08:09:34.754+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:38.292+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:38.366+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 126: 12600/20354
+[2025-05-03T08:09:38.448+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:40.106+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:40.126+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 127: 12700/20354
+[2025-05-03T08:09:40.227+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:41.326+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:41.328+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 128: 12800/20354
+[2025-05-03T08:09:41.332+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:44.836+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:44.840+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 129: 12900/20354
+[2025-05-03T08:09:44.856+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:45.864+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:45.959+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 130: 13000/20354
+[2025-05-03T08:09:45.989+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:47.408+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:47.437+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 131: 13100/20354
+[2025-05-03T08:09:47.454+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:47.802+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:47.804+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 132: 13200/20354
+[2025-05-03T08:09:47.811+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:49.629+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:49.649+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 133: 13300/20354
+[2025-05-03T08:09:49.738+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:09:51.709+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:09:51.865+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 134: 13400/20354
+[2025-05-03T08:09:52.099+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:01.780+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:01.962+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 135: 13500/20354
+[2025-05-03T08:10:02.133+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:04.284+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:04.293+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 136: 13600/20354
+[2025-05-03T08:10:04.649+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:08.238+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:08.306+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 137: 13700/20354
+[2025-05-03T08:10:08.347+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:10.571+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:10.727+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 138: 13800/20354
+[2025-05-03T08:10:10.809+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:12.889+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:13.163+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 139: 13900/20354
+[2025-05-03T08:10:13.282+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:16.707+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:16.919+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 140: 14000/20354
+[2025-05-03T08:10:16.940+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.
+[2025-05-03T08:10:20.137+0000] {sql.py:580} INFO - Done loading. Loaded a total of 100 rows into diabetes_test_processed
+[2025-05-03T08:10:20.218+0000] {process_and_clean_data.py:745} INFO -   - Insertado lote 141: 14100/20354
+[2025-05-03T08:10:20.410+0000] {base.py:84} INFO - Using connection ID 'mysql_diabetes_conn' for task execution.

@@ -1,0 +1,1573 @@
+id_icd-9,general_category
+'196, Oncológico
+'197, Oncológico
+'198, Oncológico
+'789, Oncológico
+'550, Digestivo
+'551, Digestivo
+'552, Digestivo
+'553, Digestivo
+'789, Digestivo
+'639, Obstetricia y Ginecología
+'584, Genitourinario
+'586, Genitourinario
+'727, Musculoesquelético
+'734, Musculoesquelético
+'735, Musculoesquelético
+'736, Musculoesquelético
+'285, Hematológico
+'430, Cardiovascular
+'431, Cardiovascular
+'432, Cardiovascular
+'433, Cardiovascular
+'434, Cardiovascular
+'436, Cardiovascular
+'410, Cardiovascular
+'517, Respiratorio
+'518, Respiratorio
+'799, Respiratorio
+'V46, Respiratorio
+'296, Salud Mental
+'298, Salud Mental
+'300, Salud Mental
+'301, Salud Mental
+'291, Salud Mental
+'303, Salud Mental
+'305, Salud Mental
+'477, Misceláneo
+'518, Misceláneo
+'558, Misceláneo
+'691, Misceláneo
+'692, Misceláneo
+'693, Misceláneo
+'708, Misceláneo
+'995, Misceláneo
+'V07, Misceláneo
+'V14, Misceláneo
+'V15, Misceláneo
+'V72, Misceláneo
+'657, Pediatría
+'658, Pediatría
+'779, Pediatría
+'792, Pediatría
+'564, Digestivo
+'565, Digestivo
+'566, Digestivo
+'569, Digestivo
+'280, Hematológico
+'281, Hematológico
+'282, Hematológico
+'283, Hematológico
+'284, Hematológico
+'285, Hematológico
+'441, Cardiovascular
+'442, Cardiovascular
+'443, Cardiovascular
+'300, Salud Mental
+'301, Salud Mental
+'307, Salud Mental
+'308, Salud Mental
+'309, Salud Mental
+'312, Salud Mental
+'327, Salud Mental
+'540,Other
+'541,Other
+'542,Other
+'543,Other
+'444,Other
+'445,Other
+'507, Respiratorio
+'493, Respiratorio
+'720, Musculoesquelético
+'721, Musculoesquelético
+'722, Musculoesquelético
+'723, Musculoesquelético
+'724, Musculoesquelético
+'574, Digestivo
+'575, Digestivo
+'576, Digestivo
+'793, Digestivo
+'768, Pediatría
+'770, Pediatría
+'767, Pediatría
+'188, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'367, Oftalmológico
+'368, Oftalmológico
+'369, Oftalmológico
+'V41, Oftalmológico
+'218, Obstetricia y Ginecología
+'219, Obstetricia y Ginecología
+'170, Oncológico
+'171, Oncológico
+'600, Genitourinario
+'191, Oncológico
+'192, Oncológico
+'V10, Oncológico
+'174, Oncológico
+'175, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'610, Obstetricia y Ginecología
+'611, Obstetricia y Ginecología
+'793, Obstetricia y Ginecología
+'162, Oncológico
+'231, Oncológico
+'V10, Oncológico
+'466, Respiratorio
+'906, Dermatológico
+'940, Dermatológico
+'941, Dermatológico
+'942, Dermatológico
+'943, Dermatológico
+'944, Dermatológico
+'945, Dermatológico
+'946, Dermatológico
+'947, Dermatológico
+'948, Dermatológico
+'949, Dermatológico
+'427, Cardiovascular
+'745, Pediatría
+'746, Pediatría
+'747, Pediatría
+'032, Cardiovascular
+'036, Cardiovascular
+'074, Cardiovascular
+'112, Cardiovascular
+'115, Cardiovascular
+'130, Cardiovascular
+'391, Cardiovascular
+'392, Cardiovascular
+'393, Cardiovascular
+'398, Cardiovascular
+'420, Cardiovascular
+'421, Cardiovascular
+'422, Cardiovascular
+'423, Cardiovascular
+'425, Cardiovascular
+'429, Cardiovascular
+'366, Oftalmológico
+'V43, Oftalmológico
+'180, Oncológico
+'233, Oncológico
+'795, Oncológico
+'V10, Oncológico
+'786, Misceláneo
+'398, Cardiovascular
+'428, Cardiovascular
+'585, Genitourinario
+'792, Genitourinario
+'V42, Genitourinario
+'V45, Genitourinario
+'V56, Genitourinario
+'286, Hematológico
+'287, Hematológico
+'289, Hematológico
+'782, Hematológico
+'153, Oncológico
+'159, Oncológico
+'230, Oncológico
+'V10, Oncológico
+'348, Neurológico
+'780, Neurológico
+'414, Complicaciones
+'440, Complicaciones
+'569, Complicaciones
+'996, Complicaciones
+'999, Complicaciones
+'277, Complicaciones
+'349, Complicaciones
+'415, Complicaciones
+'429, Complicaciones
+'458, Complicaciones
+'512, Complicaciones
+'518, Complicaciones
+'519, Complicaciones
+'530, Complicaciones
+'536, Complicaciones
+'564, Complicaciones
+'569, Complicaciones
+'579, Complicaciones
+'909, Complicaciones
+'995, Complicaciones
+'997, Complicaciones
+'998, Complicaciones
+'999, Complicaciones
+'426, Cardiovascular
+'V45, Cardiovascular
+'V53, Cardiovascular
+'V15, Obstetricia y Ginecología
+'V25, Obstetricia y Ginecología
+'V26, Obstetricia y Ginecología
+'V45, Obstetricia y Ginecología
+'490, Respiratorio
+'491, Respiratorio
+'492, Respiratorio
+'494, Respiratorio
+'496, Respiratorio
+'411, Cardiovascular
+'412, Cardiovascular
+'413, Cardiovascular
+'414, Cardiovascular
+'V45, Cardiovascular
+'860, Musculoesquelético
+'861, Musculoesquelético
+'862, Musculoesquelético
+'863, Musculoesquelético
+'864, Musculoesquelético
+'865, Musculoesquelético
+'866, Musculoesquelético
+'867, Musculoesquelético
+'868, Musculoesquelético
+'869, Musculoesquelético
+'900, Musculoesquelético
+'901, Musculoesquelético
+'902, Musculoesquelético
+'903, Musculoesquelético
+'904, Musculoesquelético
+'906, Musculoesquelético
+'908, Musculoesquelético
+'925, Musculoesquelético
+'926, Musculoesquelético
+'927, Musculoesquelético
+'928, Musculoesquelético
+'929, Musculoesquelético
+'277, Pediatría
+'250, Endocrino
+'790, Endocrino
+'791, Endocrino
+'V45, Endocrino
+'V53, Endocrino
+'V65, Endocrino
+'250, Endocrino
+'562, Digestivo
+'386, Otorrinolaringológico
+'780, Otorrinolaringológico
+'648, Endocrino
+'648, Obstetricia y Ginecología
+'427, Cardiovascular
+'785, Cardiovascular
+'E87, Causas Externas
+'E93, Causas Externas
+'E94, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E83, Causas Externas
+'E91, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E98, Causas Externas
+'E88, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E98, Causas Externas
+'E89, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E91, Causas Externas
+'E81, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E98, Causas Externas
+'E90, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E98, Causas Externas
+'E84, Causas Externas
+'E91, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E99, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E99, Causas Externas
+'E92, Causas Externas
+'E80, Causas Externas
+'E82, Causas Externas
+'E80, Causas Externas
+'E82, Causas Externas
+'E84, Causas Externas
+'E85, Causas Externas
+'E86, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E91, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E91, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E98, Causas Externas
+'E80, Causas Externas
+'E82, Causas Externas
+'E83, Causas Externas
+'E84, Causas Externas
+'E95, Causas Externas
+'E98, Causas Externas
+'E88, Causas Externas
+'E92, Causas Externas
+'E95, Causas Externas
+'E96, Causas Externas
+'E97, Causas Externas
+'E98, Causas Externas
+'E99, Causas Externas
+'644, Obstetricia y Ginecología
+'633, Obstetricia y Ginecología
+'036, Neurológico
+'046, Neurológico
+'049, Neurológico
+'052, Neurológico
+'054, Neurológico
+'055, Neurológico
+'056, Neurológico
+'058, Neurológico
+'062, Neurológico
+'063, Neurológico
+'064, Neurológico
+'066, Neurológico
+'072, Neurológico
+'130, Neurológico
+'139, Neurológico
+'323, Neurológico
+'341, Neurológico
+'617, Obstetricia y Ginecología
+'345, Neurológico
+'780, Neurológico
+'150, Oncológico
+'230, Oncológico
+'V10, Oncológico
+'456, Digestivo
+'530, Digestivo
+'571, Digestivo
+'V29, Misceláneo
+'V68, Misceláneo
+'V70, Misceláneo
+'V71, Misceláneo
+'V72, Misceláneo
+'021, Infeccioso
+'032, Infeccioso
+'053, Infeccioso
+'054, Infeccioso
+'055, Infeccioso
+'076, Infeccioso
+'077, Infeccioso
+'115, Infeccioso
+'130, Infeccioso
+'139, Infeccioso
+'360, Infeccioso
+'363, Infeccioso
+'364, Infeccioso
+'370, Infeccioso
+'372, Infeccioso
+'373, Infeccioso
+'375, Infeccioso
+'376, Infeccioso
+'377, Infeccioso
+'379, Infeccioso
+'780, Misceláneo
+'181, Oncológico
+'183, Oncológico
+'184, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'628, Genitourinario
+'656, Obstetricia y Ginecología
+'661, Obstetricia y Ginecología
+'662, Obstetricia y Ginecología
+'276,Other
+'669, Obstetricia y Ginecología
+'780, Misceláneo
+'810, Musculoesquelético
+'811, Musculoesquelético
+'812, Musculoesquelético
+'813, Musculoesquelético
+'814, Musculoesquelético
+'815, Musculoesquelético
+'816, Musculoesquelético
+'817, Musculoesquelético
+'818, Musculoesquelético
+'819, Musculoesquelético
+'905, Musculoesquelético
+'V54, Musculoesquelético
+'820, Musculoesquelético
+'905, Musculoesquelético
+'V54, Musculoesquelético
+'821, Musculoesquelético
+'822, Musculoesquelético
+'823, Musculoesquelético
+'824, Musculoesquelético
+'825, Musculoesquelético
+'826, Musculoesquelético
+'827, Musculoesquelético
+'905, Musculoesquelético
+'V54, Musculoesquelético
+'800, Musculoesquelético
+'801, Musculoesquelético
+'802, Musculoesquelético
+'803, Musculoesquelético
+'804, Musculoesquelético
+'905, Musculoesquelético
+'440, Misceláneo
+'785, Misceláneo
+'531, Digestivo
+'532, Digestivo
+'533, Digestivo
+'534, Digestivo
+'V12, Digestivo
+'535, Digestivo
+'558, Digestivo
+'750, Infeccioso
+'750, Pediatría
+'751, Infeccioso
+'751, Pediatría
+'456, Digestivo
+'530, Digestivo
+'531, Digestivo
+'532, Digestivo
+'533, Digestivo
+'534, Digestivo
+'569, Digestivo
+'578, Digestivo
+'152, Oncológico
+'156, Oncológico
+'158, Oncológico
+'159, Oncológico
+'230, Oncológico
+'V10, Oncológico
+'365, Oftalmológico
+'274, Musculoesquelético
+'712, Musculoesquelético
+'752, Pediatría
+'753, Pediatría
+'V13, Pediatría
+'140, Oncológico
+'141, Oncológico
+'142, Oncológico
+'143, Oncológico
+'144, Oncológico
+'145, Oncológico
+'146, Oncológico
+'147, Oncológico
+'148, Oncológico
+'149, Oncológico
+'160, Oncológico
+'161, Oncológico
+'195, Oncológico
+'230, Oncológico
+'231, Oncológico
+'V10, Oncológico
+'346, Neurológico
+'784, Neurológico
+'455, Digestivo
+'640, Obstetricia y Ginecología
+'641, Obstetricia y Ginecología
+'070,Other
+'571,Other
+'573,Other
+'042, Infeccioso
+'043, Infeccioso
+'044, Infeccioso
+'079, Infeccioso
+'279, Infeccioso
+'795, Infeccioso
+'V08, Infeccioso
+'201, Oncológico
+'V10, Oncológico
+'394, Cardiovascular
+'395, Cardiovascular
+'396, Cardiovascular
+'397, Cardiovascular
+'424, Cardiovascular
+'785, Cardiovascular
+'V42, Cardiovascular
+'V43, Cardiovascular
+'401, Cardiovascular
+'401, Cardiovascular
+'402, Cardiovascular
+'403, Cardiovascular
+'404, Cardiovascular
+'405, Cardiovascular
+'437, Cardiovascular
+'642, Obstetricia y Ginecología
+'V11, Salud Mental
+'V15, Salud Mental
+'V40, Salud Mental
+'V66, Salud Mental
+'V67, Salud Mental
+'V70, Salud Mental
+'V71, Salud Mental
+'V79, Salud Mental
+'272, Endocrino
+'279, Misceláneo
+'795, Misceláneo
+'V01, Misceláneo
+'V02, Misceláneo
+'V03, Misceláneo
+'V04, Misceláneo
+'V05, Misceláneo
+'V06, Misceláneo
+'V28, Misceláneo
+'V71, Misceláneo
+'V73, Misceláneo
+'V74, Misceláneo
+'V75, Misceláneo
+'635, Obstetricia y Ginecología
+'636, Obstetricia y Ginecología
+'637, Obstetricia y Ginecología
+'638, Obstetricia y Ginecología
+'601, Genitourinario
+'603, Genitourinario
+'604, Genitourinario
+'607, Genitourinario
+'608, Genitourinario
+'003, Musculoesquelético
+'026, Musculoesquelético
+'036, Musculoesquelético
+'056, Musculoesquelético
+'711, Musculoesquelético
+'730, Musculoesquelético
+'487,Other
+'488,Other
+'560, Digestivo
+'001, Infeccioso
+'002, Infeccioso
+'003, Infeccioso
+'004, Infeccioso
+'005, Infeccioso
+'006, Infeccioso
+'007, Infeccioso
+'008, Infeccioso
+'009, Infeccioso
+'021, Infeccioso
+'022, Infeccioso
+'800, Neurológico
+'801, Neurológico
+'803, Neurológico
+'804, Neurológico
+'850, Neurológico
+'851, Neurológico
+'852, Neurológico
+'853, Neurológico
+'854, Neurológico
+'907, Neurológico
+'716, Musculoesquelético
+'717, Musculoesquelético
+'718, Musculoesquelético
+'830, Musculoesquelético
+'831, Musculoesquelético
+'832, Musculoesquelético
+'833, Musculoesquelético
+'834, Musculoesquelético
+'835, Musculoesquelético
+'836, Musculoesquelético
+'837, Musculoesquelético
+'838, Musculoesquelético
+'839, Musculoesquelético
+'905, Musculoesquelético
+'189, Oncológico
+'V10, Oncológico
+'438, Neurológico
+'202, Oncológico
+'203, Oncológico
+'204, Oncológico
+'205, Oncológico
+'206, Oncológico
+'207, Oncológico
+'208, Oncológico
+'V10, Oncológico
+'V30, Pediatría
+'V31, Pediatría
+'V32, Pediatría
+'V33, Pediatría
+'V34, Pediatría
+'V35, Pediatría
+'V36, Pediatría
+'V37, Pediatría
+'V39, Pediatría
+'155, Oncológico
+'230, Oncológico
+'V10, Oncológico
+'645, Obstetricia y Ginecología
+'764, Pediatría
+'765, Pediatría
+'V21, Pediatría
+'495,Other
+'500,Other
+'501,Other
+'502,Other
+'503,Other
+'504,Other
+'505,Other
+'506,Other
+'507,Other
+'508,Other
+'289, Hematológico
+'683, Hematológico
+'785, Hematológico
+'V58, Misceláneo
+'V66, Misceláneo
+'V67, Misceláneo
+'187, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'199,Other
+'652, Obstetricia y Ginecología
+'660, Obstetricia y Ginecología
+'003, Infeccioso
+'036, Infeccioso
+'047, Infeccioso
+'049, Infeccioso
+'053, Infeccioso
+'054, Infeccioso
+'072, Infeccioso
+'100, Infeccioso
+'112, Infeccioso
+'114, Infeccioso
+'115, Infeccioso
+'320, Infeccioso
+'321, Infeccioso
+'322, Infeccioso
+'256, Obstetricia y Ginecología
+'627, Obstetricia y Ginecología
+'V07, Obstetricia y Ginecología
+'625, Obstetricia y Ginecología
+'626, Obstetricia y Ginecología
+'317, Salud Mental
+'318, Salud Mental
+'319, Salud Mental
+'527, Misceláneo
+'528, Misceláneo
+'529, Misceláneo
+'792, Misceláneo
+'340, Neurológico
+'203, Oncológico
+'110, Infeccioso
+'111, Infeccioso
+'112, Infeccioso
+'114, Infeccioso
+'115, Infeccioso
+'116, Infeccioso
+'117, Infeccioso
+'118, Infeccioso
+'787, Digestivo
+'235, Oncológico
+'236, Oncológico
+'237, Oncológico
+'238, Oncológico
+'239, Oncológico
+'580, Genitourinario
+'581, Genitourinario
+'582, Genitourinario
+'583, Genitourinario
+'587, Genitourinario
+'740, Neurológico
+'741, Neurológico
+'742, Neurológico
+'650, Obstetricia y Ginecología
+'651, Obstetricia y Ginecología
+'V22, Obstetricia y Ginecología
+'V24, Obstetricia y Ginecología
+'V27, Obstetricia y Ginecología
+'V72, Obstetricia y Ginecología
+'173, Oncológico
+'232, Oncológico
+'V10, Oncológico
+'200, Oncológico
+'202, Oncológico
+'V10, Oncológico
+'260, Endocrino
+'261, Endocrino
+'262, Endocrino
+'263, Endocrino
+'264, Endocrino
+'265, Endocrino
+'266, Endocrino
+'267, Endocrino
+'268, Endocrino
+'269, Endocrino
+'799, Endocrino
+'V12, Endocrino
+'664, Obstetricia y Ginecología
+'880, Trauma
+'881, Trauma
+'882, Trauma
+'883, Trauma
+'884, Trauma
+'885, Trauma
+'886, Trauma
+'887, Trauma
+'890, Trauma
+'891, Trauma
+'892, Trauma
+'893, Trauma
+'894, Trauma
+'895, Trauma
+'896, Trauma
+'897, Trauma
+'905, Trauma
+'906, Trauma
+'870, Trauma
+'871, Trauma
+'872, Trauma
+'873, Trauma
+'874, Trauma
+'875, Trauma
+'876, Trauma
+'877, Trauma
+'878, Trauma
+'879, Trauma
+'906, Trauma
+'715, Musculoesquelético
+'V13, Musculoesquelético
+'733, Musculoesquelético
+'718, Musculoesquelético
+'736, Musculoesquelético
+'737, Musculoesquelético
+'738, Musculoesquelético
+'V51,Other
+'V53,Other
+'V54,Other
+'V55,Other
+'V58,Other
+'V66,Other
+'V67,Other
+'210, Oncológico
+'211, Oncológico
+'212, Oncológico
+'213, Oncológico
+'214, Oncológico
+'215, Oncológico
+'216, Oncológico
+'217, Oncológico
+'220, Oncológico
+'221, Oncológico
+'222, Oncológico
+'223, Oncológico
+'224, Oncológico
+'225, Oncológico
+'226, Oncológico
+'227, Oncológico
+'228, Oncológico
+'229, Oncológico
+'V12, Oncológico
+'731, Musculoesquelético
+'732, Musculoesquelético
+'733, Musculoesquelético
+'737, Musculoesquelético
+'739, Musculoesquelético
+'V42, Musculoesquelético
+'V48, Musculoesquelético
+'V49, Musculoesquelético
+'443,Other
+'446,Other
+'447,Other
+'448,Other
+'458,Other
+'459,Other
+'785,Other
+'794,Other
+'796,Other
+'V12,Other
+'V15,Other
+'V42,Other
+'V43,Other
+'V71,Other
+'651, Pediatría
+'654, Pediatría
+'655, Pediatría
+'656, Pediatría
+'659, Pediatría
+'665, Pediatría
+'666, Pediatría
+'667, Pediatría
+'668, Pediatría
+'669, Pediatría
+'670, Pediatría
+'671, Pediatría
+'672, Pediatría
+'673, Pediatría
+'674, Pediatría
+'675, Pediatría
+'676, Pediatría
+'677, Pediatría
+'V23, Pediatría
+'743, Pediatría
+'744, Pediatría
+'748, Pediatría
+'749, Pediatría
+'754, Pediatría
+'755, Pediatría
+'756, Pediatría
+'757, Pediatría
+'758, Pediatría
+'759, Pediatría
+'795, Pediatría
+'V13, Pediatría
+'327, Musculoesquelético
+'567, Musculoesquelético
+'710, Musculoesquelético
+'725, Musculoesquelético
+'726, Musculoesquelético
+'727, Musculoesquelético
+'728, Musculoesquelético
+'729, Musculoesquelético
+'781, Musculoesquelético
+'793, Musculoesquelético
+'V13, Musculoesquelético
+'V43, Musculoesquelético
+'V45, Musculoesquelético
+'V48, Musculoesquelético
+'V49, Musculoesquelético
+'V53, Musculoesquelético
+'596, Genitourinario
+'598, Genitourinario
+'599, Genitourinario
+'585, Genitourinario
+'588, Genitourinario
+'589, Genitourinario
+'591, Genitourinario
+'593, Genitourinario
+'536,Other
+'537,Other
+'251, Endocrino
+'252, Endocrino
+'253, Endocrino
+'254, Endocrino
+'255, Endocrino
+'256, Endocrino
+'257, Endocrino
+'258, Endocrino
+'259, Endocrino
+'794, Endocrino
+'619, Genitourinario
+'620, Genitourinario
+'621, Genitourinario
+'622, Genitourinario
+'623, Genitourinario
+'624, Genitourinario
+'625, Genitourinario
+'626, Genitourinario
+'629, Genitourinario
+'795, Genitourinario
+'V13, Genitourinario
+'V55, Genitourinario
+'V72, Genitourinario
+'289, Hematológico
+'790, Hematológico
+'V12, Hematológico
+'V58, Hematológico
+'330,Other
+'331,Other
+'333,Other
+'334,Other
+'335,Other
+'336,Other
+'337,Other
+'690, Dermatológico
+'692, Dermatológico
+'694, Dermatológico
+'695, Dermatológico
+'696, Dermatológico
+'697, Dermatológico
+'698, Dermatológico
+'713, Musculoesquelético
+'716, Musculoesquelético
+'718, Musculoesquelético
+'719, Musculoesquelético
+'300, Salud Mental
+'302, Salud Mental
+'306, Salud Mental
+'307, Salud Mental
+'309, Salud Mental
+'311, Salud Mental
+'313, Salud Mental
+'315, Salud Mental
+'316, Salud Mental
+'327, Salud Mental
+'V62, Salud Mental
+'270, Endocrino
+'271, Endocrino
+'272, Endocrino
+'273, Endocrino
+'275, Endocrino
+'277, Endocrino
+'278, Endocrino
+'783, Endocrino
+'793, Endocrino
+'794, Endocrino
+'795, Endocrino
+'V12, Endocrino
+'V85, Endocrino
+'040, Pediatría
+'760, Pediatría
+'761, Pediatría
+'762, Pediatría
+'763, Pediatría
+'766, Pediatría
+'770, Pediatría
+'771, Pediatría
+'772, Pediatría
+'775, Pediatría
+'776, Pediatría
+'777, Pediatría
+'778, Pediatría
+'779, Pediatría
+'780, Pediatría
+'V13, Pediatría
+'V50, Pediatría
+'630, Obstetricia y Ginecología
+'631, Obstetricia y Ginecología
+'632, Obstetricia y Ginecología
+'643, Obstetricia y Ginecología
+'646, Obstetricia y Ginecología
+'647, Obstetricia y Ginecología
+'648, Obstetricia y Ginecología
+'649, Obstetricia y Ginecología
+'164, Oncológico
+'176, Oncológico
+'190, Oncológico
+'194, Oncológico
+'195, Oncológico
+'202, Oncológico
+'234, Oncológico
+'795, Oncológico
+'V10, Oncológico
+'V71, Oncológico
+'297,Other
+'298,Other
+'162,Other
+'163,Other
+'165,Other
+'231,Other
+'V10,Other
+'032,Other
+'034,Other
+'460,Other
+'461,Other
+'462,Other
+'464,Other
+'465,Other
+'473,Other
+'784,Other
+'470,Other
+'471,Other
+'472,Other
+'476,Other
+'477,Other
+'478,Other
+'519,Other
+'784,Other
+'786,Other
+'V41,Other
+'V44,Other
+'V55,Other
+'020, Infeccioso
+'021, Infeccioso
+'022, Infeccioso
+'023, Infeccioso
+'024, Infeccioso
+'025, Infeccioso
+'026, Infeccioso
+'027, Infeccioso
+'030, Infeccioso
+'031, Infeccioso
+'032, Infeccioso
+'033, Infeccioso
+'034, Infeccioso
+'036, Infeccioso
+'037, Infeccioso
+'039, Infeccioso
+'040, Infeccioso
+'041, Infeccioso
+'390, Infeccioso
+'392, Infeccioso
+'795, Infeccioso
+'V09, Infeccioso
+'045, Infeccioso
+'046, Infeccioso
+'048, Infeccioso
+'138, Infeccioso
+'324, Infeccioso
+'326, Infeccioso
+'V12, Infeccioso
+'805, Musculoesquelético
+'807, Musculoesquelético
+'808, Musculoesquelético
+'809, Musculoesquelético
+'828, Musculoesquelético
+'829, Musculoesquelético
+'905, Musculoesquelético
+'V54, Musculoesquelético
+'V66, Musculoesquelético
+'V67, Musculoesquelético
+'414,Other
+'429,Other
+'080, Infeccioso
+'081, Infeccioso
+'082, Infeccioso
+'083, Infeccioso
+'084, Infeccioso
+'085, Infeccioso
+'086, Infeccioso
+'087, Infeccioso
+'088, Infeccioso
+'100, Infeccioso
+'101, Infeccioso
+'102, Infeccioso
+'103, Infeccioso
+'104, Infeccioso
+'120, Infeccioso
+'121, Infeccioso
+'122, Infeccioso
+'123, Infeccioso
+'124, Infeccioso
+'125, Infeccioso
+'126, Infeccioso
+'127, Infeccioso
+'128, Infeccioso
+'129, Infeccioso
+'130, Infeccioso
+'131, Infeccioso
+'132, Infeccioso
+'133, Infeccioso
+'134, Infeccioso
+'135, Infeccioso
+'136, Infeccioso
+'139, Infeccioso
+'V12, Infeccioso
+'570, Digestivo
+'571, Digestivo
+'572, Digestivo
+'573, Digestivo
+'782, Digestivo
+'789, Digestivo
+'790, Digestivo
+'794, Digestivo
+'V42, Digestivo
+'513, Respiratorio
+'514, Respiratorio
+'515, Respiratorio
+'516, Respiratorio
+'517, Respiratorio
+'518, Respiratorio
+'519, Respiratorio
+'782, Respiratorio
+'786, Respiratorio
+'793, Respiratorio
+'794, Respiratorio
+'V12, Respiratorio
+'V42, Respiratorio
+'602, Genitourinario
+'603, Genitourinario
+'605, Genitourinario
+'606, Genitourinario
+'607, Genitourinario
+'608, Genitourinario
+'792, Genitourinario
+'325, Neurológico
+'332, Neurológico
+'337, Neurológico
+'338, Neurológico
+'341, Neurológico
+'344, Neurológico
+'347, Neurológico
+'348, Neurológico
+'349, Neurológico
+'350, Neurológico
+'351, Neurológico
+'352, Neurológico
+'353, Neurológico
+'354, Neurológico
+'355, Neurológico
+'356, Neurológico
+'357, Neurológico
+'358, Neurológico
+'359, Neurológico
+'781, Neurológico
+'782, Neurológico
+'784, Neurológico
+'792, Neurológico
+'793, Neurológico
+'794, Neurológico
+'796, Neurológico
+'V12, Neurológico
+'V41, Neurológico
+'V45, Neurológico
+'V48, Neurológico
+'V49, Neurológico
+'V53, Neurológico
+'692, Dermatológico
+'700, Dermatológico
+'701, Dermatológico
+'702, Dermatológico
+'703, Dermatológico
+'704, Dermatológico
+'705, Dermatológico
+'706, Dermatológico
+'709, Dermatológico
+'780, Dermatológico
+'782, Dermatológico
+'V13, Dermatológico
+'V42, Dermatológico
+'456, Cardiovascular
+'457, Cardiovascular
+'459, Cardiovascular
+'437, Cardiovascular
+'380, Otorrinolaringológico
+'384, Otorrinolaringológico
+'385, Otorrinolaringológico
+'388, Otorrinolaringológico
+'389, Otorrinolaringológico
+'V41, Otorrinolaringológico
+'V49, Otorrinolaringológico
+'V53, Otorrinolaringológico
+'V72, Otorrinolaringológico
+'360, Oftalmológico
+'363, Oftalmológico
+'364, Oftalmológico
+'370, Oftalmológico
+'371, Oftalmológico
+'372, Oftalmológico
+'373, Oftalmológico
+'374, Oftalmológico
+'375, Oftalmológico
+'376, Oftalmológico
+'377, Oftalmológico
+'378, Oftalmológico
+'379, Oftalmológico
+'781, Oftalmológico
+'V41, Oftalmológico
+'V42, Oftalmológico
+'V43, Oftalmológico
+'V45, Oftalmológico
+'V52, Oftalmológico
+'V53, Oftalmológico
+'V72, Oftalmológico
+'538, Digestivo
+'558, Digestivo
+'564, Digestivo
+'568, Digestivo
+'569, Digestivo
+'579, Digestivo
+'787, Digestivo
+'789, Digestivo
+'792, Digestivo
+'793, Digestivo
+'V12, Digestivo
+'V41, Digestivo
+'V44, Digestivo
+'V45, Digestivo
+'V47, Digestivo
+'V53, Digestivo
+'V55, Digestivo
+'599,Other
+'788,Other
+'791,Other
+'793,Other
+'794,Other
+'V13,Other
+'V41,Other
+'V43,Other
+'V44,Other
+'V47,Other
+'V53,Other
+'V55,Other
+'796, Trauma
+'799, Trauma
+'907, Trauma
+'908, Trauma
+'909, Trauma
+'930, Trauma
+'931, Trauma
+'932, Trauma
+'933, Trauma
+'934, Trauma
+'935, Trauma
+'936, Trauma
+'937, Trauma
+'938, Trauma
+'939, Trauma
+'950, Trauma
+'951, Trauma
+'953, Trauma
+'954, Trauma
+'955, Trauma
+'956, Trauma
+'957, Trauma
+'958, Trauma
+'959, Trauma
+'990, Trauma
+'991, Trauma
+'992, Trauma
+'993, Trauma
+'994, Trauma
+'995, Trauma
+'V15, Trauma
+'V71, Trauma
+'V28, Misceláneo
+'V71, Misceláneo
+'V72, Misceláneo
+'V76, Misceláneo
+'V77, Misceláneo
+'V78, Misceláneo
+'V80, Misceláneo
+'V81, Misceláneo
+'V82, Misceláneo
+'055, Otorrinolaringológico
+'381, Otorrinolaringológico
+'382, Otorrinolaringológico
+'383, Otorrinolaringológico
+'384, Otorrinolaringológico
+'385, Otorrinolaringológico
+'387, Otorrinolaringológico
+'620, Obstetricia y Ginecología
+'183, Oncológico
+'V10, Oncológico
+'157, Oncológico
+'577,Other
+'579,Other
+'342, Neurológico
+'343, Neurológico
+'344, Neurológico
+'781, Neurológico
+'332, Neurológico
+'733, Musculoesquelético
+'653, Obstetricia y Ginecología
+'660, Obstetricia y Ginecología
+'773, Pediatría
+'774, Pediatría
+'440, Cardiovascular
+'443, Cardiovascular
+'557, Cardiovascular
+'032, Digestivo
+'567, Digestivo
+'569, Digestivo
+'451, Cardiovascular
+'452, Cardiovascular
+'453, Cardiovascular
+'V12, Cardiovascular
+'614, Genitourinario
+'615, Genitourinario
+'616, Genitourinario
+'510, Respiratorio
+'511, Respiratorio
+'512, Respiratorio
+'518, Respiratorio
+'003, Respiratorio
+'020, Respiratorio
+'021, Respiratorio
+'022, Respiratorio
+'031, Respiratorio
+'039, Respiratorio
+'052, Respiratorio
+'055, Respiratorio
+'073, Respiratorio
+'083, Respiratorio
+'112, Respiratorio
+'114, Respiratorio
+'115, Respiratorio
+'130, Respiratorio
+'136, Respiratorio
+'480, Respiratorio
+'481, Respiratorio
+'482, Respiratorio
+'483, Respiratorio
+'484, Respiratorio
+'485, Respiratorio
+'486, Respiratorio
+'513, Respiratorio
+'517, Respiratorio
+'909, Misceláneo
+'980, Misceláneo
+'981, Misceláneo
+'982, Misceláneo
+'983, Misceláneo
+'984, Misceláneo
+'985, Misceláneo
+'986, Misceláneo
+'987, Misceláneo
+'988, Misceláneo
+'989, Misceláneo
+'528, Misceláneo
+'909, Misceláneo
+'960, Misceláneo
+'961, Misceláneo
+'962, Misceláneo
+'963, Misceláneo
+'964, Misceláneo
+'965, Misceláneo
+'966, Misceláneo
+'967, Misceláneo
+'968, Misceláneo
+'970, Misceláneo
+'971, Misceláneo
+'972, Misceláneo
+'973, Misceláneo
+'974, Misceláneo
+'975, Misceláneo
+'976, Misceláneo
+'977, Misceláneo
+'978, Misceláneo
+'979, Misceláneo
+'995, Misceláneo
+'969, Misceláneo
+'309, Pediatría
+'312, Pediatría
+'313, Pediatría
+'314, Pediatría
+'433, Cardiovascular
+'654, Obstetricia y Ginecología
+'618, Genitourinario
+'185, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'415, Cardiovascular
+'416, Cardiovascular
+'417, Cardiovascular
+'154, Oncológico
+'230, Oncológico
+'V10, Oncológico
+'V52, Misceláneo
+'V53, Misceláneo
+'V57, Misceláneo
+'V58, Misceláneo
+'769, Respiratorio
+'361, Oftalmológico
+'362, Oftalmológico
+'714, Musculoesquelético
+'720, Musculoesquelético
+'295, Salud Mental
+'299, Salud Mental
+'290, Salud Mental
+'293, Salud Mental
+'294, Salud Mental
+'310, Salud Mental
+'331, Salud Mental
+'797, Salud Mental
+'003, Infeccioso
+'020, Infeccioso
+'022, Infeccioso
+'036, Infeccioso
+'038, Infeccioso
+'054, Infeccioso
+'449, Infeccioso
+'790, Infeccioso
+'090, Infeccioso
+'091, Infeccioso
+'092, Infeccioso
+'093, Infeccioso
+'094, Infeccioso
+'095, Infeccioso
+'096, Infeccioso
+'097, Infeccioso
+'098, Infeccioso
+'099, Infeccioso
+'785,Other
+'282, Hematológico
+'020, Infeccioso
+'021, Infeccioso
+'022, Infeccioso
+'031, Infeccioso
+'032, Infeccioso
+'035, Infeccioso
+'039, Infeccioso
+'680, Infeccioso
+'681, Infeccioso
+'682, Infeccioso
+'684, Infeccioso
+'685, Infeccioso
+'686, Infeccioso
+'172, Oncológico
+'V10, Oncológico
+'710, Musculoesquelético
+'V20, Misceláneo
+'V60, Misceláneo
+'V61, Misceláneo
+'V62, Misceláneo
+'V63, Misceláneo
+'V65, Misceláneo
+'V68, Misceláneo
+'806, Neurológico
+'907, Neurológico
+'952, Neurológico
+'634, Obstetricia y Ginecología
+'840, Musculoesquelético
+'841, Musculoesquelético
+'842, Musculoesquelético
+'843, Musculoesquelético
+'844, Musculoesquelético
+'845, Musculoesquelético
+'846, Musculoesquelético
+'847, Musculoesquelético
+'848, Musculoesquelético
+'905, Musculoesquelético
+'151, Oncológico
+'230, Oncológico
+'V10, Oncológico
+'292, Salud Mental
+'304, Salud Mental
+'305, Salud Mental
+'V15, Salud Mental
+'906, Trauma
+'910, Trauma
+'911, Trauma
+'912, Trauma
+'913, Trauma
+'914, Trauma
+'915, Trauma
+'916, Trauma
+'917, Trauma
+'918, Trauma
+'919, Trauma
+'920, Trauma
+'921, Trauma
+'922, Trauma
+'923, Trauma
+'924, Trauma
+'780, Neurológico
+'520, Misceláneo
+'521, Misceláneo
+'522, Misceláneo
+'523, Misceláneo
+'524, Misceláneo
+'525, Misceláneo
+'526, Misceláneo
+'V52, Misceláneo
+'V53, Misceláneo
+'V58, Misceláneo
+'V72, Misceláneo
+'186, Oncológico
+'V10, Oncológico
+'193, Oncológico
+'258, Oncológico
+'V10, Oncológico
+'240, Endocrino
+'241, Endocrino
+'242, Endocrino
+'243, Endocrino
+'244, Endocrino
+'245, Endocrino
+'246, Endocrino
+'794, Endocrino
+'435, Cardiovascular
+'463, Respiratorio
+'474, Respiratorio
+'475, Respiratorio
+'010, Infeccioso
+'011, Infeccioso
+'012, Infeccioso
+'013, Infeccioso
+'014, Infeccioso
+'015, Infeccioso
+'016, Infeccioso
+'017, Infeccioso
+'018, Infeccioso
+'137, Infeccioso
+'V12, Infeccioso
+'707, Dermatológico
+'555, Digestivo
+'556, Digestivo
+'663, Pediatría
+'302, Misceláneo
+'327, Misceláneo
+'780, Misceláneo
+'781, Misceláneo
+'782, Misceláneo
+'783, Misceláneo
+'784, Misceláneo
+'790, Misceláneo
+'792, Misceláneo
+'793, Misceláneo
+'794, Misceláneo
+'795, Misceláneo
+'796, Misceláneo
+'798, Misceláneo
+'799, Misceláneo
+'V07, Misceláneo
+'V13, Misceláneo
+'V15, Misceláneo
+'V16, Misceláneo
+'V17, Misceláneo
+'V18, Misceláneo
+'V19, Misceláneo
+'V21, Misceláneo
+'V41, Misceláneo
+'V42, Misceláneo
+'V43, Misceláneo
+'V44, Misceláneo
+'V45, Misceláneo
+'V46, Misceláneo
+'V47, Misceláneo
+'V48, Misceláneo
+'V49, Misceláneo
+'V50, Misceláneo
+'V59, Misceláneo
+'V61, Misceláneo
+'V64, Misceláneo
+'V69, Misceláneo
+'V83, Misceláneo
+'V84, Misceláneo
+'V85, Misceláneo
+'V86, Misceláneo
+'592, Genitourinario
+'594, Genitourinario
+'788, Genitourinario
+'V13, Genitourinario
+'189, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'179, Oncológico
+'182, Oncológico
+'233, Oncológico
+'V10, Oncológico
+'032, Infeccioso
+'590, Infeccioso
+'595, Infeccioso
+'597, Infeccioso
+'598, Infeccioso
+'599, Infeccioso
+'454, Cardiovascular
+'050, Infeccioso
+'051, Infeccioso
+'052, Infeccioso
+'053, Infeccioso
+'054, Infeccioso
+'055, Infeccioso
+'056, Infeccioso
+'057, Infeccioso
+'058, Infeccioso
+'060, Infeccioso
+'061, Infeccioso
+'065, Infeccioso
+'066, Infeccioso
+'071, Infeccioso
+'072, Infeccioso
+'073, Infeccioso
+'074, Infeccioso
+'075, Infeccioso
+'078, Infeccioso
+'079, Infeccioso
+'790, Infeccioso
+'288, Hematológico
+'289, Hematológico

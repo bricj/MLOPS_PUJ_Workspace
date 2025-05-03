@@ -68,3 +68,10 @@ Proyecto3/plugins/
 Proyecto3/logs/dag_id=fetch_and_store_diabetes_data/
 Proyecto3/logs/dag_id=iniciar_tabla_mysql/
 Proyecto3/logs/dag_id=read_diabetes_tables/
+Proyecto3/Airflow/jupyter_api/jupyter_models/app/.Trash-0/
+Proyecto3/Airflow/jupyter_api/jupyter_models/app/data/.ipynb_checkpoints/
+Proyecto3/logs/dag_id=diabetes_data_pipeline/
+Proyecto3/logs/dag_id=fetch_and_store_diabetes_data/
+Proyecto3/logs/dag_id=iniciar_tabla_mysql/
+Proyecto3/logs/dag_id=read_diabetes_tables/
+Proyecto3/logs/dag_id=validate_diabetes_processed_tables/
