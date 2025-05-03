@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locust
+      role: master
+  template:
+    metadata:
+      labels:
+        app: locust
+        role: master
+    spec:
+      containers:
+        - name: locust
+          image: ogcorzo/locust-custom:1.0.1  # Usa tu imagen personalizada
+          command: ["locust"]
+          args: ["-f", "/mnt/locust/locustfile.py", "--master"]
+          ports:
+            - containerPort: 8089
+          volumeMounts:
+            - name: locustfile-volume
+              mountPath: /mnt/locust
+      volumes:
+        - name: locustfile-volume
+          configMap:
+            name: locustfile-configmap
+            items:
+              - key: locustfile.py
+                path: locustfile.py
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locust-master
+spec:
+  selector:
+    app: locust
+    role: master
+  ports:
+    - protocol: TCP
+      port: 8089
+      targetPort: 8089
+      nodePort: 30089  # Asegúrate de que este es el puerto en el que se mapea en el nodo
+  type: NodePort  # Cambia a LoadBalancer si estás en un entorno en la nube

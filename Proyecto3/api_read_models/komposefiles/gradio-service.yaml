@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: gradio
+  name: gradio
+spec:
+  ports:
+    - name: "7860"
+      port: 7860
+      targetPort: 7860
+  selector:
+    io.kompose.service: gradio
+status:
+  loadBalancer: {}
