@@ -10,6 +10,8 @@ import logging
 from sqlalchemy import text
 from airflow.utils.dates import days_ago
 
+from airflow.models import Variable  # Importar módulo de Variables
+
 # Configuración de logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -17,10 +19,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger("diabetes_data_pipeline")
 
-# Configuración de la API
-API_HOST = "datapi"  # nombre del servicio Docker
-API_PORT = 80
-API_BASE_URL = f"http://{API_HOST}:{API_PORT}"
+
+# Configuración de la API usando la URL específica PARA MINIKUBE
+API_BASE_URL = "http://192.168.58.2:30080"
+logger.info(f"Using API endpoint: {API_BASE_URL}")
+
 
 # Nombre de las tablas en la BD
 TRAIN_TABLE = "diabetes_train"
