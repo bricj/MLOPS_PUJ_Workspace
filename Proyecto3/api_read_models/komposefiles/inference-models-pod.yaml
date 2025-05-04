@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/proyecto3_api_network: "true"
+    io.kompose.service: inference-models
+  name: inference-models
+spec:
+  containers:
+    - image: 04602/api_read_models:latest
+      name: inference-models
+      ports:
+        - containerPort: 8989
+      resources:
+        limits:
+          memory: "1048576e3"
+  restartPolicy: Never
+status: {}

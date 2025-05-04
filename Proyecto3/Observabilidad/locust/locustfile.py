@@ -6,8 +6,6 @@ import os
 
 # Configurar logging
 logging.basicConfig(
-    filename="/app/locust_logs.log",
-    filemode="a",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )

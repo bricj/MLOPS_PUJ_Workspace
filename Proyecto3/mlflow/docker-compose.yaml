@@ -1,77 +1,38 @@
-version: '3.8'
-
-services:     # Define los servicios que se ejecutarán en contenedores Docker.
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow123
+      POSTGRES_DB: mlflow_db
+    restart: always
 
   minio:
-    container_name: minio
+    image: minio/minio
     command: server /data --console-address ":9001"
     environment:
-      - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=supersecret
-    image: quay.io/minio/minio:latest
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
     ports:
-      - '9000:9000'
-      - '9001:9001'
-    volumes:
-      - ./minio:/data
-    restart: unless-stopped
-    networks:
-      - proyecto3_mlflow_network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-
-  mysql:
-    image: mysql:8.0
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # MinIO Console
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: airflow
-      MYSQL_USER: airflow
-      MYSQL_PASSWORD: airflow
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    command: >
-      --default-authentication-plugin=mysql_native_password
-      --init-file /docker-entrypoint-initdb.d/init.sql
-      --bind-address=0.0.0.0
-    
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - proyecto3_mlflow_network
 
   mlflow:
-    # image: python:3.8  # O usa una imagen personalizada con mlflow preinstalado
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    container_name: mlflow_server
-    restart: on-failure
-    environment:
-      MLFLOW_S3_ENDPOINT_URL: http://minio:9000
-      AWS_ACCESS_KEY_ID: admin
-      AWS_SECRET_ACCESS_KEY: supersecret
-      MLFLOW_TRACKING_URI: http://mlflow:5000
-    command: mlflow server --backend-store-uri mysql+pymysql://airflow:airflow@mysql:3306/mlflow --default-artifact-root s3://mlflows3/artifacts --host 0.0.0.0 --port 5000 --serve-artifacts
-    ports:
-    
-      - "5001:5000"
-    networks:
-      - proyecto3_mlflow_network
+    build:
+      dockerfile: dockerfile
     depends_on:
-      mysql:
-        condition: service_healthy
-      minio:
-        condition: service_healthy
-
-networks:
-  proyecto3_api_network:
-    driver: "bridge"
+      - postgres
+      - minio
+    environment:
+      MLFLOW_TRACKING_URI: http://0.0.0.0:5000
+      AWS_ACCESS_KEY_ID: minioadmin
+      AWS_SECRET_ACCESS_KEY: minioadmin123
+    command: >
+      mlflow server
+      --backend-store-uri postgresql://mlflow:mlflow123@postgres:5432/mlflow_db
+      --default-artifact-root s3://mlflow/
+      --host 0.0.0.0
+    ports:
+      - "5001:5000"
+    restart: always
