@@ -12,13 +12,11 @@ def get_models():
         return [f"❌ Error al obtener modelos: {str(e)}"]
 
 def predict(model_name, race, gender, age, admission_type_id,
-               discharge_disposition_id, admission_source_id, metformin,
-               glimepiride, glyburide, pioglitazone, rosiglitazone, examide,
-               citoglipton, insulin, change, diag_1, diabetesMed,
+               discharge_disposition_id, admission_source_id, diabetesMed,
                max_glu_serum, A1Cresult, time_in_hospital, num_lab_procedures,
                num_procedures, num_medications, number_outpatient,
-               number_emergency, number_inpatient, number_diagnoses, 
-               service_utilization):
+               number_emergency, number_inpatient, number_diagnoses 
+               ):
     
     payload = {
         "Race": int(race),
@@ -27,16 +25,6 @@ def predict(model_name, race, gender, age, admission_type_id,
         "admission_type_id": int(admission_type_id),
         "discharge_disposition_id": int(discharge_disposition_id),
         "admission_source_id": int(admission_source_id),
-        "metformin": int(metformin),
-        "glimepiride": int(glimepiride),
-        "glyburide": int(glyburide),
-        "pioglitazone": int(pioglitazone),
-        "rosiglitazone": int(rosiglitazone),
-        "examide": int(examide),
-        "citoglipton": int(citoglipton),
-        "insulin": int(insulin),
-        "change": int(change),
-        "diag_1": int(diag_1),
         "diabetesMed": int(diabetesMed),
         "max_glu_serum": int(max_glu_serum),
         "A1Cresult": int(A1Cresult),
@@ -47,8 +35,7 @@ def predict(model_name, race, gender, age, admission_type_id,
         "number_outpatient": float(number_outpatient),
         "number_emergency": float(number_emergency),
         "number_inpatient": float(number_inpatient),
-        "number_diagnoses": int(number_diagnoses),
-        "service_utilization": int(service_utilization)
+        "number_diagnoses": int(number_diagnoses)
     }
 
     try:
@@ -79,16 +66,6 @@ with gr.Blocks() as demo:
             gr.Number(label="admission_type_id"),
             gr.Number(label="discharge_disposition_id"),
             gr.Number(label="admission_source_id"),
-            gr.Number(label="metformin"),
-            gr.Number(label="glimepiride"),
-            gr.Number(label="glyburide"),
-            gr.Number(label="pioglitazone"),
-            gr.Number(label="rosiglitazone"),
-            gr.Number(label="examide"),
-            gr.Number(label="citoglipton"),
-            gr.Number(label="insulin"),
-            gr.Number(label="change"),
-            gr.Number(label="diag_1"),
             gr.Number(label="diabetesMed"),
             gr.Number(label="max_glu_serum"),
             gr.Number(label="A1Cresult"),
@@ -99,8 +76,7 @@ with gr.Blocks() as demo:
             gr.Number(label="number_outpatient"),
             gr.Number(label="number_emergency"),
             gr.Number(label="number_inpatient"),
-            gr.Number(label="number_diagnoses"),
-            gr.Number(label="service_utilization")
+            gr.Number(label="number_diagnoses")
         ]
     
     output = gr.Textbox(label="📈 Predicción")

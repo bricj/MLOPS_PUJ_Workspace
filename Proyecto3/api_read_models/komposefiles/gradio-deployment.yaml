@@ -28,7 +28,7 @@ spec:
         - args:
             - python
             - gradio_app.py
-          image: ogcorzo/gradio-app:1.0.2
+          image: ogcorzo/gradio-app:1.0.3
           name: gradio-ui
           ports:
             - containerPort: 7860
