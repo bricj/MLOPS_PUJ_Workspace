@@ -1,0 +1,1 @@
+[2025-05-04T22:52:03.906+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: iniciar_tabla_mysql.start_table manual__2025-05-04T22:52:03.659821+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

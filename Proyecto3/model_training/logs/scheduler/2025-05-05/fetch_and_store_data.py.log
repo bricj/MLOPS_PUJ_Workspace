@@ -1,0 +1,1256 @@
+[2025-05-05T00:11:56.435+0000] {processor.py:161} INFO - Started process (PID=76) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:11:56.436+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:11:56.438+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:11:56.438+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:11:59.099+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:11:59.099+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:11:59.154+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:12:00.254+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:00.250+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:fetch_and_store_diabetes_data
+[2025-05-05T00:12:00.364+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:00.361+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:fetch_and_store_diabetes_data
+[2025-05-05T00:12:00.436+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:00.434+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:fetch_and_store_diabetes_data
+[2025-05-05T00:12:00.440+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:00.438+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:12:00.535+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:00.534+0000] {dag.py:3118} INFO - Creating ORM DAG for fetch_and_store_diabetes_data
+[2025-05-05T00:12:00.551+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:00.551+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:12:00.674+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 4.291 seconds
+[2025-05-05T00:12:30.904+0000] {processor.py:161} INFO - Started process (PID=95) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:12:30.907+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:12:30.911+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:30.911+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:12:31.636+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:31.636+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:12:31.649+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:12:31.769+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:31.768+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:12:31.789+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:12:31.788+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:12:31.847+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.964 seconds
+[2025-05-05T00:13:02.542+0000] {processor.py:161} INFO - Started process (PID=115) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:13:02.554+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:13:02.569+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:02.568+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:13:04.361+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:04.360+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:13:04.374+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:13:04.473+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:04.472+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:13:04.501+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:04.501+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:13:04.569+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 2.109 seconds
+[2025-05-05T00:13:35.275+0000] {processor.py:161} INFO - Started process (PID=135) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:13:35.277+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:13:35.279+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:35.279+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:13:35.907+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:35.907+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:13:35.915+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:13:35.961+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:35.960+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:13:35.989+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:13:35.989+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:13:36.019+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.756 seconds
+[2025-05-05T00:14:06.744+0000] {processor.py:161} INFO - Started process (PID=167) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:14:06.746+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:14:06.750+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:06.749+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:14:07.473+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:07.473+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:14:07.485+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:14:07.533+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:07.533+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:14:07.555+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:07.554+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:14:07.585+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.854 seconds
+[2025-05-05T00:14:37.669+0000] {processor.py:161} INFO - Started process (PID=192) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:14:37.671+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:14:37.675+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:37.674+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:14:38.342+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:38.342+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:14:38.351+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:14:38.393+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:38.393+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:14:38.409+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:14:38.409+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:14:38.438+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.781 seconds
+[2025-05-05T00:15:08.533+0000] {processor.py:161} INFO - Started process (PID=212) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:15:08.536+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:15:08.541+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:08.540+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:15:09.288+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:09.286+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:15:09.303+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:15:09.389+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:09.388+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:15:09.425+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:09.423+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:15:09.507+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.985 seconds
+[2025-05-05T00:15:39.764+0000] {processor.py:161} INFO - Started process (PID=237) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:15:39.769+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:15:39.782+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:39.781+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:15:42.700+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:42.700+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:15:42.714+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:15:42.784+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:42.783+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:15:42.818+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:15:42.818+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:15:42.915+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 3.189 seconds
+[2025-05-05T00:16:13.153+0000] {processor.py:161} INFO - Started process (PID=263) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:16:13.155+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:16:13.162+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:13.162+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:16:14.613+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:14.612+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:16:14.627+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:16:14.901+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:14.899+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:16:15.018+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:15.018+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:16:15.235+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 2.108 seconds
+[2025-05-05T00:16:45.668+0000] {processor.py:161} INFO - Started process (PID=283) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:16:45.677+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:16:45.685+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:45.681+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:16:48.563+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:48.562+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:16:48.624+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:16:48.871+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:48.871+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:16:48.904+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:16:48.903+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:16:49.026+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 3.397 seconds
+[2025-05-05T00:38:23.648+0000] {processor.py:161} INFO - Started process (PID=81) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:38:23.658+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:38:23.670+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:23.666+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:38:32.799+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:32.797+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:38:32.856+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:38:33.926+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:33.920+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:fetch_and_store_diabetes_data
+[2025-05-05T00:38:33.984+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:33.982+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:fetch_and_store_diabetes_data
+[2025-05-05T00:38:34.030+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:34.029+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:fetch_and_store_diabetes_data
+[2025-05-05T00:38:34.032+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:34.031+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:38:34.062+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:34.059+0000] {dag.py:3118} INFO - Creating ORM DAG for fetch_and_store_diabetes_data
+[2025-05-05T00:38:34.064+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:38:34.063+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:38:34.136+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 10.540 seconds
+[2025-05-05T00:39:04.412+0000] {processor.py:161} INFO - Started process (PID=104) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:39:04.417+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:39:04.423+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:04.422+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:39:05.615+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:05.615+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:39:05.639+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:39:05.720+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:05.719+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:39:05.745+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:05.745+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:39:05.859+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.468 seconds
+[2025-05-05T00:39:36.187+0000] {processor.py:161} INFO - Started process (PID=125) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:39:36.189+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:39:36.193+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:36.193+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:39:37.003+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:37.003+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:39:37.013+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:39:37.099+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:37.097+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:39:37.119+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:39:37.118+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:39:37.155+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.985 seconds
+[2025-05-05T00:40:07.478+0000] {processor.py:161} INFO - Started process (PID=145) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:40:07.480+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:40:07.484+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:07.484+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:40:08.473+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:08.472+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:40:08.483+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:40:08.552+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:08.550+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:40:08.577+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:08.576+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:40:08.619+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.157 seconds
+[2025-05-05T00:40:38.843+0000] {processor.py:161} INFO - Started process (PID=163) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:40:38.846+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:40:38.852+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:38.850+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:40:39.866+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:39.866+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:40:39.876+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:40:39.948+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:39.947+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:40:39.967+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:40:39.966+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:40:40.001+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.172 seconds
+[2025-05-05T00:41:10.318+0000] {processor.py:161} INFO - Started process (PID=193) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:41:10.327+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:41:10.340+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:10.336+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:41:12.928+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:12.928+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:41:12.974+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:41:13.165+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:13.162+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:41:13.238+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:13.237+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:41:13.388+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 3.130 seconds
+[2025-05-05T00:41:43.639+0000] {processor.py:161} INFO - Started process (PID=217) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:41:43.641+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:41:43.644+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:43.644+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:41:44.369+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:44.368+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:41:44.379+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:41:44.428+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:44.427+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:41:44.445+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:41:44.445+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:41:44.481+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.855 seconds
+[2025-05-05T00:42:14.591+0000] {processor.py:161} INFO - Started process (PID=237) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:42:14.593+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:42:14.598+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:14.596+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:42:15.680+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:15.679+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:42:15.689+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:42:15.748+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:15.747+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:42:15.772+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:15.772+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:42:15.826+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.258 seconds
+[2025-05-05T00:42:46.422+0000] {processor.py:161} INFO - Started process (PID=267) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:42:46.426+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:42:46.430+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:46.430+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:42:47.491+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:47.490+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:42:47.499+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:42:47.622+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:47.622+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:42:47.687+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:42:47.687+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:42:47.805+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.397 seconds
+[2025-05-05T00:43:18.413+0000] {processor.py:161} INFO - Started process (PID=288) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:43:18.417+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:43:18.428+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:18.426+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:43:20.776+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:20.774+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:43:20.814+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:43:20.970+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:20.969+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:43:21.010+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:21.009+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:43:21.113+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 2.722 seconds
+[2025-05-05T00:43:51.237+0000] {processor.py:161} INFO - Started process (PID=308) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:43:51.244+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:43:51.258+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:51.254+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:43:53.987+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:53.986+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:43:54.017+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:43:54.315+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:54.314+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:43:54.396+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:43:54.393+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:43:54.641+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 3.438 seconds
+[2025-05-05T00:44:24.926+0000] {processor.py:161} INFO - Started process (PID=328) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:44:24.928+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:44:24.933+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:24.933+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:44:25.993+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:25.991+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:44:26.035+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:44:26.167+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:26.166+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:44:26.200+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:26.199+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:44:26.280+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.385 seconds
+[2025-05-05T00:44:56.510+0000] {processor.py:161} INFO - Started process (PID=348) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:44:56.512+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:44:56.518+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:56.517+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:44:57.923+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:57.922+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:44:57.976+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:44:58.200+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:58.196+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:44:58.260+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:44:58.260+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:44:58.370+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.886 seconds
+[2025-05-05T00:45:29.023+0000] {processor.py:161} INFO - Started process (PID=369) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:45:29.026+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:45:29.030+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:45:29.029+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:45:29.701+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:45:29.701+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:45:29.716+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:45:29.790+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:45:29.786+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:45:29.820+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:45:29.819+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:45:29.886+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.883 seconds
+[2025-05-05T00:46:00.200+0000] {processor.py:161} INFO - Started process (PID=389) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:46:00.202+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:46:00.206+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:00.205+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:46:00.714+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:00.714+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:46:00.729+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:46:00.781+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:00.781+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:46:00.803+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:00.802+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:46:00.838+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.651 seconds
+[2025-05-05T00:46:31.183+0000] {processor.py:161} INFO - Started process (PID=408) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:46:31.185+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:46:31.188+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:31.188+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:46:31.710+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:31.709+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:46:31.727+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:46:31.798+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:31.797+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:46:31.825+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:46:31.824+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:46:31.864+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.694 seconds
+[2025-05-05T00:47:02.054+0000] {processor.py:161} INFO - Started process (PID=427) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:47:02.057+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:47:02.061+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:02.060+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:47:02.529+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:02.528+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:47:02.542+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:47:02.594+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:02.593+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:47:02.614+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:02.613+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:47:02.647+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.606 seconds
+[2025-05-05T00:47:32.872+0000] {processor.py:161} INFO - Started process (PID=445) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:47:32.874+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:47:32.877+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:32.876+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:47:33.698+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:33.698+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:47:33.719+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:47:33.794+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:33.793+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:47:33.825+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:47:33.824+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:47:33.895+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.036 seconds
+[2025-05-05T00:48:04.523+0000] {processor.py:161} INFO - Started process (PID=462) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:48:04.528+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:48:04.531+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:04.531+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:48:05.139+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:05.139+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:48:05.166+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:48:05.256+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:05.256+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:48:05.279+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:05.278+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:48:05.328+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.833 seconds
+[2025-05-05T00:48:35.922+0000] {processor.py:161} INFO - Started process (PID=489) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:48:35.925+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:48:35.934+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:35.933+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:48:36.444+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:36.444+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:48:36.456+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:48:36.509+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:36.508+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:48:36.532+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:48:36.532+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:48:36.586+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.677 seconds
+[2025-05-05T00:49:07.231+0000] {processor.py:161} INFO - Started process (PID=509) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:49:07.234+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:49:07.239+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:07.239+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:49:07.825+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:07.825+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:49:07.837+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:49:07.887+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:07.886+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:49:07.912+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:07.912+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:49:07.950+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.737 seconds
+[2025-05-05T00:49:38.461+0000] {processor.py:161} INFO - Started process (PID=529) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:49:38.464+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:49:38.468+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:38.467+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:49:38.895+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:38.894+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:49:38.906+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:49:38.969+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:38.968+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:49:38.993+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:49:38.992+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:49:39.031+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.583 seconds
+[2025-05-05T00:50:09.619+0000] {processor.py:161} INFO - Started process (PID=549) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:50:09.621+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:50:09.625+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:09.624+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:50:10.090+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:10.089+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:50:10.101+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:50:10.164+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:10.163+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:50:10.187+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:10.187+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:50:10.226+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.620 seconds
+[2025-05-05T00:50:40.539+0000] {processor.py:161} INFO - Started process (PID=569) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:50:40.541+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:50:40.545+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:40.544+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:50:40.990+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:40.990+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:50:41.001+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:50:41.053+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:41.052+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:50:41.073+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:50:41.073+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:50:41.104+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.577 seconds
+[2025-05-05T00:51:11.372+0000] {processor.py:161} INFO - Started process (PID=588) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:51:11.373+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:51:11.377+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:11.376+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:51:11.804+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:11.804+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:51:11.816+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:51:11.864+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:11.863+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:51:11.883+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:11.883+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:51:11.916+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.559 seconds
+[2025-05-05T00:51:42.270+0000] {processor.py:161} INFO - Started process (PID=608) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:51:42.272+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:51:42.277+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:42.276+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:51:42.718+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:42.717+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:51:42.729+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:51:42.776+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:42.775+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:51:42.796+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:51:42.796+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:51:42.835+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.581 seconds
+[2025-05-05T00:52:13.652+0000] {processor.py:161} INFO - Started process (PID=628) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:52:13.655+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:52:13.660+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:13.660+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:52:14.177+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:14.176+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:52:14.188+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:52:14.238+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:14.238+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:52:14.261+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:14.261+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:52:14.303+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.668 seconds
+[2025-05-05T00:52:45.091+0000] {processor.py:161} INFO - Started process (PID=653) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:52:45.096+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:52:45.103+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:45.103+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:52:47.333+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:47.327+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:52:47.371+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:52:47.691+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:47.684+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:52:47.840+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:52:47.838+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:52:48.130+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 3.061 seconds
+[2025-05-05T00:53:18.485+0000] {processor.py:161} INFO - Started process (PID=673) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:53:18.487+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:53:18.490+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:18.490+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:53:19.100+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:19.100+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:53:19.115+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:53:19.183+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:19.182+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:53:19.214+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:19.214+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:53:19.285+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.815 seconds
+[2025-05-05T00:53:49.578+0000] {processor.py:161} INFO - Started process (PID=693) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:53:49.581+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:53:49.589+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:49.588+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:53:50.408+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:50.407+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:53:50.421+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:53:50.513+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:50.512+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:53:50.553+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:53:50.553+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:53:50.600+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.048 seconds
+[2025-05-05T00:54:20.801+0000] {processor.py:161} INFO - Started process (PID=713) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:54:20.803+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:54:20.806+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:20.805+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:54:21.230+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:21.230+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:54:21.241+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:54:21.289+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:21.289+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:54:21.318+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:21.317+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:54:21.363+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.576 seconds
+[2025-05-05T00:54:52.131+0000] {processor.py:161} INFO - Started process (PID=733) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:54:52.133+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:54:52.136+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:52.135+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:54:52.578+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:52.577+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:54:52.590+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:54:52.641+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:52.640+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:54:52.661+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:54:52.660+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:54:52.693+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.574 seconds
+[2025-05-05T00:55:22.893+0000] {processor.py:161} INFO - Started process (PID=753) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:55:22.895+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:55:22.898+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:22.897+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:55:23.323+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:23.323+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:55:23.335+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:55:23.384+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:23.384+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:55:23.405+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:23.404+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:55:23.444+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.564 seconds
+[2025-05-05T00:55:54.243+0000] {processor.py:161} INFO - Started process (PID=773) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:55:54.247+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:55:54.250+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:54.249+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:55:54.702+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:54.702+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:55:54.714+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:55:54.764+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:54.763+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:55:54.785+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:55:54.785+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:55:54.833+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.602 seconds
+[2025-05-05T00:56:24.946+0000] {processor.py:161} INFO - Started process (PID=792) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:56:24.948+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:56:24.951+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:24.950+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:56:25.564+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:25.563+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:56:25.585+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:56:25.695+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:25.692+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:56:25.733+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:25.732+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:56:25.785+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.851 seconds
+[2025-05-05T00:56:56.224+0000] {processor.py:161} INFO - Started process (PID=812) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:56:56.226+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:56:56.231+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:56.231+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:56:56.738+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:56.738+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:56:56.750+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:56:56.811+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:56.810+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:56:56.842+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:56:56.841+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:56:56.880+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.670 seconds
+[2025-05-05T00:57:27.298+0000] {processor.py:161} INFO - Started process (PID=832) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:57:27.300+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:57:27.303+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:27.302+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:57:27.742+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:27.741+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:57:27.756+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:57:27.842+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:27.841+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:57:28.121+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:28.121+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:57:28.162+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.876 seconds
+[2025-05-05T00:57:58.829+0000] {processor.py:161} INFO - Started process (PID=852) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:57:58.837+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:57:58.840+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:58.840+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:57:59.295+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:59.294+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:57:59.306+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:57:59.357+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:59.356+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:57:59.628+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:57:59.628+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:57:59.676+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.865 seconds
+[2025-05-05T00:58:30.562+0000] {processor.py:161} INFO - Started process (PID=874) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:58:30.570+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:58:30.578+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:58:30.577+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:58:31.473+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:58:31.473+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:58:31.507+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:58:31.593+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:58:31.592+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:58:31.993+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:58:31.991+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:58:32.027+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.509 seconds
+[2025-05-05T00:59:02.507+0000] {processor.py:161} INFO - Started process (PID=894) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:59:02.514+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:59:02.520+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:02.520+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:59:03.326+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:03.326+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:59:03.335+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:59:03.397+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:03.396+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:59:03.419+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:03.419+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:59:03.454+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.962 seconds
+[2025-05-05T00:59:34.258+0000] {processor.py:161} INFO - Started process (PID=913) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:59:34.261+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T00:59:34.265+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:34.264+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:59:35.255+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:35.254+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T00:59:35.269+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T00:59:35.337+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:35.337+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T00:59:35.363+0000] {logging_mixin.py:188} INFO - [2025-05-05T00:59:35.361+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T00:59:35.399+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.156 seconds
+[2025-05-05T01:00:06.253+0000] {processor.py:161} INFO - Started process (PID=934) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:00:06.256+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:00:06.260+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:06.259+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:00:07.026+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:07.025+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:00:07.036+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:00:07.101+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:07.100+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:00:07.121+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:07.120+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:00:07.151+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.911 seconds
+[2025-05-05T01:00:37.258+0000] {processor.py:161} INFO - Started process (PID=954) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:00:37.260+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:00:37.264+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:37.264+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:00:38.102+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:38.101+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:00:38.111+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:00:38.176+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:38.176+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:00:38.199+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:00:38.199+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:00:38.228+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.982 seconds
+[2025-05-05T01:01:08.896+0000] {processor.py:161} INFO - Started process (PID=970) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:01:08.898+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:01:08.903+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:08.901+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:01:10.213+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:10.213+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:01:10.238+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:01:10.310+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:10.309+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:01:10.336+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:10.335+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:01:10.396+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.517 seconds
+[2025-05-05T01:01:40.602+0000] {processor.py:161} INFO - Started process (PID=992) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:01:40.606+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:01:40.610+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:40.608+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:01:41.906+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:41.906+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:01:41.924+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:01:42.079+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:42.078+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:01:42.102+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:01:42.102+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:01:42.204+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.627 seconds
+[2025-05-05T01:02:12.716+0000] {processor.py:161} INFO - Started process (PID=1007) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:02:12.721+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:02:12.724+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:12.723+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:02:13.815+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:13.815+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:02:13.841+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:02:13.940+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:13.939+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:02:13.977+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:13.976+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:02:14.052+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.369 seconds
+[2025-05-05T01:02:44.399+0000] {processor.py:161} INFO - Started process (PID=1023) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:02:44.407+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:02:44.414+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:44.413+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:02:45.434+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:45.433+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:02:45.455+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:02:45.516+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:45.515+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:02:45.547+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:02:45.546+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:02:45.612+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.279 seconds
+[2025-05-05T01:03:16.376+0000] {processor.py:161} INFO - Started process (PID=1037) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:03:16.403+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:03:16.413+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:16.413+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:03:19.052+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:19.049+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:03:19.091+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:03:19.340+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:19.339+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:03:19.415+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:19.412+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:03:19.561+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 3.277 seconds
+[2025-05-05T01:03:49.881+0000] {processor.py:161} INFO - Started process (PID=1051) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:03:49.883+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:03:49.884+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:49.884+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:03:50.954+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:50.954+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:03:50.992+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:03:51.114+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:51.114+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:03:51.141+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:03:51.140+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:03:51.191+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.325 seconds
+[2025-05-05T01:04:21.960+0000] {processor.py:161} INFO - Started process (PID=1067) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:04:21.962+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:04:21.964+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:21.963+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:04:22.767+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:22.767+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:04:22.777+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:04:22.880+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:22.880+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:04:22.901+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:22.900+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:04:22.952+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.015 seconds
+[2025-05-05T01:04:53.312+0000] {processor.py:161} INFO - Started process (PID=1087) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:04:53.318+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:04:53.323+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:53.322+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:04:54.995+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:54.994+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:04:55.006+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:04:55.098+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:55.098+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:04:55.128+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:04:55.128+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:04:55.172+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.904 seconds
+[2025-05-05T01:05:25.263+0000] {processor.py:161} INFO - Started process (PID=1107) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:05:25.265+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:05:25.269+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:25.269+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:05:26.021+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:26.020+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:05:26.043+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:05:26.165+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:26.163+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:05:26.209+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:26.206+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:05:26.265+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.020 seconds
+[2025-05-05T01:05:56.855+0000] {processor.py:161} INFO - Started process (PID=1127) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:05:56.858+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:05:56.861+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:56.859+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:05:57.709+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:57.709+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:05:57.719+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:05:57.807+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:57.805+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:05:57.842+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:05:57.842+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:05:57.886+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.052 seconds
+[2025-05-05T01:06:28.126+0000] {processor.py:161} INFO - Started process (PID=1147) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:06:28.128+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:06:28.129+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:06:28.129+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:06:28.839+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:06:28.839+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:06:28.849+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:06:28.903+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:06:28.902+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:06:28.923+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:06:28.922+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:06:28.958+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.850 seconds
+[2025-05-05T01:06:59.428+0000] {processor.py:161} INFO - Started process (PID=1167) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:06:59.430+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:06:59.432+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:06:59.431+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:07:00.140+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:00.139+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:07:00.149+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:07:00.192+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:00.191+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:07:00.208+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:00.207+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:07:00.243+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.826 seconds
+[2025-05-05T01:07:30.830+0000] {processor.py:161} INFO - Started process (PID=1187) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:07:30.835+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:07:30.838+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:30.838+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:07:31.567+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:31.567+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:07:31.578+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:07:31.628+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:31.627+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:07:31.644+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:07:31.643+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:07:31.673+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.858 seconds
+[2025-05-05T01:08:02.160+0000] {processor.py:161} INFO - Started process (PID=1208) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:08:02.162+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:08:02.164+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:02.163+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:08:02.824+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:02.824+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:08:02.835+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:08:02.892+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:02.891+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:08:02.910+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:02.909+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:08:02.938+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.789 seconds
+[2025-05-05T01:08:33.219+0000] {processor.py:161} INFO - Started process (PID=1228) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:08:33.222+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:08:33.223+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:33.222+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:08:33.908+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:33.908+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:08:33.921+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:08:33.973+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:33.972+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:08:33.996+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:08:33.995+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:08:34.031+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.826 seconds
+[2025-05-05T01:09:04.175+0000] {processor.py:161} INFO - Started process (PID=1248) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:09:04.179+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:09:04.183+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:04.182+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:09:04.964+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:04.963+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:09:04.973+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:09:05.017+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:05.016+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:09:05.034+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:05.034+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:09:05.072+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.912 seconds
+[2025-05-05T01:09:35.207+0000] {processor.py:161} INFO - Started process (PID=1268) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:09:35.209+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:09:35.211+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:35.210+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:09:36.020+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:36.019+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:09:36.030+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:09:36.076+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:36.075+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:09:36.093+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:09:36.092+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:09:36.136+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.945 seconds
+[2025-05-05T01:10:06.417+0000] {processor.py:161} INFO - Started process (PID=1288) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:10:06.419+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:10:06.422+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:06.421+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:10:07.140+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:07.139+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:10:07.149+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:10:07.201+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:07.200+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:10:07.221+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:07.221+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:10:07.284+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.881 seconds
+[2025-05-05T01:10:37.593+0000] {processor.py:161} INFO - Started process (PID=1309) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:10:37.596+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:10:37.597+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:37.597+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:10:38.487+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:38.487+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:10:38.496+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:10:38.548+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:38.547+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:10:38.576+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:10:38.575+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:10:38.615+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.039 seconds
+[2025-05-05T01:11:08.742+0000] {processor.py:161} INFO - Started process (PID=1329) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:11:08.750+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:11:08.756+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:08.755+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:11:09.596+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:09.596+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:11:09.607+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:11:09.660+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:09.659+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:11:09.680+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:09.679+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:11:09.743+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.016 seconds
+[2025-05-05T01:11:40.638+0000] {processor.py:161} INFO - Started process (PID=1349) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:11:40.640+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:11:40.642+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:40.641+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:11:41.150+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:41.150+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:11:41.164+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:11:41.211+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:41.210+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:11:41.232+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:11:41.231+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:11:41.273+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.653 seconds
+[2025-05-05T01:12:11.405+0000] {processor.py:161} INFO - Started process (PID=1369) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:12:11.409+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:12:11.410+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:11.410+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:12:11.840+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:11.839+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:12:11.855+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:12:11.907+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:11.906+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:12:11.926+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:11.926+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:12:11.969+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.576 seconds
+[2025-05-05T01:12:42.194+0000] {processor.py:161} INFO - Started process (PID=1390) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:12:42.196+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:12:42.197+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:42.197+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:12:42.649+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:42.648+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:12:42.660+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:12:42.721+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:42.721+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:12:42.743+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:12:42.743+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:12:42.782+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.602 seconds
+[2025-05-05T01:13:13.168+0000] {processor.py:161} INFO - Started process (PID=1416) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:13:13.171+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:13:13.174+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:13.174+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:13:13.614+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:13.614+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:13:13.627+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:13:13.695+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:13.694+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:13:13.715+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:13.715+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:13:13.766+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.622 seconds
+[2025-05-05T01:13:44.002+0000] {processor.py:161} INFO - Started process (PID=1436) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:13:44.005+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:13:44.007+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:44.006+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:13:44.460+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:44.460+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:13:44.475+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:13:44.532+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:44.532+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:13:44.569+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:13:44.569+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:13:44.654+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.666 seconds
+[2025-05-05T01:14:14.883+0000] {processor.py:161} INFO - Started process (PID=1456) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:14:14.885+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:14:14.888+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:14.887+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:14:15.526+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:15.525+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:14:15.547+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:14:15.628+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:15.627+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:14:15.671+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:15.670+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:14:15.750+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.886 seconds
+[2025-05-05T01:14:46.229+0000] {processor.py:161} INFO - Started process (PID=1476) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:14:46.231+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:14:46.232+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:46.232+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:14:46.739+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:46.739+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:14:46.754+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:14:46.812+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:46.811+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:14:46.843+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:14:46.843+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:14:46.892+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.680 seconds
+[2025-05-05T01:15:17.032+0000] {processor.py:161} INFO - Started process (PID=1496) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:15:17.038+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:15:17.044+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:17.043+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:15:17.766+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:17.765+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:15:17.779+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:15:17.852+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:17.851+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:15:17.885+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:17.884+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:15:17.966+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.963 seconds
+[2025-05-05T01:15:48.580+0000] {processor.py:161} INFO - Started process (PID=1516) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:15:48.583+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:15:48.585+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:48.584+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:15:49.210+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:49.210+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:15:49.224+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:15:49.277+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:49.276+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:15:49.305+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:15:49.305+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:15:49.373+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.812 seconds
+[2025-05-05T01:16:20.065+0000] {processor.py:161} INFO - Started process (PID=1536) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:16:20.068+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:16:20.070+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:20.069+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:16:20.612+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:20.612+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:16:20.626+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:16:20.706+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:20.705+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:16:20.728+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:20.728+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:16:20.805+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.768 seconds
+[2025-05-05T01:16:51.369+0000] {processor.py:161} INFO - Started process (PID=1552) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:16:51.372+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:16:51.374+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:51.374+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:16:51.947+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:51.947+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:16:51.968+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:16:52.035+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:52.034+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:16:52.065+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:16:52.064+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:16:52.119+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.781 seconds
+[2025-05-05T01:17:22.254+0000] {processor.py:161} INFO - Started process (PID=1565) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:17:22.259+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:17:22.261+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:22.260+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:17:22.877+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:22.877+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:17:22.894+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:17:23.073+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:23.071+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:17:23.107+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:23.107+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:17:23.173+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.938 seconds
+[2025-05-05T01:17:53.722+0000] {processor.py:161} INFO - Started process (PID=1585) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:17:53.725+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:17:53.729+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:53.728+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:17:54.227+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:54.227+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:17:54.242+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:17:54.302+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:54.301+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:17:54.335+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:17:54.335+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:17:54.391+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.689 seconds
+[2025-05-05T01:18:24.916+0000] {processor.py:161} INFO - Started process (PID=1604) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:18:24.918+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:18:24.920+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:24.920+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:18:25.382+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:25.382+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:18:25.396+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:18:25.461+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:25.460+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:18:25.484+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:25.483+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:18:25.538+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.638 seconds
+[2025-05-05T01:18:56.103+0000] {processor.py:161} INFO - Started process (PID=1625) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:18:56.105+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:18:56.107+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:56.106+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:18:56.578+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:56.578+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:18:56.593+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:18:56.651+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:56.651+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:18:56.675+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:18:56.675+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:18:56.717+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.630 seconds
+[2025-05-05T01:19:27.135+0000] {processor.py:161} INFO - Started process (PID=1645) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:19:27.145+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:19:27.147+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:27.146+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:19:27.641+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:27.641+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:19:27.655+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:19:27.714+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:27.713+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:19:27.736+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:27.735+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:19:27.793+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.678 seconds
+[2025-05-05T01:19:58.470+0000] {processor.py:161} INFO - Started process (PID=1665) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:19:58.473+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:19:58.474+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:58.474+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:19:59.108+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:59.107+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:19:59.120+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:19:59.216+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:59.215+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:19:59.254+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:19:59.253+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:19:59.303+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.849 seconds
+[2025-05-05T01:20:29.765+0000] {processor.py:161} INFO - Started process (PID=1686) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:20:29.768+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:20:29.769+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:20:29.769+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:20:30.209+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:20:30.209+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:20:30.221+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:20:30.280+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:20:30.280+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:20:30.545+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:20:30.545+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:20:30.586+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.833 seconds
+[2025-05-05T01:21:00.995+0000] {processor.py:161} INFO - Started process (PID=1706) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:21:00.997+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:21:00.998+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:00.998+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:21:01.525+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:01.525+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:21:01.539+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:21:01.609+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:01.608+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:21:01.899+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:01.898+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:21:01.945+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.965 seconds
+[2025-05-05T01:21:32.121+0000] {processor.py:161} INFO - Started process (PID=1726) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:21:32.125+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:21:32.127+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:32.126+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:21:32.626+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:32.625+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:21:32.640+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:21:32.714+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:32.713+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:21:33.015+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:21:33.014+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:21:33.063+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.957 seconds
+[2025-05-05T01:22:03.181+0000] {processor.py:161} INFO - Started process (PID=1746) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:22:03.184+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:22:03.185+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:03.185+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:22:03.972+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:03.971+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:22:03.981+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:22:04.028+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:04.027+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:22:04.048+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:04.048+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:22:04.109+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.941 seconds
+[2025-05-05T01:22:34.996+0000] {processor.py:161} INFO - Started process (PID=1766) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:22:34.998+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:22:35.000+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:34.999+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:22:35.699+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:35.699+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:22:35.707+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:22:35.764+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:35.763+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:22:35.783+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:22:35.782+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:22:35.816+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.833 seconds
+[2025-05-05T01:23:06.115+0000] {processor.py:161} INFO - Started process (PID=1786) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:23:06.118+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:23:06.121+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:06.120+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:23:06.823+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:06.822+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:23:06.833+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:23:06.886+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:06.886+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:23:06.907+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:06.906+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:23:06.945+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.848 seconds
+[2025-05-05T01:23:37.229+0000] {processor.py:161} INFO - Started process (PID=1805) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:23:37.231+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:23:37.232+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:37.232+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:23:37.949+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:37.948+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:23:37.959+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:23:38.004+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:38.004+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:23:38.023+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:23:38.022+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:23:38.054+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.842 seconds
+[2025-05-05T01:24:08.385+0000] {processor.py:161} INFO - Started process (PID=1825) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:24:08.388+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:24:08.394+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:08.391+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:24:09.377+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:09.376+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:24:09.388+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:24:09.471+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:09.470+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:24:09.504+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:09.504+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:24:09.557+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.212 seconds
+[2025-05-05T01:24:39.768+0000] {processor.py:161} INFO - Started process (PID=1845) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:24:39.770+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:24:39.771+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:39.771+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:24:40.624+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:40.624+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:24:40.634+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:24:40.695+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:40.694+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:24:40.734+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:24:40.733+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:24:40.803+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.047 seconds
+[2025-05-05T01:25:11.136+0000] {processor.py:161} INFO - Started process (PID=1865) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:25:11.138+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:25:11.140+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:11.139+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:25:11.817+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:11.816+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:25:11.826+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:25:11.872+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:11.871+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:25:11.889+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:11.889+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:25:11.927+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.803 seconds
+[2025-05-05T01:25:42.191+0000] {processor.py:161} INFO - Started process (PID=1885) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:25:42.195+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:25:42.197+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:42.196+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:25:42.918+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:42.918+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:25:42.927+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:25:42.981+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:42.981+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:25:43.000+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:25:43.000+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:25:43.032+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.856 seconds
+[2025-05-05T01:26:13.279+0000] {processor.py:161} INFO - Started process (PID=1904) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:26:13.281+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:26:13.283+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:13.283+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:26:14.018+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:14.018+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:26:14.030+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:26:14.092+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:14.091+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:26:14.112+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:14.112+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:26:14.161+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.897 seconds
+[2025-05-05T01:26:44.383+0000] {processor.py:161} INFO - Started process (PID=1924) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:26:44.385+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:26:44.387+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:44.386+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:26:45.079+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:45.078+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:26:45.087+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:26:45.135+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:45.134+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:26:45.154+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:26:45.154+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:26:45.189+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.821 seconds
+[2025-05-05T01:27:15.677+0000] {processor.py:161} INFO - Started process (PID=1944) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:27:15.679+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:27:15.681+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:15.680+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:27:16.408+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:16.407+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:27:16.417+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:27:16.461+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:16.461+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:27:16.478+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:16.478+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:27:16.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.851 seconds
+[2025-05-05T01:27:47.192+0000] {processor.py:161} INFO - Started process (PID=1970) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:27:47.194+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:27:47.196+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:47.195+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:27:47.909+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:47.908+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:27:47.918+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:27:47.968+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:47.968+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:27:47.990+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:27:47.989+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:27:48.030+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.854 seconds
+[2025-05-05T01:28:18.264+0000] {processor.py:161} INFO - Started process (PID=1990) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:28:18.267+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:28:18.269+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:18.268+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:28:19.004+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:19.004+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:28:19.012+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:28:19.065+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:19.064+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:28:19.090+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:19.089+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:28:19.132+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.883 seconds
+[2025-05-05T01:28:49.832+0000] {processor.py:161} INFO - Started process (PID=2010) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:28:49.839+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:28:49.842+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:49.840+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:28:50.979+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:50.979+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:28:50.991+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:28:51.056+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:51.054+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:28:51.080+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:28:51.079+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:28:51.127+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.325 seconds
+[2025-05-05T01:29:21.452+0000] {processor.py:161} INFO - Started process (PID=2030) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:29:21.454+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:29:21.456+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:21.455+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:29:22.202+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:22.202+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:29:22.213+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:29:22.257+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:22.257+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:29:22.274+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:22.274+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:29:22.309+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.869 seconds
+[2025-05-05T01:29:52.470+0000] {processor.py:161} INFO - Started process (PID=2050) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:29:52.472+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:29:52.473+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:52.473+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:29:53.155+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:53.155+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:29:53.164+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:29:53.224+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:53.223+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:29:53.256+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:29:53.255+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:29:53.303+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.847 seconds
+[2025-05-05T01:30:24.004+0000] {processor.py:161} INFO - Started process (PID=2064) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:30:24.005+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:30:24.008+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:24.008+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:30:24.736+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:24.735+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:30:24.745+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:30:24.854+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:24.854+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:30:24.883+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:24.882+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:30:24.929+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.937 seconds
+[2025-05-05T01:30:55.448+0000] {processor.py:161} INFO - Started process (PID=2083) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:30:55.450+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:30:55.452+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:55.451+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:30:55.893+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:55.893+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:30:55.906+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:30:55.955+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:55.955+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:30:55.975+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:30:55.974+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:30:56.032+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.598 seconds
+[2025-05-05T01:31:26.543+0000] {processor.py:161} INFO - Started process (PID=2103) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:31:26.545+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:31:26.546+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:26.546+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:31:27.056+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:27.056+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:31:27.073+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:31:27.150+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:27.149+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:31:27.180+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:27.180+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:31:27.234+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.704 seconds
+[2025-05-05T01:31:57.338+0000] {processor.py:161} INFO - Started process (PID=2119) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:31:57.342+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:31:57.344+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:57.343+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:31:57.836+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:57.836+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:31:57.850+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:31:57.937+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:57.934+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:31:57.984+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:31:57.984+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:31:58.078+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.758 seconds
+[2025-05-05T01:32:28.902+0000] {processor.py:161} INFO - Started process (PID=2138) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:32:28.904+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:32:28.906+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:32:28.905+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:32:29.478+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:32:29.477+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:32:29.497+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:32:29.617+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:32:29.617+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:32:29.655+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:32:29.654+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:32:29.761+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.873 seconds
+[2025-05-05T01:33:00.742+0000] {processor.py:161} INFO - Started process (PID=2159) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:33:00.745+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:33:00.747+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:00.746+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:33:01.285+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:01.285+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:33:01.298+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:33:01.365+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:01.364+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:33:01.404+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:01.404+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:33:01.449+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.723 seconds
+[2025-05-05T01:33:32.038+0000] {processor.py:161} INFO - Started process (PID=2178) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:33:32.041+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:33:32.044+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:32.044+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:33:32.508+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:32.507+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:33:32.521+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:33:32.572+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:32.571+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:33:32.592+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:33:32.592+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:33:32.636+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.614 seconds
+[2025-05-05T01:34:03.334+0000] {processor.py:161} INFO - Started process (PID=2198) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:34:03.337+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:34:03.339+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:03.338+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:34:03.859+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:03.858+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:34:03.873+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:34:03.947+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:03.946+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:34:03.980+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:03.979+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:34:04.027+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.707 seconds
+[2025-05-05T01:34:34.796+0000] {processor.py:161} INFO - Started process (PID=2217) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:34:34.800+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:34:34.802+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:34.801+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:34:35.294+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:35.294+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:34:35.307+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:34:35.361+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:35.360+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:34:35.384+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:34:35.384+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:34:35.421+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.639 seconds
+[2025-05-05T01:35:05.558+0000] {processor.py:161} INFO - Started process (PID=2237) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:35:05.559+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:35:05.564+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:05.560+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:35:06.090+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:06.090+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:35:06.103+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:35:06.153+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:06.153+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:35:06.177+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:06.176+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:35:06.211+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.675 seconds
+[2025-05-05T01:35:37.155+0000] {processor.py:161} INFO - Started process (PID=2257) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:35:37.157+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:35:37.159+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:37.158+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:35:37.609+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:37.609+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:35:37.622+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:35:37.669+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:37.669+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:35:37.688+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:35:37.688+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:35:37.732+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.590 seconds
+[2025-05-05T01:36:08.622+0000] {processor.py:161} INFO - Started process (PID=2277) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:36:08.624+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:36:08.626+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:08.625+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:36:09.083+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:09.082+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:36:09.095+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:36:09.147+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:09.146+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:36:09.168+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:09.167+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:36:09.207+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.598 seconds
+[2025-05-05T01:36:40.146+0000] {processor.py:161} INFO - Started process (PID=2297) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:36:40.148+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:36:40.150+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:40.150+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:36:40.600+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:40.599+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:36:40.611+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:36:40.674+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:40.673+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:36:40.698+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:36:40.697+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:36:40.736+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.601 seconds
+[2025-05-05T01:37:10.805+0000] {processor.py:161} INFO - Started process (PID=2317) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:37:10.809+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:37:10.811+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:10.810+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:37:11.362+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:11.362+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:37:11.376+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:37:11.441+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:11.440+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:37:11.462+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:11.462+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:37:11.507+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.721 seconds
+[2025-05-05T01:37:42.099+0000] {processor.py:161} INFO - Started process (PID=2337) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:37:42.102+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:37:42.104+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:42.103+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:37:42.587+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:42.587+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:37:42.601+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:37:42.649+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:42.649+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:37:42.669+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:37:42.669+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:37:42.708+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.625 seconds
+[2025-05-05T01:38:12.890+0000] {processor.py:161} INFO - Started process (PID=2358) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:38:12.893+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:38:12.894+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:12.894+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:38:13.352+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:13.351+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:38:13.365+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:38:13.422+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:13.421+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:38:13.442+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:13.441+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:38:13.475+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.604 seconds
+[2025-05-05T01:38:44.010+0000] {processor.py:161} INFO - Started process (PID=2378) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:38:44.012+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:38:44.014+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:44.013+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:38:44.490+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:44.489+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:38:44.506+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:38:44.577+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:44.577+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:38:44.601+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:38:44.601+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:38:44.648+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.655 seconds
+[2025-05-05T01:39:14.784+0000] {processor.py:161} INFO - Started process (PID=2398) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:39:14.786+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:39:14.788+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:14.788+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:39:15.292+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:15.292+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:39:15.304+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:39:15.349+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:15.348+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:39:15.370+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:15.369+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:39:15.416+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.646 seconds
+[2025-05-05T01:39:45.971+0000] {processor.py:161} INFO - Started process (PID=2418) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:39:45.974+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:39:45.976+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:45.975+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:39:46.431+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:46.430+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:39:46.443+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:39:46.507+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:46.506+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:39:46.526+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:39:46.526+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:39:46.563+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.605 seconds
+[2025-05-05T01:40:16.649+0000] {processor.py:161} INFO - Started process (PID=2438) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:40:16.652+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:40:16.654+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:16.653+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:40:17.138+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:17.138+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:40:17.154+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:40:17.207+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:17.206+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:40:17.230+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:17.229+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:40:17.268+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.632 seconds
+[2025-05-05T01:40:47.686+0000] {processor.py:161} INFO - Started process (PID=2458) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:40:47.689+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:40:47.692+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:47.691+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:40:48.235+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:48.234+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:40:48.249+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:40:48.309+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:48.308+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:40:48.332+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:40:48.332+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:40:48.386+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.727 seconds
+[2025-05-05T01:41:18.596+0000] {processor.py:161} INFO - Started process (PID=2478) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:41:18.598+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:41:18.599+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:18.599+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:41:19.277+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:19.276+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:41:19.285+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:41:19.328+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:19.328+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:41:19.345+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:19.344+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:41:19.374+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.791 seconds
+[2025-05-05T01:41:50.115+0000] {processor.py:161} INFO - Started process (PID=2498) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:41:50.117+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:41:50.120+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:50.119+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:41:50.875+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:50.874+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:41:50.883+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:41:50.943+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:50.942+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:41:50.970+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:41:50.969+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:41:51.002+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.899 seconds
+[2025-05-05T01:42:21.890+0000] {processor.py:161} INFO - Started process (PID=2524) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:42:21.892+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:42:21.893+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:21.893+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:42:22.575+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:22.574+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:42:22.584+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:42:22.635+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:22.634+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:42:22.655+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:22.654+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:42:22.697+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.821 seconds
+[2025-05-05T01:42:52.837+0000] {processor.py:161} INFO - Started process (PID=2544) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:42:52.839+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:42:52.841+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:52.840+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:42:53.547+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:53.546+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:42:53.557+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:42:53.614+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:53.613+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:42:53.636+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:42:53.635+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:42:53.673+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.850 seconds
+[2025-05-05T01:43:23.740+0000] {processor.py:161} INFO - Started process (PID=2563) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:43:23.742+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:43:23.743+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:23.743+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:43:24.495+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:24.494+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:43:24.504+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:43:24.545+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:24.544+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:43:24.561+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:24.560+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:43:24.595+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.869 seconds
+[2025-05-05T01:43:55.237+0000] {processor.py:161} INFO - Started process (PID=2583) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:43:55.241+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:43:55.243+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:55.242+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:43:56.126+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:56.125+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:43:56.136+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:43:56.180+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:56.180+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:43:56.198+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:43:56.197+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:43:56.243+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.022 seconds
+[2025-05-05T01:44:26.375+0000] {processor.py:161} INFO - Started process (PID=2603) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:44:26.378+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:44:26.381+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:26.380+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:44:27.073+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:27.073+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:44:27.081+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:44:27.148+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:27.148+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:44:27.173+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:27.173+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:44:27.221+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.865 seconds
+[2025-05-05T01:44:57.807+0000] {processor.py:161} INFO - Started process (PID=2623) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:44:57.809+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:44:57.810+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:57.810+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:44:58.496+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:58.496+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:44:58.504+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:44:58.549+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:58.548+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:44:58.566+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:44:58.566+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:44:58.601+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.811 seconds
+[2025-05-05T01:45:29.223+0000] {processor.py:161} INFO - Started process (PID=2643) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:45:29.226+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:45:29.227+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:45:29.227+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:45:29.896+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:45:29.896+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:45:29.905+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:45:29.949+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:45:29.948+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:45:29.965+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:45:29.964+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:45:30.004+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.794 seconds
+[2025-05-05T01:46:00.408+0000] {processor.py:161} INFO - Started process (PID=2663) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:46:00.411+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:46:00.413+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:00.412+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:46:01.106+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:01.105+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:46:01.114+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:46:01.159+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:01.158+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:46:01.176+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:01.175+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:46:01.212+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.820 seconds
+[2025-05-05T01:46:31.388+0000] {processor.py:161} INFO - Started process (PID=2683) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:46:31.391+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:46:31.393+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:31.393+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:46:32.190+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:32.189+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:46:32.198+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:46:32.246+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:32.245+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:46:32.264+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:46:32.263+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:46:32.295+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.921 seconds
+[2025-05-05T01:47:02.631+0000] {processor.py:161} INFO - Started process (PID=2703) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:47:02.634+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:47:02.636+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:02.636+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:47:03.296+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:03.296+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:47:03.304+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:47:03.351+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:03.350+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:47:03.368+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:03.368+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:47:03.403+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.784 seconds
+[2025-05-05T01:47:33.716+0000] {processor.py:161} INFO - Started process (PID=2723) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:47:33.718+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:47:33.719+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:33.719+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:47:34.439+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:34.439+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:47:34.449+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:47:34.501+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:34.500+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:47:34.523+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:47:34.522+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:47:34.556+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.855 seconds
+[2025-05-05T01:48:04.692+0000] {processor.py:161} INFO - Started process (PID=2743) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:48:04.694+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:48:04.696+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:04.695+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:48:05.467+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:05.466+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:48:05.477+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:48:05.526+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:05.525+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:48:05.548+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:05.547+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:48:05.588+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.910 seconds
+[2025-05-05T01:48:36.189+0000] {processor.py:161} INFO - Started process (PID=2763) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:48:36.190+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:48:36.192+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:36.191+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:48:36.890+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:36.890+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:48:36.900+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:48:36.950+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:36.949+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:48:36.980+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:48:36.980+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:48:37.031+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.856 seconds
+[2025-05-05T01:49:07.296+0000] {processor.py:161} INFO - Started process (PID=2783) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:49:07.299+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:49:07.302+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:07.302+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:49:08.265+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:08.264+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:49:08.277+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:49:08.403+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:08.402+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:49:08.433+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:08.432+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:49:08.493+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.224 seconds
+[2025-05-05T01:49:39.000+0000] {processor.py:161} INFO - Started process (PID=2803) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:49:39.005+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:49:39.007+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:39.006+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:49:39.764+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:39.763+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:49:39.774+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:49:39.825+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:39.824+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:49:39.844+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:49:39.844+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:49:39.885+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.899 seconds
+[2025-05-05T01:50:10.645+0000] {processor.py:161} INFO - Started process (PID=2824) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:50:10.647+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:50:10.649+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:10.648+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:50:11.497+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:11.497+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:50:11.508+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:50:11.572+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:11.571+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:50:11.593+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:11.592+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:50:11.641+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 1.013 seconds
+[2025-05-05T01:50:42.285+0000] {processor.py:161} INFO - Started process (PID=2839) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:50:42.287+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:50:42.291+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:42.290+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:50:43.044+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:43.044+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:50:43.056+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:50:43.118+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:43.117+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:50:43.139+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:50:43.138+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:50:43.185+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.917 seconds
+[2025-05-05T01:51:13.866+0000] {processor.py:161} INFO - Started process (PID=2858) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:51:13.870+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:51:13.872+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:13.871+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:51:14.553+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:14.553+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:51:14.562+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:51:14.614+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:14.613+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:51:14.631+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:14.631+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:51:14.670+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.817 seconds
+[2025-05-05T01:51:44.770+0000] {processor.py:161} INFO - Started process (PID=2879) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:51:44.773+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:51:44.775+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:44.774+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:51:45.494+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:45.494+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:51:45.503+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:51:45.567+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:45.566+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:51:45.586+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:51:45.586+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:51:45.622+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.868 seconds
+[2025-05-05T01:52:15.731+0000] {processor.py:161} INFO - Started process (PID=2898) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:52:15.732+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:52:15.734+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:15.733+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:52:16.237+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:16.236+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:52:16.257+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:52:16.345+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:16.344+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:52:16.369+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:16.368+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:52:16.419+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.700 seconds
+[2025-05-05T01:52:47.132+0000] {processor.py:161} INFO - Started process (PID=2918) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:52:47.135+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:52:47.140+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:47.139+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:52:47.727+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:47.727+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:52:47.748+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:52:47.842+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:47.839+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:52:47.877+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:52:47.876+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:52:47.934+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.818 seconds
+[2025-05-05T01:53:18.826+0000] {processor.py:161} INFO - Started process (PID=2938) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:53:18.829+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:53:18.833+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:18.832+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:53:19.259+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:19.258+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:53:19.273+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:53:19.320+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:19.319+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:53:19.337+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:19.337+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:53:19.372+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.565 seconds
+[2025-05-05T01:53:50.155+0000] {processor.py:161} INFO - Started process (PID=2958) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:53:50.157+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:53:50.160+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:50.159+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:53:50.648+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:50.647+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:53:50.663+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:53:50.730+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:50.728+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:53:50.773+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:53:50.773+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:53:50.824+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.684 seconds
+[2025-05-05T01:54:21.068+0000] {processor.py:161} INFO - Started process (PID=2978) to work on /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:54:21.074+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fetch_and_store_data.py for tasks to queue
+[2025-05-05T01:54:21.077+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:54:21.076+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:54:21.623+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:54:21.623+0000] {fetch_and_store_data.py:25} INFO - Using API endpoint: http://10.43.101.168:32569
+[2025-05-05T01:54:21.649+0000] {processor.py:840} INFO - DAG(s) 'fetch_and_store_diabetes_data' retrieved from /opt/airflow/dags/fetch_and_store_data.py
+[2025-05-05T01:54:21.726+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:54:21.726+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-05T01:54:21.751+0000] {logging_mixin.py:188} INFO - [2025-05-05T01:54:21.751+0000] {dag.py:3954} INFO - Setting next_dagrun for fetch_and_store_diabetes_data to None, run_after=None
+[2025-05-05T01:54:21.793+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fetch_and_store_data.py took 0.749 seconds

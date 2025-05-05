@@ -1,0 +1,55 @@
+[2025-05-05T00:55:06.382+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-05T00:55:06.489+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: diabetes_etl_fast.process_save_train_data manual__2025-05-05T00:52:43.453118+00:00 [queued]>
+[2025-05-05T00:55:06.521+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: diabetes_etl_fast.process_save_train_data manual__2025-05-05T00:52:43.453118+00:00 [queued]>
+[2025-05-05T00:55:06.523+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2025-05-05T00:55:06.556+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): process_save_train_data> on 2025-05-05 00:52:43.453118+00:00
+[2025-05-05T00:55:06.579+0000] {standard_task_runner.py:63} INFO - Started process 446 to run task
+[2025-05-05T00:55:06.591+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'diabetes_etl_fast', 'process_save_train_data', 'manual__2025-05-05T00:52:43.453118+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/preprocess.py', '--cfg-path', '/tmp/tmpvo6gnoe4']
+[2025-05-05T00:55:06.601+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask process_save_train_data
+[2025-05-05T00:55:06.893+0000] {task_command.py:426} INFO - Running <TaskInstance: diabetes_etl_fast.process_save_train_data manual__2025-05-05T00:52:43.453118+00:00 [running]> on host 156a874286c2
+[2025-05-05T00:55:07.155+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='diabetes_etl_fast' AIRFLOW_CTX_TASK_ID='process_save_train_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-05T00:52:43.453118+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-05T00:52:43.453118+00:00'
+[2025-05-05T00:55:07.158+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-05T00:55:07.204+0000] {base.py:84} INFO - Using connection ID 'postgres_***_conn' for task execution.
+[2025-05-05T00:55:07.228+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/common/sql/hooks/sql.py:227: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-05-05T00:55:09.186+0000] {logging_mixin.py:188} INFO - Preprocessing train data...
+[2025-05-05T00:55:10.050+0000] {logging_mixin.py:188} INFO - Saving preprocessor to /opt/***/data/models/diabetes_preprocessor.pkl
+[2025-05-05T00:55:10.053+0000] {logging_mixin.py:188} INFO - Preprocessor saved successfully
+[2025-05-05T00:55:10.055+0000] {logging_mixin.py:188} INFO - First few values of transformed data: [[-0.46994583 -1.6395149   0.39035992 -0.37253985  0.48537447]
+ [ 1.5402652   0.39799604 -0.78606645  0.11854994 -0.29236341]]
+[2025-05-05T00:55:10.441+0000] {base.py:84} INFO - Using connection ID 'postgres_***_conn' for task execution.
+[2025-05-05T00:55:10.501+0000] {sql.py:457} INFO - Running statement: DROP TABLE IF EXISTS diabetes_train_processed, parameters: None
+[2025-05-05T00:55:10.560+0000] {base.py:84} INFO - Using connection ID 'postgres_***_conn' for task execution.
+[2025-05-05T00:55:10.603+0000] {sql.py:457} INFO - Running statement: CREATE TABLE diabetes_train_processed (`feature_0` DOUBLE, `feature_1` DOUBLE, `feature_2` DOUBLE, `feature_3` DOUBLE, `feature_4` DOUBLE, `feature_5` DOUBLE, `feature_6` DOUBLE, `feature_7` DOUBLE, `feature_8` DOUBLE, `feature_9` DOUBLE, `feature_10` DOUBLE, `feature_11` DOUBLE, `feature_12` DOUBLE, `feature_13` DOUBLE, `feature_14` DOUBLE, `feature_15` DOUBLE, `feature_16` DOUBLE, `feature_17` DOUBLE, `feature_18` DOUBLE, `feature_19` DOUBLE, `feature_20` DOUBLE, `feature_21` DOUBLE, `feature_22` DOUBLE, `feature_23` DOUBLE, `feature_24` DOUBLE, `feature_25` DOUBLE, `feature_26` DOUBLE, `feature_27` DOUBLE, `feature_28` DOUBLE, `feature_29` DOUBLE, `feature_30` DOUBLE, `feature_31` DOUBLE, `feature_32` DOUBLE, `feature_33` DOUBLE, `feature_34` DOUBLE, `feature_35` DOUBLE, `feature_36` DOUBLE, `feature_37` DOUBLE, `feature_38` DOUBLE, `feature_39` DOUBLE, `feature_40` DOUBLE, `feature_41` DOUBLE, `feature_42` DOUBLE, `feature_43` DOUBLE, `feature_44` DOUBLE, `feature_45` DOUBLE, `feature_46` DOUBLE, `feature_47` DOUBLE, `feature_48` DOUBLE, `feature_49` DOUBLE, `feature_50` DOUBLE, `feature_51` DOUBLE, `feature_52` DOUBLE, `feature_53` DOUBLE, `feature_54` DOUBLE, `feature_55` DOUBLE, `feature_56` DOUBLE, `feature_57` DOUBLE, `feature_58` DOUBLE, `feature_59` DOUBLE, `feature_60` DOUBLE, `feature_61` DOUBLE, `feature_62` DOUBLE, `feature_63` DOUBLE, `feature_64` DOUBLE, `feature_65` DOUBLE, `feature_66` DOUBLE, `feature_67` DOUBLE, `feature_68` DOUBLE, `feature_69` DOUBLE, `feature_70` DOUBLE, `feature_71` DOUBLE, `feature_72` DOUBLE, `feature_73` DOUBLE, `feature_74` DOUBLE, `feature_75` DOUBLE, `feature_76` DOUBLE, `feature_77` DOUBLE, `feature_78` DOUBLE, `feature_79` DOUBLE, `feature_80` DOUBLE, `feature_81` DOUBLE, `feature_82` DOUBLE, `feature_83` DOUBLE, `feature_84` DOUBLE, `feature_85` DOUBLE, `target` VARCHAR(50)), parameters: None
+[2025-05-05T00:55:10.648+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-05T00:55:10.655+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/preprocess.py", line 171, in preprocess_and_save
+    postgres_hook.run(create_table_sql)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 404, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 462, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near "`"
+LINE 1: CREATE TABLE diabetes_train_processed (`feature_0` DOUBLE, `...
+                                               ^
+
+[2025-05-05T00:55:10.716+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=diabetes_etl_fast, task_id=process_save_train_data, execution_date=20250505T005243, start_date=20250505T005506, end_date=20250505T005510
+[2025-05-05T00:55:10.761+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 15 for task process_save_train_data (syntax error at or near "`"
+LINE 1: CREATE TABLE diabetes_train_processed (`feature_0` DOUBLE, `...
+                                               ^
+; 446)
+[2025-05-05T00:55:10.838+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-05-05T00:55:10.909+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-05T00:55:10.921+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

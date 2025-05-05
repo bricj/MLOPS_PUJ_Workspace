@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: airflow-init
+data:
+  init.sql: |
+    CREATE DATABASE airflow;
+    CREATE USER airflow WITH PASSWORD 'airflow';
+    GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  selector:
+    app: postgres
+  type: NodePort
+  ports:
+    - name: http
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:14
+          env:
+            - name: POSTGRES_USER
+              value: mlflow
+            - name: POSTGRES_PASSWORD
+              value: mlflow123
+            - name: POSTGRES_DB
+              value: mlflow_db
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: airflow-init
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: airflow-init
+          configMap:
+            name: airflow-init

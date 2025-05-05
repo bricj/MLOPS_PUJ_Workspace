@@ -56,9 +56,10 @@ x-airflow-common:
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://airflow:airflow@mysql/airflow
-    AIRFLOW_CONN_MYSQL_DIABETES_CONN: 'mysql://diabetes_user:diabetes_password@mysql_diabetes:3307/diabetes'
-    AIRFLOW__CELERY__RESULT_BACKEND: db+mysql://airflow:airflow@mysql/airflow
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://diabetes_user:diabetes_password@192.168.58.2:30307/diabetes
+    # AIRFLOW_CONN_MYSQL_DIABETES_CONN: 'mysql://diabetes_user:diabetes_password@192.168.58.2:30307/diabetes'
+    # AIRFLOW_VAR_DATAPI_ENDPOINT: 'http://192.168.58.2:30080'
+    AIRFLOW__CELERY__RESULT_BACKEND: db+mysql://diabetes_user:diabetes_password@192.168.58.2:30307/diabetes
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
@@ -86,10 +87,10 @@ x-airflow-common:
     &airflow-common-depends-on
     redis:
       condition: service_healthy
-    mysql:
-      condition: service_healthy
-    mysql_diabetes:  # Añadir dependencia al servicio mysql_diabetes
-      condition: service_healthy
+    #mysql:
+    #  condition: service_healthy
+    #mysql_diabetes:  # Añadir dependencia al servicio mysql_diabetes
+    #  condition: service_healthy
 
 services:
 
@@ -289,178 +290,13 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-  mysql:
-    image: mysql:8.0
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: airflow
-      MYSQL_USER: airflow
-      MYSQL_PASSWORD: airflow
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql_minio/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql_data:/var/lib/mysql
-    command: >
-      --default-authentication-plugin=mysql_native_password
-      --init-file /docker-entrypoint-initdb.d/init.sql
-      --bind-address=0.0.0.0
-    
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - proyecto2_airflow_network
-      - my_shared_network
-    
-  # mysql_diabetes:
-  #   image: mysql:8.0
-  #   container_name: mysql_diabetes
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #     MYSQL_DATABASE: diabetes
-  #     MYSQL_USER: diabetes_user
-  #     MYSQL_PASSWORD: diabetes_password
-  #   ports:
-  #     - "3307:3307"
-  #   volumes:
-  #     - ./raw_data/init.sql:/docker-entrypoint-initdb.d/init.sql
-  #     - mysql_diabetes_data:/var/lib/mysql
-  #   command: >
-  #     --default-authentication-plugin=mysql_native_password
-  #     --init-file /docker-entrypoint-initdb.d/init.sql
-  #     --port=3307
-  #     --bind-address=0.0.0.0
-    
-  #   healthcheck:
-  #     test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-  #   networks:
-  #     - proyecto2_airflow_network
-  #     - my_shared_network
-
-  # datapi:
-  #   build: 
-  #     context: ./raw_data/api
-  #     dockerfile: Dockerfile
-  #   container_name: datapi
-  #   ports:
-  #     - '80:80'
-  #   volumes:
-  #     - ./raw_data/api/data:/app/api_data/data
-  #     - ./raw_data/api/main.py:/app/api_data/main.py
-  #   restart: always
-  #   networks:
-  #     - proyecto2_airflow_network
-  
-  # minio:
-  #   container_name: minio
-  #   command: server /data --console-address ":9001"
-  #   environment:
-  #     - MINIO_ROOT_USER=admin
-  #     - MINIO_ROOT_PASSWORD=supersecret
-  #   image: quay.io/minio/minio:latest
-  #   ports:
-  #     - '9000:9000'
-  #     - '9001:9001'
-  #   volumes:
-  #     - ./minio:/data
-  #   restart: unless-stopped
-  #   networks:
-  #     - proyecto2_airflow_network
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 5
-    
-  # mlflow:
-  #   # image: python:3.8  # O usa una imagen personalizada con mlflow preinstalado
-  #   build: 
-  #     context: ./mlflow
-  #     dockerfile: Dockerfile
-  #   container_name: mlflow_server
-  #   restart: on-failure
-  #   environment:
-  #     MLFLOW_S3_ENDPOINT_URL: http://minio:9000
-  #     AWS_ACCESS_KEY_ID: admin
-  #     AWS_SECRET_ACCESS_KEY: supersecret
-  #     MLFLOW_TRACKING_URI: http://mlflow:5000
-  #   command: mlflow server --backend-store-uri mysql+pymysql://airflow:airflow@mysql:3306/mlflow --default-artifact-root s3://mlflows3/artifacts --host 0.0.0.0 --port 5000 --serve-artifacts
-  #   ports:
-    
-  #     - "5001:5000"
-  #   networks:
-  #     - proyecto2_airflow_network
-  #   depends_on:
-  #     mysql:
-  #       condition: service_healthy
-  #     minio:
-  #       condition: service_healthy
-
-  # inference_models:
-  #   image: 04602/api_read_models:latest
-  #   ports:
-  #     - "8989:8989"
-  #   deploy:
-  #     mode: replicated
-  #     replicas: 1
-  #     resources:
-  #       limits:
-  #         memory: 1000M
-  #   restart: 'no' 
-  #   networks:
-  #     - proyecto2_airflow_network
-  #     - my_shared_network
-  
-  # gradio:
-  #   build: 
-  #     context: ./api_read_models
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "7860:7860"
-  #   container_name: gradio_ui
-  #   command: ["python", "gradio_app.py"]
-  #   depends_on:
-  #     - inference_models
-  #   restart: always
-  #   networks:
-  #     - proyecto2_airflow_network
-  #     - my_shared_network
-
-  # prometheus:
-  #   image: prom/prometheus
-  #   ports:
-  #     - "9090:9090"
-  #   volumes:
-  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
-  #   networks:
-  #     - proyecto2_airflow_network
-  #     - my_shared_network
-
-  # grafana:
-  #   image: grafana/grafana
-  #   ports:
-  #     - "3000:3000"
-  #   environment:
-  #     - GF_SECURITY_ADMIN_PASSWORD=admin
-  #   networks:
-  #     - proyecto2_airflow_network
-  #     - my_shared_network
-
 networks:
   proyecto2_airflow_network:
     driver: "bridge"
 
-  my_shared_network:
-    external: true
+#   my_shared_network:
+#     external: true
 
-volumes:
-  mysql_data:
-  mysql_diabetes_data:
+# volumes:
+#   mysql_data:
+#   mysql_diabetes_data:
