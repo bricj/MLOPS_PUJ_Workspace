@@ -32,11 +32,13 @@ spec:
             - containerPort: 5000
           env:
             - name: MLFLOW_TRACKING_URI
-              value: http://0.0.0.0:5000
+              value: http://10.43.101.168:31485
             - name: AWS_ACCESS_KEY_ID
               value: minioadmin
             - name: AWS_SECRET_ACCESS_KEY
               value: minioadmin123
+            - name: MLFLOW_S3_ENDPOINT_URL
+              value: http://10.43.101.168:30855
           command:
             [
               "mlflow",

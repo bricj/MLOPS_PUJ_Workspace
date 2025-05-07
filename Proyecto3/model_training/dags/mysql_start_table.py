@@ -12,69 +12,79 @@ def start_table():
     engine = postgres_hook.get_sqlalchemy_engine()
 
     #queries para eliminar tablas
-    drop_table_query = "DROP TABLE IF EXISTS diabetes;"
+    drop_table_query = "DROP TABLE IF EXISTS diabetes_train;"
+    drop_table_query_2 = "DROP TABLE IF EXISTS processed_diabetes;"
     drop_table_query_2 = "DROP TABLE IF EXISTS processed_diabetes;"
 
-    create_table_query = """
-        CREATE TABLE IF NOT EXISTS diabetes (
-            encounter_id INT NOT NULL,
-            patient_nbr INT NOT NULL,
-            race VARCHAR(50) NOT NULL,
-            gender VARCHAR(20) NOT NULL,
-            age VARCHAR(20) NOT NULL,
-            weight FLOAT,
-            admission_type_id INT NOT NULL,
-            discharge_disposition_id INT NOT NULL,
-            admission_source_id INT NOT NULL,
-            time_in_hospital INT NOT NULL,
-            payer_code INT,
-            medical_specialty INT,
-            num_lab_procedures INT NOT NULL,
-            num_procedures INT NOT NULL,
-            num_medications INT NOT NULL,
-            number_outpatient INT NOT NULL,
-            number_emergency INT NOT NULL,
-            number_inpatient INT NOT NULL,
+    def borrar_tabla(table_name):
+        return f"DROP TABLE IF EXISTS {table_name};"
+
+    def query_ese(table_name):
+        return f"""
+        CREATE TABLE IF NOT EXISTS {table_name} (
+            encounter_id INT,
+            patient_nbr INT,
+            race VARCHAR(50),
+            gender VARCHAR(20),
+            age VARCHAR(20),
+            weight VARCHAR(20),
+            admission_type_id INT,
+            discharge_disposition_id INT,
+            admission_source_id INT,
+            time_in_hospital INT,
+            payer_code VARCHAR(10),
+            medical_specialty VARCHAR(50),
+            num_lab_procedures INT,
+            num_procedures INT,
+            num_medications INT,
+            number_outpatient INT,
+            number_emergency INT,
+            number_inpatient INT,
             diag_1 VARCHAR(10),
             diag_2 VARCHAR(10),
             diag_3 VARCHAR(10),
-            number_diagnoses INT NOT NULL,
-            max_glu_serum VARCHAR(20) NOT NULL,
-            A1Cresult VARCHAR(20) NOT NULL,
-            metformin VARCHAR(20) NOT NULL,
-            repaglinide VARCHAR(20) NOT NULL,
-            nateglinide VARCHAR(20) NOT NULL,
-            chlorpropamide VARCHAR(20) NOT NULL,
-            glimepiride VARCHAR(20) NOT NULL,
-            acetohexamide VARCHAR(20) NOT NULL,
-            glipizide VARCHAR(20) NOT NULL,
-            glyburide VARCHAR(20) NOT NULL,
-            tolbutamide VARCHAR(20) NOT NULL,
-            pioglitazone VARCHAR(20) NOT NULL,
-            rosiglitazone VARCHAR(20) NOT NULL,
-            acarbose VARCHAR(20) NOT NULL,
-            miglitol VARCHAR(20) NOT NULL,
-            troglitazone VARCHAR(20) NOT NULL,
-            tolazamide VARCHAR(20) NOT NULL,
-            examide VARCHAR(20) NOT NULL,
-            citoglipton VARCHAR(20) NOT NULL,
-            insulin VARCHAR(20) NOT NULL,
-            glyburide_metformin VARCHAR(20) NOT NULL,
-            glipizide_metformin VARCHAR(20) NOT NULL,
-            glimepiride_pioglitazone VARCHAR(20) NOT NULL,
-            metformin_rosiglitazone VARCHAR(20) NOT NULL,
-            metformin_pioglitazone VARCHAR(20) NOT NULL,
-            change_column VARCHAR(20) NOT NULL,
-            diabetesMed VARCHAR(20) NOT NULL,
-            readmitted VARCHAR(20) NOT NULL
+            number_diagnoses INT,
+            max_glu_serum VARCHAR(20),
+            A1Cresult VARCHAR(20),
+            metformin VARCHAR(20),
+            repaglinide VARCHAR(20),
+            nateglinide VARCHAR(20),
+            chlorpropamide VARCHAR(20),
+            glimepiride VARCHAR(20),
+            acetohexamide VARCHAR(20),
+            glipizide VARCHAR(20),
+            glyburide VARCHAR(20),
+            tolbutamide VARCHAR(20),
+            pioglitazone VARCHAR(20),
+            rosiglitazone VARCHAR(20),
+            acarbose VARCHAR(20),
+            miglitol VARCHAR(20),
+            troglitazone VARCHAR(20),
+            tolazamide VARCHAR(20),
+            examide VARCHAR(20),
+            citoglipton VARCHAR(20),
+            insulin VARCHAR(20),
+            glyburide_metformin VARCHAR(20),
+            glipizide_metformin VARCHAR(20),
+            glimepiride_pioglitazone VARCHAR(20),
+            metformin_rosiglitazone VARCHAR(20),
+            metformin_pioglitazone VARCHAR(20),
+            change_column VARCHAR(20),
+            diabetesMed VARCHAR(20),
+            readmitted VARCHAR(20)
             )
             """
+    
+    
         
         #ejecutar query
     with engine.begin() as connection:
-        connection.execute(drop_table_query)
-        connection.execute(drop_table_query_2)
-        connection.execute(create_table_query)
+        connection.execute(borrar_tabla('diabetes_train'))
+        connection.execute(borrar_tabla('diabetes_validation'))
+        connection.execute(borrar_tabla('diabetes_test'))
+        connection.execute(query_ese('diabetes_train'))
+        connection.execute(query_ese('diabetes_validation'))
+        connection.execute(query_ese('diabetes_test'))
 
 # Definir el DAG
 default_args = {

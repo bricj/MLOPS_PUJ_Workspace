@@ -11,7 +11,7 @@ metadata:
   name: inference-models
 spec:
   containers:
-    - image: ogcorzo/api_read_models:latest #04602/api_read_models:latest
+    - image: ogcorzo/api_read_models:1.0.2 #04602/api_read_models:latest
       name: inference-models
       ports:
         - containerPort: 8989

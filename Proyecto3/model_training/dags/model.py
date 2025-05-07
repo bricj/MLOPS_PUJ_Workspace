@@ -1,10 +1,24 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from airflow.providers.mysql.hooks.mysql import MySqlHook
+from airflow.providers.postgres.hooks.postgres import PostgresHook
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+import mlflow
+from sklearn.svm import SVC
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import train_test_split
+import os
+import boto3
+from botocore.config import Config
+
+
+IP_MLFLOW = "http://10.43.101.168:31485"
+
+os.environ['MLFLOW_S3_ENDPOINT_URL'] = "http://10.43.101.168:30855"
+os.environ['AWS_ACCESS_KEY_ID'] = "minioadmin"
+os.environ['AWS_SECRET_ACCESS_KEY'] = "minioadmin123"
 
 # Configuraci�n b�sica
 default_args = {
@@ -13,7 +27,6 @@ default_args = {
     'start_date': datetime(2025, 5, 1),
     'email_on_failure': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=2),
 }
 
 # Funci�n para realizar undersampling
@@ -21,8 +34,6 @@ def perform_undersampling_from_transformed(X_transformed, y, random_state=42, sa
     """
     Performs undersampling on already transformed data.
     """
-    import numpy as np
-    import pandas as pd
     
     # Check if y is a pandas Series
     is_pandas_series = isinstance(y, pd.Series)
@@ -94,76 +105,111 @@ def perform_undersampling_from_transformed(X_transformed, y, random_state=42, sa
     
     return X_transformed_resampled, y_resampled
 
-# Funci�n para entrenar y evaluar el modelo
-def train_evaluate_transformed_data(X_transformed, y, model=None, test_size=0.3, random_state=42):
-    """
-    Trains a model using transformed data without splitting.
-    """
-    from sklearn.ensemble import RandomForestClassifier
-    
-    # Create model if not provided
-    if model is None:
-        model = RandomForestClassifier(random_state=random_state)
-    
-    # Train the model on all data
-    model.fit(X_transformed, y)
-    
-    return model
-
 # Funci�n para leer datos de entrenamiento
-def read_train_data(**kwargs):
+def train_data(**kwargs):
     """Lee los datos de entrenamiento y aplica undersampling."""
+
+    # Test Minio connection
+    s3 = boto3.client(
+        's3',
+        endpoint_url="http://10.43.101.168:30855",
+        aws_access_key_id='minioadmin',
+        aws_secret_access_key= 'minioadmin123'
+    )
+
+    try:
+        buckets = s3.list_buckets()
+        print("Connected to Minio. Buckets:", [b['Name'] for b in buckets['Buckets']])
+    except Exception as e:
+        print("Minio connection failed:", e)
+
+    print(f"Version de mlflow: {mlflow.__version__}")
     print("Leyendo datos de la tabla diabetes_train_processed...")
     
-    try:
+    # try:
         # Conectar a MySQL
-        mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+    postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
+    
+    # Leer tabla
+    query = "SELECT * FROM diabetes_train_processed"
+    df = postgres_hook.get_pandas_df(query)
+    
+    # Mostrar informaci�n b�sica
+    print(f"Datos de entrenamiento:")
+    print(f"- Forma: {df.shape}")
+    print(f"- Columnas: {df.columns.tolist()}")
+    print(f"- Primeras 5 filas:")
+    print(df.head())
+    
+    # Separar caracter�sticas y variable objetivo
+    X = df.drop('target', axis=1)
+    y = df['target']
+    
+    # Mostrar distribuci�n de clases
+    print("Distribuci�n de clases (entrenamiento):")
+    print(y.value_counts())
+    
+    # # Aplicar undersampling
+    # print("Aplicando undersampling al conjunto de entrenamiento...")
+    # X_resampled, y_resampled = perform_undersampling_from_transformed(
+    #     X.values, y, random_state=42, sampling_strategy='auto'
+    # )
+
+    X_resampled, _,y_resampled,_= train_test_split(X,y,random_state=420, train_size=1000)
+
+    mlflow.set_tracking_uri(IP_MLFLOW)
+
+    experiment_name = "minkube_mlflow_experiment"
+    experiment = mlflow.get_experiment_by_name(experiment_name)
+    if experiment is None:
+        mlflow.create_experiment(experiment_name)
+    mlflow.set_experiment(experiment_name)
+
+    with mlflow.start_run(run_name="svm_artifacts") as run:
+        params = {
+        'C': [0.1, 1],
+        'gamma': ['scale', 0.1],
+    }
+
+        # inicializar svm
+        svm = SVC()
+
+        # buscar hiperparametros mas optimos
+        print('Iniciando optimizacion de parametros')
+        # grid_search = GridSearchCV(svm, params, cv=2, scoring='accuracy', n_jobs=-1)
+        # grid_search.fit(X_resampled, y_resampled)
+        svm = SVC(C=1.0, kernel='rbf', gamma='scale')  # Ajusta los valores si lo deseas
+        svm.fit(X_resampled, y_resampled)
+        print('Optimizacion de parametros finalizada')
+
+        mlflow.log_params(params)
+        # mlflow.set_tag("column_names", ",".join(columns))
+        mlflow.sklearn.log_model(
+            sk_model=svm,
+            artifact_path="svm",
+            registered_model_name="svm-model"
+        )
+
+        # Se define nombre del modelo y version
+        model_name = "svm-model"
+
+        # Se lleva el modelo a ambiente de produccion
+        client = mlflow.tracking.MlflowClient()
+
+        latest_prod_version = client.get_latest_versions(
+            name=model_name,
+            stages=["Production"]
+        )[-1].version
         
-        # Leer tabla
-        query = "SELECT * FROM diabetes_train_processed"
-        df = mysql_hook.get_pandas_df(query)
-        
-        # Mostrar informaci�n b�sica
-        print(f"Datos de entrenamiento:")
-        print(f"- Forma: {df.shape}")
-        print(f"- Columnas: {df.columns.tolist()}")
-        print(f"- Primeras 5 filas:")
-        print(df.head())
-        
-        # Separar caracter�sticas y variable objetivo
-        X = df.drop('target', axis=1)
-        y = df['target']
-        
-        # Mostrar distribuci�n de clases
-        print("Distribuci�n de clases (entrenamiento):")
-        print(y.value_counts())
-        
-        # Aplicar undersampling
-        print("Aplicando undersampling al conjunto de entrenamiento...")
-        X_resampled, y_resampled = perform_undersampling_from_transformed(
-            X.values, y, random_state=42, sampling_strategy='auto'
+        # Crear una nueva versión del modelo
+        # Transicionar a producción
+        client.transition_model_version_stage(
+            name=model_name,
+            version=int(latest_prod_version)+1,
+            stage="Production"
         )
         
-        # Guardar datos procesados
-        import pickle
-        import os
-        
-        data_dir = '/tmp/airflow/data'
-        os.makedirs(data_dir, exist_ok=True)
-        
-        with open(f'{data_dir}/X_train_resampled.pkl', 'wb') as f:
-            pickle.dump(X_resampled, f)
-        
-        with open(f'{data_dir}/y_train_resampled.pkl', 'wb') as f:
-            pickle.dump(y_resampled, f)
-        
-        print(f"Datos de entrenamiento balanceados guardados en {data_dir}")
-        
-        return "Procesamiento de datos de entrenamiento completado"
-    
-    except Exception as e:
-        print(f"Error al procesar los datos: {str(e)}")
-        return f"Error: {str(e)}"
+        return "Entrenamiento completado"
 
 # Funci�n para leer datos de validaci�n
 def read_validation_data(**kwargs):
@@ -172,11 +218,11 @@ def read_validation_data(**kwargs):
     
     try:
         # Conectar a MySQL
-        mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+        postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
         
         # Leer tabla
         query = "SELECT * FROM diabetes_validation_processed"
-        df = mysql_hook.get_pandas_df(query)
+        df = postgres_hook.get_pandas_df(query)
         
         # Mostrar informaci�n b�sica
         print(f"Datos de validaci�n:")
@@ -216,11 +262,11 @@ def read_test_data(**kwargs):
     
     try:
         # Conectar a MySQL
-        mysql_hook = MySqlHook(mysql_conn_id="mysql_diabetes_conn")
+        postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
         
         # Leer tabla
         query = "SELECT * FROM diabetes_test_processed"
-        df = mysql_hook.get_pandas_df(query)
+        df = postgres_hook.get_pandas_df(query)
         
         # Mostrar informaci�n b�sica
         print(f"Datos de prueba:")
@@ -436,47 +482,47 @@ with DAG(
 ) as dag:
     
     # Tareas
-    read_train = PythonOperator(
-        task_id='read_train_data',
-        python_callable=read_train_data,
+    train_model_task = PythonOperator(
+        task_id='train_data',
+        python_callable=train_data,
         provide_context=True,
     )
     
-    read_validation = PythonOperator(
-        task_id='read_validation_data',
-        python_callable=read_validation_data,
-        provide_context=True,
-    )
+    # read_validation = PythonOperator(
+    #     task_id='read_validation_data',
+    #     python_callable=read_validation_data,
+    #     provide_context=True,
+    # )
     
-    read_test = PythonOperator(
-        task_id='read_test_data',
-        python_callable=read_test_data,
-        provide_context=True,
-    )
+    # read_test = PythonOperator(
+    #     task_id='read_test_data',
+    #     python_callable=read_test_data,
+    #     provide_context=True,
+    # )
     
-    train = PythonOperator(
-        task_id='train_model',
-        python_callable=train_model,
-        provide_context=True,
-    )
+    # train = PythonOperator(
+    #     task_id='train_model',
+    #     python_callable=train_model,
+    #     provide_context=True,
+    # )
     
-    evaluate = PythonOperator(
-        task_id='evaluate_validation',
-        python_callable=evaluate_validation,
-        provide_context=True,
-    )
+    # evaluate = PythonOperator(
+    #     task_id='evaluate_validation',
+    #     python_callable=evaluate_validation,
+    #     provide_context=True,
+    # )
     
-    infer = PythonOperator(
-        task_id='inference_test',
-        python_callable=inference_test,
-        provide_context=True,
-    )
+    # infer = PythonOperator(
+    #     task_id='inference_test',
+    #     python_callable=inference_test,
+    #     provide_context=True,
+    # )
     
-    summary = PythonOperator(
-        task_id='generate_summary',
-        python_callable=generate_summary,
-        provide_context=True,
-    )
+    # summary = PythonOperator(
+    #     task_id='generate_summary',
+    #     python_callable=generate_summary,
+    #     provide_context=True,
+    # )
     
     # Definir dependencias
-    read_train >> read_validation >> read_test >> train >> evaluate >> infer >> summary
+    train_model_task #>> read_validation >> read_test >> train >> evaluate >> infer >> summary

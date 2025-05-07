@@ -15,6 +15,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 import pickle
 import os
+import mlflow
 
 # DAG default arguments
 default_args = {
@@ -36,7 +37,7 @@ def read_table(table_type, **context):
     postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
     
     # Read the table
-    query = f"SELECT * FROM {table_name}"
+    query = f"SELECT * FROM {table_name};"
     df = postgres_hook.get_pandas_df(query)
     
     # Print table info
@@ -180,73 +181,105 @@ def preprocess_and_save(table_type, **context):
                 processed_df[col] = processed_df[col].clip(-1e10, 1e10)
     
     # Create insert statements directly with a larger batch size
-    try:
+    # try:
         # Create SQL for inserting values
-        records = []
-        for _, row in processed_df.iterrows():
-            values = []
-            for col in processed_df.columns:
-                if col == 'target':
-                    values.append(f"'{row[col]}'")
-                else:
-                    # Format numbers with precision
-                    values.append(str(float(row[col])))
-            
-            records.append(f"({', '.join(values)})")
+    records = []
+    for _, row in processed_df.iterrows():
+        values = []
+        for col in processed_df.columns:
+            if col == 'target':
+                values.append(f"'{row[col]}'")
+            else:
+                # Format numbers with precision
+                values.append(str(float(row[col])))
         
-        # Insert in a single large batch for speed
-        batch_size = 5000  # Much larger batch size for faster processing
-        for i in range(0, len(records), batch_size):
-            batch = records[i:i+batch_size]
-            insert_sql = f"INSERT INTO {target_table} ("+{', '.join('"'+col+'"' for col in processed_df.columns)}+f") VALUES {', '.join(batch)}"
-            postgres_hook.run(insert_sql)
-            print(f"Inserted batch {i//batch_size + 1}: {len(batch)} rows")
+        records.append(f"({', '.join(values)})")
     
-    except Exception as e:
-        print(f"Error with direct SQL insert: {str(e)}")
-        # If there's an error, provide detailed diagnostic information
-        if 'feature_0' in str(e):
-            # Check the values in feature_0
-            print("Problematic column: feature_0")
-            print(f"Min value: {processed_df['feature_0'].min()}")
-            print(f"Max value: {processed_df['feature_0'].max()}")
-            print(f"First 5 values: {processed_df['feature_0'].head(5).tolist()}")
+    # Insert in a single large batch for speed
+    batch_size = 15000  # Much larger batch size for faster processing
+    for i in range(0, len(records), batch_size):
+        batch = records[i:i+batch_size]
+        insert_sql = f"INSERT INTO {target_table} ("+', '.join(processed_df.columns.to_list())+f") VALUES {', '.join([str(col) for col in batch])}"
+        postgres_hook.run(insert_sql)
+        print(f"Inserted batch {i//batch_size + 1}: {len(batch)} rows")
+
+#     engine = postgres_hook.get_sqlalchemy_engine()
+#     with engine.begin() as connection:
+#         rows_inserted = 0
+#         for _, row in processed_df.iterrows():
+#             # Filtrar valores None y crear un diccionario limpio
+#             values = []
+#             for col, value in row.items():
+#                 if col == 'target':
+#                     values.append(f"'{row[col]}'")
+#                 else:
+#                     # Format numbers with precision
+#                     values.append(str(float(row[col])))
+#                 if pd.isna(value) or value =='?':
+#                     # Omitir valores nulos o establecer un valor predeterminado
+#                     # clean_row[column] = None  # Opción 1: Incluir como NULL
+#                     pass  # Opción 2: Omitir columna
+#                 else:
+#                     clean_row[column.replace('-','_')] = value
+            
+#             if not clean_row:
+#                 continue
+            
+#             # Construir la consulta SQL con parámetros nombrados
+#             columns_str = ', '.join(clean_row.keys())
+#             placeholders_str = ', '.join([f':{col}' for col in clean_row.keys()])
+#             sql = f"INSERT INTO {table_name} ({columns_str}) VALUES ({placeholders_str})"
+            
+#             # Ejecutar la consulta con parámetros nombrados
+#             connection.execute(text(sql), clean_row)
+#             rows_inserted += 1
         
-        # Try again with more conservative values
-        try:
-            # Reset the table
-            postgres_hook.run(f"TRUNCATE TABLE {target_table}")
+#         print(f"Insertados {rows_inserted} registros en tabla {table_name} para {dataset_type} batch {batch_number} usando método fila por fila")
+# except Exception as e:
+#         print(f"Error with direct SQL insert: {str(e)}")
+#         # If there's an error, provide detailed diagnostic information
+#         if 'feature_0' in str(e):
+#             # Check the values in feature_0
+#             print("Problematic column: feature_0")
+#             print(f"Min value: {processed_df['feature_0'].min()}")
+#             print(f"Max value: {processed_df['feature_0'].max()}")
+#             print(f"First 5 values: {processed_df['feature_0'].head(5).tolist()}")
+        
+        # # Try again with more conservative values
+        # try:
+        #     # Reset the table
+        #     postgres_hook.run(f"TRUNCATE TABLE {target_table}")
             
-            # Convert all feature values to a safe range (-1000 to 1000)
-            for col in processed_df.columns:
-                if col != 'target':
-                    processed_df[col] = pd.to_numeric(processed_df[col], errors='coerce').fillna(0)
-                    processed_df[col] = processed_df[col].clip(-1000, 1000)
+        #     # Convert all feature values to a safe range (-1000 to 1000)
+        #     for col in processed_df.columns:
+        #         if col != 'target':
+        #             processed_df[col] = pd.to_numeric(processed_df[col], errors='coerce').fillna(0)
+        #             processed_df[col] = processed_df[col].clip(-1000, 1000)
             
-            # Insert with smaller batches
-            records = []
-            for _, row in processed_df.iterrows():
-                values = []
-                for col in processed_df.columns:
-                    if col == 'target':
-                        values.append(f"'{row[col]}'")
-                    else:
-                        # Format numbers with precision
-                        values.append(str(float(row[col])))
+        #     # Insert with smaller batches
+        #     records = []
+        #     for _, row in processed_df.iterrows():
+        #         values = []
+        #         for col in processed_df.columns:
+        #             if col == 'target':
+        #                 values.append(f"'{row[col]}'")
+        #             else:
+        #                 # Format numbers with precision
+        #                 values.append(str(float(row[col])))
                 
-                records.append(f"({', '.join(values)})")
+        #         records.append(f"({', '.join(values)})")
             
-            # Insert in smaller batches
-            batch_size = 1000
-            for i in range(0, len(records), batch_size):
-                batch = records[i:i+batch_size]
-                insert_sql = f"INSERT INTO {target_table} ({', '.join('`'+col+'`' for col in processed_df.columns)}) VALUES {', '.join(batch)}"
-                postgres_hook.run(insert_sql)
-                print(f"Inserted batch {i//batch_size + 1} (retry): {len(batch)} rows")
+        #     # Insert in smaller batches
+        #     batch_size = 1000
+        #     for i in range(0, len(records), batch_size):
+        #         batch = records[i:i+batch_size]
+        #         insert_sql = f"INSERT INTO {target_table} ({', '.join('`'+col+'`' for col in processed_df.columns)}) VALUES {', '.join(batch)}"
+        #         postgres_hook.run(insert_sql)
+        #         print(f"Inserted batch {i//batch_size + 1} (retry): {len(batch)} rows")
             
-            print("Data inserted successfully with more conservative values")
-        except Exception as e2:
-            print(f"Fatal error with insert: {str(e2)}")
+        #     print("Data inserted successfully with more conservative values")
+        # except Exception as e2:
+        #     print(f"Fatal error with insert: {str(e2)}")
     
     # Verify the data was inserted correctly
     count_query = f"SELECT COUNT(*) FROM {target_table}"
@@ -265,23 +298,23 @@ with DAG(
     
     # Create tasks
     # Read tasks
-    read_train = PythonOperator(
-        task_id='read_train_data',
-        python_callable=read_table,
-        op_kwargs={'table_type': 'train'},
-    )
+    # read_train = PythonOperator(
+    #     task_id='read_train_data',
+    #     python_callable=read_table,
+    #     op_kwargs={'table_type': 'train'},
+    # )
     
-    read_validation = PythonOperator(
-        task_id='read_validation_data',
-        python_callable=read_table,
-        op_kwargs={'table_type': 'validation'},
-    )
+    # read_validation = PythonOperator(
+    #     task_id='read_validation_data',
+    #     python_callable=read_table,
+    #     op_kwargs={'table_type': 'validation'},
+    # )
     
-    read_test = PythonOperator(
-        task_id='read_test_data',
-        python_callable=read_table,
-        op_kwargs={'table_type': 'test'},
-    )
+    # read_test = PythonOperator(
+    #     task_id='read_test_data',
+    #     python_callable=read_table,
+    #     op_kwargs={'table_type': 'test'},
+    # )
     
     # Process and save tasks
     process_save_train = PythonOperator(
@@ -303,10 +336,12 @@ with DAG(
     )
     
     # Define task dependencies
-    read_train >> process_save_train
-    read_validation >> process_save_validation
-    read_test >> process_save_test
+    process_save_train >> process_save_validation >> process_save_test
+    # read_validation 
+    # read_test             
+        
+        
     
-    # Make validation and test dependent on train preprocessing
-    process_save_train >> process_save_validation
-    process_save_train >> process_save_test
+    # # Make validation and test dependent on train preprocessing
+    # process_save_train >> process_save_validation
+    # process_save_train >> process_save_test

@@ -14,14 +14,14 @@ import requests
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
 # Ruta donde están los modelos dentro del contenedor Docker
-MODEL_DIR = "http://mlflow:5000"
+MODEL_DIR = "http://10.43.101.168:31485" #Mlflow
 mlflow.set_tracking_uri(MODEL_DIR)
 client = mlflow.tracking.MlflowClient(tracking_uri=MODEL_DIR) 
 
 # import os
-os.environ['MLFLOW_S3_ENDPOINT_URL'] = "http://minio:9000"
-os.environ['AWS_ACCESS_KEY_ID'] = 'admin'
-os.environ['AWS_SECRET_ACCESS_KEY'] = 'supersecret'
+os.environ['MLFLOW_S3_ENDPOINT_URL'] = "http://10.43.101.168:30921" #minio
+os.environ['AWS_ACCESS_KEY_ID'] = 'minioadmin'
+os.environ['AWS_SECRET_ACCESS_KEY'] = 'minioadmin123'
 
 app = FastAPI()
 
@@ -73,28 +73,33 @@ def list_models():
     # Fetch all registered models
     models = client.search_registered_models()
     versions = []
+    
+    if len(models)>0:
+        # Get the latest model version
+        for model in models:
+            latest_model_versions = client.search_model_versions(f"name='{model.name}'")
+            latest_version = max(int(m.version) for m in latest_model_versions)  # Get the highest version
+            versions.append(latest_version)
+            print(f'{model.name}:{latest_version}')
 
-    # Get the latest model version
-    for model in models:
-        latest_model_versions = client.search_model_versions(f"name='{model.name}'")
-        latest_version = max(int(m.version) for m in latest_model_versions)  # Get the highest version
-        versions.append(latest_version)
-        print(f'{model.name}:{latest_version}')
+        # Load the MLmodel metadata
+        model_md = mlflow.models.Model.load(models[0].latest_versions[0].source)
 
-    # Load the MLmodel metadata
-    model_md = mlflow.models.Model.load(models[0].latest_versions[0].source)
+        # Get the model signature (schema)
+        signature = model_md.signature
 
-    # Get the model signature (schema)
-    signature = model_md.signature
+        if signature:
+            print("✅ Input Schema:", signature.inputs)
+            print("✅ Output Schema:", signature.outputs)
+        else:
+            print("❌ No schema found for this model.")
 
-    if signature:
-        print("✅ Input Schema:", signature.inputs)
-        print("✅ Output Schema:", signature.outputs)
+        out = [f'{model.name}:{vs}' for model, vs in zip(models,versions)]
     else:
-        print("❌ No schema found for this model.")    
+        out = [] 
 
     # Print model names
-    return [f'{model.name}:{vs}' for model, vs in zip(models,versions)]
+    return out
   
 
 import time

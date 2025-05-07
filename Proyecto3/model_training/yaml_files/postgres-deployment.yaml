@@ -5,7 +5,7 @@ metadata:
 data:
   init.sql: |
     CREATE DATABASE airflow;
-    CREATE USER airflow WITH PASSWORD 'airflow';
+    CREATE USER airflow WITH PASSWORD 'airflowpass';
     GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;
 
 ---
