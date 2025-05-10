@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-inference
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-inference
+  template:
+    metadata:
+      labels:
+        app: postgres-inference
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:14
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres123
+            - name: POSTGRES_DB
+              value: postgres
+            - name: PGPORT
+              value: "5433"
+          ports:
+            - containerPort: 5433
+          command: ["/usr/local/bin/docker-entrypoint.sh"]
+          args:
+            - "postgres"
+            - "-p"
+            - "5433"
+            - "-c"
+            - "config_file=/etc/postgresql/postgresql.conf"
+          volumeMounts:
+            - name: inference-init
+              mountPath: /docker-entrypoint-initdb.d
+            - name: postgres-config
+              mountPath: /etc/postgresql/postgresql.conf
+              subPath: postgresql.conf
+      volumes:
+        - name: inference-init
+          configMap:
+            name: inference-init
+        - name: postgres-config
+          configMap:
+            name: inference-init
