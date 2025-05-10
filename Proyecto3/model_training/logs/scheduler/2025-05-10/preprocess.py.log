@@ -1,0 +1,277 @@
+[2025-05-10T14:34:14.315+0000] {processor.py:161} INFO - Started process (PID=75) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:34:14.321+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:34:14.329+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:14.328+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:34:33.385+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:34:34.814+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:34.813+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:diabetes_etl_fast
+[2025-05-10T14:34:34.947+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:34.946+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:diabetes_etl_fast
+[2025-05-10T14:34:35.042+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:35.041+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:diabetes_etl_fast
+[2025-05-10T14:34:35.042+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:35.042+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:34:35.224+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:35.221+0000] {dag.py:3118} INFO - Creating ORM DAG for diabetes_etl_fast
+[2025-05-10T14:34:35.225+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:34:35.225+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:34:35.536+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 21.279 seconds
+[2025-05-10T14:35:06.360+0000] {processor.py:161} INFO - Started process (PID=99) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:35:06.363+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:35:06.369+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:35:06.368+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:35:10.739+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:35:10.879+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:35:10.876+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:35:10.957+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:35:10.957+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:35:11.086+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.748 seconds
+[2025-05-10T14:35:41.521+0000] {processor.py:161} INFO - Started process (PID=119) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:35:41.542+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:35:41.548+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:35:41.547+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:35:43.629+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:35:43.678+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:35:43.677+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:35:43.697+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:35:43.696+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:35:43.743+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.243 seconds
+[2025-05-10T14:36:14.530+0000] {processor.py:161} INFO - Started process (PID=140) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:36:14.533+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:36:14.537+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:36:14.536+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:36:19.736+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:36:19.869+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:36:19.868+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:36:19.917+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:36:19.913+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:36:20.032+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 5.520 seconds
+[2025-05-10T14:36:50.521+0000] {processor.py:161} INFO - Started process (PID=163) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:36:50.523+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:36:50.527+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:36:50.526+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:36:52.954+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:36:53.055+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:36:53.055+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:36:53.077+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:36:53.076+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:36:53.152+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.660 seconds
+[2025-05-10T14:37:23.403+0000] {processor.py:161} INFO - Started process (PID=183) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:37:23.405+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:37:23.408+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:37:23.408+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:37:25.965+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:37:26.022+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:37:26.021+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:37:26.060+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:37:26.060+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:37:26.127+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.747 seconds
+[2025-05-10T14:37:56.634+0000] {processor.py:161} INFO - Started process (PID=203) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:37:56.638+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:37:56.641+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:37:56.641+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:37:58.659+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:37:58.950+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:37:58.949+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:37:58.974+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:37:58.973+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:37:59.024+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.412 seconds
+[2025-05-10T14:38:29.291+0000] {processor.py:161} INFO - Started process (PID=230) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:38:29.294+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:38:29.302+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:38:29.301+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:38:33.024+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:38:33.075+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:38:33.074+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:38:33.104+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:38:33.103+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:38:33.426+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.159 seconds
+[2025-05-10T14:39:03.755+0000] {processor.py:161} INFO - Started process (PID=250) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:39:03.760+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:39:03.765+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:39:03.764+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:39:07.590+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:39:08.036+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:39:08.036+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:39:08.246+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:39:08.245+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:39:08.657+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.926 seconds
+[2025-05-10T14:39:39.282+0000] {processor.py:161} INFO - Started process (PID=270) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:39:39.284+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:39:39.288+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:39:39.287+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:39:41.794+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:39:41.966+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:39:41.964+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:39:42.016+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:39:42.016+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:39:42.085+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.838 seconds
+[2025-05-10T14:40:12.496+0000] {processor.py:161} INFO - Started process (PID=300) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:40:12.499+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:40:12.507+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:40:12.506+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:40:15.638+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:40:15.975+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:40:15.974+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:40:16.005+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:40:16.004+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:40:16.061+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.587 seconds
+[2025-05-10T14:40:46.728+0000] {processor.py:161} INFO - Started process (PID=326) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:40:46.734+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:40:46.740+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:40:46.739+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:40:48.691+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:40:48.772+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:40:48.771+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:40:48.793+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:40:48.792+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:40:49.007+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.305 seconds
+[2025-05-10T14:41:19.437+0000] {processor.py:161} INFO - Started process (PID=346) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:41:19.439+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:41:19.444+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:41:19.443+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:41:22.587+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:41:22.638+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:41:22.637+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:41:22.658+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:41:22.657+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:41:22.695+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.295 seconds
+[2025-05-10T14:41:52.914+0000] {processor.py:161} INFO - Started process (PID=367) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:41:52.916+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:41:52.926+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:41:52.925+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:41:55.124+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:41:55.200+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:41:55.200+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:41:55.235+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:41:55.234+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:41:55.370+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.478 seconds
+[2025-05-10T14:42:25.579+0000] {processor.py:161} INFO - Started process (PID=388) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:42:25.593+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:42:25.599+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:42:25.598+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:42:29.527+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:42:29.639+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:42:29.638+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:42:29.696+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:42:29.696+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:42:29.807+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.264 seconds
+[2025-05-10T14:43:00.654+0000] {processor.py:161} INFO - Started process (PID=413) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:43:00.659+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:43:00.666+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:43:00.666+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:43:03.325+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:43:03.401+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:43:03.401+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:43:03.435+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:43:03.434+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:43:03.474+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.855 seconds
+[2025-05-10T14:43:34.095+0000] {processor.py:161} INFO - Started process (PID=433) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:43:34.107+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:43:34.117+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:43:34.113+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:43:41.265+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:43:41.623+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:43:41.622+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:43:41.804+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:43:41.804+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:43:41.981+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 7.934 seconds
+[2025-05-10T14:44:12.527+0000] {processor.py:161} INFO - Started process (PID=453) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:44:12.530+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:44:12.533+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:44:12.533+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:44:15.281+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:44:15.374+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:44:15.374+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:44:15.434+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:44:15.433+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:44:15.554+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.049 seconds
+[2025-05-10T14:44:46.115+0000] {processor.py:161} INFO - Started process (PID=472) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:44:46.122+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:44:46.128+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:44:46.128+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:44:48.782+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:44:48.908+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:44:48.907+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:44:48.937+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:44:48.937+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:44:48.979+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.887 seconds
+[2025-05-10T14:45:19.326+0000] {processor.py:161} INFO - Started process (PID=492) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:45:19.329+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:45:19.336+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:45:19.335+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:45:22.858+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:45:22.920+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:45:22.919+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:45:22.937+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:45:22.937+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:45:22.976+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.683 seconds
+[2025-05-10T14:45:53.171+0000] {processor.py:161} INFO - Started process (PID=512) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:45:53.173+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:45:53.180+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:45:53.180+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:45:57.409+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:45:57.688+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:45:57.685+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:45:57.770+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:45:57.770+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:45:57.850+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.706 seconds
+[2025-05-10T14:46:28.795+0000] {processor.py:161} INFO - Started process (PID=532) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:46:28.798+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:46:28.805+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:46:28.804+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:46:32.763+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:46:32.955+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:46:32.955+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:46:33.059+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:46:33.059+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:46:33.476+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.711 seconds
+[2025-05-10T14:47:04.095+0000] {processor.py:161} INFO - Started process (PID=560) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:47:04.099+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:47:04.107+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:47:04.106+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:47:07.215+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:47:07.271+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:47:07.270+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:47:07.291+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:47:07.291+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:47:07.329+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.257 seconds
+[2025-05-10T14:47:37.668+0000] {processor.py:161} INFO - Started process (PID=581) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:47:37.673+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:47:37.693+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:47:37.691+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:47:41.081+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:47:41.139+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:47:41.138+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:47:41.164+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:47:41.163+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:47:41.211+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.593 seconds
+[2025-05-10T14:48:11.603+0000] {processor.py:161} INFO - Started process (PID=602) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:48:11.606+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:48:11.617+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:48:11.616+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:48:15.369+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:48:15.471+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:48:15.470+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:48:15.523+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:48:15.522+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:48:15.649+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.066 seconds
+[2025-05-10T14:48:46.100+0000] {processor.py:161} INFO - Started process (PID=621) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:48:46.103+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:48:46.112+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:48:46.110+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:48:49.766+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:48:49.845+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:48:49.844+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:48:49.886+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:48:49.886+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:48:49.967+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.912 seconds
+[2025-05-10T14:49:20.149+0000] {processor.py:161} INFO - Started process (PID=642) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:49:20.152+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:49:20.157+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:49:20.155+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:49:23.216+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:49:23.347+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:49:23.346+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:49:23.372+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:49:23.372+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:49:23.470+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.348 seconds
+[2025-05-10T14:49:53.693+0000] {processor.py:161} INFO - Started process (PID=662) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:49:53.696+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:49:53.700+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:49:53.699+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:49:56.038+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:49:56.139+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:49:56.135+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:49:56.164+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:49:56.163+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:49:56.218+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.545 seconds
+[2025-05-10T14:50:26.745+0000] {processor.py:161} INFO - Started process (PID=682) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:50:26.748+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:50:26.757+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:50:26.756+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:50:29.951+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:50:30.041+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:50:30.039+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:50:30.075+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:50:30.073+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:50:30.141+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.479 seconds
+[2025-05-10T14:51:00.952+0000] {processor.py:161} INFO - Started process (PID=702) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:51:00.956+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:51:00.961+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:51:00.961+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:51:03.947+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:51:04.019+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:51:04.019+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:51:04.053+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:51:04.053+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:51:04.120+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.196 seconds
+[2025-05-10T14:51:34.471+0000] {processor.py:161} INFO - Started process (PID=722) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:51:34.474+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:51:34.492+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:51:34.491+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:51:37.870+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:51:37.932+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:51:37.931+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:51:37.957+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:51:37.957+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:51:37.998+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.565 seconds
+[2025-05-10T14:52:08.453+0000] {processor.py:161} INFO - Started process (PID=747) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:52:08.454+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:52:08.458+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:52:08.458+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:52:11.744+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:52:11.835+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:52:11.834+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:52:11.860+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:52:11.859+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:52:11.906+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.479 seconds
+[2025-05-10T14:52:42.081+0000] {processor.py:161} INFO - Started process (PID=768) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:52:42.083+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:52:42.086+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:52:42.085+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:52:45.667+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:52:45.796+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:52:45.794+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:52:45.837+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:52:45.835+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:52:45.880+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.824 seconds
+[2025-05-10T14:53:16.743+0000] {processor.py:161} INFO - Started process (PID=788) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:53:16.744+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:53:16.748+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:53:16.747+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:53:20.507+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:53:20.718+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:53:20.716+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:53:20.771+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:53:20.771+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:53:21.003+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.276 seconds
+[2025-05-10T14:53:51.243+0000] {processor.py:161} INFO - Started process (PID=808) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:53:51.245+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:53:51.255+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:53:51.254+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:53:55.308+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:53:55.414+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:53:55.413+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:53:55.447+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:53:55.446+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:53:55.488+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 4.261 seconds
+[2025-05-10T14:54:25.630+0000] {processor.py:161} INFO - Started process (PID=827) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:54:25.632+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:54:25.641+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:54:25.641+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:54:29.097+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:54:29.227+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:54:29.226+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:54:29.252+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:54:29.249+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:54:29.316+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.703 seconds
+[2025-05-10T14:54:59.582+0000] {processor.py:161} INFO - Started process (PID=847) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:54:59.587+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:54:59.590+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:54:59.590+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:55:02.281+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:55:02.375+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:55:02.374+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:55:02.415+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:55:02.415+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:55:02.459+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 2.905 seconds
+[2025-05-10T14:55:32.993+0000] {processor.py:161} INFO - Started process (PID=867) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:55:32.997+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:55:33.003+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:55:33.002+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:55:36.520+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:55:36.577+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:55:36.576+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:55:36.602+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:55:36.602+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:55:36.638+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.665 seconds
+[2025-05-10T14:56:08.231+0000] {processor.py:161} INFO - Started process (PID=890) to work on /opt/airflow/dags/preprocess.py
+[2025-05-10T14:56:08.235+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/preprocess.py for tasks to queue
+[2025-05-10T14:56:08.244+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:56:08.244+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:56:11.309+0000] {processor.py:840} INFO - DAG(s) 'diabetes_etl_fast' retrieved from /opt/airflow/dags/preprocess.py
+[2025-05-10T14:56:11.396+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:56:11.395+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-10T14:56:11.418+0000] {logging_mixin.py:188} INFO - [2025-05-10T14:56:11.418+0000] {dag.py:3954} INFO - Setting next_dagrun for diabetes_etl_fast to None, run_after=None
+[2025-05-10T14:56:11.462+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/preprocess.py took 3.276 seconds
