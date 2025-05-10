@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 import os
 import boto3
 from botocore.config import Config
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 
 IP_MLFLOW = "http://10.43.101.168:31485"
@@ -19,6 +20,8 @@ IP_MLFLOW = "http://10.43.101.168:31485"
 os.environ['MLFLOW_S3_ENDPOINT_URL'] = "http://10.43.101.168:30855"
 os.environ['AWS_ACCESS_KEY_ID'] = "minioadmin"
 os.environ['AWS_SECRET_ACCESS_KEY'] = "minioadmin123"
+
+mlflow.set_tracking_uri(IP_MLFLOW)
 
 # Configuraci�n b�sica
 default_args = {
@@ -149,15 +152,15 @@ def train_data(**kwargs):
     print("Distribuci�n de clases (entrenamiento):")
     print(y.value_counts())
     
-    # # Aplicar undersampling
-    # print("Aplicando undersampling al conjunto de entrenamiento...")
-    # X_resampled, y_resampled = perform_undersampling_from_transformed(
-    #     X.values, y, random_state=42, sampling_strategy='auto'
-    # )
+    # Aplicar undersampling
+    print("Aplicando undersampling al conjunto de entrenamiento...")
+    X_resampled, y_resampled = perform_undersampling_from_transformed(
+        X.values, y, random_state=42, sampling_strategy='auto'
+    )
 
-    X_resampled, _,y_resampled,_= train_test_split(X,y,random_state=420, train_size=1000)
+    X_resampled, _,y_resampled,_= train_test_split(X_resampled,y_resampled,random_state=420, train_size=1000)
 
-    mlflow.set_tracking_uri(IP_MLFLOW)
+    client = mlflow.tracking.MlflowClient()
 
     experiment_name = "minkube_mlflow_experiment"
     experiment = mlflow.get_experiment_by_name(experiment_name)
@@ -165,279 +168,190 @@ def train_data(**kwargs):
         mlflow.create_experiment(experiment_name)
     mlflow.set_experiment(experiment_name)
 
-    with mlflow.start_run(run_name="svm_artifacts") as run:
-        params = {
-        'C': [0.1, 1],
-        'gamma': ['scale', 0.1],
-    }
+    with mlflow.start_run(run_name="svm_training") as run:
 
         # inicializar svm
         svm = SVC()
+        model_name = "svm-model"
 
         # buscar hiperparametros mas optimos
-        print('Iniciando optimizacion de parametros')
-        # grid_search = GridSearchCV(svm, params, cv=2, scoring='accuracy', n_jobs=-1)
-        # grid_search.fit(X_resampled, y_resampled)
-        svm = SVC(C=1.0, kernel='rbf', gamma='scale')  # Ajusta los valores si lo deseas
+        print('Iniciando entrenamiento')
+        svm = SVC(C=1.0, kernel='rbf', gamma='scale', probability=True)  # Ajusta los valores si lo deseas
         svm.fit(X_resampled, y_resampled)
-        print('Optimizacion de parametros finalizada')
+        print('Entrenamiento finalizado')
 
-        mlflow.log_params(params)
         # mlflow.set_tag("column_names", ",".join(columns))
         mlflow.sklearn.log_model(
             sk_model=svm,
             artifact_path="svm",
-            registered_model_name="svm-model"
+            registered_model_name=model_name
         )
 
-        # Se define nombre del modelo y version
-        model_name = "svm-model"
+        latest_model_versions = client.search_model_versions(f"name='{model_name}'")
+        latest_version = max(int(m.version) for m in latest_model_versions)  # Get the highest version
 
-        # Se lleva el modelo a ambiente de produccion
-        client = mlflow.tracking.MlflowClient()
-
-        latest_prod_version = client.get_latest_versions(
-            name=model_name,
-            stages=["Production"]
-        )[-1].version
-        
-        # Crear una nueva versión del modelo
-        # Transicionar a producción
-        client.transition_model_version_stage(
-            name=model_name,
-            version=int(latest_prod_version)+1,
-            stage="Production"
-        )
+        print(f'Ultima versión: {latest_version}')
         
         return "Entrenamiento completado"
 
 # Funci�n para leer datos de validaci�n
-def read_validation_data(**kwargs):
+def validation_data(**kwargs):
     """Lee los datos de validaci�n."""
     print("Leyendo datos de la tabla diabetes_validation_processed...")
-    
-    try:
-        # Conectar a MySQL
-        postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
-        
-        # Leer tabla
-        query = "SELECT * FROM diabetes_validation_processed"
-        df = postgres_hook.get_pandas_df(query)
-        
-        # Mostrar informaci�n b�sica
-        print(f"Datos de validaci�n:")
-        print(f"- Forma: {df.shape}")
-        print(f"- Columnas: {df.columns.tolist()}")
-        print(f"- Primeras 5 filas:")
-        print(df.head())
-        
-        # Separar caracter�sticas y variable objetivo
-        X = df.drop('target', axis=1)
-        y = df['target']
-        
-        # Mostrar distribuci�n de clases
-        print("Distribuci�n de clases (validaci�n):")
-        print(y.value_counts())
-        
-        # Guardar datos
-        import pickle
-        data_dir = '/tmp/airflow/data'
-        
-        with open(f'{data_dir}/X_validation.pkl', 'wb') as f:
-            pickle.dump(X.values, f)
-        
-        with open(f'{data_dir}/y_validation.pkl', 'wb') as f:
-            pickle.dump(y, f)
-        
-        return "Procesamiento de datos de validaci�n completado"
-    
-    except Exception as e:
-        print(f"Error al procesar los datos: {str(e)}")
-        return f"Error: {str(e)}"
 
-# Funci�n para leer datos de prueba
-def read_test_data(**kwargs):
-    """Lee los datos de prueba."""
-    print("Leyendo datos de la tabla diabetes_test_processed...")
+    # Conectar a MySQL
+    postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
     
-    try:
-        # Conectar a MySQL
-        postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
-        
-        # Leer tabla
-        query = "SELECT * FROM diabetes_test_processed"
-        df = postgres_hook.get_pandas_df(query)
-        
-        # Mostrar informaci�n b�sica
-        print(f"Datos de prueba:")
-        print(f"- Forma: {df.shape}")
-        print(f"- Columnas: {df.columns.tolist()}")
-        print(f"- Primeras 5 filas:")
-        print(df.head())
-        
-        # Separar caracter�sticas y variable objetivo
-        X = df.drop('target', axis=1)
-        y = df['target']
-        
-        # Mostrar distribuci�n de clases
-        print("Distribuci�n de clases (prueba):")
-        print(y.value_counts())
-        
-        # Guardar datos
-        import pickle
-        data_dir = '/tmp/airflow/data'
-        
-        with open(f'{data_dir}/X_test.pkl', 'wb') as f:
-            pickle.dump(X.values, f)
-        
-        with open(f'{data_dir}/y_test.pkl', 'wb') as f:
-            pickle.dump(y, f)
-        
-        return "Procesamiento de datos de prueba completado"
+    # Leer tabla
+    query = "SELECT * FROM diabetes_validation_processed"
+    df = postgres_hook.get_pandas_df(query)
     
-    except Exception as e:
-        print(f"Error al procesar los datos: {str(e)}")
-        return f"Error: {str(e)}"
+    # Mostrar informaci�n b�sica
+    print(f"Datos de validaci�n:")
+    print(f"- Forma: {df.shape}")
+    print(f"- Columnas: {df.columns.tolist()}")
+    print(f"- Primeras 5 filas:")
+    print(df.head())
+    
+    # Separar caracter�sticas y variable objetivo
+    X = df.drop('target', axis=1)
+    y = df['target']
+    
+    # Mostrar distribuci�n de clases
+    print("Distribuci�n de clases (validaci�n):")
+    print(y.value_counts())
 
-# Funci�n para entrenar el modelo
-def train_model(**kwargs):
-    """Entrena el modelo con los datos de entrenamiento balanceados."""
-    try:
-        # Cargar datos
-        import pickle
-        data_dir = '/tmp/airflow/data'
-        
-        with open(f'{data_dir}/X_train_resampled.pkl', 'rb') as f:
-            X_train_resampled = pickle.load(f)
-        
-        with open(f'{data_dir}/y_train_resampled.pkl', 'rb') as f:
-            y_train_resampled = pickle.load(f)
-        
-        # Entrenar modelo
-        print("Entrenando modelo con datos balanceados...")
-        model = RandomForestClassifier(n_estimators=100, random_state=42)
-        model.fit(X_train_resampled, y_train_resampled)
-        
-        # Guardar modelo
-        import os
-        model_dir = '/tmp/airflow/models'
-        os.makedirs(model_dir, exist_ok=True)
-        
-        with open(f'{model_dir}/diabetes_model.pkl', 'wb') as f:
-            pickle.dump(model, f)
-        
-        print(f"Modelo guardado en {model_dir}")
-        
-        return "Entrenamiento del modelo completado"
-    
-    except Exception as e:
-        print(f"Error al entrenar el modelo: {str(e)}")
-        return f"Error: {str(e)}"
+    client = mlflow.tracking.MlflowClient()
 
-# Funci�n para evaluar con datos de validaci�n
-def evaluate_validation(**kwargs):
-    """Eval�a el modelo con datos de validaci�n."""
-    try:
-        # Cargar modelo y datos
-        import pickle
-        data_dir = '/tmp/airflow/data'
-        model_dir = '/tmp/airflow/models'
-        
-        with open(f'{model_dir}/diabetes_model.pkl', 'rb') as f:
-            model = pickle.load(f)
-        
-        with open(f'{data_dir}/X_validation.pkl', 'rb') as f:
-            X_validation = pickle.load(f)
-        
-        with open(f'{data_dir}/y_validation.pkl', 'rb') as f:
-            y_validation = pickle.load(f)
-        
-        # Realizar predicciones
-        from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-        
-        y_pred = model.predict(X_validation)
-        y_pred_proba = model.predict_proba(X_validation)[:, 1]
+    experiment_name = "minkube_mlflow_experiment"
+    mlflow.set_experiment(experiment_name)
+
+    with mlflow.start_run(run_name="svm_validation") as run:
+
+        model_name = "svm-model"
+
+        model = mlflow.sklearn.load_model(
+            model_uri=f"models:/{model_name}/latest"
+        )            
+            
+        y_pred = model.predict(X)
+        y_pred_proba = model.predict_proba(X)[:, 1]
         
         # Calcular m�tricas
         results = {
-            "accuracy": accuracy_score(y_validation, y_pred),
-            "precision": precision_score(y_validation, y_pred, pos_label="YES"),
-            "recall": recall_score(y_validation, y_pred, pos_label="YES"),
-            "f1_score": f1_score(y_validation, y_pred, pos_label="YES"),
-            "roc_auc": roc_auc_score(y_validation == "YES", y_pred_proba)
+            "accuracy": accuracy_score(y, y_pred),
+            "precision": precision_score(y, y_pred, pos_label="YES"),
+            "recall": recall_score(y, y_pred, pos_label="YES"),
+            "f1_score": f1_score(y, y_pred, pos_label="YES"),
+            "roc_auc": roc_auc_score(y == "YES", y_pred_proba)
         }
-        
+
+        mlflow.log_metrics(results)
         # Mostrar resultados
         print("Resultados en validaci�n:")
         for metric, value in results.items():
             print(f"- {metric}: {value:.4f}")
-        
-        # Guardar resultados
-        with open(f'{data_dir}/validation_results.pkl', 'wb') as f:
-            pickle.dump(results, f)
-        
-        return "Evaluaci�n en validaci�n completada"
-    
-    except Exception as e:
-        print(f"Error en evaluaci�n: {str(e)}")
-        return f"Error: {str(e)}"
 
-# Funci�n para realizar inferencia en datos de prueba
-def inference_test(**kwargs):
-    """Realiza inferencia en datos de prueba."""
-    try:
-        # Cargar modelo y datos
-        import pickle
-        data_dir = '/tmp/airflow/data'
-        model_dir = '/tmp/airflow/models'
-        
-        with open(f'{model_dir}/diabetes_model.pkl', 'rb') as f:
-            model = pickle.load(f)
-        
-        with open(f'{data_dir}/X_test.pkl', 'rb') as f:
-            X_test = pickle.load(f)
-        
-        with open(f'{data_dir}/y_test.pkl', 'rb') as f:
-            y_test = pickle.load(f)
-        
-        # Realizar predicciones
-        from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix, classification_report
-        
-        y_pred = model.predict(X_test)
-        y_pred_proba = model.predict_proba(X_test)[:, 1]
+        experiment = mlflow.get_experiment_by_name(experiment_name)
+
+        # Search for the latest run (sorted by start_time descending)
+        runs = client.search_runs(
+            experiment_ids=[experiment.experiment_id],
+            filter_string=f"tags.mlflow.runName = 'svm_validation'",
+            order_by=["start_time DESC"],
+            max_results=1
+        )
+
+        if not runs:
+            print("This is the first registered validation run, no runs for comparison")
+
+            client.transition_model_version_stage(
+                name=model_name,
+                version=1,
+                stage="Production"
+            )
+
+        else:
+            latest_run = runs[0]
+            old_metrics = latest_run.data.metrics
+
+            print("ID del run de comparacion:", latest_run.info.run_id)
+
+            if results['recall'] >= old_metrics['recall']:
+
+                print('Model entrenado posee mejor desempeño que modelo en producción')
+                print('Iniciando cargue en producción')
+
+                latest_model_versions = client.search_model_versions(f"name='{model_name}'")
+                latest_version = max(int(m.version) for m in latest_model_versions)  # Get the highest version
+
+            # Transicionar a producción
+                client.transition_model_version_stage(
+                    name=model_name,
+                    version=latest_version,
+                    stage="Production"
+                )
+            
+            else:
+                print('Model entrenado no posee mejor desempeño que modelo en producción y sera omitido')
+
+    return "Procesamiento de datos de validaci�n completado"
+
+# Funci�n para leer datos de prueba
+def test_data(**kwargs):
+    """Lee los datos de prueba."""
+    print("Leyendo datos de la tabla diabetes_test_processed...")
+    
+
+    # Conectar a MySQL
+    postgres_hook = PostgresHook(postgres_conn_id="postgres_airflow_conn")  # Change to your actual connection ID
+    
+    # Leer tabla
+    query = "SELECT * FROM diabetes_test_processed"
+    df = postgres_hook.get_pandas_df(query)
+    
+    # Mostrar informaci�n b�sica
+    print(f"Datos de prueba:")
+    print(f"- Forma: {df.shape}")
+    print(f"- Columnas: {df.columns.tolist()}")
+    print(f"- Primeras 5 filas:")
+    print(df.head())
+    
+    # Separar caracter�sticas y variable objetivo
+    X = df.drop('target', axis=1)
+    y = df['target']
+    
+    # Mostrar distribuci�n de clases
+    print("Distribuci�n de clases (prueba):")
+    print(y.value_counts())
+
+    client = mlflow.tracking.MlflowClient()
+
+    model_name = "svm-model"
+
+    model = mlflow.sklearn.load_model(
+        model_uri=f"models:/{model_name}/Production"
+    )            
+            
+    y_pred = model.predict(X)
+    y_pred_proba = model.predict_proba(X)[:, 1]
         
         # Calcular m�tricas
-        results = {
-            "accuracy": accuracy_score(y_test, y_pred),
-            "precision": precision_score(y_test, y_pred, pos_label="YES"),
-            "recall": recall_score(y_test, y_pred, pos_label="YES"),
-            "f1_score": f1_score(y_test, y_pred, pos_label="YES"),
-            "roc_auc": roc_auc_score(y_test == "YES", y_pred_proba)
-        }
+    results = {
+        "accuracy": accuracy_score(y, y_pred),
+        "precision": precision_score(y, y_pred, pos_label="YES"),
+        "recall": recall_score(y, y_pred, pos_label="YES"),
+        "f1_score": f1_score(y, y_pred, pos_label="YES"),
+        "roc_auc": roc_auc_score(y == "YES", y_pred_proba)
+    }
+
+    # Mostrar resultados
+    print("Resultados en prueba con modelo en productivo:")
+    for metric, value in results.items():
+        print(f"- {metric}: {value:.4f}")
         
-        # Mostrar resultados
-        print("Resultados en prueba:")
-        for metric, value in results.items():
-            print(f"- {metric}: {value:.4f}")
-        
-        # Mostrar matriz de confusi�n
-        cm = confusion_matrix(y_test, y_pred)
-        print("Matriz de confusi�n:")
-        print(cm)
-        
-        # Mostrar informe de clasificaci�n
-        print("Informe de clasificaci�n:")
-        print(classification_report(y_test, y_pred))
-        
-        # Guardar resultados
-        with open(f'{data_dir}/test_results.pkl', 'wb') as f:
-            pickle.dump(results, f)
-        
-        return "Inferencia en prueba completada"
-    
-    except Exception as e:
-        print(f"Error en inferencia: {str(e)}")
-        return f"Error: {str(e)}"
+    return "Procesamiento de datos de prueba completado"
+
 
 # Funci�n para generar resumen
 def generate_summary(**kwargs):
@@ -488,41 +402,17 @@ with DAG(
         provide_context=True,
     )
     
-    # read_validation = PythonOperator(
-    #     task_id='read_validation_data',
-    #     python_callable=read_validation_data,
-    #     provide_context=True,
-    # )
+    validation_model_task = PythonOperator(
+        task_id='validation_data',
+        python_callable=validation_data,
+        provide_context=True,
+    )
     
-    # read_test = PythonOperator(
-    #     task_id='read_test_data',
-    #     python_callable=read_test_data,
-    #     provide_context=True,
-    # )
-    
-    # train = PythonOperator(
-    #     task_id='train_model',
-    #     python_callable=train_model,
-    #     provide_context=True,
-    # )
-    
-    # evaluate = PythonOperator(
-    #     task_id='evaluate_validation',
-    #     python_callable=evaluate_validation,
-    #     provide_context=True,
-    # )
-    
-    # infer = PythonOperator(
-    #     task_id='inference_test',
-    #     python_callable=inference_test,
-    #     provide_context=True,
-    # )
-    
-    # summary = PythonOperator(
-    #     task_id='generate_summary',
-    #     python_callable=generate_summary,
-    #     provide_context=True,
-    # )
+    test_model_task = PythonOperator(
+        task_id='test_data',
+        python_callable=test_data,
+        provide_context=True,
+    )
     
     # Definir dependencias
-    train_model_task #>> read_validation >> read_test >> train >> evaluate >> infer >> summary
+    train_model_task >> validation_model_task >> test_model_task

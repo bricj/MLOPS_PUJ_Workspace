@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder
 import pickle
 import os
 import mlflow
@@ -75,6 +75,7 @@ def preprocess_and_save(table_type, **context):
     
     # Create X DataFrame with only selected columns
     X = df[cat_cols + num_cols].copy()
+    print(f'dataframe after variable selection: {X.shape} ')
     
     # Convert numerical columns to numeric, regardless of original format
     for col in num_cols:
@@ -91,53 +92,20 @@ def preprocess_and_save(table_type, **context):
     preprocessor_path = os.path.join(model_dir, 'diabetes_preprocessor.pkl')
     
     # Create and fit preprocessor
-    if table_type == 'train':
-        # For train data, create a new preprocessor
-        num_transformer = Pipeline([('scaler', StandardScaler())])
-        cat_transformer = Pipeline([('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False))])
-        
-        preprocessor = ColumnTransformer([
-            ('num', num_transformer, num_cols),
-            ('cat', cat_transformer, cat_cols)
-        ])
-        
-        # Fit and transform
-        X_transformed = preprocessor.fit_transform(X)
-        
-        # Save preprocessor
-        print(f"Saving preprocessor to {preprocessor_path}")
-        try:
-            with open(preprocessor_path, 'wb') as f:
-                pickle.dump(preprocessor, f)
-            print("Preprocessor saved successfully")
-        except Exception as e:
-            print(f"Error saving preprocessor: {str(e)}")
-    else:
-        # For validation/test, use the train preprocessor
-        try:
-            print(f"Loading preprocessor from {preprocessor_path}")
-            with open(preprocessor_path, 'rb') as f:
-                preprocessor = pickle.load(f)
-            print("Preprocessor loaded successfully")
-            
-            # Transform using loaded preprocessor
-            X_transformed = preprocessor.transform(X)
-        except FileNotFoundError:
-            # If preprocessor not found, create a new one
-            print("Preprocessor not found. Creating a new one.")
-            num_transformer = Pipeline([('scaler', StandardScaler())])
-            cat_transformer = Pipeline([('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False))])
-            
-            preprocessor = ColumnTransformer([
-                ('num', num_transformer, num_cols),
-                ('cat', cat_transformer, cat_cols)
-            ])
-            
-            # Fit and transform
-            X_transformed = preprocessor.fit_transform(X)
+
+    num_transformer = Pipeline([('scaler', StandardScaler())])
+    cat_transformer = Pipeline([('ordinal', OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1))])
+    
+    preprocessor = ColumnTransformer([
+        ('num', num_transformer, num_cols),
+        ('cat', cat_transformer, cat_cols)
+    ])
+    
+    # Fit and transform
+    X_transformed = preprocessor.fit_transform(X)
     
     # Print the first few transformed values to diagnose potential issues
-    print(f"First few values of transformed data: {X_transformed[:2, :5]}")
+    print(f"First few values of transformed data: {X_transformed[:2, :]}")
     
     # Create processed DataFrame with transformed features
     processed_df = pd.DataFrame(X_transformed)
