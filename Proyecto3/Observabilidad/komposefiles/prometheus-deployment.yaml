@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus
+  labels:
+    io.kompose.network/proyecto3_api_network: "true"
 spec:
   replicas: 1
   selector:
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: ogcorzo/prometheus-custom:latest # Imagen personalizada
+          image: ogcorzo/prometheus-custom:1.0.4 # Imagen personalizada
           ports:
             - containerPort: 9090
           resources:

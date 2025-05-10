@@ -4,4 +4,4 @@ global:
 scrape_configs:
   - job_name: 'inference_models'
     static_configs:
-      - targets: ['inference-models:8989']
+      - targets: ['10.43.101.170:30100']
