@@ -1,0 +1,27 @@
+[2025-05-10T14:50:34.909+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-10T14:50:34.968+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fetch_and_store_diabetes_data.process_test_batches manual__2025-05-10T14:44:16.594789+00:00 [queued]>
+[2025-05-10T14:50:34.987+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fetch_and_store_diabetes_data.process_test_batches manual__2025-05-10T14:44:16.594789+00:00 [queued]>
+[2025-05-10T14:50:34.988+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-10T14:50:35.044+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): process_test_batches> on 2025-05-10 14:44:16.594789+00:00
+[2025-05-10T14:50:35.061+0000] {standard_task_runner.py:63} INFO - Started process 380 to run task
+[2025-05-10T14:50:35.080+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'fetch_and_store_diabetes_data', 'process_test_batches', 'manual__2025-05-10T14:44:16.594789+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/fetch_and_store_data.py', '--cfg-path', '/tmp/tmpu4zec4a1']
+[2025-05-10T14:50:35.087+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask process_test_batches
+[2025-05-10T14:50:35.300+0000] {task_command.py:426} INFO - Running <TaskInstance: fetch_and_store_diabetes_data.process_test_batches manual__2025-05-10T14:44:16.594789+00:00 [running]> on host cc11726e1520
+[2025-05-10T14:50:35.665+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='fetch_and_store_diabetes_data' AIRFLOW_CTX_TASK_ID='process_test_batches' AIRFLOW_CTX_EXECUTION_DATE='2025-05-10T14:44:16.594789+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-10T14:44:16.594789+00:00'
+[2025-05-10T14:50:35.667+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-10T14:50:35.724+0000] {logging_mixin.py:188} INFO - Procesando 2 batches para test
+[2025-05-10T14:50:35.725+0000] {logging_mixin.py:188} INFO - Obteniendo test batch 0 desde http://10.43.101.168:32569/get-test-batch/?batch_number=0
+[2025-05-10T14:50:41.491+0000] {logging_mixin.py:188} INFO - Obtenidos 15000 registros de test batch 0
+[2025-05-10T14:50:41.560+0000] {base.py:84} INFO - Using connection ID 'postgres_airflow_conn' for task execution.
+[2025-05-10T14:51:33.381+0000] {logging_mixin.py:188} INFO - Insertados 15000 registros en tabla diabetes_test para test batch 0 usando método fila por fila
+[2025-05-10T14:51:33.462+0000] {logging_mixin.py:188} INFO - Obteniendo test batch 1 desde http://10.43.101.168:32569/get-test-batch/?batch_number=1
+[2025-05-10T14:51:35.936+0000] {logging_mixin.py:188} INFO - Obtenidos 5354 registros de test batch 1
+[2025-05-10T14:51:35.965+0000] {base.py:84} INFO - Using connection ID 'postgres_airflow_conn' for task execution.
+[2025-05-10T14:51:52.448+0000] {logging_mixin.py:188} INFO - Insertados 5354 registros en tabla diabetes_test para test batch 1 usando método fila por fila
+[2025-05-10T14:51:52.476+0000] {logging_mixin.py:188} INFO - Completado procesamiento de test: 20354 registros en total
+[2025-05-10T14:51:52.477+0000] {python.py:237} INFO - Done. Returned value was: 20354
+[2025-05-10T14:51:52.477+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-10T14:51:52.586+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=fetch_and_store_diabetes_data, task_id=process_test_batches, execution_date=20250510T144416, start_date=20250510T145034, end_date=20250510T145152
+[2025-05-10T14:51:52.667+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-10T14:51:52.750+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-10T14:51:52.755+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

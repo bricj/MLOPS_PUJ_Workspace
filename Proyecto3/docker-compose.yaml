@@ -316,48 +316,48 @@ services:
       - proyecto2_airflow_network
       - my_shared_network
     
-  mysql_diabetes:
-    image: mysql:8.0
-    container_name: mysql_diabetes
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: diabetes
-      MYSQL_USER: diabetes_user
-      MYSQL_PASSWORD: diabetes_password
-    ports:
-      - "3307:3307"
-    volumes:
-      - ./raw_data/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql_diabetes_data:/var/lib/mysql
-    command: >
-      --default-authentication-plugin=mysql_native_password
-      --init-file /docker-entrypoint-initdb.d/init.sql
-      --port=3307
-      --bind-address=0.0.0.0
+  # mysql_diabetes:
+  #   image: mysql:8.0
+  #   container_name: mysql_diabetes
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: diabetes
+  #     MYSQL_USER: diabetes_user
+  #     MYSQL_PASSWORD: diabetes_password
+  #   ports:
+  #     - "3307:3307"
+  #   volumes:
+  #     - ./raw_data/init.sql:/docker-entrypoint-initdb.d/init.sql
+  #     - mysql_diabetes_data:/var/lib/mysql
+  #   command: >
+  #     --default-authentication-plugin=mysql_native_password
+  #     --init-file /docker-entrypoint-initdb.d/init.sql
+  #     --port=3307
+  #     --bind-address=0.0.0.0
     
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - proyecto2_airflow_network
-      - my_shared_network
+  #   healthcheck:
+  #     test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #   networks:
+  #     - proyecto2_airflow_network
+  #     - my_shared_network
 
-  datapi:
-    build: 
-      context: ./raw_data/api
-      dockerfile: Dockerfile
-    container_name: datapi
-    ports:
-      - '80:80'
-    volumes:
-      - ./raw_data/api/data:/app/api_data/data
-      - ./raw_data/api/main.py:/app/api_data/main.py
-    restart: always
-    networks:
-      - proyecto2_airflow_network
+  # datapi:
+  #   build: 
+  #     context: ./raw_data/api
+  #     dockerfile: Dockerfile
+  #   container_name: datapi
+  #   ports:
+  #     - '80:80'
+  #   volumes:
+  #     - ./raw_data/api/data:/app/api_data/data
+  #     - ./raw_data/api/main.py:/app/api_data/main.py
+  #   restart: always
+  #   networks:
+  #     - proyecto2_airflow_network
   
   # minio:
   #   container_name: minio

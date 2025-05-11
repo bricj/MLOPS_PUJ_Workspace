@@ -1,7 +1,0 @@
-CREATE DATABASE IF NOT EXISTS mlflow;
-
-CREATE USER IF NOT EXISTS 'airflow'@'%' IDENTIFIED BY 'airflow';
-
-GRANT ALL PRIVILEGES ON mlflow.* TO 'airflow'@'%';
-
-FLUSH PRIVILEGES;

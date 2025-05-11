@@ -76,8 +76,10 @@ def train_model():
         svm = SVC()
 
         # buscar hiperparametros mas optimos
+        print('Iniciando optimizacion de parametros')
         grid_search = GridSearchCV(svm, params, cv=5, scoring='accuracy', n_jobs=-1)
         grid_search.fit(X_train, y_train)
+        print('Optimizacion de parametros finalizada')
 
         mlflow.log_params(params)
         mlflow.set_tag("column_names", ",".join(columns))

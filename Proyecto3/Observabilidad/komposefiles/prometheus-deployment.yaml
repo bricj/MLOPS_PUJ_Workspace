@@ -1,44 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: prometheus
   name: prometheus
+  labels:
+    io.kompose.network/proyecto3_api_network: "true"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: prometheus
-  strategy:
-    type: Recreate
+      app: prometheus
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
-        kompose.version: 1.26.0 (40646f47)
-      creationTimestamp: null
       labels:
-        io.kompose.network/proyecto3_obs_network: "true"
-        io.kompose.service: prometheus
+        app: prometheus
     spec:
       containers:
-        - image: prom/prometheus
-          name: prometheus
+        - name: prometheus
+          image: ogcorzo/prometheus-custom:1.0.4 # Imagen personalizada
           ports:
             - containerPort: 9090
-          resources: {}
-          volumeMounts:
-            - mountPath: /etc/prometheus/prometheus.yml
-              name: prometheus-hostpath0
-              subPath: prometheus.yml
-      restartPolicy: Always
-      volumes:
-        - hostPath:
-            path: /opt/prometheus/prometheus.yml
-            type: File
-          name: prometheus-hostpath0
-status: {}
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"

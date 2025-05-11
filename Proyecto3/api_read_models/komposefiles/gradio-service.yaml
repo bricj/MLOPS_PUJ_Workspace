@@ -9,10 +9,12 @@ metadata:
     io.kompose.service: gradio
   name: gradio
 spec:
+  type: NodePort
   ports:
     - name: "7860"
       port: 7860
       targetPort: 7860
+      nodePort: 30110 # Puerto accesible desde tu máquina
   selector:
     io.kompose.service: gradio
 status:
