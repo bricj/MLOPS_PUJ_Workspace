@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:     # Define los servicios que se ejecutarán en contenedores Docker.
+  
+  inference_models:
+    image: 04602/api_read_models:latest
+    ports:
+      - "8989:8989"
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          memory: 1000M
+    restart: 'no' 
+    networks:
+      - proyecto3_api_network
+
+  gradio:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    container_name: gradio_ui
+    command: ["python", "gradio_app.py"]
+    depends_on:
+      - inference_models
+    restart: always
+    networks:
+      - proyecto3_api_network
+
+networks:
+  proyecto3_api_network:
+    driver: "bridge"
