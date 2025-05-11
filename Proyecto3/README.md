@@ -263,9 +263,9 @@ Por ultimo, se expone el servicio de inferencia Gradio, el cual es la herramient
 
 Se concluye que a traves de kubernetes es posible distribuir la carga de procesos de MLOPS para asi mejorar el rendimiento del proceso de captura y almacenamiento de datos, proceso de entrenamiento, experimentacion, pruebas de estres y despliegue del servicio de inferencia.
 
-En comparacion a disponer el proceso de operaciones en docker, se destaca que es menor la configuracion para establecer las redes internas, no obstante, emerge un reto adicional y es disponibilizar las IP de cada maquin para que los nodos puedas comunicarse entre si. En nuestro caso, se utilizo el servicio de socat, el cual permitio definir las comunicacion entre la ip de cluster de minikube y la ip de cada maquina.
+En comparacion a desplegar el proceso de MLOPS en docker, se destaca que es menor la configuracion para establecer las redes internas, no obstante, emerge un reto adicional y es disponibilizar las IPs de cada maquina para que los nodos puedas comunicarse entre si. En nuestro caso, se utilizo el servicio de socat, el cual permitio definir las comunicacion entre la ip de cluster de minikube y la ip de cada maquina.
 
 Por otro lado, los servicios de observabilidad permiten identificar el perfomance del proceso de inferencia, con lo que es posible identificar la necesidad de distribuir los servicios entre las maquinas disponibles.
 
-Si bien es cierto que es necesario crear archivos yaml para la configuracion de cada servicios, se resalta la modularidad de cada servicios, los cuales no dependen exclusivamente de la ejecion de un docker compose. Kubernetes permite escalabilidad desde multiples maquinas.
+Si bien es cierto que es necesario crear archivos yaml para la configuracion de cada servicios, se resalta la modularidad de cada servicios, los cuales no dependen exclusivamente de la ejecucion de un docker compose. Kubernetes permite escalabilidad desde multiples maquinas.
 
