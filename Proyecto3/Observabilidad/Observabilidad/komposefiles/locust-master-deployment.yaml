@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-master
+  labels:
+    io.kompose.network/proyecto3_api_network: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locust
+      role: master
+  template:
+    metadata:
+      labels:
+        app: locust
+        role: master
+    spec:
+      containers:
+        - name: locust
+          image: ogcorzo/locust-custom:1.0.4  # Usa tu imagen personalizada
+          command: ["locust"]
+          args: ["-f", "/mnt/locust/locustfile.py", "--master"]
+          ports:
+            - name: web-ui
+              containerPort: 8089
+            - name: master-p1
+              containerPort: 5557
+            - name: master-p2
+              containerPort: 5558
+          volumeMounts:
+            - name: locustfile-volume
+              mountPath: /mnt/locust
+      volumes:
+        - name: locustfile-volume
+          configMap:
+            name: locustfile-configmap
+            items:
+              - key: locustfile.py
+                path: locustfile.py
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locust-master
+spec:
+  selector:
+    app: locust
+    role: master
+  ports:
+    - name: master-p1
+      port: 5557
+      targetPort: 5557
+    - name: master-p2
+      port: 5558
+      targetPort: 5558
+    - name: web-ui
+      port: 8089
+      targetPort: 8089
+  type: NodePort  # Cambia a LoadBalancer si estás en un entorno en la nube

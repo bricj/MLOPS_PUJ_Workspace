@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: locust
+  name: locust
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      io.kompose.service: locust
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/proyecto3_obs_network: "true"
+        io.kompose.service: locust
+    spec:
+      containers:
+        - name: locust
+          image: ogcorzo/locust-custom:latest  # imagen personalizada que contiene el locustfile.py
+          env:
+            - name: LOCUST_HOST
+              value: http://inference_models:8989
+          ports:
+            - containerPort: 8089
+          args: ["-f", "/locust/locustfile.py", "--logfile", "/app/logs/locust.log"]
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - mountPath: /app/logs
+              name: locust-logs
+      restartPolicy: Always
+      volumes:
+        - name: locust-logs
+          emptyDir: {}  # almacenamiento temporal en memoria para logs
