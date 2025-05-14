@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: gradio
+  name: gradio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: gradio
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/proyecto3_api_network: "true"
+        io.kompose.service: gradio
+    spec:
+      containers:
+        - args:
+            - python
+            - gradio_app.py
+          image: ogcorzo/gradio-app:1.0.8
+          name: gradio-ui
+          ports:
+            - containerPort: 7860
+          resources: {}
+      restartPolicy: Always
+status: {}

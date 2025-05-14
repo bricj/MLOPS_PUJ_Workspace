@@ -239,11 +239,11 @@ def validation_data(**kwargs):
         
         # Calcular m�tricas
         results = {
-            "accuracy": accuracy_score(y, y_pred),
-            "precision": precision_score(y, y_pred, pos_label="YES"),
-            "recall": recall_score(y, y_pred, pos_label="YES"),
-            "f1_score": f1_score(y, y_pred, pos_label="YES"),
-            "roc_auc": roc_auc_score(y == "YES", y_pred_proba)
+            "accuracy_latest": accuracy_score(y, y_pred),
+            "precision_latest": precision_score(y, y_pred, pos_label="YES"),
+            "recall_latest": recall_score(y, y_pred, pos_label="YES"),
+            "f1_score_latest": f1_score(y, y_pred, pos_label="YES"),
+            "roc_auc_latest": roc_auc_score(y == "YES", y_pred_proba)
         }
 
         mlflow.log_metrics(results)
@@ -252,32 +252,40 @@ def validation_data(**kwargs):
         for metric, value in results.items():
             print(f"- {metric}: {value:.4f}")
 
-        experiment = mlflow.get_experiment_by_name(experiment_name)
+        model_prod = mlflow.sklearn.load_model(
+            model_uri=f"models:/{model_name}/Production"
+        )            
+            
+        if not model_prod:
 
-        # Search for the latest run (sorted by start_time descending)
-        runs = client.search_runs(
-            experiment_ids=[experiment.experiment_id],
-            filter_string=f"tags.mlflow.runName = 'svm_validation'",
-            order_by=["start_time DESC"],
-            max_results=1
-        )
+            print('No se encuentra modelo en production, cargando modelo')
 
-        if not runs:
-            print("This is the first registered validation run, no runs for comparison")
+            latest_model_versions = client.search_model_versions(f"name='{model_name}'")
+            latest_version = max(int(m.version) for m in latest_model_versions)  # Get the highest version
 
+        # Transicionar a producción
             client.transition_model_version_stage(
                 name=model_name,
-                version=1,
+                version=latest_version,
                 stage="Production"
             )
-
         else:
-            latest_run = runs[0]
-            old_metrics = latest_run.data.metrics
 
-            print("ID del run de comparacion:", latest_run.info.run_id)
+            y_pred = model_prod.predict(X)
+            y_pred_proba = model_prod.predict_proba(X)[:, 1]
+            
+            # Calcular m�tricas
+            results_prod = {
+                "accuracy_production": accuracy_score(y, y_pred),
+                "precision_production": precision_score(y, y_pred, pos_label="YES"),
+                "recall_production": recall_score(y, y_pred, pos_label="YES"),
+                "f1_score_production": f1_score(y, y_pred, pos_label="YES"),
+                "roc_auc_production": roc_auc_score(y == "YES", y_pred_proba)
+            }
 
-            if results['recall'] >= old_metrics['recall']:
+            mlflow.log_metrics(results_prod)
+
+            if results['recall_latest'] >= results_prod['recall_production']:
 
                 print('Model entrenado posee mejor desempeño que modelo en producción')
                 print('Iniciando cargue en producción')
