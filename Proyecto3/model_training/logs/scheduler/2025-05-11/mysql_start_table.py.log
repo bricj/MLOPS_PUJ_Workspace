@@ -901,3 +901,52 @@
 [2025-05-11T01:07:23.848+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:07:23.847+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-05-11T01:07:23.890+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:07:23.889+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
 [2025-05-11T01:07:24.060+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.672 seconds
+[2025-05-11T01:07:54.517+0000] {processor.py:161} INFO - Started process (PID=5601) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:07:54.520+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:07:54.529+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:07:54.526+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:07:54.592+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:07:54.759+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:07:54.759+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:07:54.824+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:07:54.823+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:07:54.893+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.432 seconds
+[2025-05-11T01:08:25.118+0000] {processor.py:161} INFO - Started process (PID=5616) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:08:25.122+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:08:25.135+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:08:25.134+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:08:25.156+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:08:25.240+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:08:25.239+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:08:25.274+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:08:25.273+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:08:25.321+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.226 seconds
+[2025-05-11T01:08:55.536+0000] {processor.py:161} INFO - Started process (PID=5636) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:08:55.544+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:08:55.557+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:08:55.557+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:08:55.588+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:08:55.687+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:08:55.686+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:08:55.728+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:08:55.728+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:08:55.859+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.359 seconds
+[2025-05-11T01:09:27.310+0000] {processor.py:161} INFO - Started process (PID=5655) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:09:27.313+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:09:27.319+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:09:27.318+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:09:27.350+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:09:27.524+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:09:27.524+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:09:27.589+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:09:27.589+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:09:27.676+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.388 seconds
+[2025-05-11T01:09:57.835+0000] {processor.py:161} INFO - Started process (PID=5670) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:09:57.838+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:09:57.851+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:09:57.850+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:09:57.904+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:09:58.034+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:09:58.033+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:09:58.063+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:09:58.061+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:09:58.113+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.323 seconds
+[2025-05-11T01:10:28.994+0000] {processor.py:161} INFO - Started process (PID=5690) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:10:28.998+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:10:29.004+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:10:29.003+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:10:29.038+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:10:29.122+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:10:29.121+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:10:29.153+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:10:29.153+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:10:29.226+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.251 seconds
+[2025-05-11T01:10:59.530+0000] {processor.py:161} INFO - Started process (PID=5710) to work on /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:10:59.534+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mysql_start_table.py for tasks to queue
+[2025-05-11T01:10:59.542+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:10:59.541+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:10:59.586+0000] {processor.py:840} INFO - DAG(s) 'iniciar_tabla_mysql' retrieved from /opt/airflow/dags/mysql_start_table.py
+[2025-05-11T01:10:59.708+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:10:59.707+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-05-11T01:10:59.773+0000] {logging_mixin.py:188} INFO - [2025-05-11T01:10:59.773+0000] {dag.py:3954} INFO - Setting next_dagrun for iniciar_tabla_mysql to None, run_after=None
+[2025-05-11T01:10:59.889+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mysql_start_table.py took 0.387 seconds

@@ -1,0 +1,12 @@
+services:
+  api_inference:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi-inference
+    ports:
+      - '8989:8989'
+    #volumes:
+    #  - ./api/app:/api/app
+    #  - ./model:/model
+    restart: always

@@ -75,3 +75,4 @@ Proyecto3/logs/dag_id=fetch_and_store_diabetes_data/
 Proyecto3/logs/dag_id=iniciar_tabla_mysql/
 Proyecto3/logs/dag_id=read_diabetes_tables/
 Proyecto3/logs/dag_id=validate_diabetes_processed_tables/
+Taller6/api/app/__pycache__/
