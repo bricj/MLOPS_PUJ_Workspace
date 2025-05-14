@@ -76,3 +76,5 @@ Proyecto3/logs/dag_id=iniciar_tabla_mysql/
 Proyecto3/logs/dag_id=read_diabetes_tables/
 Proyecto3/logs/dag_id=validate_diabetes_processed_tables/
 Taller6/api/app/__pycache__/
+Proyecto3/model_training/dags/__pycache__/
+Proyecto3/model_training/logs/
