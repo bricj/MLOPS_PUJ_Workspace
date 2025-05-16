@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app.main import app  # Ajusta este import si tu archivo principal tiene otro nombre
+from app.main import app  # Ajusta este import si tu archivo principal tiene otro nombre.
 
 client = TestClient(app)
 
