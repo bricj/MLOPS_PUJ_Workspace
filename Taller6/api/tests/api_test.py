@@ -72,35 +72,38 @@
 #     )
     
 #     assert response.status_code == 422  # Unprocessable Entity por validación de Pydantic
-
 import pytest
 from unittest.mock import patch, MagicMock
 from fastapi.testclient import TestClient
-from app.main import app, load_model
+from app.main import app
 
 client = TestClient(app)
 
-# Mock global para la función de carga del modelo
+# Mock global para la variable 'model'
 @pytest.fixture(autouse=True)
-def mock_model_loading():
+def mock_model():
     """Simula que el modelo está cargado para todas las pruebas."""
-    with patch('app.main.model_loaded', True), \
-         patch('app.main.model') as mock_model:
-        # Configurar el modelo simulado para que devuelva predicciones
-        mock_model.predict.return_value = [1]
+    # Crear un mock para reemplazar la variable global 'model'
+    mock_model = MagicMock()
+    
+    # Configurar el comportamiento del mock
+    mock_model.predict.return_value = [1]  # Siempre devuelve clase 1
+    
+    # Parchear la variable global 'model' en el módulo app.main
+    with patch('app.main.model', mock_model):
         yield mock_model
 
 def test_health_check():
-    """Verifica que el endpoint /health responda correctamente con estado 'healthy'."""
+    """Verifica que el endpoint /health responda correctamente."""
     response = client.get("/health")
     assert response.status_code == 200
     data = response.json()
     assert "status" in data
     assert data["status"] == "healthy"
     assert "model_loaded" in data
-    assert data["model_loaded"] is True  # Ahora siempre será True debido al mock
+    assert data["model_loaded"] is True  # Será True porque hemos hecho mock del modelo
 
-def test_prediction_success(mock_model_loading):
+def test_prediction_success():
     """Verifica que el endpoint /predict procese correctamente una entrada válida."""
     sample_input = {
         "Elevation": 0,
@@ -153,3 +156,4 @@ def test_prediction_missing_field():
     )
     
     assert response.status_code == 422  # Unprocessable Entity por validación de Pydantic
+    
