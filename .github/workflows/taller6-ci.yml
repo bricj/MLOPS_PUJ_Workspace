@@ -48,5 +48,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
+        file: ./Taller6/api/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:${{ steps.timestamp.outputs.tag }}
