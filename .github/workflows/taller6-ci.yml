@@ -5,10 +5,14 @@ on:
     branches: [develop]
   pull_request:
     branches: [develop]
+  
+  workflow_dispatch:
 
 jobs:
+
   test-and-build:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'  # evita los loops infinitos
 
     steps:
     - name: Checkout código
