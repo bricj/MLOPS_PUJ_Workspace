@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-load-tester
+  labels:
+    app: locust-load-tester
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locust-load-tester
+  template:
+    metadata:
+      labels:
+        app: locust-load-tester
+    spec:
+      containers:
+      - name: locust
+        # Reemplaza con tu nombre de usuario real de DockerHub
+        image: 04602/model-loadtester:latest
+        ports:
+        - containerPort: 8089
+        # Apunta al servicio de FastAPI que creaste en api-deployment.yaml
+        command: ["locust", "--host", "http://fastapi-inference-service:8989"]
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locust-load-tester-service
+  labels:
+    app: locust-load-tester
+spec:
+  ports:
+  - port: 8089
+    targetPort: 8089
+    protocol: TCP
+    name: web
+  selector:
+    app: locust-load-tester
+  type: NodePort
