@@ -3,7 +3,7 @@ print(TestClient)
 from app.main import app  # Ajusta este import si tu archivo principal tiene otro nombre.
 
 client = TestClient(app)
-a=a
+a="a"
 
 def test_health_check():
     response = client.get("/health")
