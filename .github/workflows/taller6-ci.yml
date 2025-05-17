@@ -38,6 +38,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Generate timestamp
+      id: timestamp
+      shell: bash
+      run: echo "tag=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
+
     - name: Construir y subir imagen a DockerHub
       if: success()
       uses: docker/build-push-action@v5
