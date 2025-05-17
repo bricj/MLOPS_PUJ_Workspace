@@ -154,5 +154,5 @@ def test_prediction_missing_field():
         json=invalid_input,
         headers={"Content-Type": "application/json"}
     )
-    #####
+    ######
     assert response.status_code == 422  # Unprocessable Entity por validación de Pydantic
