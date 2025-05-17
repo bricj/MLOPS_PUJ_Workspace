@@ -3,6 +3,7 @@ print(TestClient)
 from app.main import app  # Ajusta este import si tu archivo principal tiene otro nombre.
 
 client = TestClient(app)
+a=a
 
 def test_health_check():
     response = client.get("/health")
@@ -15,18 +16,18 @@ def test_health_check():
 
 def test_prediction_success():
     sample_input = {
-        "Elevation": 2800,
-        "Aspect": 90,
-        "Slope": 15,
-        "Horizontal_Distance_To_Hydrology": 120,
-        "Vertical_Distance_To_Hydrology": 30,
-        "Horizontal_Distance_To_Roadways": 200,
-        "Hillshade_9am": 220,
-        "Hillshade_Noon": 240,
-        "Hillshade_3pm": 180,
-        "Horizontal_Distance_To_Fire_Points": 150,
-        "Wilderness_Area": 1,
-        "Soil_Type": 3
+        "Elevation": 0,
+        "Aspect": 0,
+        "Slope": 0,
+        "Horizontal_Distance_To_Hydrology": 0,
+        "Vertical_Distance_To_Hydrology": 0,
+        "Horizontal_Distance_To_Roadways": 0,
+        "Hillshade_9am": 0,
+        "Hillshade_Noon": 0,
+        "Hillshade_3pm": 0,
+        "Horizontal_Distance_To_Fire_Points": 0,
+        "Wilderness_Area": 0,
+        "Soil_Type": 0
     }
 
     response = client.post("/predict", json=sample_input)
@@ -38,18 +39,18 @@ def test_prediction_success():
 
 def test_prediction_missing_field():
     invalid_input = {
-        # Elevation is missing
-        "Aspect": 90,
-        "Slope": 15,
-        "Horizontal_Distance_To_Hydrology": 120,
-        "Vertical_Distance_To_Hydrology": 30,
-        "Horizontal_Distance_To_Roadways": 200,
-        "Hillshade_9am": 220,
-        "Hillshade_Noon": 240,
-        "Hillshade_3pm": 180,
-        "Horizontal_Distance_To_Fire_Points": 150,
-        "Wilderness_Area": 1,
-        "Soil_Type": 3
+        # Elevation is missing for the experiment
+        "Aspect": 0,
+        "Slope": 0,
+        "Horizontal_Distance_To_Hydrology": 0,
+        "Vertical_Distance_To_Hydrology": 0,
+        "Horizontal_Distance_To_Roadways": 0,
+        "Hillshade_9am": 0,
+        "Hillshade_Noon": 0,
+        "Hillshade_3pm": 0,
+        "Horizontal_Distance_To_Fire_Points": 0,
+        "Wilderness_Area": 0,
+        "Soil_Type": 0
     }
 
     response = client.post("/predict", json=invalid_input)
