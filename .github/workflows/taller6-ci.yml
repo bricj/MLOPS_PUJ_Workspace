@@ -51,3 +51,17 @@ jobs:
         file: ./Taller6/api/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:${{ steps.timestamp.outputs.tag }}
+    
+    - name: Reemplazar la imagen en el manifiesto de Argo CD
+      run: |
+        sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:${{ steps.timestamp.outputs.tag }}|" Taller6/manifest/api-deployment.yaml
+        
+    - name: Commit y push del nuevo manifiesto
+      if: github.ref == 'refs/heads/development'
+      run: |
+        git config --global user.email "github-actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add Taller6/manifest/api-deployment.yaml
+        git commit -m "Actualiza imagen a ${{ env.IMAGE_TAG }} para despliegue"
+        git push 
+
