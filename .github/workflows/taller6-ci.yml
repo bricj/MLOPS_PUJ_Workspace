@@ -60,6 +60,11 @@ jobs:
       run: |
         sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:${{ steps.timestamp.outputs.tag }}|" Taller6/manifest/api-deployment.yaml
         
+    - name: Verifica estado de Git antes del commit
+      run: |
+        git status
+        git diff
+    
     - name: Commit y push del nuevo manifiesto
       if: github.ref == 'refs/heads/development'
       run: |
