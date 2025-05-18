@@ -79,18 +79,32 @@ try:
     svm = SVC(kernel='linear', probability=True)
     
     # Grid search muy simple (un solo parámetro, una sola validación)
-    params = {'C': [1.0]}
+    params = {'C': [0.1, 1.0, 10.0]}
     grid_search = GridSearchCV(svm, params, cv=2, scoring='accuracy', n_jobs=-1)
     grid_search.fit(X_train, y_train)
     
-    # Evaluar modelo
+    # Mostrar resultados del grid search
+    print("Resultados del Grid Search:")
+    print(f"Mejor valor de C: {grid_search.best_params_['C']}")
+    print(f"Mejor score en validación: {grid_search.best_score_:.4f}")
+        
+    # Evaluar el mejor modelo
     accuracy = grid_search.score(X_test, y_test)
     print(f"Precisión del modelo: {accuracy:.4f}")
-    
-    # Guardar modelo
+        
+    # Guardar el mejor modelo
     model_path = os.path.join(OUTPUT_DIR, "model_svm.pkl")
-    print(f"Guardando modelo en {model_path}")
-    joblib.dump(grid_search, model_path)
+    print(f"Guardando mejor modelo en {model_path}")
+    joblib.dump(grid_search.best_estimator_, model_path)
+    
+    # # Evaluar modelo
+    # accuracy = grid_search.score(X_test, y_test)
+    # print(f"Precisión del modelo: {accuracy:.4f}")
+    
+    # # Guardar modelo
+    # model_path = os.path.join(OUTPUT_DIR, "model_svm.pkl")
+    # print(f"Guardando modelo en {model_path}")
+    # joblib.dump(grid_search, model_path)
     
     print("Entrenamiento completado exitosamente")
     
