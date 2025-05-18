@@ -23,7 +23,7 @@ spec:
           mountPath: /mnt/model
       containers:
       - name: fastapi-inference
-        image: 04602/taller6-fastapi-ml-api:latest
+        image: 04602/taller6-fastapi-ml-api:2025-05-18-03-54-57
         # No es necesario sobreescribir el comando, ya está en el Dockerfile
         # command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8989"]
         env:
