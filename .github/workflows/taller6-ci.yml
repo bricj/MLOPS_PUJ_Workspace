@@ -58,7 +58,7 @@ jobs:
     
     - name: Reemplazar la imagen en el manifiesto de Argo CD
       run: |
-        sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/taller6-fastapi-ml-api:${{ steps.timestamp.outputs.tag }}|" Taller6/manifest/api-deployment.yaml
+        sed -i "s|image: 04602/taller6-fastapi-ml-api:.*|image: 04602/taller6-fastapi-ml-api:${{ steps.timestamp.outputs.tag }}|" Taller6/manifest/api-deployment.yaml
         
     - name: Verifica estado de Git antes del commit
       run: |
