@@ -5,6 +5,8 @@ resources:
   - api-deployment.yaml
   - locust-deployment.yaml
   - script-deployment.yaml
+  - prometheus-deployment.yaml
+  - grafana-deployment.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: argocd
