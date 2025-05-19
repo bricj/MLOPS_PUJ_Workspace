@@ -14,6 +14,7 @@ spec:
     - name: "3000"
       port: 3000
       targetPort: 3000
+      nodePort: 30095 # Puerto accesible desde tu máquina
   selector:
     io.kompose.service: grafana
 status:

@@ -7,6 +7,8 @@ resources:
   - script-deployment.yaml
   - prometheus-deployment.yaml
   - grafana-deployment.yaml
+  - prometheus-service.yaml
+  - grafana-service.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: argocd
