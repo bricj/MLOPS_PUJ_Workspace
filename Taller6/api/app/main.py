@@ -1,9 +1,10 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request, Response
 import joblib
 import logging
 import numpy as np
 from pydantic import BaseModel
 import os
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
 DATA_PATH = "/api/data/covertype.csv" 
 DATA_OUTPUT = "/api/model/"
@@ -33,49 +34,60 @@ except Exception as e:
     logging.error(f"Error al cargar el modelo: {str(e)}")
     model = None
 
+# Métricas Prometheus
+REQUEST_COUNT = Counter('predict_requests_total', 'Total de peticiones de predicción')
+REQUEST_LATENCY = Histogram('predict_latency_seconds', 'Tiempo de latencia de predicción')
+
 @app.post("/predict")
 def predict(input_data: PredictionInput):
     """Realiza una predicción directamente sin transformaciones adicionales"""
-    if model is None:
-        raise HTTPException(status_code=500, detail="El modelo no se cargó correctamente")
-    
-    try:
-        # Convertir input_data a lista de valores
-        features = [
-            input_data.Elevation,
-            input_data.Aspect,
-            input_data.Slope,
-            input_data.Horizontal_Distance_To_Hydrology,
-            input_data.Vertical_Distance_To_Hydrology,
-            input_data.Horizontal_Distance_To_Roadways,
-            input_data.Hillshade_9am,
-            input_data.Hillshade_Noon,
-            input_data.Hillshade_3pm,
-            input_data.Horizontal_Distance_To_Fire_Points,
-            input_data.Wilderness_Area,
-            input_data.Soil_Type
-        ]
+    REQUEST_COUNT.inc()
+
+    with REQUEST_LATENCY.time():
+        if model is None:
+            raise HTTPException(status_code=500, detail="El modelo no se cargó correctamente")
         
-        # Crear el array numpy directamente
-        features_array = np.array(features).reshape(1, -1)
-        
-        # Realizar predicción
-        predictions = model.predict(features_array)
-        
-        logging.info(f'Predicción realizada: {predictions[0]}')
-        
-        return {
-            "prediction": int(predictions[0]),
-            "success": True
-        }
-    except Exception as e:
-        logging.error(f"Error en predicción: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
+        try:
+            # Convertir input_data a lista de valores
+            features = [
+                input_data.Elevation,
+                input_data.Aspect,
+                input_data.Slope,
+                input_data.Horizontal_Distance_To_Hydrology,
+                input_data.Vertical_Distance_To_Hydrology,
+                input_data.Horizontal_Distance_To_Roadways,
+                input_data.Hillshade_9am,
+                input_data.Hillshade_Noon,
+                input_data.Hillshade_3pm,
+                input_data.Horizontal_Distance_To_Fire_Points,
+                input_data.Wilderness_Area,
+                input_data.Soil_Type
+            ]
+            
+            # Crear el array numpy directamente
+            features_array = np.array(features).reshape(1, -1)
+            
+            # Realizar predicción
+            predictions = model.predict(features_array)
+            
+            logging.info(f'Predicción realizada: {predictions[0]}')
+            
+            return {
+                "prediction": int(predictions[0]),
+                "success": True
+            }
+        except Exception as e:
+            logging.error(f"Error en predicción: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
 
 @app.get("/health")
 def health_check():
     """Endpoint para verificar el estado de la API"""
     return {"status": "healthy", "model_loaded": model is not None}
+
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
 
