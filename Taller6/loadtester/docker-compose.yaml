@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  # Servicio FastAPI de inferencia
+  fastapi:
+    image: 04602/fastapi-inference:latest
+    container_name: fastapi-inference
+    ports:
+      - "8989:8989"
+    volumes:
+      - model_volume:/api/model
+    environment:
+      - MODEL_PATH=/api/model/model_svm.pkl
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8989/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  # Servicio Locust para pruebas de carga
+  locust:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: model-loadtester
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./locust.py:/app/locust.py
+    environment:
+      - TARGET_HOST=http://fastapi:8989
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - fastapi
+    restart: unless-stopped
+
+volumes:
+  model_volume:

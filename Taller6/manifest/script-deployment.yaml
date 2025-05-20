@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: model-storage-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: model-copy-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: model-copier
+        image: 04602/fastapi-inference:latest
+        command: ["/bin/sh", "-c"]
+        args:
+        - |
+          # Crear directorio de destino si no existe
+          mkdir -p /mnt/model
+          
+          # Copiar el modelo pre-entrenado al volumen persistente
+          echo "Copiando modelo pre-entrenado al volumen persistente..."
+          cp -v /api/model/model_svm.pkl /mnt/model/
+          
+          # Verificar que la copia fue exitosa
+          if [ -f /mnt/model/model_svm.pkl ]; then
+            echo "Modelo copiado exitosamente"
+            ls -la /mnt/model/
+          else
+            echo "Error al copiar el modelo"
+            exit 1
+          fi
+        volumeMounts:
+        - name: model-storage
+          mountPath: "/mnt/model"
+      volumes:
+      - name: model-storage
+        persistentVolumeClaim:
+          claimName: model-storage-pvc
+      restartPolicy: OnFailure
+  backoffLimit: 2

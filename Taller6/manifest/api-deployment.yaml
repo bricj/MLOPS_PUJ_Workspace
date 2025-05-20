@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-inference
+  labels:
+    app: fastapi-inference
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-inference
+  template:
+    metadata:
+      labels:
+        app: fastapi-inference
+    spec:
+      initContainers:
+      - name: check-model-exists
+        image: busybox
+        command: ['sh', '-c', 'until ls /mnt/model/model_svm.pkl; do echo "Esperando que el modelo esté disponible..."; sleep 5; done; echo "¡Modelo encontrado! Iniciando servicio de inferencia..."']
+        volumeMounts:
+        - name: model-storage
+          mountPath: /mnt/model
+      containers:
+      - name: fastapi-inference
+        image: 04602/taller6-fastapi-ml-api:2025-05-20-04-13-06
+        # No es necesario sobreescribir el comando, ya está en el Dockerfile
+        # command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8989"]
+        env:
+        - name: MODEL_PATH
+          value: "/mnt/model/model_svm.pkl"
+        ports:
+        - containerPort: 8989
+        volumeMounts:
+        - name: model-storage
+          mountPath: "/mnt/model"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8989
+          initialDelaySeconds: 10
+          periodSeconds: 5
+      volumes:
+      - name: model-storage
+        persistentVolumeClaim:
+          claimName: model-storage-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-inference-service
+spec:
+  selector:
+    app: fastapi-inference
+  ports:
+  - port: 8989
+    targetPort: 8989
+    protocol: TCP
+  type: NodePort
