@@ -1,0 +1,26 @@
+services:     # Define los servicios que se ejecutarán en contenedores Docker.
+  create_models: # Nombre del servicio, en este caso es un servicio para ML (Machine Learning).
+
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: jupyterlab
+    ports:
+      - "8900:8900" 
+
+    volumes:
+      #- './jupyter_models/app:/src/train_models/app'
+      #- './models:/src/train_models/app/models'
+      - './app:/jupyter_app'
+
+    # networks:
+    #   - my_shared_network
+    # privileged: true
+
+    command: > 
+      bash -c "uv run --with jupyter jupyter lab --ip=0.0.0.0 --port=8900 --allow-root"
+
+# networks:
+#   my_shared_network:
+#     external: true

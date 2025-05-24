@@ -78,3 +78,6 @@ Proyecto3/logs/dag_id=validate_diabetes_processed_tables/
 Taller6/.pytest_cache/
 Taller6/api/tests/__pycache__/
 Taller6/api/iris.data/
+ProyectoFinal/jupyter/app/.ipynb_checkpoints/
+ProyectoFinal/jupyter/app/notebooks/.ipynb_checkpoints/
+ProyectoFinal/jupyter/app/notebooks/data/
