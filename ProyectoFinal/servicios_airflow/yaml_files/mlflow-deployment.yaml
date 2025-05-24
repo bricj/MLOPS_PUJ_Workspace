@@ -45,7 +45,7 @@ spec:
               "mlflow",
               "server",
               "--backend-store-uri",
-              "postgresql://mlflow:mlflow123@postgres:30543/mlflow_db",
+              "postgresql://mlflow:mlflow123@postgres:5432/mlflow_db",
               "--default-artifact-root",
               "s3://mlflow/",
               "--host",
