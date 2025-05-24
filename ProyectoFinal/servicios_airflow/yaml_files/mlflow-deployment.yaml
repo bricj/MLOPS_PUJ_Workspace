@@ -10,7 +10,7 @@ spec:
     - name: http
       port: 5000
       targetPort: 5000
-      nodePort: 38001
+      nodePort: 30500
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -33,19 +33,19 @@ spec:
             - containerPort: 5000
           env:
             - name: MLFLOW_TRACKING_URI
-              value: http://10.43.101.168:31485
+              value: http://10.43.101.168:30500
             - name: AWS_ACCESS_KEY_ID
               value: minioadmin
             - name: AWS_SECRET_ACCESS_KEY
               value: minioadmin123
             - name: MLFLOW_S3_ENDPOINT_URL
-              value: http://10.43.101.168:30855
+              value: http://10.43.101.168:30900
           command:
             [
               "mlflow",
               "server",
               "--backend-store-uri",
-              "postgresql://mlflow:mlflow123@postgres:5432/mlflow_db",
+              "postgresql://mlflow:mlflow123@postgres:30543/mlflow_db",
               "--default-artifact-root",
               "s3://mlflow/",
               "--host",

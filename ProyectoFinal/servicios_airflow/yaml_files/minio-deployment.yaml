@@ -10,11 +10,11 @@ spec:
     - name: http
       port: 9000
       targetPort: 9000
-      nodePort: 36001
+      nodePort: 30900
     - name: http2
       port: 9001
       targetPort: 9001
-      nodePort: 36002
+      nodePort: 30901
 ---
 apiVersion: apps/v1
 kind: Deployment
