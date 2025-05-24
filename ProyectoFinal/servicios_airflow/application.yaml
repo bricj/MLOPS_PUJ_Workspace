@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: servicios-airflow
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/bricj/MLOPS_PUJ_Workspace.git
+    targetRevision: develop
+    path: ProyectoFinal/servicios_airflow/yaml_files
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mlops-proy4  # Cambiado a un namespace específico para tu aplicación
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true  # Esta opción creará el namespace si no existe
