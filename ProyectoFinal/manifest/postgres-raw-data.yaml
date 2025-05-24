@@ -1,0 +1,55 @@
+# Versión simplificada - Solo lo esencial para docker-compose externo
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-raw-data
+  labels:
+    app: postgres-raw-data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-raw-data
+  template:
+    metadata:
+      labels:
+        app: postgres-raw-data
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:14
+          env:
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: POSTGRES_PASSWORD
+              value: "admin"
+            - name: POSTGRES_DB
+              value: "rawdata"
+            - name: PGPORT
+              value: "5433"
+          ports:
+            - containerPort: 5433
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          emptyDir: {}
+
+---
+# Solo NodePort para acceso desde docker-compose
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-raw-data-external
+  labels:
+    app: postgres-raw-data
+spec:
+  type: NodePort
+  ports:
+    - port: 5433
+      targetPort: 5433
+      nodePort: 30543
+      protocol: TCP
+  selector:
+    app: postgres-raw-data
