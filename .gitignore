@@ -81,3 +81,9 @@ Taller6/api/iris.data/
 ProyectoFinal/jupyter/app/.ipynb_checkpoints/
 ProyectoFinal/jupyter/app/notebooks/.ipynb_checkpoints/
 ProyectoFinal/jupyter/app/notebooks/data/
+ProyectoFinal/training_model/dags/__pycache__/
+ProyectoFinal/training_model/logs/dag_id=api_data_ingestion/
+ProyectoFinal/training_model/logs/dag_id=data_processing/
+ProyectoFinal/training_model/logs/dag_processor_manager/
+ProyectoFinal/training_model/logs/scheduler/
+ProyectoFinal/jupyter/app/.venv/
