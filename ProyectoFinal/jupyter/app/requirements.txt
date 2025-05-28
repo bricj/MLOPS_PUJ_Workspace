@@ -138,3 +138,4 @@ pymysql==1.1.0
 sqlalchemy==2.0.30
 imbalanced-learn==0.12.2
 psycopg2-binary>=2.9.5
+mlflow==2.17
