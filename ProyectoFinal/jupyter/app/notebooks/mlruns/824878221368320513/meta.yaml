@@ -1,0 +1,6 @@
+artifact_location: file:///jupyter_app/notebooks/mlruns/824878221368320513
+creation_time: 1748480045894
+experiment_id: '824878221368320513'
+last_update_time: 1748480045894
+lifecycle_stage: active
+name: argocd_experiment

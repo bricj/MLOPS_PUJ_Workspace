@@ -1,0 +1,15 @@
+artifact_uri: file:///jupyter_app/notebooks/mlruns/824878221368320513/e95c97ef0cbc407ca4c9c383bc269241/artifacts
+end_time: 1748480079897
+entry_point_name: ''
+experiment_id: '824878221368320513'
+lifecycle_stage: active
+run_id: e95c97ef0cbc407ca4c9c383bc269241
+run_name: svm_training
+run_uuid: e95c97ef0cbc407ca4c9c383bc269241
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748480046367
+status: 3
+tags: []
+user_id: root
