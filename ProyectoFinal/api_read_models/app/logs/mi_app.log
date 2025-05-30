@@ -1,1 +1,4 @@
-#inicio de logs de la API
+#inicio de logs de la API2025-05-29 21:58:48,443 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-05-29 22:04:25,089 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-05-29 22:13:40,529 - botocore.credentials - INFO - Found credentials in environment variables.
+2025-05-29 22:37:53,687 - botocore.credentials - INFO - Found credentials in environment variables.

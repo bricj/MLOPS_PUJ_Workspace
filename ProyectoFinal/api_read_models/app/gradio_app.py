@@ -19,30 +19,24 @@ def get_annotations():
     except Exception as e:
         return [f"❌ Error al obtener las anotaciones: {str(e)}"]
 
-def predict(model_name,feature_1,feature_2,feature_3,feature_4,feature_5,feature_6,feature_7,feature_8,
-        feature_9,feature_10,feature_11,feature_12,feature_13,feature_14,feature_15 
-               ):
+def predict(model_name,bed,bath,acre_lot,street,zip_code,house_size,city,state,brokered_by,prev_sold_date):
     
     payload = {
-        "feature_1": int(feature_1),
-        "feature_2": int(feature_2),
-        "feature_3": int(feature_3),
-        "feature_4": int(feature_4),
-        "feature_5": int(feature_5),
-        "feature_6": int(feature_6),
-        "feature_7": int(feature_7),
-        "feature_8": int(feature_8),
-        "feature_9": int(feature_9),
-        "feature_10": int(feature_10),
-        "feature_11": int(feature_11),
-        "feature_12": int(feature_12),
-        "feature_13": int(feature_13),
-        "feature_14": int(feature_14),
-        "feature_15": int(feature_15)
+        "bed": float(bed),
+        "bath": float(bath),
+        "acre_lot": float(acre_lot),
+        "street": str(street),
+        "zip_code": str(zip_code),
+        "house_size": float(house_size),
+        "city": str(city),
+        "state": str(state),
+        "brokered_by": str(brokered_by),
+        "prev_sold_date": str(prev_sold_date)
     }
 
     try:
-        r = requests.post(f"{API_URL}/predict/{model_name.split(":")[0]}", json=payload)
+        mod = model_name.split(":")[0]
+        r = requests.post(f"{API_URL}/predict/{mod}", json=payload)
         r.raise_for_status()
         return r.json().get("predictions", "Sin predicción")
     except Exception as e:
@@ -66,21 +60,16 @@ with gr.Blocks() as demo:
     with gr.Row():
         input_fields = [
             model_dropdown,
-            gr.Number(label="feature_1"),
-            gr.Number(label="feature_2"),
-            gr.Number(label="feature_3"),
-            gr.Number(label="feature_4"),
-            gr.Number(label="feature_5"),
-            gr.Number(label="feature_6"),
-            gr.Number(label="feature_7"),
-            gr.Number(label="feature_8"),
-            gr.Number(label="feature_9"),
-            gr.Number(label="feature_10"),
-            gr.Number(label="feature_11"),
-            gr.Number(label="feature_12"),
-            gr.Number(label="feature_13"),
-            gr.Number(label="feature_14"),
-            gr.Number(label="feature_15")
+            gr.Number(label="bed"),
+            gr.Number(label="bath"),
+            gr.Number(label="acre_lot"),
+            gr.Textbox(label="street"),
+            gr.Textbox(label="zip_code"),
+            gr.Number(label="house_size"),
+            gr.Textbox(label="city"),
+            gr.Textbox(label="state"),
+            gr.Textbox(label="brokered_by"),
+            gr.Textbox(label="prev_sold_date")
         ]
     
     output = gr.Textbox(label="📈 Predicción")
@@ -89,7 +78,7 @@ with gr.Blocks() as demo:
     submit_btn.click(fn=predict, inputs=input_fields, outputs=output)
 
     with gr.Row():
-        model_annotation = gr.Textbox(label="✏️ Anotaciones")
+        model_annotation = gr.Textbox(label="✏️ Anotaciones", lines=10)
         reload_button_ann = gr.Button("🔄 Recargar anotaciones")
         reload_button_ann.click(fn=update_annotations, outputs=model_annotation)
 

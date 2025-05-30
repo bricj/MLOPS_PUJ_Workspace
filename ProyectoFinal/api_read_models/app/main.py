@@ -38,14 +38,17 @@ predictions_table = Table(
     "predictions", metadata,
     Column("id", Integer, primary_key=True, index=True, autoincrement=True),
     Column("model_name", String),
-    Column("brokered_by", Float),
+    Column("city", String),
+    Column("state", String),
+    Column("brokered_by", String),
     Column("price", Float),
     Column("bed", Float),
     Column("bath", Float),
     Column("acre_lot", Float),
-    Column("street", Float),
-    Column("zip_code", Float),
-    Column("house_size", Float)
+    Column("street", String),
+    Column("zip_code", String),
+    Column("house_size", Float),
+    Column("prev_sold_date",String)
 )
 
 # Crear la tabla si no existe
@@ -54,13 +57,16 @@ metadata.create_all(bind=engine)
 app = FastAPI()
 
 class PredictionInput(BaseModel):
-    brokered_by: float
+    city: str
+    state: str
+    brokered_by: str
     bed: float
     bath: float
     acre_lot: float
-    street: float
-    zip_code: float
+    street: str
+    zip_code: str
     house_size: float
+    prev_sold_date: str
 
 
 
@@ -134,23 +140,47 @@ def predict(model_name: str,input_data: PredictionInput):
         # Convertir la entrada a DataFrame si el modelo requiere ese formato
         try:
             numerical = [
-                input_data.brokered_by,
                 input_data.bed,
                 input_data.bath,
                 input_data.acre_lot,
-                input_data.street,
                 input_data.zip_code,
                 input_data.house_size
 
             ]
 
+            categorical = [
+                input_data.city,
+                input_data.state,
+                input_data.street,
+                input_data.brokered_by,
+                input_data.prev_sold_date
+            ]
+
+            data_dict = {
+                'bed': [input_data.bed],
+                'bath': [input_data.bath],
+                'acre_lot': [input_data.acre_lot],
+                'street': [input_data.street],  # cuidado si esto es una string compleja
+                'zip_code': [input_data.zip_code],
+                'house_size': [input_data.house_size],
+                'city': [input_data.city],
+                'state': [input_data.state],
+                'brokered_by': [input_data.brokered_by],
+                'prev_sold_date': [input_data.prev_sold_date]  # asegúrate que sea el tipo correcto
+            }
+
+            # Crear un DataFrame
+            input_df = pd.DataFrame(data_dict)
+
             numerical = np.array(numerical).reshape(1, -1)
-            predictions = model.predict(numerical)
+            predictions = model.predict(input_df)
 
             # Guardar en la base de datos
             session = SessionLocal()
             ins = predictions_table.insert().values(
                 model_name=model_name,
+                city=input_data.city,
+                state=input_data.state,
                 brokered_by=input_data.brokered_by,
                 price=float(predictions),
                 bed=input_data.bed,
@@ -158,7 +188,8 @@ def predict(model_name: str,input_data: PredictionInput):
                 acre_lot=input_data.acre_lot,
                 street=input_data.street,
                 zip_code=input_data.zip_code,
-                house_size=input_data.house_size
+                house_size=input_data.house_size,
+                prev_sold_date=input_data.prev_sold_date
             )
             session.execute(ins)
             session.commit()
@@ -184,23 +215,30 @@ def annotations():
     # Search runs with the name filter
     runs = client.search_runs(
             experiment_ids=[experiment.experiment_id],
-            filter_string=f"tags.`mlflow.runName` = 'svm_validation'",
             order_by=["attributes.start_time DESC"],
-            max_results=1
+            max_results=10
         )
+    
+    all_annotations = ""
+    #filter_string=f"tags.`mlflow.runName` = 'svm_validation'",
         
     if not runs:
         print(f"No runs found with name containing '{run_name_pattern}'")
 
-    latest_run = runs[0]
-    run_id = latest_run.info.run_id
+    if len(runs)>0:     
+        for run in runs:
+            run_id = run.info.run_id
         
         # Get annotation if exists (adjust path as needed)
-    try:
-        annotation_content = mlflow.artifacts.load_text(
-                f"runs:/{run_id}/annotations/log.txt"
-            )
-        print(annotation_content)
-        return annotation_content
-    except Exception as e:
-        print(f"Annotation not found: {str(e)}")
+            try:
+                annotation_content = mlflow.artifacts.load_text(
+                        f"runs:/{run_id}/annotations/log.txt"
+                    )
+                print(annotation_content)
+                all_annotations = all_annotations + "\n " + annotation_content
+            except Exception as e:
+                print(f"Annotation not found: {str(e)}")
+                all_annotations = all_annotations + "\n " + f"no hay anotaciones para {run_id}"
+    
+        return all_annotations
+    
