@@ -1,8 +1,3 @@
-# """
-# DAG para ingestión de datos desde API a PostgreSQL
-# Procesa 10 grupos de datos de forma secuencial
-# """
-
 # from airflow import DAG
 # from airflow.providers.postgres.hooks.postgres import PostgresHook
 # from airflow.operators.python import PythonOperator
@@ -11,13 +6,10 @@
 # from datetime import datetime
 # from airflow.utils.dates import days_ago
 # import requests
-# import json
 # import os
 
 # # Configuración
 # API_URL = "http://10.43.101.108/data"
-# GROUPS = [3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
-# API_DAY = "Tuesday"
 # POSTGRES_CONN_ID = "postgres_raw_data"
 
 # default_args = {
@@ -32,18 +24,16 @@
 #     'api_data_ingestion',
 #     default_args=default_args,
 #     description='Ingestión de datos desde API a PostgreSQL',
-#     schedule_interval='@daily',
+#     schedule_interval=None,
 #     catchup=False,
 #     tags=['api', 'ingestion', 'postgresql'],
 # )
 
 # @provide_session
-# def create_postgres_connection(session=None):
-#     """Crear conexión PostgreSQL usando variables de entorno"""
-#     conn = session.query(Connection).filter(Connection.conn_id == POSTGRES_CONN_ID).first()
-    
-#     if not conn:
-#         new_conn = Connection(
+# def setup_connection(session=None):
+#     """Configurar conexión PostgreSQL"""
+#     if not session.query(Connection).filter(Connection.conn_id == POSTGRES_CONN_ID).first():
+#         conn = Connection(
 #             conn_id=POSTGRES_CONN_ID,
 #             conn_type='postgres',
 #             host=os.environ.get('RAW_DATA_DB_HOST', '10.43.101.166'),
@@ -52,224 +42,91 @@
 #             login=os.environ.get('RAW_DATA_DB_USER', 'admin'),
 #             password=os.environ.get('RAW_DATA_DB_PASSWORD', 'admin')
 #         )
-#         session.add(new_conn)
+#         session.add(conn)
 #         session.commit()
-#         print("✅ Conexión PostgreSQL creada")
-#     else:
-#         print("✅ Conexión PostgreSQL ya existe")
 
-# def validate_database():
-#     """Validar conectividad a la base de datos"""
-#     create_postgres_connection()
-    
-#     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
-#     result = hook.get_first("SELECT current_database();")
-#     db_name = result[0]
-#     print(f"✅ Conectado exitosamente a la base de datos: {db_name}")
-
-# def cleanup_existing_tables():
-#     """Eliminar tablas existentes si existen"""
+# def setup_database(**context):
+#     """Configurar base de datos y tabla"""
+#     setup_connection()
 #     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
     
-#     for group in GROUPS:
-#         table_name = f"group_{group}_data"
-#         sql = f"DROP TABLE IF EXISTS raw_data.{table_name} CASCADE;"
-#         hook.run(sql)
-#         print(f"🗑️ Tabla raw_data.{table_name} eliminada")
+#     # Obtener número de batch
+#     batch_number = context['dag_run'].conf.get('batch_number', 1) if context['dag_run'].conf else 1
+#     table_name = f"api_data_batch_{batch_number}"
     
-#     print("✅ Limpieza de tablas completada")
-
-# def create_schema():
-#     """Crear esquema raw_data si no existe"""
-#     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
+#     # Limpiar y crear
+#     hook.run(f"DROP TABLE IF EXISTS raw_data.{table_name} CASCADE;")
 #     hook.run("CREATE SCHEMA IF NOT EXISTS raw_data;")
-#     print("✅ Esquema raw_data creado")
+#     hook.run(f"""
+#         CREATE TABLE raw_data.{table_name} (
+#             brokered_by TEXT, status TEXT, price NUMERIC, bed INTEGER,
+#             bath INTEGER, acre_lot NUMERIC, street TEXT, city TEXT,
+#             state TEXT, zip_code TEXT, house_size INTEGER, 
+#             prev_sold_date DATE, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+#         );
+#     """)
+#     print(f"✅ Base de datos configurada para batch {batch_number}")
 
-# def create_all_tables():
-#     """Crear todas las tablas necesarias"""
+# def load_data(**context):
+#     """Cargar datos de API a PostgreSQL"""
+#     start_time = datetime.now()
+    
+#     # Obtener número de batch
+#     batch_number = context['dag_run'].conf.get('batch_number', 1) if context['dag_run'].conf else 1
+#     table_name = f"api_data_batch_{batch_number}"
+    
+#     # Obtener datos
+#     response = requests.get(API_URL, params={"group_number": 3, "day": "Tuesday"})
+#     response.raise_for_status()
+#     data = response.json().get("data", [])
+    
+#     if not data:
+#         print("⚠️ No hay datos")
+#         return
+    
+#     # Preparar datos
 #     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
+#     fields = ['brokered_by', 'status', 'price', 'bed', 'bath', 'acre_lot',
+#               'street', 'city', 'state', 'zip_code', 'house_size', 'prev_sold_date']
     
-#     for group in GROUPS:
-#         table_name = f"group_{group}_data"
-#         sql = f"""
-#             CREATE TABLE IF NOT EXISTS raw_data.{table_name} (
-#                 brokered_by     TEXT,
-#                 status          TEXT,
-#                 price           NUMERIC,
-#                 bed             INTEGER,
-#                 bath            INTEGER,
-#                 acre_lot        NUMERIC,
-#                 street          TEXT,
-#                 city            TEXT,
-#                 state           TEXT,
-#                 zip_code        TEXT,
-#                 house_size      INTEGER,
-#                 prev_sold_date  DATE,
-#                 created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-#                 group_number    INTEGER DEFAULT {group}
-#             );
-#         """
-#         hook.run(sql)
-#         print(f"✅ Tabla raw_data.{table_name} creada")
+#     rows = [(record.get(field) for field in fields) for record in data]
     
-#     print("✅ Todas las tablas creadas exitosamente")
+#     # Insertar en chunks
+#     chunk_size = 5000
+#     total = len(rows)
+    
+#     for i in range(0, total, chunk_size):
+#         chunk = rows[i:i + chunk_size]
+#         hook.insert_rows(f"raw_data.{table_name}", chunk, fields, commit_every=0)
+#         print(f"⏳ {min(i + chunk_size, total):,}/{total:,} registros")
+    
+#     # Métricas
+#     execution_time = (datetime.now() - start_time).total_seconds()
+#     size_mb = (total * len(fields) * 50) / (1024 * 1024)
+    
+#     print(f"📊 MÉTRICAS:")
+#     print(f"   📈 Filas: {total:,}")
+#     print(f"   📋 Columnas: {len(fields)}")
+#     print(f"   💾 Tamaño estimado: {size_mb:.2f} MB")
+#     print(f"   ⏱️ Tiempo: {execution_time:.2f} segundos")
+#     print(f"   🚀 Velocidad: {total/execution_time:,.0f} filas/seg")
 
-# def fetch_and_store_group_data(group_number):
-#     """Obtener datos de API y almacenar en PostgreSQL para un grupo específico"""
-#     def _fetch_and_store():
-#         try:
-#             # Realizar petición a la API
-#             params = {"group_number": group_number, "day": API_DAY}
-#             print(f"🌐 Obteniendo datos del grupo {group_number}...")
-            
-#             response = requests.get(API_URL, params=params, timeout=60)
-#             response.raise_for_status()
-            
-#             # Procesar respuesta JSON
-#             json_data = response.json()
-#             tabla = json_data.get("data", [])
-            
-#             if not tabla:
-#                 print(f"⚠️ No hay datos en la respuesta para el grupo {group_number}")
-#                 return
-            
-#             print(f"📊 Procesando {len(tabla)} registros para el grupo {group_number}...")
-            
-#             # Preparar datos para batch insert
-#             hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
-#             table_name = f"group_{group_number}_data"
-            
-#             # Definir columnas
-#             target_fields = [
-#                 'brokered_by', 'status', 'price', 'bed', 'bath', 'acre_lot',
-#                 'street', 'city', 'state', 'zip_code', 'house_size', 'prev_sold_date'
-#             ]
-            
-#             # Preparar todos los valores
-#             rows_data = []
-#             for record in tabla:
-#                 row = (
-#                     record.get('brokered_by'),
-#                     record.get('status'),
-#                     record.get('price'),
-#                     record.get('bed'),
-#                     record.get('bath'),
-#                     record.get('acre_lot'),
-#                     record.get('street'),
-#                     record.get('city'),
-#                     record.get('state'),
-#                     record.get('zip_code'),
-#                     record.get('house_size'),
-#                     record.get('prev_sold_date')
-#                 )
-#                 rows_data.append(row)
-            
-#             # Batch insert por chunks para manejar grandes volúmenes
-#             chunk_size = 5000  # Insertar de 5000 en 5000
-#             total_inserted = 0
-            
-#             for i in range(0, len(rows_data), chunk_size):
-#                 chunk = rows_data[i:i + chunk_size]
-                
-#                 # Usar insert_rows para batch insert eficiente
-#                 hook.insert_rows(
-#                     table=f"raw_data.{table_name}",
-#                     rows=chunk,
-#                     target_fields=target_fields,
-#                     commit_every=0  # Commit solo al final de cada chunk
-#                 )
-                
-#                 total_inserted += len(chunk)
-#                 print(f"⏳ Insertados {total_inserted}/{len(rows_data)} registros...")
-            
-#             print(f"✅ Grupo {group_number}: {total_inserted} registros insertados exitosamente")
-            
-#         except Exception as e:
-#             print(f"❌ Error para grupo {group_number}: {str(e)}")
-#             print(f"⏭️ Continuando con el siguiente grupo...")
+# def validate_data(**context):
+#     """Validar datos cargados"""
+#     batch_number = context['dag_run'].conf.get('batch_number', 1) if context['dag_run'].conf else 1
+#     table_name = f"api_data_batch_{batch_number}"
     
-#     return _fetch_and_store
-
-# def validate_results():
-#     """Validar resultados finales"""
 #     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
-    
-#     total_records = 0
-#     successful_groups = 0
-    
-#     for group in GROUPS:
-#         table_name = f"group_{group}_data"
-#         result = hook.get_first(f"SELECT COUNT(*) FROM raw_data.{table_name};")
-#         count = result[0] if result else 0
-#         total_records += count
-        
-#         if count > 0:
-#             successful_groups += 1
-#             print(f"📊 Grupo {group}: {count} registros")
-#         else:
-#             print(f"⚠️ Grupo {group}: Sin datos")
-    
-#     print(f"📈 Resumen final:")
-#     print(f"   - Grupos exitosos: {successful_groups}/{len(GROUPS)}")
-#     print(f"   - Total registros: {total_records}")
+#     count = hook.get_first(f"SELECT COUNT(*) FROM raw_data.{table_name};")[0]
+#     print(f"✅ {count:,} registros cargados en raw_data.{table_name}")
 
-# # Crear tareas del DAG
-# validate_db_task = PythonOperator(
-#     task_id='validate_database',
-#     python_callable=validate_database,
-#     dag=dag,
-# )
+# # Tareas
+# setup_db_task = PythonOperator(task_id='setup_database', python_callable=setup_database, dag=dag)
+# load_data_task = PythonOperator(task_id='load_data', python_callable=load_data, dag=dag)
+# validate_task = PythonOperator(task_id='validate_data', python_callable=validate_data, dag=dag)
 
-# cleanup_task = PythonOperator(
-#     task_id='cleanup_existing_tables',
-#     python_callable=cleanup_existing_tables,
-#     dag=dag,
-# )
-
-# create_schema_task = PythonOperator(
-#     task_id='create_schema',
-#     python_callable=create_schema,
-#     dag=dag,
-# )
-
-# create_tables_task = PythonOperator(
-#     task_id='create_all_tables',
-#     python_callable=create_all_tables,
-#     dag=dag,
-# )
-
-# # Crear tareas secuenciales para cada grupo
-# group_tasks = []
-# for group in GROUPS:
-#     task = PythonOperator(
-#         task_id=f'fetch_group_{group}',
-#         python_callable=fetch_and_store_group_data(group),
-#         dag=dag,
-#     )
-#     group_tasks.append(task)
-
-# validate_results_task = PythonOperator(
-#     task_id='validate_results',
-#     python_callable=validate_results,
-#     dag=dag,
-# )
-
-# # Definir dependencias
-# validate_db_task >> cleanup_task >> create_schema_task >> create_tables_task
-
-# # Encadenar tareas de grupos secuencialmente
-# current_task = create_tables_task
-# for group_task in group_tasks:
-#     current_task >> group_task
-#     current_task = group_task
-
-# # Finalizar con validación
-# current_task >> validate_results_task
-
-"""
-DAG para ingestión de datos desde API a PostgreSQL
-Procesa 10 grupos de datos de forma secuencial
-"""
+# # Flujo
+# setup_db_task >> load_data_task >> validate_task
 
 from airflow import DAG
 from airflow.providers.postgres.hooks.postgres import PostgresHook
@@ -279,13 +136,10 @@ from airflow.utils.db import provide_session
 from datetime import datetime
 from airflow.utils.dates import days_ago
 import requests
-import json
 import os
 
 # Configuración
 API_URL = "http://10.43.101.108/data"
-GROUPS = [3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
-API_DAY = "Tuesday"
 POSTGRES_CONN_ID = "postgres_raw_data"
 
 default_args = {
@@ -300,18 +154,16 @@ dag = DAG(
     'api_data_ingestion',
     default_args=default_args,
     description='Ingestión de datos desde API a PostgreSQL',
-    schedule_interval='@daily',
+    schedule_interval=None,
     catchup=False,
     tags=['api', 'ingestion', 'postgresql'],
 )
 
 @provide_session
-def create_postgres_connection(session=None):
-    """Crear conexión PostgreSQL usando variables de entorno"""
-    conn = session.query(Connection).filter(Connection.conn_id == POSTGRES_CONN_ID).first()
-    
-    if not conn:
-        new_conn = Connection(
+def setup_connection(session=None):
+    """Configurar conexión PostgreSQL"""
+    if not session.query(Connection).filter(Connection.conn_id == POSTGRES_CONN_ID).first():
+        conn = Connection(
             conn_id=POSTGRES_CONN_ID,
             conn_type='postgres',
             host=os.environ.get('RAW_DATA_DB_HOST', '10.43.101.166'),
@@ -320,216 +172,168 @@ def create_postgres_connection(session=None):
             login=os.environ.get('RAW_DATA_DB_USER', 'admin'),
             password=os.environ.get('RAW_DATA_DB_PASSWORD', 'admin')
         )
-        session.add(new_conn)
+        session.add(conn)
         session.commit()
-        print("✅ Conexión PostgreSQL creada")
-    else:
-        print("✅ Conexión PostgreSQL ya existe")
 
-def validate_database():
-    """Validar conectividad a la base de datos"""
-    create_postgres_connection()
-    
-    hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
-    result = hook.get_first("SELECT current_database();")
-    db_name = result[0]
-    print(f"✅ Conectado exitosamente a la base de datos: {db_name}")
-
-def cleanup_existing_tables():
-    """Eliminar tablas existentes si existen"""
+def setup_database(**context):
+    """Configurar base de datos y tabla"""
+    setup_connection()
     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
     
-    for group in GROUPS:
-        table_name = f"group_{group}_data"
-        sql = f"DROP TABLE IF EXISTS raw_data.{table_name} CASCADE;"
-        hook.run(sql)
-        print(f"🗑️ Tabla raw_data.{table_name} eliminada")
+    # Obtener número de batch
+    batch_number = context['dag_run'].conf.get('batch_number', 1) if context['dag_run'].conf else 1
+    table_name = f"api_data_batch_{batch_number}"
     
-    print("✅ Limpieza de tablas completada")
-
-def create_schema():
-    """Crear esquema raw_data si no existe"""
-    hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
+    # Limpiar y crear
+    hook.run(f"DROP TABLE IF EXISTS raw_data.{table_name} CASCADE;")
     hook.run("CREATE SCHEMA IF NOT EXISTS raw_data;")
-    print("✅ Esquema raw_data creado")
+    hook.run(f"""
+        CREATE TABLE raw_data.{table_name} (
+            brokered_by TEXT, status TEXT, price NUMERIC, bed INTEGER,
+            bath INTEGER, acre_lot NUMERIC, street TEXT, city TEXT,
+            state TEXT, zip_code TEXT, house_size INTEGER, 
+            prev_sold_date DATE, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
+    print(f"✅ Base de datos configurada para batch {batch_number}")
 
-def create_all_tables():
-    """Crear todas las tablas necesarias"""
+def load_data(**context):
+    """Cargar datos de API a PostgreSQL"""
+    start_time = datetime.now()
+    
+    # Obtener número de batch
+    batch_number = context['dag_run'].conf.get('batch_number', 1) if context['dag_run'].conf else 1
+    table_name = f"api_data_batch_{batch_number}"
+    
+    # Obtener datos
+    response = requests.get(API_URL, params={"group_number": 3, "day": "Tuesday"})
+    response.raise_for_status()
+    data = response.json().get("data", [])
+    
+    if not data:
+        print("⚠️ No hay datos")
+        return
+    
+    # Preparar datos
+    hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
+    fields = ['brokered_by', 'status', 'price', 'bed', 'bath', 'acre_lot',
+              'street', 'city', 'state', 'zip_code', 'house_size', 'prev_sold_date']
+    
+    rows = [(record.get(field) for field in fields) for record in data]
+    
+    # Insertar en chunks
+    chunk_size = 5000
+    total = len(rows)
+    
+    for i in range(0, total, chunk_size):
+        chunk = rows[i:i + chunk_size]
+        hook.insert_rows(f"raw_data.{table_name}", chunk, fields, commit_every=0)
+        print(f"⏳ {min(i + chunk_size, total):,}/{total:,} registros")
+    
+    # Métricas
+    execution_time = (datetime.now() - start_time).total_seconds()
+    size_mb = (total * len(fields) * 50) / (1024 * 1024)
+    
+    print(f" MÉTRICAS:")
+    print(f"    Filas: {total:,}")
+    print(f"    Columnas: {len(fields)}")
+    print(f"    Tamaño estimado: {size_mb:.2f} MB")
+    print(f"   ⏱️ Tiempo: {execution_time:.2f} segundos")
+    print(f"    Velocidad: {total/execution_time:,.0f} filas/seg")
+
+def validate_data(**context):
+    """Validar datos cargados y mostrar estadísticas descriptivas"""
+    batch_number = context['dag_run'].conf.get('batch_number', 1) if context['dag_run'].conf else 1
+    table_name = f"api_data_batch_{batch_number}"
+    
     hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
     
-    for group in GROUPS:
-        table_name = f"group_{group}_data"
-        sql = f"""
-            CREATE TABLE IF NOT EXISTS raw_data.{table_name} (
-                brokered_by     TEXT,
-                status          TEXT,
-                price           NUMERIC,
-                bed             INTEGER,
-                bath            INTEGER,
-                acre_lot        NUMERIC,
-                street          TEXT,
-                city            TEXT,
-                state           TEXT,
-                zip_code        TEXT,
-                house_size      INTEGER,
-                prev_sold_date  DATE,
-                created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                group_number    INTEGER DEFAULT {group}
-            );
-        """
-        hook.run(sql)
-        print(f"✅ Tabla raw_data.{table_name} creada")
+    # Contar registros totales
+    count = hook.get_first(f"SELECT COUNT(*) FROM raw_data.{table_name};")[0]
+    print(f"✅ {count:,} registros cargados en raw_data.{table_name}")
     
-    print("✅ Todas las tablas creadas exitosamente")
-
-def fetch_and_store_group_data(group_number):
-    """Obtener datos de API y almacenar en PostgreSQL para un grupo específico"""
-    def _fetch_and_store():
+    # Definir variables numéricas para análisis estadístico
+    numeric_columns = ['price', 'bed', 'bath', 'acre_lot', 'house_size']
+    
+    print(f"\n📊 ESTADÍSTICAS DESCRIPTIVAS:")
+    print("=" * 80)
+    
+    for column in numeric_columns:
         try:
-            # Realizar petición a la API
-            params = {"group_number": group_number, "day": API_DAY}
-            print(f"🌐 Obteniendo datos del grupo {group_number}...")
+            # Query para obtener estadísticas descriptivas
+            stats_query = f"""
+                SELECT 
+                    '{column}' as variable,
+                    COUNT({column}) as count_valid,
+                    COUNT(*) - COUNT({column}) as count_null,
+                    MIN({column}) as minimum,
+                    MAX({column}) as maximum,
+                    AVG({column}) as mean,
+                    STDDEV_POP({column}) as std_deviation,
+                    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY {column}) as median
+                FROM raw_data.{table_name}
+                WHERE {column} IS NOT NULL;
+            """
             
-            response = requests.get(API_URL, params=params, timeout=60)
-            response.raise_for_status()
+            result = hook.get_first(stats_query)
             
-            # Procesar respuesta JSON
-            json_data = response.json()
-            tabla = json_data.get("data", [])
-            
-            if not tabla:
-                print(f"⚠️ No hay datos en la respuesta para el grupo {group_number}")
-                return
-            
-            print(f"📊 Procesando {len(tabla)} registros para el grupo {group_number}...")
-            
-            # Preparar datos para batch insert
-            hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
-            table_name = f"group_{group_number}_data"
-            
-            # Definir columnas
-            target_fields = [
-                'brokered_by', 'status', 'price', 'bed', 'bath', 'acre_lot',
-                'street', 'city', 'state', 'zip_code', 'house_size', 'prev_sold_date'
-            ]
-            
-            # Preparar todos los valores
-            rows_data = []
-            for record in tabla:
-                row = (
-                    record.get('brokered_by'),
-                    record.get('status'),
-                    record.get('price'),
-                    record.get('bed'),
-                    record.get('bath'),
-                    record.get('acre_lot'),
-                    record.get('street'),
-                    record.get('city'),
-                    record.get('state'),
-                    record.get('zip_code'),
-                    record.get('house_size'),
-                    record.get('prev_sold_date')
-                )
-                rows_data.append(row)
-            
-            # Batch insert por chunks para manejar grandes volúmenes
-            chunk_size = 5000  # Insertar de 5000 en 5000
-            total_inserted = 0
-            
-            for i in range(0, len(rows_data), chunk_size):
-                chunk = rows_data[i:i + chunk_size]
+            if result and result[1] > 0:  # Si hay datos válidos
+                variable, count_valid, count_null, minimum, maximum, mean, std_dev, median = result
                 
-                # Usar insert_rows para batch insert eficiente
-                hook.insert_rows(
-                    table=f"raw_data.{table_name}",
-                    rows=chunk,
-                    target_fields=target_fields,
-                    commit_every=0  # Commit solo al final de cada chunk
-                )
+                print(f"📈 {variable.upper()}:")
+                print(f"    Registros válidos: {count_valid:,}")
+                print(f"    Registros nulos: {count_null:,}")
+                print(f"    Mínimo: {minimum:,.2f}" if minimum is not None else "    Mínimo: N/A")
+                print(f"    Máximo: {maximum:,.2f}" if maximum is not None else "    Máximo: N/A")
+                print(f"    Promedio: {mean:.2f}" if mean is not None else "    Promedio: N/A")
+                print(f"    Desv. Estándar: {std_dev:.2f}" if std_dev is not None else "    Desv. Estándar: N/A")
+                print(f"    Mediana: {median:.2f}" if median is not None else "    Mediana: N/A")
+                print("-" * 40)
+            else:
+                print(f"⚠️ {column.upper()}: Sin datos válidos para análisis")
+                print("-" * 40)
                 
-                total_inserted += len(chunk)
-                print(f"⏳ Insertados {total_inserted}/{len(rows_data)} registros...")
-            
-            print(f"✅ Grupo {group_number}: {total_inserted} registros insertados exitosamente")
-            
         except Exception as e:
-            print(f"❌ Error para grupo {group_number}: {str(e)}")
-            print(f"⏭️ Continuando con el siguiente grupo...")
+            print(f"❌ Error al calcular estadísticas para {column}: {str(e)}")
+            print("-" * 40)
     
-    return _fetch_and_store
-
-def validate_results():
-    """Validar resultados finales"""
-    hook = PostgresHook(postgres_conn_id=POSTGRES_CONN_ID)
+    # Estadísticas adicionales de calidad de datos
+    print(f"\n🔍 CALIDAD DE DATOS:")
+    print("=" * 50)
     
-    total_records = 0
-    successful_groups = 0
+    # Conteo de valores únicos en columnas categóricas
+    categorical_columns = ['brokered_by', 'status', 'city', 'state']
     
-    for group in GROUPS:
-        table_name = f"group_{group}_data"
-        result = hook.get_first(f"SELECT COUNT(*) FROM raw_data.{table_name};")
-        count = result[0] if result else 0
-        total_records += count
-        
-        if count > 0:
-            successful_groups += 1
-            print(f"📊 Grupo {group}: {count} registros")
-        else:
-            print(f"⚠️ Grupo {group}: Sin datos")
+    for column in categorical_columns:
+        try:
+            unique_count_query = f"""
+                SELECT COUNT(DISTINCT {column}) as unique_values,
+                       COUNT({column}) as non_null_count
+                FROM raw_data.{table_name};
+            """
+            unique_result = hook.get_first(unique_count_query)
+            
+            if unique_result:
+                unique_values, non_null_count = unique_result
+                print(f"📋 {column.upper()}:")
+                print(f"    Valores únicos: {unique_values:,}")
+                print(f"    Valores no nulos: {non_null_count:,}")
+        except Exception as e:
+            print(f"❌ Error al analizar {column}: {str(e)}")
     
-    print(f"📈 Resumen final:")
-    print(f"   - Grupos exitosos: {successful_groups}/{len(GROUPS)}")
-    print(f"   - Total registros: {total_records}")
+    # Resumen final
+    print(f"\n🎯 RESUMEN FINAL:")
+    print("=" * 40)
+    print(f"✅ Dataset cargado exitosamente")
+    print(f"📊 Total de registros: {count:,}")
+    print(f"🗂️ Variables numéricas analizadas: {len(numeric_columns)}")
+    print(f"📑 Variables categóricas analizadas: {len(categorical_columns)}")
+    print(f"⏰ Validación completada: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-# Crear tareas del DAG
-validate_db_task = PythonOperator(
-    task_id='validate_database',
-    python_callable=validate_database,
-    dag=dag,
-)
+# Tareas
+setup_db_task = PythonOperator(task_id='setup_database', python_callable=setup_database, dag=dag)
+load_data_task = PythonOperator(task_id='load_data', python_callable=load_data, dag=dag)
+validate_task = PythonOperator(task_id='validate_data', python_callable=validate_data, dag=dag)
 
-cleanup_task = PythonOperator(
-    task_id='cleanup_existing_tables',
-    python_callable=cleanup_existing_tables,
-    dag=dag,
-)
-
-create_schema_task = PythonOperator(
-    task_id='create_schema',
-    python_callable=create_schema,
-    dag=dag,
-)
-
-create_tables_task = PythonOperator(
-    task_id='create_all_tables',
-    python_callable=create_all_tables,
-    dag=dag,
-)
-
-# Crear tareas secuenciales para cada grupo
-group_tasks = []
-for group in GROUPS:
-    task = PythonOperator(
-        task_id=f'fetch_group_{group}',
-        python_callable=fetch_and_store_group_data(group),
-        dag=dag,
-    )
-    group_tasks.append(task)
-
-validate_results_task = PythonOperator(
-    task_id='validate_results',
-    python_callable=validate_results,
-    dag=dag,
-)
-
-# Definir dependencias
-validate_db_task >> cleanup_task >> create_schema_task >> create_tables_task
-
-# Encadenar tareas de grupos secuencialmente
-current_task = create_tables_task
-for group_task in group_tasks:
-    current_task >> group_task
-    current_task = group_task
-
-# Finalizar con validación
-current_task >> validate_results_task
+# Flujo
+setup_db_task >> load_data_task >> validate_task
