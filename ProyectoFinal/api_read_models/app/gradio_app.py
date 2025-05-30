@@ -11,6 +11,14 @@ def get_models():
     except Exception as e:
         return [f"❌ Error al obtener modelos: {str(e)}"]
 
+def get_annotations():
+    try:
+        r = requests.get(f"{API_URL}/annotations")
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        return [f"❌ Error al obtener las anotaciones: {str(e)}"]
+
 def predict(model_name,feature_1,feature_2,feature_3,feature_4,feature_5,feature_6,feature_7,feature_8,
         feature_9,feature_10,feature_11,feature_12,feature_13,feature_14,feature_15 
                ):
@@ -42,6 +50,9 @@ def predict(model_name,feature_1,feature_2,feature_3,feature_4,feature_5,feature
 
 def update_model_choices():
     return gr.update(choices=get_models())
+
+def update_annotations():
+    return get_annotations()
 
 with gr.Blocks() as demo:
     gr.Markdown("# 🧠 Predicción con Modelos MLflow")
@@ -76,6 +87,11 @@ with gr.Blocks() as demo:
 
     submit_btn = gr.Button("🚀 Predecir")
     submit_btn.click(fn=predict, inputs=input_fields, outputs=output)
+
+    with gr.Row():
+        model_annotation = gr.Textbox(label="✏️ Anotaciones")
+        reload_button_ann = gr.Button("🔄 Recargar anotaciones")
+        reload_button_ann.click(fn=update_annotations, outputs=model_annotation)
 
 if __name__ == "__main__":
     demo.launch(server_name="0.0.0.0", server_port=7860)
