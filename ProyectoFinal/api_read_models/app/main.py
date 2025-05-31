@@ -19,6 +19,7 @@ from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_
 from sqlalchemy import create_engine, Table, Column, Integer, String, Float, MetaData
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
+import json
 
 # Ruta donde están los modelos dentro del contenedor Docker
 MODEL_DIR = "http://10.43.101.168:30500" #Mlflow
@@ -91,6 +92,24 @@ def load_model(model_name: str):
     """
     return model
 
+def get_run_id_from_model(model_name:str, model_version:str):
+    try:
+        mv = client.get_model_version(name=model_name,version=model_version)
+        return mv.run_id
+    except Exception as e:
+        raise ValueError(f"ID no encontrado para {model_name}:{model_version}")
+
+def load_input_schema(run_id: str, artifact_path: str = "input_schema.json"):
+
+    local_path = mlflow.artifacts.download_artifacts(
+        run_id = run_id,
+        artifact_path=artifact_path
+    )
+
+    with open(local_path, "r") as f:
+        input_schema = json.load(f)
+    return input_schema
+
 
 @app.get("/models")
 def list_models():
@@ -114,7 +133,14 @@ def list_models():
 
     # Print model names
     return out
-  
+
+
+@app.get("/model/get-schema")
+def get_model_schema(model_name:str, model_version:str):
+    run_id = get_run_id_from_model(model_name,model_version)
+    schema = load_input_schema(run_id)
+    return schema
+    
 
 import time
 
@@ -123,7 +149,7 @@ REQUEST_COUNT = Counter('predict_requests_total', 'Total de peticiones de predic
 REQUEST_LATENCY = Histogram('predict_latency_seconds', 'Tiempo de latencia de predicción')
 
 @app.post("/predict/{model_name}")
-def predict(model_name: str,input_data: PredictionInput):
+def predict(model_name: str, body:dict):  # input_data: PredictionInput
 
     REQUEST_COUNT.inc()
 
@@ -139,6 +165,7 @@ def predict(model_name: str,input_data: PredictionInput):
 
         # Convertir la entrada a DataFrame si el modelo requiere ese formato
         try:
+            """
             numerical = [
                 input_data.bed,
                 input_data.bath,
@@ -171,11 +198,14 @@ def predict(model_name: str,input_data: PredictionInput):
 
             # Crear un DataFrame
             input_df = pd.DataFrame(data_dict)
+            """
+            input_df = pd.DataFrame([body])
 
-            numerical = np.array(numerical).reshape(1, -1)
+            # numerical = np.array(numerical).reshape(1, -1)
             predictions = model.predict(input_df)
 
             # Guardar en la base de datos
+            """
             session = SessionLocal()
             ins = predictions_table.insert().values(
                 model_name=model_name,
@@ -194,7 +224,7 @@ def predict(model_name: str,input_data: PredictionInput):
             session.execute(ins)
             session.commit()
             session.close()
-
+            """
             return {"predictions": predictions.tolist()}
         
         except Exception as e:
@@ -215,8 +245,8 @@ def annotations():
     # Search runs with the name filter
     runs = client.search_runs(
             experiment_ids=[experiment.experiment_id],
-            order_by=["attributes.start_time DESC"],
-            max_results=10
+            order_by=["attributes.start_time ASC"],
+            max_results=100
         )
     
     all_annotations = ""

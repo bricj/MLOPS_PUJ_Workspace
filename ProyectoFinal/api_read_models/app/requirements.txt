@@ -11,3 +11,4 @@ gradio
 requests
 sqlalchemy
 psycopg2-binary
+json

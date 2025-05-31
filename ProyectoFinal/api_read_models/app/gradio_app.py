@@ -19,19 +19,18 @@ def get_annotations():
     except Exception as e:
         return [f"❌ Error al obtener las anotaciones: {str(e)}"]
 
-def predict(model_name,bed,bath,acre_lot,street,zip_code,house_size,city,state,brokered_by,prev_sold_date):
+def predict(model_name,acre_lot,house_size,rate_bath_bed,room_configuration_minimal_rooms,room_configuration_compact_rooms,room_configuration_standard_rooms,room_configuration_spacious_rooms,room_configuration_luxury_rooms,region_west):
     
     payload = {
-        "bed": float(bed),
-        "bath": float(bath),
-        "acre_lot": float(acre_lot),
-        "street": str(street),
-        "zip_code": str(zip_code),
-        "house_size": float(house_size),
-        "city": str(city),
-        "state": str(state),
-        "brokered_by": str(brokered_by),
-        "prev_sold_date": str(prev_sold_date)
+        "acre_lot":float(acre_lot),
+        "house_size":float(house_size),
+        "rate_bath_bed":float(rate_bath_bed),
+        "room_configuration_minimal_rooms":float(room_configuration_minimal_rooms),
+        "room_configuration_compact_rooms":float(room_configuration_compact_rooms),
+        "room_configuration_standard_rooms":float(room_configuration_standard_rooms),
+        "room_configuration_spacious_rooms":float(room_configuration_spacious_rooms),
+        "room_configuration_luxury_rooms":float(room_configuration_luxury_rooms),
+        "region_west":float(region_west)
     }
 
     try:
@@ -60,16 +59,15 @@ with gr.Blocks() as demo:
     with gr.Row():
         input_fields = [
             model_dropdown,
-            gr.Number(label="bed"),
-            gr.Number(label="bath"),
-            gr.Number(label="acre_lot"),
-            gr.Textbox(label="street"),
-            gr.Textbox(label="zip_code"),
-            gr.Number(label="house_size"),
-            gr.Textbox(label="city"),
-            gr.Textbox(label="state"),
-            gr.Textbox(label="brokered_by"),
-            gr.Textbox(label="prev_sold_date")
+            gr.Number(label="acre lot"),
+            gr.Number(label="house size"),
+            gr.Number(label="rate bath bed"),
+            gr.Number(label="room configuration minimal rooms"),
+            gr.Number(label="room configuration compact rooms"),
+            gr.Number(label="room configuration standard rooms"),
+            gr.Number(label="room configuration spacious rooms"),
+            gr.Number(label="room configuration luxury rooms"),
+            gr.Number(label="region west")
         ]
     
     output = gr.Textbox(label="📈 Predicción")
