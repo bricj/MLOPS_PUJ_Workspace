@@ -12,7 +12,6 @@ gradio
 requests
 sqlalchemy
 psycopg2-binary
-json
 
 # Dependencias para testing ##
 pytest==7.4.0
