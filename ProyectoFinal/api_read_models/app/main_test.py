@@ -70,7 +70,7 @@ class PredictionInput(BaseModel):
 
 
 
-
+a = "a"
 # Configuracion del logger
 logging.basicConfig(
     filename='./logs/mi_app.log',
