@@ -30,3 +30,47 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r ProyectoFinal/api_read_models/app/requirements-workflow.txt
         pip install fastapi[all] pytest
+
+    - name: Ejecutar pruebas
+      run: |
+        export PYTHONPATH=$PYTHONPATH:./ProyectoFinal/api_read_models
+        pytest ProyectoFinal/api_read_models/tests/
+
+    - name: Login a DockerHub
+      if: success()
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Generate timestamp
+      id: timestamp
+      shell: bash
+      run: echo "tag=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
+
+    - name: Construir y subir imagen a DockerHub
+      if: success()
+      uses: docker/build-push-action@v5
+      with:
+        context: ./ProyectoFinal/api_read_models
+        file: ./ProyectoFinal/api_read_models/Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/api_proyecto_final:${{ steps.timestamp.outputs.tag }}
+
+    - name: Reemplazar la imagen en el manifiesto de Argo CD
+      run: |
+        sed -i "s|image: 04602/api_proyecto_final:.*|image: 04602/api_proyecto_final:${{ steps.timestamp.outputs.tag }}|" ProyectoFinal/manifest/inference-models.yaml
+        
+    - name: Verifica estado de Git antes del commit
+      run: |
+        git status
+        git diff
+    
+    - name: Commit y push del nuevo manifiesto
+      if: github.ref == 'refs/heads/develop'
+      run: |
+        git config --global user.email "github-actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add Taller6/manifest/api-deployment.yaml
+        git commit -m "Actualiza imagen a ${{ steps.timestamp.outputs.tag }} para despliegue"
+        git push 
