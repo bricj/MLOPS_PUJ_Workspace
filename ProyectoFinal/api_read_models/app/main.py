@@ -39,17 +39,16 @@ predictions_table = Table(
     "predictions", metadata,
     Column("id", Integer, primary_key=True, index=True, autoincrement=True),
     Column("model_name", String),
-    Column("city", String),
-    Column("state", String),
-    Column("brokered_by", String),
     Column("price", Float),
-    Column("bed", Float),
-    Column("bath", Float),
-    Column("acre_lot", Float),
-    Column("street", String),
-    Column("zip_code", String),
-    Column("house_size", Float),
-    Column("prev_sold_date",String)
+    Column("acre_lot",Float),
+    Column("house_size",Float),
+    Column("rate_bath_bed",Float),
+    Column("room_configuration_minimal_rooms",Float),
+    Column("room_configuration_compact_rooms",Float),
+    Column("room_configuration_standard_rooms",Float),
+    Column("room_configuration_spacious_rooms",Float),
+    Column("room_configuration_luxury_rooms",Float),
+    Column("region_west",Float)
 )
 
 # Crear la tabla si no existe
@@ -58,16 +57,15 @@ metadata.create_all(bind=engine)
 app = FastAPI()
 
 class PredictionInput(BaseModel):
-    city: str
-    state: str
-    brokered_by: str
-    bed: float
-    bath: float
     acre_lot: float
-    street: str
-    zip_code: str
     house_size: float
-    prev_sold_date: str
+    rate_bath_bed: float
+    room_configuration_minimal_rooms: float
+    room_configuration_compact_rooms: float
+    room_configuration_standard_rooms: float
+    room_configuration_spacious_rooms: float
+    room_configuration_luxury_rooms: float
+    region_west: float
 
 
 
@@ -149,7 +147,7 @@ REQUEST_COUNT = Counter('predict_requests_total', 'Total de peticiones de predic
 REQUEST_LATENCY = Histogram('predict_latency_seconds', 'Tiempo de latencia de predicción')
 
 @app.post("/predict/{model_name}")
-def predict(model_name: str, body:dict):  # input_data: PredictionInput
+def predict(model_name: str, input_data: PredictionInput):  # input_data: PredictionInput
 
     REQUEST_COUNT.inc()
 
@@ -165,66 +163,47 @@ def predict(model_name: str, body:dict):  # input_data: PredictionInput
 
         # Convertir la entrada a DataFrame si el modelo requiere ese formato
         try:
-            """
-            numerical = [
-                input_data.bed,
-                input_data.bath,
-                input_data.acre_lot,
-                input_data.zip_code,
-                input_data.house_size
-
-            ]
-
-            categorical = [
-                input_data.city,
-                input_data.state,
-                input_data.street,
-                input_data.brokered_by,
-                input_data.prev_sold_date
-            ]
 
             data_dict = {
-                'bed': [input_data.bed],
-                'bath': [input_data.bath],
-                'acre_lot': [input_data.acre_lot],
-                'street': [input_data.street],  # cuidado si esto es una string compleja
-                'zip_code': [input_data.zip_code],
-                'house_size': [input_data.house_size],
-                'city': [input_data.city],
-                'state': [input_data.state],
-                'brokered_by': [input_data.brokered_by],
-                'prev_sold_date': [input_data.prev_sold_date]  # asegúrate que sea el tipo correcto
+                "acre_lot": [input_data.acre_lot],
+                "house_size": [input_data.house_size],
+                "rate_bath_bed": [input_data.rate_bath_bed],
+                "room_configuration_minimal_rooms": [input_data.room_configuration_minimal_rooms],
+                "room_configuration_compact_rooms": [input_data.room_configuration_compact_rooms],
+                "room_configuration_standard_rooms": [input_data.room_configuration_standard_rooms],
+                "room_configuration_spacious_rooms": [input_data.room_configuration_spacious_rooms],
+                "room_configuration_luxury_rooms": [input_data.room_configuration_luxury_rooms],
+                "region_west": [input_data.region_west]
             }
 
             # Crear un DataFrame
             input_df = pd.DataFrame(data_dict)
             """
             input_df = pd.DataFrame([body])
-
+            """
             # numerical = np.array(numerical).reshape(1, -1)
             predictions = model.predict(input_df)
 
             # Guardar en la base de datos
-            """
+            
             session = SessionLocal()
             ins = predictions_table.insert().values(
                 model_name=model_name,
-                city=input_data.city,
-                state=input_data.state,
-                brokered_by=input_data.brokered_by,
                 price=float(predictions),
-                bed=input_data.bed,
-                bath=input_data.bath,
                 acre_lot=input_data.acre_lot,
-                street=input_data.street,
-                zip_code=input_data.zip_code,
                 house_size=input_data.house_size,
-                prev_sold_date=input_data.prev_sold_date
+                rate_bath_bed=input_data.rate_bath_bed,
+                room_configuration_minimal_rooms=input_data.room_configuration_minimal_rooms,
+                room_configuration_compact_rooms=input_data.room_configuration_compact_rooms,
+                room_configuration_standard_rooms=input_data.room_configuration_standard_rooms,
+                room_configuration_spacious_rooms=input_data.room_configuration_spacious_rooms,
+                room_configuration_luxury_rooms=input_data.room_configuration_luxury_rooms,
+                region_west=input_data.region_west
             )
             session.execute(ins)
             session.commit()
             session.close()
-            """
+            
             return {"predictions": predictions.tolist()}
         
         except Exception as e:
@@ -271,4 +250,9 @@ def annotations():
                 all_annotations = all_annotations + "\n " + f"no hay anotaciones para {run_id}"
     
         return all_annotations
+
+@app.get("/health")
+def health_check():
+    """Endpoint para verificar el estado de la API"""
+    return {"status": "healthy"}
     

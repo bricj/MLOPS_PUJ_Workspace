@@ -26,30 +26,25 @@ def test_health_check():
     data = response.json()
     assert "status" in data
     assert data["status"] == "healthy"
-    assert "model_loaded" in data
-    assert data["model_loaded"] is True  # Será True porque hemos hecho mock del modelo
 
 def test_prediction_success():
     """Verifica que el endpoint /predict procese correctamente una entrada válida."""
     sample_input = {
-        "Elevation": 0,
-        "Aspect": 0,
-        "Slope": 0,
-        "Horizontal_Distance_To_Hydrology": 0,
-        "Vertical_Distance_To_Hydrology": 0,
-        "Horizontal_Distance_To_Roadways": 0,
-        "Hillshade_9am": 0,
-        "Hillshade_Noon": 0,
-        "Hillshade_3pm": 0,
-        "Horizontal_Distance_To_Fire_Points": 0,
-        "Wilderness_Area": 0,
-        "Soil_Type": 0
+        "acre_lot": 1,
+        "house_size": 1,
+        "rate_bath_bed": 1,
+        "room_configuration_minimal_rooms": 0,
+        "room_configuration_compact_rooms": 1,
+        "room_configuration_standard_rooms": 0,
+        "room_configuration_spacious_rooms": 0,
+        "room_configuration_luxury_rooms": 0,
+        "region_west": 1
     }
     
     response = client.post(
-        "/predict", 
+        "/predict/lasso-regressor", 
         json=sample_input,
-        headers={"Content-Type": "application/json"}
+        headers={"Content-Type": "application/json", "accept": "application/json"}
     )
     
     assert response.status_code == 200
@@ -61,24 +56,21 @@ def test_prediction_success():
 def test_prediction_missing_field():
     """Verifica que el endpoint /predict maneje correctamente entradas inválidas."""
     invalid_input = {
-        # Elevation is missing for the experiment
-        "Aspect": 0,
-        "Slope": 0,
-        "Horizontal_Distance_To_Hydrology": 0,
-        "Vertical_Distance_To_Hydrology": 0,
-        "Horizontal_Distance_To_Roadways": 0,
-        "Hillshade_9am": 0,
-        "Hillshade_Noon": 0,
-        "Hillshade_3pm": 0,
-        "Horizontal_Distance_To_Fire_Points": 0,
-        "Wilderness_Area": 0,
-        "Soil_Type": 0
+        # house_size is missing for the experiment
+        "acre_lot": 1,
+        "rate_bath_bed": 1,
+        "room_configuration_minimal_rooms": 0,
+        "room_configuration_compact_rooms": 1,
+        "room_configuration_standard_rooms": 0,
+        "room_configuration_spacious_rooms": 0,
+        "room_configuration_luxury_rooms": 0,
+        "region_west": 1
     }
     
     response = client.post(
-        "/predict", 
+        "/predict/lasso-regressor", 
         json=invalid_input,
-        headers={"Content-Type": "application/json"}
+        headers={"Content-Type": "application/json", "accept": "application/json"}
     )
     ########
-    assert response.status_code == 422  # Unprocessable Entity por validación de Pydantic
+    assert response.status_code == 422  # Hace falta campo y mlflow no permite hacer inferencia
