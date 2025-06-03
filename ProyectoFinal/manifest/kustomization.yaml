@@ -5,6 +5,7 @@ resources:
   - inference-models.yaml
   - gradio.yaml
   - prometheus.yaml
+  - grafana.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: argocd
