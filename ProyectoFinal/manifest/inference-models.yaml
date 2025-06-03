@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: inference-models
-          image: 04602/api_proyecto_final:2025-06-03-04-02-59
+          image: 04602/api_proyecto_final:2025-06-03-04-29-43
           ports:
             - containerPort: 8989
           resources:
