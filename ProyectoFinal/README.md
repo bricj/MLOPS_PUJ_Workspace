@@ -224,9 +224,12 @@ Pipeline MLOps de ingesta de datos inmobiliarios: API → PostgreSQL con validac
 - Tabla dinámica: `api_data_batch_{number}`
 
 **Schema**:
-```sql
+```
+sql
 brokered_by, status, price, bed, bath, acre_lot, street, city, 
 state, zip_code, house_size, prev_sold_date, created_at
+```
+
 
 ![Obtención de datos](imgs/get_data.jpg)
 

@@ -26,3 +26,5 @@ El repositorio contiene las actividades desarrolladas en la clase MLOps de la Un
 - Taller5: Entrega donde se incorpora pruebas de estres a los servicios con locust
 
 - Proyecto3: Entrega donde se orquestan servicios con airflow (docker compose) y se despliegan servicios con kubernetes. De igual forma, se realiza observabilidad con prometheus y grafana.
+
+- Proyecto Final: Entrega donde se orquestan servicios con airflow (docker compose) y se despliegan servicios con kubernetes. Se hace CI/CD con las herramientas de GitHub Actions  y Argo CD respectivamente.
