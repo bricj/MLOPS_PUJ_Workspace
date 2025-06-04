@@ -1,0 +1,122 @@
+[2025-05-30T01:42:20.724+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-30T01:42:20.851+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mlops_pipeline_orchestrator.execute_batch_pipeline manual__2025-05-30T01:42:04.142810+00:00 [queued]>
+[2025-05-30T01:42:20.935+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mlops_pipeline_orchestrator.execute_batch_pipeline manual__2025-05-30T01:42:04.142810+00:00 [queued]>
+[2025-05-30T01:42:20.935+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-30T01:42:21.005+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): execute_batch_pipeline> on 2025-05-30 01:42:04.142810+00:00
+[2025-05-30T01:42:21.032+0000] {standard_task_runner.py:63} INFO - Started process 6628 to run task
+[2025-05-30T01:42:21.060+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'mlops_pipeline_orchestrator', 'execute_batch_pipeline', 'manual__2025-05-30T01:42:04.142810+00:00', '--job-id', '305', '--raw', '--subdir', 'DAGS_FOLDER/orchestrator.py', '--cfg-path', '/tmp/tmpaxt_7rlc']
+[2025-05-30T01:42:21.076+0000] {standard_task_runner.py:91} INFO - Job 305: Subtask execute_batch_pipeline
+[2025-05-30T01:42:21.403+0000] {task_command.py:426} INFO - Running <TaskInstance: mlops_pipeline_orchestrator.execute_batch_pipeline manual__2025-05-30T01:42:04.142810+00:00 [running]> on host 21b210e93619
+[2025-05-30T01:42:21.783+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='mlops_pipeline_orchestrator' AIRFLOW_CTX_TASK_ID='execute_batch_pipeline' AIRFLOW_CTX_EXECUTION_DATE='2025-05-30T01:42:04.142810+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-30T01:42:04.142810+00:00'
+[2025-05-30T01:42:21.785+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-30T01:42:21.832+0000] {logging_mixin.py:188} INFO - 🚀 Iniciando procesamiento de batches...
+[2025-05-30T01:42:21.833+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 1
+[2025-05-30T01:42:21.833+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 1...
+[2025-05-30T01:44:52.834+0000] {logging_mixin.py:188} INFO - ✅ DAG1 completado exitosamente para batch 1
+[2025-05-30T01:44:52.834+0000] {logging_mixin.py:188} INFO - ⚙️ Ejecutando DAG2 para batch 1...
+[2025-05-30T01:45:23.249+0000] {logging_mixin.py:188} INFO - ✅ DAG2 completado exitosamente para batch 1
+[2025-05-30T01:45:23.252+0000] {logging_mixin.py:188} INFO - 🤖 Ejecutando DAG3 para batch 1...
+[2025-05-30T01:46:23.881+0000] {logging_mixin.py:188} INFO - ✅ DAG3 completado exitosamente para batch 1
+[2025-05-30T01:46:23.943+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-30T01:46:24.007+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_1;, parameters: None
+[2025-05-30T01:46:24.033+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-30T01:46:24.035+0000] {warnings.py:109} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py:407: AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+  result = self._make_common_data_structure(handler(cur))
+
+[2025-05-30T01:46:24.047+0000] {logging_mixin.py:188} INFO - 📊 Batch 1: 73,784 registros procesados
+[2025-05-30T01:46:24.048+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 2
+[2025-05-30T01:46:24.048+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 2...
+[2025-05-30T01:49:55.551+0000] {logging_mixin.py:188} INFO - ✅ DAG1 completado exitosamente para batch 2
+[2025-05-30T01:49:55.553+0000] {logging_mixin.py:188} INFO - ⚙️ Ejecutando DAG2 para batch 2...
+[2025-05-30T01:50:56.010+0000] {logging_mixin.py:188} INFO - ✅ DAG2 completado exitosamente para batch 2
+[2025-05-30T01:50:56.012+0000] {logging_mixin.py:188} INFO - 🤖 Ejecutando DAG3 para batch 2...
+[2025-05-30T01:51:56.397+0000] {logging_mixin.py:188} INFO - ✅ DAG3 completado exitosamente para batch 2
+[2025-05-30T01:51:56.523+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-30T01:51:56.598+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_2;, parameters: None
+[2025-05-30T01:51:56.621+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-30T01:51:56.625+0000] {logging_mixin.py:188} INFO - 📊 Batch 2: 94,551 registros procesados
+[2025-05-30T01:51:56.625+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 3
+[2025-05-30T01:51:56.626+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 3...
+[2025-05-30T01:56:58.477+0000] {logging_mixin.py:188} INFO - ✅ DAG1 completado exitosamente para batch 3
+[2025-05-30T01:56:58.480+0000] {logging_mixin.py:188} INFO - ⚙️ Ejecutando DAG2 para batch 3...
+[2025-05-30T01:57:58.942+0000] {logging_mixin.py:188} INFO - ✅ DAG2 completado exitosamente para batch 3
+[2025-05-30T01:57:58.944+0000] {logging_mixin.py:188} INFO - 🤖 Ejecutando DAG3 para batch 3...
+[2025-05-30T01:58:59.545+0000] {logging_mixin.py:188} INFO - ✅ DAG3 completado exitosamente para batch 3
+[2025-05-30T01:58:59.590+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-30T01:58:59.631+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_3;, parameters: None
+[2025-05-30T01:58:59.686+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-30T01:58:59.689+0000] {logging_mixin.py:188} INFO - 📊 Batch 3: 230,366 registros procesados
+[2025-05-30T01:58:59.691+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 4
+[2025-05-30T01:58:59.691+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 4...
+[2025-05-30T01:59:29.977+0000] {logging_mixin.py:188} INFO - ✅ DAG1 completado exitosamente para batch 4
+[2025-05-30T01:59:29.978+0000] {logging_mixin.py:188} INFO - ⚙️ Ejecutando DAG2 para batch 4...
+[2025-05-30T02:00:00.227+0000] {logging_mixin.py:188} INFO - ✅ DAG2 completado exitosamente para batch 4
+[2025-05-30T02:00:00.229+0000] {logging_mixin.py:188} INFO - 🤖 Ejecutando DAG3 para batch 4...
+[2025-05-30T02:00:30.623+0000] {logging_mixin.py:188} INFO - ✅ DAG3 completado exitosamente para batch 4
+[2025-05-30T02:00:30.679+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-30T02:00:30.734+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_4;, parameters: None
+[2025-05-30T02:00:30.744+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-30T02:00:30.750+0000] {logging_mixin.py:188} INFO - 📊 Batch 4: 4,055 registros procesados
+[2025-05-30T02:00:30.750+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 5
+[2025-05-30T02:00:30.750+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 5...
+[2025-05-30T02:13:07.454+0000] {logging_mixin.py:188} INFO - ✅ DAG1 completado exitosamente para batch 5
+[2025-05-30T02:13:07.463+0000] {logging_mixin.py:188} INFO - ⚙️ Ejecutando DAG2 para batch 5...
+[2025-05-30T02:14:38.552+0000] {logging_mixin.py:188} INFO - ✅ DAG2 completado exitosamente para batch 5
+[2025-05-30T02:14:38.554+0000] {logging_mixin.py:188} INFO - 🤖 Ejecutando DAG3 para batch 5...
+[2025-05-30T02:16:09.755+0000] {logging_mixin.py:188} INFO - ✅ DAG3 completado exitosamente para batch 5
+[2025-05-30T02:16:09.804+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-30T02:16:09.837+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_5;, parameters: None
+[2025-05-30T02:16:09.910+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-30T02:16:09.912+0000] {logging_mixin.py:188} INFO - 📊 Batch 5: 320,696 registros procesados
+[2025-05-30T02:16:09.912+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 6
+[2025-05-30T02:16:09.913+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 6...
+[2025-05-30T02:25:12.564+0000] {logging_mixin.py:188} INFO - ✅ DAG1 completado exitosamente para batch 6
+[2025-05-30T02:25:12.577+0000] {logging_mixin.py:188} INFO - ⚙️ Ejecutando DAG2 para batch 6...
+[2025-05-30T02:27:13.382+0000] {logging_mixin.py:188} INFO - ✅ DAG2 completado exitosamente para batch 6
+[2025-05-30T02:27:13.383+0000] {logging_mixin.py:188} INFO - 🤖 Ejecutando DAG3 para batch 6...
+[2025-05-30T02:28:13.882+0000] {logging_mixin.py:188} INFO - ✅ DAG3 completado exitosamente para batch 6
+[2025-05-30T02:28:13.997+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-30T02:28:14.058+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_6;, parameters: None
+[2025-05-30T02:28:14.484+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-30T02:28:14.499+0000] {logging_mixin.py:188} INFO - 📊 Batch 6: 361,457 registros procesados
+[2025-05-30T02:28:14.500+0000] {logging_mixin.py:188} INFO - 
+🔄 PROCESANDO BATCH 7
+[2025-05-30T02:28:14.500+0000] {logging_mixin.py:188} INFO - 📊 Ejecutando DAG1 para batch 7...
+[2025-05-30T02:33:46.074+0000] {logging_mixin.py:188} INFO - 🏁 Fin de batches detectado en batch 7
+[2025-05-30T02:33:46.076+0000] {logging_mixin.py:188} INFO - 
+📊 RESUMEN FINAL DEL PIPELINE:
+[2025-05-30T02:33:46.076+0000] {logging_mixin.py:188} INFO -    📊 Batches procesados exitosamente: 6
+[2025-05-30T02:33:46.078+0000] {logging_mixin.py:188} INFO -    📊 Total registros procesados: 1,084,909
+[2025-05-30T02:33:46.078+0000] {logging_mixin.py:188} INFO -    ⏱️ Tiempo total: 3084.24 segundos
+[2025-05-30T02:33:46.079+0000] {logging_mixin.py:188} INFO -    🚀 Velocidad promedio: 352 registros/seg
+[2025-05-30T02:33:46.080+0000] {logging_mixin.py:188} INFO -    📊 Tablas creadas:
+[2025-05-30T02:33:46.081+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_1
+[2025-05-30T02:33:46.082+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_1_processed
+[2025-05-30T02:33:46.082+0000] {logging_mixin.py:188} INFO -      - MLflow: lasso_training_batch_1
+[2025-05-30T02:33:46.083+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_2
+[2025-05-30T02:33:46.084+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_2_processed
+[2025-05-30T02:33:46.084+0000] {logging_mixin.py:188} INFO -      - MLflow: lasso_training_batch_2
+[2025-05-30T02:33:46.084+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_3
+[2025-05-30T02:33:46.084+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_3_processed
+[2025-05-30T02:33:46.085+0000] {logging_mixin.py:188} INFO -      - MLflow: lasso_training_batch_3
+[2025-05-30T02:33:46.085+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_4
+[2025-05-30T02:33:46.085+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_4_processed
+[2025-05-30T02:33:46.088+0000] {logging_mixin.py:188} INFO -      - MLflow: lasso_training_batch_4
+[2025-05-30T02:33:46.088+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_5
+[2025-05-30T02:33:46.089+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_5_processed
+[2025-05-30T02:33:46.089+0000] {logging_mixin.py:188} INFO -      - MLflow: lasso_training_batch_5
+[2025-05-30T02:33:46.089+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_6
+[2025-05-30T02:33:46.089+0000] {logging_mixin.py:188} INFO -      - raw_data.api_data_batch_6_processed
+[2025-05-30T02:33:46.090+0000] {logging_mixin.py:188} INFO -      - MLflow: lasso_training_batch_6
+[2025-05-30T02:33:46.094+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-05-30T02:33:46.106+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-30T02:33:46.176+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=mlops_pipeline_orchestrator, task_id=execute_batch_pipeline, execution_date=20250530T014204, start_date=20250530T014220, end_date=20250530T023346
+[2025-05-30T02:33:46.269+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-30T02:33:46.373+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-30T02:33:46.382+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

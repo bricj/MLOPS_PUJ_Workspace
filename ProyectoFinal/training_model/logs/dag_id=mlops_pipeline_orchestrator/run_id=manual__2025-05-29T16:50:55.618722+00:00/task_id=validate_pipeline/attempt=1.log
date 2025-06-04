@@ -1,0 +1,89 @@
+[2025-05-29T17:43:00.283+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-29T17:43:00.497+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mlops_pipeline_orchestrator.validate_pipeline manual__2025-05-29T16:50:55.618722+00:00 [queued]>
+[2025-05-29T17:43:00.550+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mlops_pipeline_orchestrator.validate_pipeline manual__2025-05-29T16:50:55.618722+00:00 [queued]>
+[2025-05-29T17:43:00.555+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-29T17:43:00.619+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): validate_pipeline> on 2025-05-29 16:50:55.618722+00:00
+[2025-05-29T17:43:00.646+0000] {standard_task_runner.py:63} INFO - Started process 14075 to run task
+[2025-05-29T17:43:00.671+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'mlops_pipeline_orchestrator', 'validate_pipeline', 'manual__2025-05-29T16:50:55.618722+00:00', '--job-id', '197', '--raw', '--subdir', 'DAGS_FOLDER/orchestrator.py', '--cfg-path', '/tmp/tmpo7hcu2va']
+[2025-05-29T17:43:00.681+0000] {standard_task_runner.py:91} INFO - Job 197: Subtask validate_pipeline
+[2025-05-29T17:43:01.002+0000] {task_command.py:426} INFO - Running <TaskInstance: mlops_pipeline_orchestrator.validate_pipeline manual__2025-05-29T16:50:55.618722+00:00 [running]> on host 21b210e93619
+[2025-05-29T17:43:01.545+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='mlops_pipeline_orchestrator' AIRFLOW_CTX_TASK_ID='validate_pipeline' AIRFLOW_CTX_EXECUTION_DATE='2025-05-29T16:50:55.618722+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-29T16:50:55.618722+00:00'
+[2025-05-29T17:43:01.548+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-29T17:43:01.638+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:01.682+0000] {sql.py:457} INFO - Running statement: 
+        SELECT table_name 
+        FROM information_schema.tables 
+        WHERE table_schema = 'raw_data' 
+        AND table_name LIKE 'api_data_batch_%'
+        ORDER BY table_name;
+    , parameters: None
+[2025-05-29T17:43:01.698+0000] {sql.py:466} INFO - Rows affected: 13
+[2025-05-29T17:43:01.709+0000] {warnings.py:109} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py:407: AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+  result = self._make_common_data_structure(handler(cur))
+
+[2025-05-29T17:43:01.713+0000] {logging_mixin.py:188} INFO - 🔍 VALIDACIÓN DEL PIPELINE:
+[2025-05-29T17:43:01.713+0000] {logging_mixin.py:188} INFO -    📊 Tablas raw encontradas: 7
+[2025-05-29T17:43:01.714+0000] {logging_mixin.py:188} INFO -    📊 Tablas processed encontradas: 6
+[2025-05-29T17:43:01.781+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:01.822+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_1;, parameters: None
+[2025-05-29T17:43:02.126+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:02.130+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_1: 73,784 registros
+[2025-05-29T17:43:02.163+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:02.191+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_2;, parameters: None
+[2025-05-29T17:43:02.540+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:02.543+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_2: 94,551 registros
+[2025-05-29T17:43:02.590+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:02.612+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_3;, parameters: None
+[2025-05-29T17:43:03.505+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:03.510+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_3: 230,366 registros
+[2025-05-29T17:43:03.611+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:03.645+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_4;, parameters: None
+[2025-05-29T17:43:03.669+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:03.674+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_4: 4,055 registros
+[2025-05-29T17:43:03.712+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:03.764+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_5;, parameters: None
+[2025-05-29T17:43:05.110+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:05.114+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_5: 320,696 registros
+[2025-05-29T17:43:05.163+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:05.191+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_6;, parameters: None
+[2025-05-29T17:43:05.261+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:05.263+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_6: 361,457 registros
+[2025-05-29T17:43:05.323+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:05.359+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_7;, parameters: None
+[2025-05-29T17:43:05.362+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:05.364+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_7: 0 registros
+[2025-05-29T17:43:05.421+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:05.456+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_1_processed;, parameters: None
+[2025-05-29T17:43:05.630+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:05.633+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_1_processed: 73,784 registros
+[2025-05-29T17:43:05.680+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:05.727+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_2_processed;, parameters: None
+[2025-05-29T17:43:05.942+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:05.946+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_2_processed: 94,551 registros
+[2025-05-29T17:43:06.000+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:06.053+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_3_processed;, parameters: None
+[2025-05-29T17:43:06.488+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:06.496+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_3_processed: 230,366 registros
+[2025-05-29T17:43:06.619+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:06.672+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_4_processed;, parameters: None
+[2025-05-29T17:43:06.695+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:06.699+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_4_processed: 4,055 registros
+[2025-05-29T17:43:06.808+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:06.903+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_5_processed;, parameters: None
+[2025-05-29T17:43:07.752+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:07.754+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_5_processed: 320,696 registros
+[2025-05-29T17:43:07.823+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T17:43:07.873+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_6_processed;, parameters: None
+[2025-05-29T17:43:08.005+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T17:43:08.011+0000] {logging_mixin.py:188} INFO -    ✅ api_data_batch_6_processed: 361,457 registros
+[2025-05-29T17:43:08.011+0000] {logging_mixin.py:188} INFO - 
+📊 TOTALES:
+[2025-05-29T17:43:08.014+0000] {logging_mixin.py:188} INFO -    📊 Raw: 1,084,909 registros
+[2025-05-29T17:43:08.015+0000] {logging_mixin.py:188} INFO -    📊 Processed: 1,084,909 registros
+[2025-05-29T17:43:08.015+0000] {logging_mixin.py:188} INFO -    🤖 Modelos: 6 experimentos en MLflow
+[2025-05-29T17:43:08.015+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-05-29T17:43:08.018+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-29T17:43:08.120+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=mlops_pipeline_orchestrator, task_id=validate_pipeline, execution_date=20250529T165055, start_date=20250529T174300, end_date=20250529T174308
+[2025-05-29T17:43:08.190+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-29T17:43:08.346+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-29T17:43:08.353+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

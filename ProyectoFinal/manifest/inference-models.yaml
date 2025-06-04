@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inference-models
+  labels:
+    app: inference-models
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inference-models
+  template:
+    metadata:
+      labels:
+        app: inference-models
+    spec:
+      containers:
+        - name: inference-models
+          image: 04602/api_proyecto_final:2025-06-04-03-23-48
+          ports:
+            - containerPort: 8989
+          resources:
+            limits:
+              memory: "1048576e3"
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml -o komposefiles/ --volumes hostPath
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: inference-models
+    kompose.service.type: LoadBalancer
+  name: inference-models
+spec:
+  type: NodePort
+  ports:
+    - name: "8989"
+      port: 8989
+      targetPort: 8989
+      #nodePort: 30100 # Puerto accesible desde tu máquina
+  selector:
+    io.kompose.service: inference-models
+status:
+  loadBalancer: {}

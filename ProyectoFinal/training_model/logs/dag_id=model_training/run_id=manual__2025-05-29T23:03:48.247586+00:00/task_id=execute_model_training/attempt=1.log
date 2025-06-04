@@ -1,0 +1,107 @@
+[2025-05-29T23:03:55.991+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-05-29T23:03:56.177+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: model_training.execute_model_training manual__2025-05-29T23:03:48.247586+00:00 [queued]>
+[2025-05-29T23:03:56.243+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: model_training.execute_model_training manual__2025-05-29T23:03:48.247586+00:00 [queued]>
+[2025-05-29T23:03:56.246+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-05-29T23:03:56.284+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): execute_model_training> on 2025-05-29 23:03:48.247586+00:00
+[2025-05-29T23:03:56.322+0000] {standard_task_runner.py:63} INFO - Started process 3695 to run task
+[2025-05-29T23:03:56.342+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'model_training', 'execute_model_training', 'manual__2025-05-29T23:03:48.247586+00:00', '--job-id', '280', '--raw', '--subdir', 'DAGS_FOLDER/model.py', '--cfg-path', '/tmp/tmp0d0rsnd_']
+[2025-05-29T23:03:56.361+0000] {standard_task_runner.py:91} INFO - Job 280: Subtask execute_model_training
+[2025-05-29T23:03:56.704+0000] {task_command.py:426} INFO - Running <TaskInstance: model_training.execute_model_training manual__2025-05-29T23:03:48.247586+00:00 [running]> on host 21b210e93619
+[2025-05-29T23:03:57.678+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='mlops-team' AIRFLOW_CTX_DAG_ID='model_training' AIRFLOW_CTX_TASK_ID='execute_model_training' AIRFLOW_CTX_EXECUTION_DATE='2025-05-29T23:03:48.247586+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-29T23:03:48.247586+00:00'
+[2025-05-29T23:03:57.679+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-05-29T23:03:57.708+0000] {logging_mixin.py:188} INFO - 🤖 ENTRENAMIENTO MODELO LASSO - BATCH 2
+[2025-05-29T23:03:57.709+0000] {logging_mixin.py:188} INFO - ==================================================
+[2025-05-29T23:03:57.741+0000] {logging_mixin.py:188} INFO - 📊 Cargando datos procesados del DAG2 - batch 2...
+[2025-05-29T23:03:57.788+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T23:03:57.829+0000] {sql.py:457} INFO - Running statement: 
+            SELECT EXISTS (
+                SELECT FROM information_schema.tables 
+                WHERE table_schema = 'raw_data' 
+                AND table_name = 'api_data_batch_2_processed'
+            );
+        , parameters: None
+[2025-05-29T23:03:57.840+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T23:03:57.842+0000] {warnings.py:109} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py:407: AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+  result = self._make_common_data_structure(handler(cur))
+
+[2025-05-29T23:03:57.895+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T23:03:57.931+0000] {sql.py:457} INFO - Running statement: SELECT COUNT(*) FROM raw_data.api_data_batch_2_processed;, parameters: None
+[2025-05-29T23:03:58.001+0000] {sql.py:466} INFO - Rows affected: 1
+[2025-05-29T23:03:58.109+0000] {base.py:84} INFO - Using connection ID 'postgres_raw_data' for task execution.
+[2025-05-29T23:03:58.205+0000] {warnings.py:109} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py:227: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-05-29T23:04:05.914+0000] {logging_mixin.py:188} INFO - ✅ Datos procesados cargados (estructura dinámica):
+[2025-05-29T23:04:05.915+0000] {logging_mixin.py:188} INFO -    📊 Filas: 230,366
+[2025-05-29T23:04:05.915+0000] {logging_mixin.py:188} INFO -    📈 Columnas totales: 8
+[2025-05-29T23:04:05.915+0000] {logging_mixin.py:188} INFO -    🏗️ Provienen de: DAG2 feature engineering
+[2025-05-29T23:04:05.916+0000] {logging_mixin.py:188} INFO -    📋 Columnas detectadas: ['acre_lot', 'house_size', 'rate_bath_bed', 'region_west', 'cities_by_demand_cities_massive_demand', 'zone_by_demand_mega_transactionality_zone', 'broker_type_mega_corporate', 'target']
+[2025-05-29T23:04:05.916+0000] {logging_mixin.py:188} INFO - 🎯 Target detectado: 'target'
+[2025-05-29T23:04:05.917+0000] {logging_mixin.py:188} INFO -    📊 Features disponibles: 7
+[2025-05-29T23:04:05.917+0000] {logging_mixin.py:188} INFO -    🎯 Variable target: target
+[2025-05-29T23:04:05.950+0000] {logging_mixin.py:188} INFO -    🔢 Features continuas detectadas: 7
+[2025-05-29T23:04:05.951+0000] {logging_mixin.py:188} INFO -    🏷️ Features binarias/categóricas: 0
+[2025-05-29T23:04:05.951+0000] {logging_mixin.py:188} INFO -    📝 Todas las features: ['acre_lot', 'house_size', 'rate_bath_bed', 'region_west', 'cities_by_demand_cities_massive_demand', 'zone_by_demand_mega_transactionality_zone', 'broker_type_mega_corporate']
+[2025-05-29T23:04:05.951+0000] {logging_mixin.py:188} INFO - ⚙️ Configurando MLflow...
+[2025-05-29T23:04:06.048+0000] {logging_mixin.py:188} INFO - 🔥 Iniciando entrenamiento con estructura dinámica...
+[2025-05-29T23:04:06.352+0000] {logging_mixin.py:188} WARNING - 2025/05/29 23:04:06 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-05-29T23:04:06.435+0000] {logging_mixin.py:188} INFO -    📊 X shape: (230366, 7)
+[2025-05-29T23:04:06.436+0000] {logging_mixin.py:188} INFO -    🎯 y shape: (230366,)
+[2025-05-29T23:04:06.440+0000] {logging_mixin.py:188} INFO -    📈 Target stats: min=179900.00, max=179900.00, mean=179900.00
+[2025-05-29T23:04:09.115+0000] {warnings.py:109} WARNING - /home/airflow/.local/lib/python3.8/site-packages/sklearn/linear_model/_coordinate_descent.py:628: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 0.000e+00, tolerance: 0.000e+00
+  model = cd_fast.enet_coordinate_descent(
+
+[2025-05-29T23:04:09.126+0000] {logging_mixin.py:188} INFO - 📋 Registrando experimento en MLflow...
+[2025-05-29T23:04:09.750+0000] {logging_mixin.py:188} INFO - 💾 Registrando modelo...
+[2025-05-29T23:04:18.388+0000] {logging_mixin.py:188} WARNING - 2025/05/29 23:04:18 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.
+[2025-05-29T23:04:18.939+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2025-05-29T23:04:19.672+0000] {logging_mixin.py:188} WARNING - Registered model 'lasso-regressor' already exists. Creating a new version of this model...
+[2025-05-29T23:04:19.754+0000] {logging_mixin.py:188} WARNING - 2025/05/29 23:04:19 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: lasso-regressor, version 22
+[2025-05-29T23:04:19.757+0000] {logging_mixin.py:188} WARNING - Created version '22' of model 'lasso-regressor'.
+[2025-05-29T23:04:19.759+0000] {logging_mixin.py:188} INFO - 🚀 Evaluando promoción...
+[2025-05-29T23:04:19.760+0000] {warnings.py:109} WARNING - /opt/airflow/dags/model.py:75: FutureWarning: ``mlflow.tracking.client.MlflowClient.get_latest_versions`` is deprecated since 2.9.0. Model registry stages will be removed in a future major release. To learn more about the deprecation of model registry stages, see our migration guide here: https://mlflow.org/docs/latest/model-registry.html#migrating-from-stages
+  production_models = client.get_latest_versions(model_name, stages=["Production"])
+
+[2025-05-29T23:04:19.815+0000] {logging_mixin.py:188} INFO - 📊 Comparando MSE - Producción: 0.000000 vs Nuevo: 0.000000
+[2025-05-29T23:04:19.858+0000] {warnings.py:109} WARNING - /opt/airflow/dags/model.py:121: FutureWarning: ``mlflow.tracking.client.MlflowClient.transition_model_version_stage`` is deprecated since 2.9.0. Model registry stages will be removed in a future major release. To learn more about the deprecation of model registry stages, see our migration guide here: https://mlflow.org/docs/latest/model-registry.html#migrating-from-stages
+  client.transition_model_version_stage(
+
+[2025-05-29T23:04:19.880+0000] {logging_mixin.py:188} INFO - 📋 Modelo en staging - No supera al actual
+[2025-05-29T23:04:19.917+0000] {logging_mixin.py:188} INFO - 
+📊 RESULTADOS MODELO DINÁMICO - BATCH 2:
+[2025-05-29T23:04:19.917+0000] {logging_mixin.py:188} INFO -    🎯 Target detectado: 'target'
+[2025-05-29T23:04:19.918+0000] {logging_mixin.py:188} INFO -    📈 MSE: 0.000000
+[2025-05-29T23:04:19.918+0000] {logging_mixin.py:188} INFO -    📉 MAE: 0.000000
+[2025-05-29T23:04:19.918+0000] {logging_mixin.py:188} INFO -    📊 R² Score: 1.000000
+[2025-05-29T23:04:19.921+0000] {logging_mixin.py:188} INFO -    ⏱️ Tiempo entrenamiento: 2.61s
+[2025-05-29T23:04:19.921+0000] {logging_mixin.py:188} INFO -    🔢 Features procesadas: 7 (dinámico)
+[2025-05-29T23:04:19.921+0000] {logging_mixin.py:188} INFO -    📊 Features continuas: 7
+[2025-05-29T23:04:19.922+0000] {logging_mixin.py:188} INFO -    🏷️ Features binarias: 0
+[2025-05-29T23:04:19.922+0000] {logging_mixin.py:188} INFO -    🏷️ Modelo: lasso-regressor
+[2025-05-29T23:04:19.922+0000] {logging_mixin.py:188} INFO -    🎯 Estado: Staging
+[2025-05-29T23:04:19.923+0000] {logging_mixin.py:188} INFO -    🆔 MLflow Run ID: 824fc5e47a764e4699e79fa41b7bf39a
+[2025-05-29T23:04:19.923+0000] {logging_mixin.py:188} INFO -    🌐 MLflow UI: http://10.43.101.168:30500
+[2025-05-29T23:04:19.923+0000] {logging_mixin.py:188} INFO -    🔄 Pipeline: DAG1→DAG2→DAG3 (adaptativo)
+[2025-05-29T23:04:19.952+0000] {logging_mixin.py:188} WARNING - 2025/05/29 23:04:19 INFO mlflow.tracking._tracking_service.client: 🏃 View run lasso_training_batch_2 at: http://10.43.101.168:30500/#/experiments/1/runs/824fc5e47a764e4699e79fa41b7bf39a.
+[2025-05-29T23:04:19.953+0000] {logging_mixin.py:188} WARNING - 2025/05/29 23:04:19 INFO mlflow.tracking._tracking_service.client: 🧪 View experiment at: http://10.43.101.168:30500/#/experiments/1.
+[2025-05-29T23:04:19.978+0000] {python.py:237} INFO - Done. Returned value was: {'batch_number': 2, 'model_name': 'lasso-regressor', 'target_column': 'target', 'total_features': 7, 'continuous_features': 7, 'binary_features': 0, 'mse': 0.0, 'mae': 0.0, 'r2_score': 1.0, 'model_stage': 'Staging', 'run_id': '824fc5e47a764e4699e79fa41b7bf39a', 'records_processed': 230366, 'training_time': 2.60674, 'feature_detection': 'dynamic'}
+[2025-05-29T23:04:19.979+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-05-29T23:04:20.084+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=model_training, task_id=execute_model_training, execution_date=20250529T230348, start_date=20250529T230356, end_date=20250529T230420
+[2025-05-29T23:04:20.291+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-05-29T23:04:20.347+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-29T23:04:20.350+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
